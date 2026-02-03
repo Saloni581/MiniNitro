@@ -2,7 +2,12 @@ import mongoose from "mongoose";
 
 const UserProfileSchema = new mongoose.Schema(
     {
-        userId: { type: String, unique: true, required: true },
+        userId: {
+            type: String,
+            unique: true,
+            required: true,
+            index: true
+        },
 
         premium: {
             isActive: { type: Boolean, default: false },
