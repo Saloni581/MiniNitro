@@ -3,26 +3,28 @@ import {signIn} from "../api/auth.ts";
 
 const SignIn = () => {
 
-    const [identifier, setIdentifier] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const userSignIn = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const res = await signIn({ identifier, password });
-        console.log(res);
+        const res = await signIn({ email, password });
+        console.log(res.data);
     }
 
     return (
         <form onSubmit={userSignIn}>
             <input
                 type='text'
-                placeholder="Email or userId"
-                value={identifier}
-                onChange={(e) => setIdentifier(e.target.value)}
+                name="email"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 required
             />
             <input
                 type="password"
+                name="password"
                 value={password}
                 placeholder="Enter password"
                 onChange={(e) => setPassword(e.target.value)}

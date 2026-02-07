@@ -43,9 +43,9 @@ export const signup = async (req, res) => {
 
 export const signin = async (req, res) => {
     // get data
-    const { identifier, password } = req.body;
+    const { email, password } = req.body;
     // validation
-    if(!identifier || !password) {
+    if(!email || !password) {
         return res.status(400).json({
             message: "Please provide required data!",
         })
@@ -53,7 +53,8 @@ export const signin = async (req, res) => {
     // fetch user from db
     try {
         // fetch from db
-        const user = User.findOne({ identifier });
+        //@ts-ignore
+        const user = await User.findOne({ email });
         // validate
         if (!user) {
             return res.status(400).json({
@@ -62,14 +63,21 @@ export const signin = async (req, res) => {
         }
         // match passwords
         const isCorrectPsw = await bcrypt.compare(password, user.password);
-        return res.status(201).json({
-            data: user,
+        if(!isCorrectPsw) {
+            return res.status(400).json({
+                message: "invalid password",
+            });
+        }
+        return res.status(200).json({
             message: "Signed In successfully",
+            data: {
+                userId: user.userId,
+                email: user.email
+            }
         });
     } catch(error) {
-        return res.json({
-            status: error.status,
-            message: error.message
-        });
+        return res.status(500).json({
+            message: "Server Error(Error while signing in user)",
+        })
     }
 }

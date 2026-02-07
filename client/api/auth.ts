@@ -21,14 +21,14 @@ export const signUp = async ({ userId, email, password } : {
     return res.data;
 }
 
-export const signIn = async ({ identifier, password } : {
-    identifier: string;
+export const signIn = async ({ email, password } : {
+    email: string;
     password: string;
 }) => {
     console.log("Calling signup API");
     const res = await api.post(
         "/auth/signin", // url
-        { identifier, password }, // data
+        { email, password }, // data
     );
     console.log("API BASE:", api.defaults.baseURL);
     return res.data;
