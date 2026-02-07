@@ -14,10 +14,13 @@ const UserAccountSchema = new mongoose.Schema({
         lowercase: true,
         trim: true
     },
+    password: {
+        type: String,
+        required: true
+    },
     isEmailVerified: { type: Boolean, default: false },
     emailVerificationToken: String,
     emailVerificationExpires: Date,
-    password: { type: String, required: true },
 }, { timestamps : true });
 
-export default mongoose.model('UserAccount', UserAccountSchema);
+export default mongoose.model('User', UserAccountSchema);

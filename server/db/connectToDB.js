@@ -9,7 +9,7 @@ if(!MONGO_URI) {
     throw new Error("MongoDB URI Missing");
 }
 
-let cached = global.mongoose || { conn: null };
+let cached = mongoose || { conn: null };
 
 const connectToDB = async () => {
     try {

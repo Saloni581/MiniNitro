@@ -1,9 +1,19 @@
-// import React from 'react';
+import Navbar from "../components/Navbar.tsx";
+import SignUp from "../components/SignUp.tsx";
+import SignIn from "../components/SignIn.tsx";
 
 const App = () => {
     return (
         <div>
-            Mini Nitro
+            <header>
+                <Navbar />
+            </header>
+            <div>
+                <SignUp />
+            </div>
+            <div>
+                <SignIn />
+            </div>
         </div>
     );
 };
