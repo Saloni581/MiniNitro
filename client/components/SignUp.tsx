@@ -1,18 +1,23 @@
 import { useState } from "react";
-import {signUp} from "../api/auth.ts";
+import { signUp } from "../api/auth.ts";
+import { Link, useNavigate } from "react-router-dom";
+import type { SignInProps } from "../src/types.ts";
 
-const SignUp = () => {
+const SignUp = ({ setUser }: SignInProps) => {
     const [userId, setUserId] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const navigate = useNavigate();
 
     const userSignUp = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const res = await signUp({userId, email, password});
-        console.log(res);
+        setUser(res.data);
+        navigate("/profile");
     }
 
     return (
+        <>
         <form onSubmit={userSignUp}>
             <input
                 type="text"
@@ -36,6 +41,15 @@ const SignUp = () => {
             />
             <button type="submit">Sign Up</button>
         </form>
+        <div>
+            <p>
+                Already Have an account?
+                <Link to="/login">
+                    SignIn
+                </Link>
+            </p>
+        </div>
+        </>
     );
 };
 

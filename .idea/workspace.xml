@@ -5,16 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9aeaffe5-ec46-4cc5-ab13-40a9184f9ba6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/client/components/SignOut.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/components/Effects.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/components/Home.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/components/Profile.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/types.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/api/auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/api/auth.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/Navbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/SignIn.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/SignIn.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/SignOut.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/SignOut.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/SignUp.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/SignUp.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/controllers/auth.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/auth.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/db/models/userAccountSchema.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/db/models/userAccountSchema.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/auth.routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/auth.routes.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +126,8 @@
       <workItem from="1770287483103" duration="7432000" />
       <workItem from="1770366309572" duration="3374000" />
       <workItem from="1770438651365" duration="14730000" />
-      <workItem from="1770858398976" duration="3219000" />
+      <workItem from="1770858398976" duration="3812000" />
+      <workItem from="1770906088946" duration="8685000" />
     </task>
     <servers />
   </component>

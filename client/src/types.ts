@@ -1,0 +1,17 @@
+export interface User {
+    userId: string;
+    email: string;
+}
+
+export interface SignInProps {
+    setUser: React.Dispatch<React.SetStateAction<User | null>>
+}
+
+export interface NavbarProps {
+    user: User | null;
+}
+
+export interface ProfileProps {
+    user: User | null;
+    setUser: React.Dispatch<React.SetStateAction<User | null>>
+}
