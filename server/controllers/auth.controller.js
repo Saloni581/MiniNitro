@@ -1,5 +1,9 @@
 import User from "../db/models/userAccountSchema.js";
 import bcrypt from 'bcryptjs';
+import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 export const signup = async (req, res) => {
     // get data
@@ -68,16 +72,47 @@ export const signin = async (req, res) => {
                 message: "invalid password",
             });
         }
+        // generate jwt
+        const token = jwt.sign(
+            {
+                userId: user._id,
+                email: user.email
+            },
+            process.env.JWT_SECRET,
+            {
+                expiresIn: '7d'
+            }
+        );
+
+        // set token in http cookie
+        res.cookie("token", token, {
+            httpOnly: true,
+            secure: false,
+            sameSite: 'lax',
+            maxAge: 24*7*60*60*1000,
+        })
+
         return res.status(200).json({
             message: "Signed In successfully",
             data: {
                 userId: user.userId,
                 email: user.email
-            }
+            },
         });
     } catch(error) {
         return res.status(500).json({
             message: "Server Error(Error while signing in user)",
         })
     }
+}
+
+export const signout = async (req, res) => {
+    res.clearCookie("token", {
+        httpOnly: true,
+        sameSite: "lax",
+        secure: false
+    });
+    return res.status(200).json({
+        message: "Logged out Successfully!",
+    });
 }
