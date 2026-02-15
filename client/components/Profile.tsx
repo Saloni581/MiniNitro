@@ -4,6 +4,9 @@ import SignOut from "./SignOut.tsx";
 import type { ProfileProps } from "../src/types.ts";
 
 const Profile = ({ user, setUser }: ProfileProps) => {
+
+    console.log(user);
+
     return (
         <div>
             <p>

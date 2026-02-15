@@ -19,6 +19,10 @@ export const signup = async (req, res) => {
     if(existingUser) {
         return res.status(400).json({
             message: "User already exists!",
+            data: {
+                userId: existingUser.userId,
+                email: existingUser.email
+            }
         })
     }
 
@@ -32,10 +36,13 @@ export const signup = async (req, res) => {
             email: email,
             password: hashPassword,
         });
-        const savedUser = await newUser.save();
+        await newUser.save();
         return res.status(201).json({
             message: "User successfully created",
-            data: savedUser
+            data: {
+                userId: newUser.userId,
+                email: newUser.email
+            }
         });
     } catch(error) {
         return res.json({

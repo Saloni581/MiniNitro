@@ -73,4 +73,22 @@ button:focus-visible {
   .navbar {
     @apply flex gap-6
   }
+  .profile-form {
+    @apply flex flex-col m-24 gap-4
+  }
+  .identity {
+    @apply flex flex-col gap-2
+  }
+  .identity input {
+    @apply flex m-2 bg-white text-black font-bold
+  }
+  .identity textarea {
+    @apply flex bg-white text-black resize-none font-semibold
+  }
+  .visuals div {
+    @apply flex flex-col gap-2
+  }
+  .avatar-input {
+    @apply bg-blue-950 text-white
+  }
 }

@@ -13,7 +13,7 @@ const SignUp = ({ setUser }: SignInProps) => {
         e.preventDefault();
         const res = await signUp({userId, email, password});
         setUser(res.data);
-        navigate("/profile");
+        navigate("/profile-form");
     }
 
     return (
