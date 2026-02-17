@@ -40,3 +40,4 @@ export const signOut = async () => {
     );
     return res.data;
 }
+

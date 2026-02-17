@@ -5,14 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9aeaffe5-ec46-4cc5-ab13-40a9184f9ba6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/client/components/ProfileForm.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/api/visuals.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/config/cloudinary.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/controllers/visuals.controller.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/api/auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/api/auth.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/components/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/Home.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/Profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/Profile.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/SignUp.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/SignUp.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/auth.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/auth.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/ProfileForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/ProfileForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/routes/visuals.routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/visuals.routes.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,6 +127,8 @@
       <workItem from="1770940174960" duration="9754000" />
       <workItem from="1771023259655" duration="10564000" />
       <workItem from="1771114153128" duration="2804000" />
+      <workItem from="1771156399698" duration="2388000" />
+      <workItem from="1771323113657" duration="7570000" />
     </task>
     <servers />
   </component>
@@ -140,6 +145,11 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/client/components/SignUp.tsx</url>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/server/routes/auth.routes.js</url>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -1,5 +1,6 @@
 import {useRef, useState} from "react";
 import {useNavigate} from "react-router-dom";
+import {sendAsset} from "../api/auth.ts";
 
 const ProfileForm = () => {
 
@@ -12,9 +13,29 @@ const ProfileForm = () => {
         return inputRef.current.click();
     }
 
-    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
         if(!file) return;
+        // type validation
+        const allowedFileTypes = [
+            "image/png",
+            "image/jpeg",
+            "image/webp",
+            "image/gif",
+        ];
+        if(!allowedFileTypes.includes(file.type)) {
+            alert("Only images and gifs are allowed.");
+            return;
+        }
+        // actual file url
+        const formData = new FormData();
+        formData.append("avatar", file);
+
+        // sending fileAsset to backend to store in cloudinary [BACKEND WORK!!]
+        const res = await sendAsset(formData);
+        console.log(res);
+
+        // for preview
         const imgUrl = URL.createObjectURL(file);
         setPreview(imgUrl);
     }
@@ -43,7 +64,15 @@ const ProfileForm = () => {
             <div className="visuals">
                 <div className="avatar">
                     <label htmlFor="avatar">Avatar</label>
-                    <input type="file" id="avatar" className="hidden" ref={inputRef} onChange={handleFileChange}/>
+                    <input
+                        type="file"
+                        id="avatar"
+                        name="avatar"
+                        accept="image/png, image/jpeg, image/gif, image/webp"
+                        className="hidden"
+                        ref={inputRef}
+                        onChange={handleFileChange}
+                    />
                     {
                         preview && (
                             <img
