@@ -5,16 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9aeaffe5-ec46-4cc5-ab13-40a9184f9ba6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/client/api/visuals.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/config/cloudinary.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/controllers/visuals.controller.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/controllers/user.controller.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/middlewares/auth.middleware.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/middlewares/upload.middleware.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/api/auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/api/auth.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/Home.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/ProfileForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/ProfileForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/controllers/auth.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/auth.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/db/models/userProfileSchema.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/db/models/userProfileSchema.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/routes/visuals.routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/visuals.routes.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -128,7 +124,8 @@
       <workItem from="1771023259655" duration="10564000" />
       <workItem from="1771114153128" duration="2804000" />
       <workItem from="1771156399698" duration="2388000" />
-      <workItem from="1771323113657" duration="7570000" />
+      <workItem from="1771323113657" duration="8817000" />
+      <workItem from="1771370996831" duration="4850000" />
     </task>
     <servers />
   </component>
@@ -148,7 +145,6 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/server/routes/auth.routes.js</url>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>

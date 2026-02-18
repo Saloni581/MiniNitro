@@ -28,9 +28,11 @@ const UserProfileSchema = new mongoose.Schema(
                 effects: [{ type: String }],
                 isEnabled: { type: Boolean, default: false }
             },
-
             avatar: {
-                activeAssetId: { type: String },
+                activeAssetId: {
+                    url: { type: String },
+                    public_id: { type: String },
+                },
                 recentAssets: [{ type: String }],
                 decorations: {
                     activeEffects: [{ type: String }],

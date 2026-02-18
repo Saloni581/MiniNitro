@@ -12,7 +12,7 @@ export const signup = async (req, res) => {
     if(!userId || !email || !password) {
         return res.status(400).json({
             message: "Please provide required data!",
-        })
+        });
     }
     // if user already exists
     const existingUser = await User.findOne({ email });
