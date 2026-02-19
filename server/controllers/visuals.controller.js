@@ -1,4 +1,5 @@
 import cloudinary from '../config/cloudinary.js';
+import { saveUserAvatar } from "../utils/services.js";
 import UserProfile from "../db/models/userProfileSchema.js";
 
 
@@ -46,9 +47,26 @@ export const uploadUserAvatar = async (req, res) => {
 
         // update DB
         try {
+            const updatedUser = await saveUserAvatar(
+                uploadResult.public_id,
+                uploadResult.secure_url,
+                userId
+            );
+
+            console.log("Here is the updated user: "+updatedUser);
+
+            return res.status(200).json({
+                message: "Avatar set/uploaded successfully",
+                avatarUrl: uploadResult.secure_url,
+            });
 
         } catch(dbError) {
+            // cleanup of the uploaded file if db fails
+            await cloudinary.uploader.destroy(uploadResult.public_id);
 
+            return res.status(500).json({
+                message: "DB avatar update failed",
+            });
         }
     } catch (uploadError) {
         return res.status(500).json({
