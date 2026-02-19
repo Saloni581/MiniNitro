@@ -6,7 +6,7 @@ import Home from "../components/Home.tsx";
 import Profile from "../components/Profile.tsx";
 import Effects from "../components/Effects.tsx";
 import { useState } from "react";
-import type { User } from './types.ts';
+import type { User } from '../types.ts';
 import ProfileForm from "../components/ProfileForm.tsx";
 
 const App = () => {

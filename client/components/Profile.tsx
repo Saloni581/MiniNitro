@@ -1,7 +1,7 @@
 // import React from 'react';
 
 import SignOut from "./SignOut.tsx";
-import type { ProfileProps } from "../src/types.ts";
+import type { ProfileProps } from "../types.ts";
 
 const Profile = ({ user, setUser }: ProfileProps) => {
 
