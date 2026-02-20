@@ -4,14 +4,14 @@ import { Link, useNavigate } from "react-router-dom";
 import type { SignInProps } from "../types.ts";
 
 const SignUp = ({ setUser }: SignInProps) => {
-    const [userId, setUserId] = useState("");
+    const [userName, setUserName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
 
     const userSignUp = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const res = await signUp({userId, email, password});
+        const res = await signUp({ userName, email, password });
         setUser(res.data);
         navigate("/profile-form");
     }
@@ -21,10 +21,10 @@ const SignUp = ({ setUser }: SignInProps) => {
         <form onSubmit={userSignUp}>
             <input
                 type="text"
-                placeholder="enter a unique userId"
-                name="userId"
-                value={userId}
-                onChange={(e) => setUserId(e.target.value)}
+                placeholder="enter a unique userName"
+                name="userName"
+                value={userName}
+                onChange={(e) => setUserName(e.target.value)}
             />
             <input
                 type="email"

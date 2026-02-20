@@ -9,14 +9,14 @@ const api = axios.create({
 });
 
 // SignUp
-export const signUp = async ({ userId, email, password } : {
-    userId: string;
+export const signUp = async ({ userName, email, password } : {
+    userName: string;
     email: string;
     password: string;
 }) => {
     const res = await api.post(
             "/auth/signup", // url
-            { userId, email, password }, // data
+            { userName, email, password }, // data
         );
     return res.data;
 }
