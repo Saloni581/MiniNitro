@@ -2,7 +2,7 @@ import axios from "axios";
 import type { ProfileDetailsProps } from "../types";
 
 const api = axios.create({
-    baseURL: "http://localhost:3000/api",
+    baseURL: "http://localhost:3000/api/user",
     headers: {
         "Content-Type": "application/json",
     },
@@ -11,7 +11,7 @@ const api = axios.create({
 
 export const saveProfileDetails = async ({ displayName, pronouns, bio }: ProfileDetailsProps) => {
     const result = await api.post(
-        "/user",
+        "/profile",
         {
             displayName,
             pronouns,

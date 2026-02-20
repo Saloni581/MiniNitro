@@ -1,12 +1,13 @@
 import mongoose from "mongoose";
+import { ObjectId } from "mongodb";
 
 const UserProfileSchema = new mongoose.Schema(
     {
         userId: {
-            type: String,
-            unique: true,
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User",
             required: true,
-            index: true
+            unique: true
         },
 
         premium: {
@@ -30,7 +31,10 @@ const UserProfileSchema = new mongoose.Schema(
             },
 
             avatar: {
-                activeAssetId: { type: String },
+                activeAssetId: {
+                    url: { type: String },
+                    public_id: { type: String },
+                },
                 recentAssets: [{ type: String }],
                 decorations: {
                     activeEffects: [{ type: String }],
