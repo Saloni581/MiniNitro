@@ -5,6 +5,6 @@ import { uploadUserAvatar } from "../controllers/visuals.controller.js";
 
 const router = express.Router();
 
-router.post("/avatar", auth, upload.single("avatar"), uploadUserAvatar);
+router.post("/upload-avatar", auth, upload.single("avatar"), uploadUserAvatar);
 
 export default router;

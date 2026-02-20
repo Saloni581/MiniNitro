@@ -5,19 +5,37 @@ import UserProfile from "../db/models/userProfileSchema.js";
 
 export const uploadUserAvatar = async (req, res) => {
     const file = req.file;
+
     if(!file) {
         return res.status(400).json({
             message: "File is required",
         });
     }
 
-    const userId = req.user.userId;
+    const userId = req.user.id;
+    console.log(userId);
+
     if(!userId) {
         return res.status(401).json({
-            message: 'Unauthorized',
+            message: 'Unauthorized user',
         })
     }
+
     try {
+        // fetch user profile
+        const userProfile = await UserProfile.findById( userId );
+
+        console.log(userProfile);
+
+        if(!userProfile) {
+            // cleanup the uploaded file if user does not exist
+            await cloudinary.uploader.destroy(uploadResult.public_id);
+
+            return res.status(404).json({
+                message: 'User Profile Not Found',
+            })
+        }
+
         // upload file to cloudinary
         const uploadResult = await new Promise((resolve, reject) => {
             const stream = cloudinary.uploader.upload_stream(
@@ -30,20 +48,8 @@ export const uploadUserAvatar = async (req, res) => {
             stream.end(file.buffer);
         });
 
-        // fetch user
-        const userProfile = await UserProfile.findById({ userId });
-
-        if(!userProfile) {
-            // cleanup the uploaded file if user does not exist
-            await cloudinary.uploader.destroy(uploadResult.public_id);
-
-            return res.status(404).json({
-                message: 'User Profile Not Found',
-            })
-        }
-
         // store public_id for later use if exists
-        const oldPublic_id = userProfile?.visuals?.avatar?.avatarAssetId?.public_id;
+        // const oldPublic_id = userProfile?.visuals?.avatar?.activeAssetId?.public_id;
 
         // update DB
         try {
@@ -53,11 +59,9 @@ export const uploadUserAvatar = async (req, res) => {
                 userId
             );
 
-            console.log("Here is the updated user: "+updatedUser);
-
             return res.status(200).json({
                 message: "Avatar set/uploaded successfully",
-                avatarUrl: uploadResult.secure_url,
+                updatedUser,
             });
 
         } catch(dbError) {
