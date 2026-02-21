@@ -13,7 +13,6 @@ export const uploadUserAvatar = async (req, res) => {
     }
 
     const userId = req.user.id;
-    console.log(userId);
 
     if(!userId) {
         return res.status(401).json({
@@ -23,17 +22,12 @@ export const uploadUserAvatar = async (req, res) => {
 
     try {
         // fetch user profile
-        const userProfile = await UserProfile.findById( userId );
-
-        console.log(userProfile);
+        const userProfile = await UserProfile.findOne({ userId });
 
         if(!userProfile) {
-            // cleanup the uploaded file if user does not exist
-            await cloudinary.uploader.destroy(uploadResult.public_id);
-
             return res.status(404).json({
                 message: 'User Profile Not Found',
-            })
+            });
         }
 
         // upload file to cloudinary
@@ -61,7 +55,7 @@ export const uploadUserAvatar = async (req, res) => {
 
             return res.status(200).json({
                 message: "Avatar set/uploaded successfully",
-                updatedUser,
+                avatarUrl: updatedUser?.visuals?.avatar?.activeAssetId?.url,
             });
 
         } catch(dbError) {

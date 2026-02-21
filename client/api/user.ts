@@ -20,3 +20,8 @@ export const saveProfileDetails = async ({ displayName, pronouns, bio }: Profile
     );
     return result.data;
 }
+
+export const fetchUserDetails = async () => {
+    const user = await api.get('/me');
+    return user.data;
+}

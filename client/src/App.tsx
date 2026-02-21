@@ -5,13 +5,28 @@ import Navbar from "../components/Navbar.tsx";
 import Home from "../components/Home.tsx";
 import Profile from "../components/Profile.tsx";
 import Effects from "../components/Effects.tsx";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { User } from '../types.ts';
 import ProfileForm from "../components/ProfileForm.tsx";
+import { fetchUserDetails } from "../api/user.ts";
 
 const App = () => {
 
     const [user, setUser] = useState<User | null>(null);
+
+    useEffect(() => {
+        const fetchUser = async () => {
+            try {
+                const user = await fetchUserDetails();
+                setUser(user);
+            } catch(error) {
+                console.log(error);
+                setUser(null);
+            }
+        }
+
+        fetchUser();
+    }, []);
 
     return (
         <>

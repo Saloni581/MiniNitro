@@ -1,8 +1,8 @@
 import UserProfile from "../db/models/userProfileSchema.js";
 
 export const saveUserAvatar = async ( public_id, secure_url, userId ) => {
-    const updatedUser = await UserProfile.findByIdAndUpdate(
-        userId ,
+    const updatedUser = await UserProfile.findOneAndUpdate(
+        { userId } ,
         {
             $set: {
                 "visuals.avatar.activeAssetId.url": secure_url,

@@ -26,7 +26,6 @@ const UserAvatar = () => {
         // sending file to backend
         const result = await uploadAvatar(formData);
         console.log(result);
-
     }
 
     return (

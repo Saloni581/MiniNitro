@@ -52,3 +52,25 @@ export const createUserProfile = async (req, res) => {
         });
     }
 }
+
+// get user details
+export const getUserData = async (req, res) => {
+    const userId = req.user.id;
+
+    try {
+        const userData = await UserProfile.findOne({ userId });
+        if(!userData) {
+            return res.status(404).json({
+                message: "No user data found!",
+            });
+        }
+        return res.status(200).json({
+            message: "User profile found",
+            data: userData,
+        });
+    } catch (error) {
+        return res.status(500).json({
+            message: "Internal Server Error",
+        });
+    }
+}
