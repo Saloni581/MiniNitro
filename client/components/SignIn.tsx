@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { signIn } from "../api/auth.ts";
 import { Link, useNavigate } from "react-router-dom";
 import type { SetUserProps } from "../types.ts";
+import { fetchUserDetails } from "../api/user.ts";
 
 const SignIn = ({ setUser } : SetUserProps) => {
 
@@ -11,8 +12,9 @@ const SignIn = ({ setUser } : SetUserProps) => {
 
     const userSignIn = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const res = await signIn({ email, password });
-        setUser(res.data);
+        await signIn({ email, password });
+        const userDetails = await fetchUserDetails();
+        setUser(userDetails);
         navigate("/profile");
     }
 

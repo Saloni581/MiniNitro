@@ -1,14 +1,14 @@
 import { signOut } from "../api/auth";
-import type { SignInProps } from "../types.ts";
+import type { SetUserProps } from "../types.ts";
 import {useNavigate} from "react-router-dom";
 
-const SignOut = ({ setUser }: SignInProps) => {
+const SignOut = ({ setUser }: SetUserProps) => {
     const navigate = useNavigate();
 
     const userSignOut = async () => {
         await signOut();
         setUser(null);
-        navigate("/");
+        navigate("/login");
     }
 
     return (
