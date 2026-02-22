@@ -8,6 +8,8 @@ const Profile = ({ user, setUser }: ProfileProps) => {
 
     // @ts-ignore
     const userIdentity = user?.data?.identity;
+    // @ts-ignore
+    const avatarUrl = user?.data?.visuals?.avatar?.activeAssetId?.url;
 
     return (
         <div>
@@ -15,7 +17,7 @@ const Profile = ({ user, setUser }: ProfileProps) => {
             <p>Pronouns: {userIdentity?.pronouns}</p>
             <p>
                 {
-                    userIdentity?.bio !== ""?
+                    userIdentity?.bio === ""?
                         "No bio" :
                         <span>
                             {userIdentity?.bio}
@@ -23,10 +25,9 @@ const Profile = ({ user, setUser }: ProfileProps) => {
                 }
             </p>
             <img
-                // @ts-ignore
-                src={user?.data?.visuals?.avatar?.activeAssetId?.url}
+                src={avatarUrl}
                 alt="User Avatar"
-                className="rounded-full"
+                className={`rounded-full ${avatarUrl? "block": "hidden"}`}
                 width="200"
             />
 
