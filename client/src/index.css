@@ -1,13 +1,13 @@
 @import 'tailwindcss';
 
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Segoe UI Symbol system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: #1a1a1a;
+  background-color: #ffffff;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -21,15 +21,12 @@ a {
   text-decoration: none;
 }
 a:hover {
-  color: #ffffff;
+  color: #d2d0ba;
 }
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  padding: 0;
 }
 
 h1 {
@@ -58,8 +55,8 @@ button:focus-visible {
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    color: #1b263b;
+    background-color: #1b263b;
   }
   a:hover {
     color: #747bff;
@@ -71,7 +68,7 @@ button:focus-visible {
 
 @layer utilities {
   .navbar {
-    @apply flex gap-6
+    @apply flex justify-around items-center bg-[#343a40] h-24 text-amber-50;
   }
   .profile-form {
     @apply flex flex-col m-24 gap-4
