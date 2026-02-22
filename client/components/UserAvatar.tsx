@@ -1,14 +1,14 @@
 import { useRef, useState } from 'react';
 import { uploadAvatar } from "../api/visuals";
+import type { ProfileProps } from "../types.ts";
 
-const UserAvatar = () => {
+const UserAvatar = ({ user, setUser } : ProfileProps) => {
 
-    const inputRef = useRef(null);
+    const inputRef = useRef<HTMLInputElement | null>(null);
     const [preview, setPreview] = useState<string | null>(null);
 
     const handleClick = () => {
-        // @ts-ignore
-        return inputRef.current.click();
+        return inputRef.current?.click();
     }
 
     const handleAvatarUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -19,22 +19,25 @@ const UserAvatar = () => {
         const imgUrl = URL.createObjectURL(file);
         setPreview(imgUrl);
 
-        // original file data
-        const formData = new FormData();
-        formData.append("avatar", file);
+        try {
+            // original file data
+            const formData = new FormData();
+            formData.append("avatar", file);
 
-        // sending file to backend
-        const result = await uploadAvatar(formData);
-        console.log(result);
+            // sending file to backend
+            const result = await uploadAvatar(formData);
+            setUser(result.updatedUser);
+            alert("Avatar uploaded successfully");
+            setPreview(null);
+        } catch (error) {
+            console.error(error);
+        }
     }
 
     return (
-        <div className="visuals">
             <div className="avatar">
-                <label htmlFor="avatar">Avatar</label>
                 <input
                     type="file"
-                    id="avatar"
                     name="avatar"
                     className="hidden"
                     accept="image/png, image/jpg, image/jpeg, image/gif, image/webp"
@@ -52,11 +55,11 @@ const UserAvatar = () => {
                 }
                 <button onClick={handleClick} type="button">
                     {
-                        preview? "Change Avatar" : "Add Avatar"
+                        // @ts-ignore
+                        user?.data?.visuals?.avatar?.activeAssetId?.url? "Change Avatar" : "Add Avatar"
                     }
                 </button>
             </div>
-        </div>
     );
 };
 

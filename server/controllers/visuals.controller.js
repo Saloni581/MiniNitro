@@ -55,7 +55,7 @@ export const uploadUserAvatar = async (req, res) => {
 
             return res.status(200).json({
                 message: "Avatar set/uploaded successfully",
-                avatarUrl: updatedUser?.visuals?.avatar?.activeAssetId?.url,
+                updatedUser: updatedUser,
             });
 
         } catch(dbError) {

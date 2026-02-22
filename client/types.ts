@@ -3,7 +3,7 @@ export interface User {
     email: string;
 }
 
-export interface SignInProps {
+export interface SetUserProps {
     setUser: React.Dispatch<React.SetStateAction<User | null>>
 }
 

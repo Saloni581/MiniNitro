@@ -70,7 +70,7 @@ const App = () => {
                <Route
                    path="/profile-form"
                    element={
-                       <ProfileForm />
+                       <ProfileForm setUser={setUser}/>
                    }
                >
                </Route>

@@ -20,6 +20,7 @@ export const createUserProfile = async (req, res) => {
     if(existingUserProfile) {
         return res.status(400).json({
             message: `User profile already exists`,
+            userProfile: existingUserProfile,
         });
     }
 
