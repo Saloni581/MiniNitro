@@ -42,8 +42,6 @@ export const uploadUserAvatar = async (req, res) => {
             stream.end(file.buffer);
         });
 
-        // store public_id for later use if exists
-        // const oldPublic_id = userProfile?.visuals?.avatar?.activeAssetId?.public_id;
 
         // update DB
         try {

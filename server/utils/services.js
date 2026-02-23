@@ -1,7 +1,26 @@
 import UserProfile from "../db/models/userProfileSchema.js";
 
 export const saveUserAvatar = async ( public_id, secure_url, userId ) => {
-    const updatedUser = await UserProfile.findOneAndUpdate(
+
+    const userProfile = await UserProfile.findOne({ userId });
+
+    // store previous avatar in recent assets if exists
+    const recentAvatarSecure_url = userProfile?.visuals?.avatar?.activeAssetId?.url;
+
+    let updatedUser = null;
+    if(recentAvatarSecure_url) {
+        updatedUser = await UserProfile.findOneAndUpdate(
+            { userId },
+            {
+                $set: {
+                    "visuals.avatar.recentAssets": recentAvatarSecure_url,
+                }
+            },
+            { new: true}
+        );
+    }
+
+     updatedUser = await UserProfile.findOneAndUpdate(
         { userId } ,
         {
             $set: {
