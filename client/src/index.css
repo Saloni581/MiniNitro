@@ -1,12 +1,12 @@
 @import 'tailwindcss';
 
 :root {
-  font-family: Segoe UI Symbol system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
-  color: #1a1a1a;
+  color: teal;
   background-color: #ffffff;
 
   font-synthesis: none;
@@ -21,7 +21,7 @@ a {
   text-decoration: none;
 }
 a:hover {
-  color: #d2d0ba;
+  color: #006d77;
 }
 
 body {
@@ -37,11 +37,13 @@ h1 {
 button {
   border-radius: 8px;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
+  padding: 0.6em 2rem;
+  white-space: nowrap;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  color: #ffffff;
+  background-color: teal;
   cursor: pointer;
   transition: border-color 0.25s;
 }
@@ -67,24 +69,48 @@ button:focus-visible {
 }
 
 @layer utilities {
-  .navbar {
-    @apply flex justify-around items-center bg-[#343a40] h-24 text-amber-50;
+
+  body {
+    @apply font-sans font-stretch-ultra-condensed font-semibold tracking-wide [font-variant-caps:small-caps];
   }
+
+  .navbar {
+    @apply flex justify-around items-center bg-teal-600 h-24 text-white text-lg;
+  }
+
+  .auth-form {
+    @apply flex flex-col gap-4 place-items-center p-22
+  }
+
+  .auth-form input {
+    @apply border border-cyan-400 border-t-4 border-t-teal-600 rounded-md p-2 outline-none focus:outline-none
+    focus:ring-2 focus:ring-teal-600 focus:border-t-cyan-800;
+  }
+
+  .auth-div {
+    @apply flex flex-col md:flex-row gap-2 justify-center items-center;
+  }
+
   .profile-form {
     @apply flex flex-col m-24 gap-4
   }
+
   .identity {
     @apply flex flex-col gap-2
   }
+
   .identity input {
     @apply flex m-2 bg-white text-black font-bold
   }
+
   .identity textarea {
     @apply flex bg-white text-black resize-none font-semibold
   }
+
   .visuals div {
     @apply flex flex-col gap-2
   }
+
   .avatar-input {
     @apply bg-blue-950 text-white
   }

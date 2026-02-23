@@ -18,10 +18,10 @@ const SignUp = ({ setUser }: SetUserProps) => {
 
     return (
         <>
-        <form onSubmit={userSignUp}>
+        <form onSubmit={userSignUp} className="auth-form">
             <input
                 type="text"
-                placeholder="enter a unique userName"
+                placeholder="enter a unique username"
                 name="userName"
                 value={userName}
                 onChange={(e) => setUserName(e.target.value)}
@@ -41,13 +41,13 @@ const SignUp = ({ setUser }: SetUserProps) => {
             />
             <button type="submit">Sign Up</button>
         </form>
-        <div>
-            <p>
-                Already Have an account?
+        <div className="auth-div">
+            <p>Already Have an account?</p>
+            <div className="text-cyan-500">
                 <Link to="/login">
                     SignIn
                 </Link>
-            </p>
+            </div>
         </div>
         </>
     );

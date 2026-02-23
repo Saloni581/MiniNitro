@@ -20,7 +20,7 @@ const SignIn = ({ setUser } : SetUserProps) => {
 
     return (
         <>
-        <form onSubmit={userSignIn}>
+        <form onSubmit={userSignIn} className="auth-form">
             <input
                 type='text'
                 name="email"
@@ -39,13 +39,13 @@ const SignIn = ({ setUser } : SetUserProps) => {
             />
             <button type="submit">SignIn</button>
         </form>
-            <div>
-                <p>
-                    Don't have an account?
+            <div className="auth-div">
+                <p>Don't have an account?</p>
+                <div className="text-cyan-500">
                     <Link to="/signup">
                         SignUp
                     </Link>
-                </p>
+                </div>
             </div>
         </>
     );
