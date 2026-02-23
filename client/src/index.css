@@ -71,7 +71,7 @@ button:focus-visible {
 @layer utilities {
 
   body {
-    @apply font-sans font-stretch-ultra-condensed font-semibold tracking-wide [font-variant-caps:small-caps];
+    @apply font-sans font-stretch-ultra-condensed font-semibold tracking-wide;
   }
 
   .navbar {
@@ -82,9 +82,9 @@ button:focus-visible {
     @apply flex flex-col gap-4 place-items-center p-22
   }
 
-  .auth-form input {
+  input {
     @apply border border-cyan-400 border-t-4 border-t-teal-600 rounded-md p-2 outline-none focus:outline-none
-    focus:ring-2 focus:ring-teal-600 focus:border-t-cyan-800;
+    focus:ring-2 focus:ring-teal-600 focus:border-t-cyan-800 font-thin;
   }
 
   .auth-div {
@@ -92,19 +92,24 @@ button:focus-visible {
   }
 
   .profile-form {
-    @apply flex flex-col m-24 gap-4
+    @apply flex flex-col gap-4 place-items-center py-12
   }
 
-  .identity {
-    @apply flex flex-col gap-2
+  .profile-form-heading {
+    @apply mb-6 font-bold text-2xl [font-variant-caps:small-caps];
   }
 
-  .identity input {
-    @apply flex m-2 bg-white text-black font-bold
+  .identity div {
+    @apply flex flex-col mb-4 md:w-auto w-64
+  }
+
+  .identity div label {
+    @apply mb-2
   }
 
   .identity textarea {
-    @apply flex bg-white text-black resize-none font-semibold
+    @apply border border-cyan-400 border-t-4 border-t-teal-600 rounded-md p-2 outline-none focus:outline-none
+    focus:ring-2 focus:ring-teal-600 focus:border-t-cyan-800 resize-none font-thin;
   }
 
   .visuals div {

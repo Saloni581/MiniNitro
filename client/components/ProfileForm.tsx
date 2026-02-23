@@ -23,8 +23,9 @@ const ProfileForm = ({ setUser }: SetUserProps) => {
 
     return (
         <form className="profile-form" onSubmit={handleSubmit}>
+            <p className="profile-form-heading">Create your profile</p>
             <div className="identity">
-                <div>
+                <div className="identity-input">
                     <label htmlFor="displayName">Enter your display Name</label>
                     <input type="text" name="displayName" id="displayName" onChange={(e) => setDisplayName(e.target.value)} />
                 </div>
