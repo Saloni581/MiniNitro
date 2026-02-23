@@ -41,7 +41,7 @@ const SignIn = ({ setUser } : SetUserProps) => {
         </form>
             <div className="auth-div">
                 <p>Don't have an account?</p>
-                <div className="text-cyan-500">
+                <div className="text-brand-primary-bold">
                     <Link to="/signup">
                         SignUp
                     </Link>
