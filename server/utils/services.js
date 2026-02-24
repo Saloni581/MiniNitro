@@ -12,7 +12,7 @@ export const saveUserAvatar = async ( public_id, secure_url, userId ) => {
         updatedUser = await UserProfile.findOneAndUpdate(
             { userId },
             {
-                $set: {
+                $addToSet: {
                     "visuals.avatar.recentAssets": recentAvatarSecure_url,
                 }
             },

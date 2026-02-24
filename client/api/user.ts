@@ -1,5 +1,5 @@
 import axios from "axios";
-import type { ProfileDetailsProps } from "../types";
+import type { GetUserResponse, ProfileDetailsProps} from "../types";
 
 const api = axios.create({
     baseURL: "http://localhost:3000/api/user",
@@ -22,6 +22,6 @@ export const saveProfileDetails = async ({ displayName, pronouns, bio }: Profile
 }
 
 export const fetchUserDetails = async () => {
-    const user = await api.get('/me');
+    const user = await api.get<GetUserResponse>('/me');
     return user.data;
 }

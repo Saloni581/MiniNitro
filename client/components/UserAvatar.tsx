@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import { uploadAvatar } from "../api/visuals";
 import type { ProfileProps } from "../types.ts";
+import { toast } from "sonner"
 
 const UserAvatar = ({ user, setUser } : ProfileProps) => {
 
@@ -27,7 +28,7 @@ const UserAvatar = ({ user, setUser } : ProfileProps) => {
             // sending file to backend
             const result = await uploadAvatar(formData);
             setUser(result.updatedUser);
-            alert("Avatar uploaded successfully");
+            toast("Profile Avatar Uploaded");
             setPreview(null);
         } catch (error) {
             console.error(error);

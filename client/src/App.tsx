@@ -6,13 +6,13 @@ import Home from "../components/Home.tsx";
 import Profile from "../components/Profile.tsx";
 import Effects from "../components/Effects.tsx";
 import { useEffect, useState } from "react";
-import type { User } from '../types.ts';
+import type { GetUserResponse } from '../types.ts';
 import ProfileForm from "../components/ProfileForm.tsx";
 import { fetchUserDetails } from "../api/user.ts";
 
 const App = () => {
 
-    const [user, setUser] = useState<User | null>(null);
+    const [user, setUser] = useState<GetUserResponse | null>(null);
 
     useEffect(() => {
         const fetchUser = async () => {
