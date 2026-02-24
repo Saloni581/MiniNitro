@@ -1,6 +1,9 @@
 export interface UserProfile {
     _id: string;
-    userId: string;
+    userId: {
+        userId: string;
+        userName: string;
+    };
     createdAt: string;
     updatedAt: string;
     identity: {

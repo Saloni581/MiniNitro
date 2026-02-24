@@ -3,7 +3,7 @@ import SignIn from "../components/SignIn.tsx";
 import { Routes, Route } from 'react-router-dom';
 import Navbar from "../components/Navbar.tsx";
 import Home from "../components/Home.tsx";
-import Profile from "../components/Profile.tsx";
+import ProfileCard from "../components/ProfileCard.tsx";
 import Effects from "../components/Effects.tsx";
 import { useEffect, useState } from "react";
 import type { GetUserResponse } from '../types.ts';
@@ -42,7 +42,7 @@ const App = () => {
                <Route
                    path="/profile"
                    element={
-                       <Profile user={user} setUser={setUser} />
+                       <ProfileCard user={user} setUser={setUser} />
                    }
                >
                </Route>

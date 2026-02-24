@@ -5,9 +5,9 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --color-brand-primary: oklch(0.968 0.211 109.77);
-  --color-brand-primary-light: oklch(0.968 0.1405 109.77);
-  --color-brand-primary-bold: oklch(0.8868 0.182186 95.3305);
+  --color-brand-primary: oklch(0.8868 0.182186 95.3305);
+  --color-brand-primary-light: oklch(0.8868 0.1515 95.3305);
+  --color-brand-primary-bold: oklch(0.819 0.21 95.3305);
   --color-brand-secondary: oklch(0.7382 0.1597 25.56);
   --color-brand-text-primary: oklch(0.7092 0.1197 223.26);
   --color-brand-text-secondary: oklch(0.8868 0.1263 95.3305);
@@ -21,8 +21,6 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: var(--color-brand-text-secondary);
-  background-color: var(--color-brand-secondary);
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -93,7 +91,7 @@ button:focus-visible {
 @layer utilities {
 
   body {
-    @apply text-brand-text-primary font-sans font-stretch-ultra-condensed font-semibold tracking-wide;
+    @apply text-brand-text-primary  font-sans font-stretch-ultra-condensed font-semibold tracking-wide;
   }
 
   .navbar {
@@ -149,6 +147,14 @@ button:focus-visible {
 
   .profile-card {
     @apply flex flex-col gap-4 my-4 p-8 place-items-center w-80 md:w-xl rounded-4xl h-125 bg-profile-bg text-brand-text-primary;
+  }
+
+  .user-avatar {
+    @apply border-4 rounded-full blur-in-sm border-brand-primary;
+  }
+
+  .user-settings {
+    @apply mt-auto ml-auto;
   }
 }
 
