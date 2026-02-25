@@ -59,7 +59,7 @@ export const getUserData = async (req, res) => {
     const userId = req.user.id;
 
     try {
-        const userData = await UserProfile.findOne({ userId });
+        const userData = await UserProfile.findOne({ userId }).populate("userId", "userName");
         if(!userData) {
             return res.status(404).json({
                 message: "No user data found!",

@@ -6,19 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="9aeaffe5-ec46-4cc5-ab13-40a9184f9ba6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/api/user.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/api/user.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/Profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/Profile.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/UserAvatar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/components/UserAvatar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/tsconfig.app.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/tsconfig.app.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/types.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/vite.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/utils/services.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/utils/services.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/controllers/user.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/user.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/controllers/visuals.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/visuals.controller.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,6 +83,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\lathw\Desktop\miniNitro\client\public" />
       <recent name="C:\Users\lathw\Desktop\miniNitro\client" />
       <recent name="C:\Users\lathw\Desktop\miniNitro\server" />
       <recent name="C:\Users\lathw\Desktop\miniNitro\server\config" />
@@ -138,7 +128,8 @@
       <workItem from="1771727587809" duration="2772000" />
       <workItem from="1771746567485" duration="3865000" />
       <workItem from="1771804929630" duration="20165000" />
-      <workItem from="1771896908989" duration="12384000" />
+      <workItem from="1771896908989" duration="21818000" />
+      <workItem from="1771987585121" duration="1094000" />
     </task>
     <servers />
   </component>
@@ -159,6 +150,17 @@
             </list>
           </value>
         </entry>
+        <entry key="User">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="*" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
       </map>
     </option>
     <option name="TAB_STATES">
@@ -172,6 +174,13 @@
                     <value>
                       <list>
                         <option value="origin/main" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="user">
+                    <value>
+                      <list>
+                        <option value="*" />
                       </list>
                     </value>
                   </entry>
@@ -208,12 +217,11 @@
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/client/components/Profile.tsx</url>
+          <url>file://$PROJECT_DIR$/client/components/ProfileCard.tsx</url>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/client/src/components/ui/avatar.tsx</url>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>

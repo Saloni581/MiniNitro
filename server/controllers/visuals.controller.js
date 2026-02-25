@@ -26,7 +26,7 @@ export const uploadUserAvatar = async (req, res) => {
 
         if(!userProfile) {
             return res.status(404).json({
-                message: 'User Profile Not Found',
+                message: 'User ProfileCard Not Found',
             });
         }
 
