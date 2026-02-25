@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { signUp } from "../api/auth.ts";
+import { signUp } from "../../api/auth.ts";
 import { Link, useNavigate } from "react-router-dom";
-import type { SetUserProps } from "../types.ts";
+import type { SetUserProps } from "../../types.ts";
 
 const SignUp = ({ setUser }: SetUserProps) => {
     const [userName, setUserName] = useState("");

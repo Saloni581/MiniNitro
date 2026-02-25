@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { saveProfileDetails } from "../api/user.ts";
-import type { SetUserProps } from "../types.ts";
+import { saveProfileDetails } from "../../api/user.ts";
+import type { SetUserProps } from "../../types.ts";
 
 const ProfileForm = ({ setUser }: SetUserProps) => {
 

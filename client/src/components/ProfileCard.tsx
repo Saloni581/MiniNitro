@@ -1,7 +1,7 @@
 import SignOut from "./SignOut.tsx";
-import type { ProfileProps } from "../types.ts";
+import type { ProfileProps } from "../../types.ts";
 import UserAvatar from "./UserAvatar.tsx";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar.tsx";
 import {
     Dialog,
     DialogContent,
@@ -9,7 +9,8 @@ import {
     DialogHeader,
     DialogTitle,
     DialogTrigger,
-} from "../src/components/ui/dialog.tsx";
+} from "./ui/dialog.tsx";
+// import randomImg from "../public/settings.png";
 
 
 const ProfileCard = ({ user, setUser }: ProfileProps) => {
@@ -22,7 +23,7 @@ const ProfileCard = ({ user, setUser }: ProfileProps) => {
     return (
         <div className="profile-card-container">
             <div className="profile-card">
-                <div className="user-avatar">
+                <div className="user-avatar user-avatar-glow-effect">
                     <Avatar>
                         <AvatarImage src={avatarUrl} />
                         <AvatarFallback>Avatar</AvatarFallback>

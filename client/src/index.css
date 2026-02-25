@@ -150,7 +150,24 @@ button:focus-visible {
   }
 
   .user-avatar {
-    @apply border-4 rounded-full blur-in-sm border-brand-primary;
+    @apply rounded-full;
+  }
+
+  /* effects */
+
+  .all-effects-container {
+    @apply flex
+  }
+
+  .effects-dropdown {
+    @apply ml-auto m-4 p-2 bg-[#F5F5F5] shadow-sm cursor-pointer hover:shadow-lg;
+  }
+
+
+  /* user avatar effects */
+  /* glow effect */
+  .user-avatar-glow-effect {
+      @apply bg-[#F5F5F5] shadow-lg shadow-white
   }
 
   .user-settings {

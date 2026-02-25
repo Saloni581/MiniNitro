@@ -1,14 +1,17 @@
-import SignUp from "../components/SignUp.tsx";
-import SignIn from "../components/SignIn.tsx";
-import { Routes, Route } from 'react-router-dom';
-import Navbar from "../components/Navbar.tsx";
-import Home from "../components/Home.tsx";
-import ProfileCard from "../components/ProfileCard.tsx";
-import Effects from "../components/Effects.tsx";
+import SignUp from "./components/SignUp.tsx";
+import SignIn from "./components/SignIn.tsx";
+import { Routes, Route, Navigate } from 'react-router-dom';
+import Navbar from "./components/Navbar.tsx";
+import Home from "./components/Home.tsx";
+import ProfileCard from "./components/ProfileCard.tsx";
 import { useEffect, useState } from "react";
 import type { GetUserResponse } from '../types.ts';
-import ProfileForm from "../components/ProfileForm.tsx";
+import ProfileForm from "./components/ProfileForm.tsx";
 import { fetchUserDetails } from "../api/user.ts";
+import ProfileEffects from "./components/ProfileEffects.tsx";
+import AvatarEffects from "./components/AvatarEffects.tsx";
+import NameplateEffects from "./components/NameplateEffects.tsx";
+
 
 const App = () => {
 
@@ -39,6 +42,8 @@ const App = () => {
                    }
                >
                </Route>
+
+               {/* User Profile Routes */}
                <Route
                    path="/profile"
                    element={
@@ -47,12 +52,44 @@ const App = () => {
                >
                </Route>
                <Route
-                   path="/effects"
+                   path="/profile-form"
                    element={
-                       <Effects />
+                       <ProfileForm setUser={setUser}/>
                    }
                >
                </Route>
+
+               {/* Effects Routes */}
+               <Route
+                   path="/effects"
+                   element={
+                       <Navigate to="/profile-effects" replace />
+                   }
+               >
+               </Route>
+               <Route
+                   path="/profile-effects"
+                   element={
+                        <ProfileEffects />
+                   }
+               >
+               </Route>
+               <Route
+                   path="/avatar-effects"
+                   element={
+                       <AvatarEffects />
+                   }
+               >
+               </Route>
+               <Route
+                   path="nameplate-effects"
+                   element={
+                       <NameplateEffects />
+                   }
+               >
+               </Route>
+
+               {/* Authentication Routes */}
                <Route
                    path="/signup"
                    element={
@@ -64,13 +101,6 @@ const App = () => {
                    path="/login"
                    element={
                     <SignIn setUser={setUser} />
-                   }
-               >
-               </Route>
-               <Route
-                   path="/profile-form"
-                   element={
-                       <ProfileForm setUser={setUser}/>
                    }
                >
                </Route>
