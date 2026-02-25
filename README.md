@@ -7,7 +7,7 @@ This project is currently in active development.
 
 ---
 
-## 🚀 Vision
+## Vision
 
 miniNitro aims to replicate and reimagine premium-style profile customization features such as animated profile effects, badges, and enhanced visual identity systems.
 
@@ -19,6 +19,26 @@ Rather than just recreating UI effects, this project focuses on building a struc
 - Expandable profile customization system
 
 ---
+
+## Screenshots
+
+### Auth Pages
+![Login Form](./assets/auth-login-form1.png)
+![Signup Form](./assets/auth-signup-form2.png)
+![Responsive View](./assets/auth-login-responsive.png)
+
+### Onboarding Form
+![Onboarding Form](user-profile-creation-onboarding-form.png)
+![Filled Onboarding Form example](filled-onboarding-form.png)
+
+### Profile Card
+![User Profile Card](./assets/user-profile.png)
+![User Profile Card Responsive](./assets/user-profile-responsive.png)
+
+### User Settings
+![User Settings](./assets/user-settings.png)
+![Change Avatar Feature](./assets/user-settings-change-avatar-feature.png)
+
 
 ## Tech Stack
 
@@ -82,12 +102,30 @@ The main objective of miniNitro is to deepen understanding of:
 ## Setup Instructions
 
 1. Clone the repository
-2. Install dependencies for both client and server
+2. Install dependencies:
+
+   - For backend:
+     ```bash
+     cd server
+     npm install
+     ```
+
+   - For frontend:
+     ```bash
+     cd client
+     npm install
+     ```
+
 3. Create a `.env` file in the backend directory with:
-   - MongoDB connection string
-   - JWT secret
-4. Run backend server
-5. Run frontend development server
+   - `MONGO_URI=your_mongodb_connection_string`
+   - `JWT_SECRET=your_jwt_secret`
+   - `CLOUDINARY_CLOUD_NAME=your_cloud_name`
+   - `CLOUDINARY_API_KEY=your_api_key`
+   - `CLOUDINARY_API_SECRET=your_api_secret`
+
+4. Start the backend:
+   ```bash
+   npm run dev
 
 ---
 
