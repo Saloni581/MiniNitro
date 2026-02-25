@@ -28,8 +28,8 @@ Rather than just recreating UI effects, this project focuses on building a struc
 ![Responsive View](./assets/auth-login-responsive.png)
 
 ### Onboarding Form
-![Onboarding Form](user-profile-creation-onboarding-form.png)
-![Filled Onboarding Form example](filled-onboarding-form.png)
+![Onboarding Form](./assets/user-profile-creation-onboarding-form.png)
+![Filled Onboarding Form example](./assets/filled-onboarding-form.png)
 
 ### Profile Card
 ![User Profile Card](./assets/user-profile.png)
