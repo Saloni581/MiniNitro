@@ -37,7 +37,7 @@ Rather than just recreating UI effects, this project focuses on building a struc
 
 ### User Settings
 ![User Settings](./assets/user-settings.png)
-![Change Avatar Feature](./assets/user-settings-change-avatar-feature.png)
+![Change Avatar Feature](./assets/user-setttings-change-avatar-feature.png)
 
 
 ## Tech Stack
