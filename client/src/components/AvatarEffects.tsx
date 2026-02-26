@@ -9,8 +9,8 @@ const AvatarEffects = ({ setUser }: SetUserProps) => {
     const handleApplyEffect = async (id : string) => {
         try {
             const res = await patchAvatarEffect(id);
-            console.log(res);
-            setUser(res);
+            console.log(res.user);
+            setUser(res.user);
         } catch (error) {
             console.error(error);
         }

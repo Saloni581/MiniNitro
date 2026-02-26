@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar.tsx";
 import Home from "./components/Home.tsx";
 import ProfileCard from "./components/ProfileCard.tsx";
 import { useEffect, useState } from "react";
-import type { GetUserResponse } from '../types.ts';
+import type { UserProfileProps } from '../types.ts';
 import ProfileForm from "./components/ProfileForm.tsx";
 import { fetchUserDetails } from "../api/user.ts";
 import ProfileEffects from "./components/ProfileEffects.tsx";
@@ -15,13 +15,13 @@ import NameplateEffects from "./components/NameplateEffects.tsx";
 
 const App = () => {
 
-    const [user, setUser] = useState<GetUserResponse | null>(null);
+    const [user, setUser] = useState<UserProfileProps | null>(null);
 
     useEffect(() => {
         const fetchUser = async () => {
             try {
                 const user = await fetchUserDetails();
-                setUser(user);
+                setUser(user.data);
             } catch(error) {
                 console.log(error);
                 setUser(null);

@@ -2,11 +2,11 @@ import UserProfile from "../db/models/userProfileSchema.js";
 
 export const modifyAvatarEffectInfo = async (req, res) => {
     const userId = req.user.id;
+    const { effectId } = req.body;
+
     if(!userId) {
         return res.status(401).json({error: "User does not exist"});
     }
-    const { effectId } = req.body;
-    console.log(effectId);
 
     try {
 
@@ -27,7 +27,7 @@ export const modifyAvatarEffectInfo = async (req, res) => {
         }
         return res.status(200).json({
             message: "Successfully updated user",
-            updatedUser
+            user: updatedUser
         })
     } catch (dbError) {
         return res.status(500).json({

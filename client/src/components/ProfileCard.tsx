@@ -18,9 +18,9 @@ const ProfileCard = ({ user, setUser }: ProfileProps) => {
 
     console.log(user);
 
-    const userIdentity = user?.data?.identity;
-    const avatarUrl = user?.data?.visuals?.avatar?.activeAssetId?.url;
-    const effectId = user?.data?.visuals?.avatar?.decorations?.activeEffect;
+    const userIdentity = user?.identity;
+    const avatarUrl = user?.visuals?.avatar?.activeAssetId?.url;
+    const effectId = user?.visuals?.avatar?.decorations?.activeEffect;
 
     const activeEffect = avatarEffects.filter((effect) => effect.id === effectId);
     const activeEffectCN = activeEffect[0].cssClass;
@@ -40,7 +40,7 @@ const ProfileCard = ({ user, setUser }: ProfileProps) => {
                         {userIdentity?.pronouns} &middot;
                     </span>
                     <span>
-                        {user?.data.userId?.userName}
+                        {user?.userId?.userName}
                     </span>
                 </div>
                 <div>

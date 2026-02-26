@@ -13,8 +13,8 @@ const SignIn = ({ setUser } : SetUserProps) => {
     const userSignIn = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         await signIn({ email, password });
-        const userDetails = await fetchUserDetails();
-        setUser(userDetails);
+        const user = await fetchUserDetails();
+        setUser(user.data);
         navigate("/profile");
     }
 

@@ -44,13 +44,13 @@ const UserProfileSchema = new mongoose.Schema(
 
             nameplate: {
                 isEnabled: { type: Boolean, default: false },
-                activeEffects: [{ type: String }],
+                activeEffect: { type: String },
                 ownedEffects: [{ type: String }]
             },
 
             profileDecoration: {
                 isEnabled: { type: Boolean, default: false },
-                activeEffects: [{ type: String }],
+                activeEffect: { type: String },
                 ownedEffects: [{ type: String }]
             },
 

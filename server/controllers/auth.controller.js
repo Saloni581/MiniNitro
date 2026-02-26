@@ -83,6 +83,7 @@ export const signup = async (req, res) => {
 export const signin = async (req, res) => {
     // get data
     const { email, password } = req.body;
+    console.log(req.body);
     // validation
     if(!email || !password) {
         return res.status(400).json({
@@ -92,6 +93,8 @@ export const signin = async (req, res) => {
     // fetch user from db
     try {
         const user = await User.findOne({ email });
+
+        console.log(user)
 
         // validate user
         if (!user) {
@@ -139,6 +142,7 @@ export const signin = async (req, res) => {
         })
     }
 }
+
 
 export const signout = async (req, res) => {
     res.clearCookie("token", {
