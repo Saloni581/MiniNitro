@@ -77,7 +77,7 @@ const App = () => {
                <Route
                    path="/avatar-effects"
                    element={
-                       <AvatarEffects />
+                       <AvatarEffects setUser={setUser}/>
                    }
                >
                </Route>

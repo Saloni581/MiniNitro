@@ -10,20 +10,25 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "./ui/dialog.tsx";
+import { avatarEffects } from "../../effectsConfig.ts";
 // import randomImg from "../public/settings.png";
 
 
 const ProfileCard = ({ user, setUser }: ProfileProps) => {
 
-    console.log(user)
+    console.log(user);
 
     const userIdentity = user?.data?.identity;
     const avatarUrl = user?.data?.visuals?.avatar?.activeAssetId?.url;
+    const effectId = user?.data?.visuals?.avatar?.decorations?.activeEffect;
+
+    const activeEffect = avatarEffects.filter((effect) => effect.id === effectId);
+    const activeEffectCN = activeEffect[0].cssClass;
 
     return (
         <div className="profile-card-container">
             <div className="profile-card">
-                <div className="user-avatar user-avatar-glow-effect">
+                <div className={`user-avatar ${activeEffectCN}`} >
                     <Avatar>
                         <AvatarImage src={avatarUrl} />
                         <AvatarFallback>Avatar</AvatarFallback>

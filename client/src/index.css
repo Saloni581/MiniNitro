@@ -55,6 +55,10 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
+h1 {
+  font-size: x-large;
+}
+
 a {
   font-weight: 500;
   color: inherit;
@@ -166,9 +170,18 @@ button:focus-visible {
 
   /* user avatar effects */
   /* glow effect */
-  .user-avatar-glow-effect {
+  .avatar-effects-container {
+    @apply flex flex-col gap-6 m-6
+  }
+
+  .avatar-effect-button {
+    @apply flex md:flex-row flex-col gap-6
+  }
+
+  .avatar-glow {
       @apply bg-[#F5F5F5] shadow-lg shadow-white
   }
+
 
   .user-settings {
     @apply mt-auto ml-auto;

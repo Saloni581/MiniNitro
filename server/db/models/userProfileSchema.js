@@ -37,8 +37,8 @@ const UserProfileSchema = new mongoose.Schema(
                 },
                 recentAssets: [{ type: String }],
                 decorations: {
-                    activeEffects: [{ type: String }],
-                    ownedEffects: [{ type: String }]
+                    activeEffect: { type: String, default: null },
+                    ownedEffects: [{ type: String, default: [] }]
                 }
             },
 

@@ -5,23 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9aeaffe5-ec46-4cc5-ab13-40a9184f9ba6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/components/AvatarEffects.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/EffectsDropdown.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/NameplateEffects.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/ProfileEffects.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/api/effects.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/effectsConfig.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/controllers/effects.controller.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/Effects.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Home.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Navbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/ProfileCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ProfileCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/ProfileForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ProfileForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/SignIn.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/SignIn.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/SignOut.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/SignOut.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/SignUp.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/SignUp.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/components/UserAvatar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UserAvatar.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ui/avatar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ui/avatar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/AvatarEffects.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/AvatarEffects.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/ProfileCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ProfileCard.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/db/models/userProfileSchema.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/db/models/userProfileSchema.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/routes/effects.routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/effects.routes.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,7 +141,8 @@
       <workItem from="1771896908989" duration="21818000" />
       <workItem from="1771987585121" duration="10037000" />
       <workItem from="1772018968933" duration="883000" />
-      <workItem from="1772019911275" duration="2776000" />
+      <workItem from="1772019911275" duration="3596000" />
+      <workItem from="1772064071034" duration="7568000" />
     </task>
     <servers />
   </component>
@@ -240,6 +236,11 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/client/src/components/ui/avatar.tsx</url>
           <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/server/index.js</url>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

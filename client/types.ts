@@ -20,6 +20,10 @@ export interface UserProfile {
                 public_id: string;
                 url: string;
             },
+            decorations: {
+                activeEffect: string,
+                ownedEffects: string[],
+            }
             recentAssets: [],
         }
     };
