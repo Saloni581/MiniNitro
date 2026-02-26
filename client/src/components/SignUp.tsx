@@ -2,7 +2,6 @@ import { useState } from "react";
 import { signUp } from "../../api/auth.ts";
 import { Link, useNavigate } from "react-router-dom";
 import type { SetUserProps } from "../../types.ts";
-import { fetchUserDetails } from "../../api/user.ts";
 
 const SignUp = ({ setUser }: SetUserProps) => {
     const [userName, setUserName] = useState("");
@@ -12,9 +11,8 @@ const SignUp = ({ setUser }: SetUserProps) => {
 
     const userSignUp = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        await signUp({ userName, email, password });
-        const user = await fetchUserDetails();
-        setUser(user.data);
+        const res = await signUp({ userName, email, password });
+        setUser(res.data);
         navigate("/profile-form");
     }
 

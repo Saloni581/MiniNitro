@@ -9,6 +9,7 @@ export const signup = async (req, res) => {
     // get data
     const { userName, email, password } = req.body;
 
+
     // validate data
     if(!userName || !email || !password) {
         return res.status(400).json({

@@ -28,7 +28,7 @@ const UserAvatar = ({ user, setUser } : ProfileProps) => {
             // sending file to backend
             const result = await uploadAvatar(formData);
             setUser(result.user);
-            toast("ProfileCard Avatar Uploaded");
+            toast("Profile Avatar Uploaded");
             setPreview(null);
         } catch (error) {
             console.error(error);

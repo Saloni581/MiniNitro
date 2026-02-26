@@ -11,6 +11,7 @@ import {
     DialogTrigger,
 } from "./ui/dialog.tsx";
 import { avatarEffects } from "../../effectsConfig.ts";
+import {cn} from "@/lib/utils.ts";
 // import randomImg from "../public/settings.png";
 
 
@@ -22,13 +23,15 @@ const ProfileCard = ({ user, setUser }: ProfileProps) => {
     const avatarUrl = user?.visuals?.avatar?.activeAssetId?.url;
     const effectId = user?.visuals?.avatar?.decorations?.activeEffect;
 
-    const activeEffect = avatarEffects.filter((effect) => effect.id === effectId);
-    const activeEffectCN = activeEffect[0].cssClass;
+    let activeEffect = null;
+    if(effectId) {
+        activeEffect = avatarEffects.filter((effect) => effect.id === effectId);
+    }
 
     return (
         <div className="profile-card-container">
             <div className="profile-card">
-                <div className={`user-avatar ${activeEffectCN}`} >
+                <div className={cn("user-avatar", activeEffect && activeEffect[0]?.cssClass)} >
                     <Avatar>
                         <AvatarImage src={avatarUrl} />
                         <AvatarFallback>Avatar</AvatarFallback>
@@ -37,10 +40,10 @@ const ProfileCard = ({ user, setUser }: ProfileProps) => {
                 <div>{userIdentity?.displayName}</div>
                 <div>
                     <span>
-                        {userIdentity?.pronouns} &middot;
+                        {user?.userId?.userName}&middot;
                     </span>
                     <span>
-                        {user?.userId?.userName}
+                        {userIdentity?.pronouns}
                     </span>
                 </div>
                 <div>
