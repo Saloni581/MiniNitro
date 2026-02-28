@@ -1,5 +1,7 @@
 // effectsConfig.ts
 
+import { WaveFrameOverlay } from "@/components/ProfileOverlay.tsx";
+
 export const avatarEffects = [
     {
         id: "fire",
@@ -19,6 +21,13 @@ export const avatarEffects = [
         id: "glow",
         name: "White Glow",
         cssClass: "avatar-glow",
+        preview: "/effects/gold-preview.png",
+        price: 200
+    },
+    {
+        id: "overlay",
+        name: "Wave Overlay",
+        component: WaveFrameOverlay,
         preview: "/effects/gold-preview.png",
         price: 200
     }

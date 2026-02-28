@@ -150,11 +150,11 @@ button:focus-visible {
   }
 
   .profile-card {
-    @apply flex flex-col gap-4 my-4 p-8 place-items-center w-80 md:w-xl rounded-4xl h-125 bg-profile-bg text-brand-text-secondary;
+    @apply flex flex-col gap-4 my-4 p-8 place-items-center w-80 md:w-xl rounded-4xl h-140 bg-profile-bg text-brand-text-secondary;
   }
 
   .user-avatar {
-    @apply rounded-full;
+    @apply relative rounded-full p-6;
   }
 
   /* effects */
@@ -179,9 +179,12 @@ button:focus-visible {
   }
 
   .avatar-glow {
-      @apply bg-[#F5F5F5] shadow-lg shadow-white
+      @apply bg-[#F5F5F5] shadow-lg shadow-white p-0;
   }
 
+  .avatar-wave-overlay {
+    @apply absolute top-0 left-0 right-0 mix-blend-plus-lighter;
+  }
 
   .user-settings {
     @apply mt-auto ml-auto;

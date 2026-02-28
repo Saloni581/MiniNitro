@@ -12,7 +12,6 @@ import {
 } from "./ui/dialog.tsx";
 import { avatarEffects } from "../../effectsConfig.ts";
 import {cn} from "@/lib/utils.ts";
-// import randomImg from "../public/settings.png";
 
 
 const ProfileCard = ({ user, setUser }: ProfileProps) => {
@@ -25,17 +24,24 @@ const ProfileCard = ({ user, setUser }: ProfileProps) => {
 
     let activeEffect = null;
     if(effectId) {
-        activeEffect = avatarEffects.filter((effect) => effect.id === effectId);
+        activeEffect = avatarEffects.find((effect) => effect.id === effectId);
     }
+
+    const OverlayComponent = activeEffect && activeEffect?.component;
 
     return (
         <div className="profile-card-container">
             <div className="profile-card">
-                <div className={cn("user-avatar", activeEffect && activeEffect[0]?.cssClass)} >
+                <div className={cn("user-avatar", activeEffect && activeEffect?.cssClass)}>
                     <Avatar>
                         <AvatarImage src={avatarUrl} />
                         <AvatarFallback>Avatar</AvatarFallback>
                     </Avatar>
+                    {
+                        OverlayComponent && (
+                            <OverlayComponent />
+                        )
+                    }
                 </div>
                 <div>{userIdentity?.displayName}</div>
                 <div>
