@@ -1,22 +1,16 @@
 // effectsConfig.ts
 
-import { WaveFrameOverlay } from "@/components/ProfileOverlay.tsx";
+import {
+    FishFrameOverlay,
+    GoldenFrameOverlay,
+    GoldenWaveFrameOverlay,
+    GraphicsParticlesFrameOverlay,
+    GreenFrameOverlay,
+    WaveFrameOverlay
+} from "@/components/ProfileOverlay.tsx";
+
 
 export const avatarEffects = [
-    {
-        id: "fire",
-        name: "Fire Aura",
-        cssClass: "avatar-fire",
-        preview: "/effects/fire-preview.png",
-        price: 100
-    },
-    {
-        id: "gold",
-        name: "Golden Ring",
-        cssClass: "avatar-gold",
-        preview: "/effects/gold-preview.png",
-        price: 200
-    },
     {
         id: "glow",
         name: "White Glow",
@@ -26,9 +20,46 @@ export const avatarEffects = [
     },
     {
         id: "overlay",
-        name: "Wave Overlay",
+        name: "Wave",
         component: WaveFrameOverlay,
         preview: "/effects/gold-preview.png",
         price: 200
-    }
+    },
+    {
+        id: "overlay2",
+        name: "Fish",
+        component: FishFrameOverlay,
+        preview: "/effects/gold-preview.png",
+    price
+:
+200
+},
+    {
+        id: "overlay3",
+        name: "Graphics Particles",
+        component: GraphicsParticlesFrameOverlay,
+        preview: "/effects/gold-preview.png",
+        price: 200
+    },
+    {
+        id: "overlay4",
+        name: "Golden Ring",
+        component: GoldenWaveFrameOverlay,
+        preview: "/effects/gold-preview.png",
+        price: 200
+    },
+    {
+        id: "overlay5",
+        name: "Golden Frame",
+        component: GoldenFrameOverlay,
+        preview: "/effects/fire-preview.png",
+        price: 100
+    },
+    {
+        id: "overlay6",
+        name: "Green Frame",
+        component: GreenFrameOverlay,
+        preview: "/effects/fire-preview.png",
+        price: 100
+    },
 ];

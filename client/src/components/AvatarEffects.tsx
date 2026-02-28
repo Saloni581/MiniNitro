@@ -21,17 +21,24 @@ const AvatarEffects = ({ setUser }: SetUserProps) => {
             <EffectsDropdown />
             <div className="avatar-effects-container">
                 <h1>Avatar Effects</h1>
-                <div className="avatar-effect-button">
-                    {
-                        avatarEffects.map(effect => (
-                            <Button
-                                key={effect.id}
-                                onClick={() => handleApplyEffect(effect.id)}
-                            >
-                                {effect.name}
-                            </Button>
-                        ))
-                    }
+                <div className="avatar-effect-card-container">
+                    {/*{*/}
+                    {/*    avatarEffects.map(effect => (*/}
+                    {/*        <img src={effect.preview} key={effect.id} alt="Effect Preview" />*/}
+                    {/*    ))*/}
+                    {/*}*/}
+                    <div className="avatar-effect-button">
+                        {
+                            avatarEffects.map(effect => (
+                                <Button
+                                    key={effect.id}
+                                    onClick={() => handleApplyEffect(effect.id)}
+                                >
+                                    <span className="text-wrap">{effect.name}</span>
+                                </Button>
+                            ))
+                        }
+                    </div>
                 </div>
             </div>
         </>

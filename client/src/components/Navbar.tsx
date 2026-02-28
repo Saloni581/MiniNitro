@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import type { NavbarProps } from "../../types.ts";
+import type { UserProps } from "../../types.ts";
 
-const Navbar = ({ user }: NavbarProps) => {
+const Navbar = ({ user }: UserProps) => {
 
     return (
         <nav className="navbar">

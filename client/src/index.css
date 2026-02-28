@@ -154,7 +154,7 @@ button:focus-visible {
   }
 
   .user-avatar {
-    @apply relative rounded-full p-6;
+    @apply relative rounded-full p-8;
   }
 
   /* effects */
@@ -174,8 +174,12 @@ button:focus-visible {
     @apply flex flex-col gap-6 m-6
   }
 
+  .avatar-effect-card-container {
+
+  }
+
   .avatar-effect-button {
-    @apply flex md:flex-row flex-col gap-6
+    @apply grid grid-cols-2 md:grid-cols-4 gap-6 md:text-base text-xs
   }
 
   .avatar-glow {
@@ -183,7 +187,7 @@ button:focus-visible {
   }
 
   .avatar-wave-overlay {
-    @apply absolute top-0 left-0 right-0 mix-blend-plus-lighter;
+    @apply absolute top-0 left-0 right-0;
   }
 
   .user-settings {

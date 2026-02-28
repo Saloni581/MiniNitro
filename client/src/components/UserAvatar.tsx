@@ -1,66 +1,32 @@
-import { useRef, useState } from 'react';
-import { uploadAvatar } from "../../api/visuals.ts";
-import type { ProfileProps } from "../../types.ts";
-import { toast } from "sonner"
+import { cn } from "@/lib/utils.ts";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar.tsx";
+import type { UserProps } from "../../types.ts";
+import { avatarEffects } from "../../effectsConfig.ts";
 
-const UserAvatar = ({ user, setUser } : ProfileProps) => {
+const UserAvatar = ({ user }: UserProps) => {
 
-    const inputRef = useRef<HTMLInputElement | null>(null);
-    const [preview, setPreview] = useState<string | null>(null);
+    const avatarUrl = user?.visuals?.avatar?.activeAssetId?.url;
+    const effectId = user?.visuals?.avatar?.decorations?.activeEffect;
 
-    const handleClick = () => {
-        return inputRef.current?.click();
+    let activeEffect = null;
+    if(effectId) {
+        activeEffect = avatarEffects.find((effect) => effect.id === effectId);
     }
 
-    const handleAvatarUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
-        const file = e.target.files?.[0];
-        if(!file) return;
-
-        // preview image
-        const imgUrl = URL.createObjectURL(file);
-        setPreview(imgUrl);
-
-        try {
-            // original file data
-            const formData = new FormData();
-            formData.append("avatar", file);
-
-            // sending file to backend
-            const result = await uploadAvatar(formData);
-            setUser(result.user);
-            toast("Profile Avatar Uploaded");
-            setPreview(null);
-        } catch (error) {
-            console.error(error);
-        }
-    }
+    const OverlayComponent = activeEffect && activeEffect?.component;
 
     return (
-            <div className="avatar">
-                <input
-                    type="file"
-                    name="avatar"
-                    className="hidden"
-                    accept="image/png, image/jpg, image/jpeg, image/gif, image/webp"
-                    ref={inputRef}
-                    onChange={handleAvatarUpload}
-                />
-                {
-                    preview && (
-                        <img
-                            src={preview}
-                            alt="Avatar Preview"
-                            className="w-96 h-96 rounded-full"
-                        />
-                    )
-                }
-                <button onClick={handleClick} type="button">
-                    {
-                        // @ts-ignore
-                        user?.data?.visuals?.avatar?.activeAssetId?.url? "Change Avatar" : "Add Avatar"
-                    }
-                </button>
-            </div>
+        <div className={cn("user-avatar", activeEffect && activeEffect?.cssClass)}>
+            <Avatar>
+                <AvatarImage src={avatarUrl} />
+                <AvatarFallback>Avatar</AvatarFallback>
+            </Avatar>
+            {
+                OverlayComponent && (
+                    <OverlayComponent />
+                )
+            }
+        </div>
     );
 };
 

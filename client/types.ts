@@ -77,7 +77,7 @@ export interface SetUserProps {
     setUser: React.Dispatch<React.SetStateAction<UserProfileProps | null>>
 }
 
-export interface NavbarProps {
+export interface UserProps {
     user: UserProfileProps | null;
 }
 
