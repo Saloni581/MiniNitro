@@ -1,4 +1,4 @@
-import SignOut from "./SignOut.tsx";
+import SignOut from "./auth/SignOut.tsx";
 import type { ProfileProps } from "../../types.ts";
 import UploadUserAvatar from "./UploadUserAvatar.tsx";
 import {
@@ -14,6 +14,7 @@ import UserAvatar from "@/components/UserAvatar.tsx";
 
 const ProfileCard = ({ user, setUser }: ProfileProps) => {
 
+    console.log(user)
     const userIdentity = user?.identity;
 
     return (

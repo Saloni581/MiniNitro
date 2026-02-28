@@ -1,5 +1,5 @@
-import SignUp from "./components/SignUp.tsx";
-import SignIn from "./components/SignIn.tsx";
+import SignUp from "./components/auth/SignUp.tsx";
+import SignIn from "./components/auth/SignIn.tsx";
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from "./components/Navbar.tsx";
 import Home from "./components/Home.tsx";
@@ -8,9 +8,9 @@ import { useEffect, useState } from "react";
 import type { UserProfileProps } from '../types.ts';
 import ProfileForm from "./components/ProfileForm.tsx";
 import { fetchUserDetails } from "../api/user.ts";
-import ProfileEffects from "./components/ProfileEffects.tsx";
-import AvatarEffects from "./components/AvatarEffects.tsx";
-import NameplateEffects from "./components/NameplateEffects.tsx";
+import ProfileEffects from "./components/effects/ProfileEffects.tsx";
+import AvatarEffects from "@/components/effects/AvatarEffects.tsx";
+import NameplateEffects from "./components/effects/NameplateEffects.tsx";
 
 
 const App = () => {

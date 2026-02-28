@@ -1,4 +1,4 @@
-import EffectsDropdown from "@/components/EffectsDropdown.tsx";
+import EffectsDropdown from "@/components/effects/EffectsDropdown.tsx";
 import {Button} from "@/components/ui/button.tsx";
 
 const ProfileEffects = () => {

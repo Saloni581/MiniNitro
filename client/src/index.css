@@ -87,9 +87,9 @@ button:hover {
   border-color: var(--color-text-hover);
 }
 
-button:focus,
-button:focus-visible {
-  outline: 12px auto var(--color-text-hover);
+button:active {
+  transform: scale(0.96);
+  filter: brightness(0.9);
 }
 
 @layer utilities {
@@ -174,12 +174,12 @@ button:focus-visible {
     @apply flex flex-col gap-6 m-6
   }
 
-  .avatar-effect-card-container {
-
+  .avatar-effect-card {
+    @apply flex flex-col justify-center items-center gap-2
   }
 
   .avatar-effect-button {
-    @apply grid grid-cols-2 md:grid-cols-4 gap-6 md:text-base text-xs
+    @apply grid grid-cols-2 md:grid-cols-4 gap-6 md:text-base text-xs place-items-center
   }
 
   .avatar-glow {
