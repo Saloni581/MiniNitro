@@ -1,5 +1,5 @@
 import SignOut from "./auth/SignOut.tsx";
-import type { ProfileProps } from "../../types.ts";
+import type { ProfileProps } from "../../types/types.ts";
 import UploadUserAvatar from "./UploadUserAvatar.tsx";
 import {
     Dialog,

@@ -1,5 +1,5 @@
 import axios from "axios";
-import type { GetUserResponse, ProfileDetailsProps} from "../types";
+import type { GetUserResponse, ProfileDetailsProps} from "../types/types.ts";
 
 const api = axios.create({
     baseURL: "http://localhost:3000/api/user",

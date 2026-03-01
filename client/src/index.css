@@ -13,6 +13,7 @@
   --color-brand-text-secondary: oklch(0.9333 0 149.82);
   --color-text-hover: oklch(0.9228 0.1142 126);
   --color-profile-bg: oklch(0.4926 0 209.12);
+  --color-error: oklch(0.628 0.2577 29.23);
 }
 
 :root {
@@ -106,9 +107,21 @@ button:active {
     @apply flex flex-col gap-4 place-items-center p-22
   }
 
+  .auth-form div {
+    @apply flex flex-col gap-2 md:w-72 w-56
+  }
+
   input {
     @apply border border-brand-primary border-t-4 rounded-md p-2 px-6 outline-none focus:outline-none
     focus:ring focus:ring-brand-primary-bold focus:border-t-brand-primary-bold text-brand-text-primary font-thin;
+  }
+
+  .error-input {
+    @apply border-2 border-error
+  }
+
+  .error-message {
+    @apply text-sm font-light text-error break-all;
   }
 
   .auth-div {

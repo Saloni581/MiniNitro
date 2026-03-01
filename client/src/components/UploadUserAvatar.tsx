@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import { uploadAvatar } from "../../api/visuals.ts";
-import type { ProfileProps } from "../../types.ts";
+import type { ProfileProps } from "../../types/types.ts";
 import { toast } from "sonner"
 
 const UploadUserAvatar = ({ user, setUser } : ProfileProps) => {

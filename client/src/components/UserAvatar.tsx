@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils.ts";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar.tsx";
-import type { UserProps } from "../../types.ts";
-import { avatarEffects } from "../../effectsConfig.ts";
+import type { UserProps } from "../../types/types.ts";
+import { avatarEffects } from "../../constants/effectsConfig.ts";
 
 const UserAvatar = ({ user }: UserProps) => {
 

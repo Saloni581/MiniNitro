@@ -1,8 +1,8 @@
 import EffectsDropdown from "@/components/effects/EffectsDropdown.tsx";
 import { Button } from "@/components/ui/button.tsx";
-import { avatarEffects } from "../../../effectsConfig.ts";
+import { avatarEffects } from "../../../constants/effectsConfig.ts";
 import { patchAvatarEffect } from "../../../api/effects.ts";
-import type { SetUserProps } from "../../../types.ts";
+import type { SetUserProps } from "../../../types/types.ts";
 import { toast } from "sonner";
 
 const AvatarEffects = ({ setUser }: SetUserProps) => {

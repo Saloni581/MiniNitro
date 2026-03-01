@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { signIn } from "../../../api/auth.ts";
 import { Link, useNavigate } from "react-router-dom";
-import type { SetUserProps } from "../../../types.ts";
+import type { SetUserProps } from "../../../types/types.ts";
 import { fetchUserDetails } from "../../../api/user.ts";
 
 const SignIn = ({ setUser } : SetUserProps) => {
