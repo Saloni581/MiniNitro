@@ -133,7 +133,7 @@ button:active {
   }
 
   .profile-form-heading {
-    @apply mb-6 font-bold text-2xl [font-variant-caps:small-caps];
+    @apply mb-6 font-medium text-2xl;
   }
 
   .identity div {
