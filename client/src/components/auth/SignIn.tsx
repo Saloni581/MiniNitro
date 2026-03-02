@@ -1,18 +1,29 @@
-import { useState } from 'react';
 import { signIn } from "../../../api/auth.ts";
 import { Link, useNavigate } from "react-router-dom";
 import type { SetUserProps } from "../../../types/types.ts";
 import { fetchUserDetails } from "../../../api/user.ts";
+import { baseAuthSchema } from "@/lib/validations/auth.schema.ts";
+import { z } from "zod";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { cn } from "@/lib/utils.ts";
 
 const SignIn = ({ setUser } : SetUserProps) => {
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
-    const userSignIn = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        await signIn({ email, password });
+    const form = useForm<z.infer<typeof baseAuthSchema>>({
+        resolver: zodResolver(baseAuthSchema),
+        mode: "onChange",
+        defaultValues: {
+            email: "",
+            password: "",
+        },
+    })
+
+    const userSignIn = async (data: z.infer<typeof baseAuthSchema>) => {
+        // e.preventDefault();
+        await signIn(data);
         const user = await fetchUserDetails();
         setUser(user.data);
         navigate("/profile");
@@ -20,23 +31,45 @@ const SignIn = ({ setUser } : SetUserProps) => {
 
     return (
         <>
-        <form onSubmit={userSignIn} className="auth-form">
-            <input
-                type='text'
-                name="email"
-                placeholder="Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-            />
-            <input
-                type="password"
-                name="password"
-                value={password}
-                placeholder="Enter password"
-                onChange={(e) => setPassword(e.target.value)}
-                required
-            />
+        <form
+            onSubmit={form.handleSubmit(userSignIn)}
+            className="auth-form"
+            noValidate={true}
+        >
+            <div>
+                <label htmlFor="email">Email</label>
+                <input
+                    type='text'
+                    placeholder="email"
+                    className={cn(form.formState.errors.email && "error-input")}
+                    { ...form.register("email") }
+                    required
+                />
+                {
+                    form.formState.errors.email && (
+                        <p className="error-message">
+                            {form.formState.errors.email.message}
+                        </p>
+                    )
+                }
+            </div>
+            <div>
+                <label htmlFor="password">Password</label>
+                <input
+                    type="password"
+                    placeholder="enter password"
+                    className={cn(form.formState.errors.password && "error-input")}
+                    required
+                    { ...form.register("password") }
+                />
+                {
+                    form.formState.errors.password && (
+                        <p className="error-message">
+                            {form.formState.errors.password.message}
+                        </p>
+                    )
+                }
+            </div>
             <button type="submit">SignIn</button>
         </form>
             <div className="auth-div">
