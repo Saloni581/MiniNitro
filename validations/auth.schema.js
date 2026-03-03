@@ -17,4 +17,4 @@ export const signUpSchema = baseAuthSchema.extend({
         .string()
         .trim()
         .min(3, "username should contain at least 3 characters."),
-})
+});

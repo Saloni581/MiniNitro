@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { saveProfileDetails } from "../../api/user.ts";
 import type { SetUserProps } from "../../types/types.ts";
-import { profileSchema } from "@/lib/validations/profile.schema.ts";
+import { profileSchema } from "../../../validations/profile.schema.js";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";

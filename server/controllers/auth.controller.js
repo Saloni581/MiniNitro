@@ -6,16 +6,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 export const signup = async (req, res) => {
-    // get data
     const { userName, email, password } = req.body;
-
-
-    // validate data
-    if(!userName || !email || !password) {
-        return res.status(400).json({
-            message: "Please provide required data!",
-        })
-    }
 
     // create new user in db and save
     try {
@@ -82,20 +73,11 @@ export const signup = async (req, res) => {
 }
 
 export const signin = async (req, res) => {
-    // get data
     const { email, password } = req.body;
-    console.log(req.body);
-    // validation
-    if(!email || !password) {
-        return res.status(400).json({
-            message: "Please provide required data!",
-        })
-    }
+
     // fetch user from db
     try {
         const user = await User.findOne({ email });
-
-        console.log(user)
 
         // validate user
         if (!user) {

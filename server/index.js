@@ -6,12 +6,15 @@ import cookieParser from "cookie-parser";
 import visualsRoutes from "./routes/visuals.routes.js";
 import userRoutes from "./routes/user.routes.js";
 import effectsRoutes from "./routes/effects.routes.js";
+import helmet from "helmet";
 
 const app = express();
 
 app.use(express.json());
 
 app.use(cookieParser());
+
+app.use(helmet());
 
 app.use(cors({
     origin: "http://localhost:5173",

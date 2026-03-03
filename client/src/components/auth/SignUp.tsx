@@ -4,7 +4,7 @@ import type { SetUserProps } from "../../../types/types.ts";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { signUpSchema } from "@/lib/validations/auth.schema.ts";
+import { signUpSchema } from "../../../../validations/auth.schema.js";
 import { cn } from "@/lib/utils.ts";
 
 const SignUp = ({ setUser }: SetUserProps) => {

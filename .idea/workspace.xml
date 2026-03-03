@@ -5,12 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9aeaffe5-ec46-4cc5-ab13-40a9184f9ba6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/server/middlewares/validator.middleware.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ProfileCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ProfileCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/SignUp.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/SignUp.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/UserAvatar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UserAvatar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/ProfileForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ProfileForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/auth/SignIn.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/auth/SignIn.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/auth/SignUp.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/auth/SignUp.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/lib/validations/auth.schema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/validations/auth.schema.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/lib/validations/profile.schema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/validations/profile.schema.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/controllers/auth.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/auth.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/controllers/user.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/user.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/routes/auth.routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/auth.routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/routes/user.routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/user.routes.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,11 +95,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\lathw\Desktop\miniNitro\validation" />
+      <recent name="C:\Users\lathw\Desktop\miniNitro\client\src" />
+      <recent name="C:\Users\lathw\Desktop\miniNitro\client\types" />
       <recent name="C:\Users\lathw\Desktop\miniNitro\client" />
-      <recent name="C:\Users\lathw\Desktop\miniNitro\client\src\components" />
-      <recent name="C:\Users\lathw\Desktop\miniNitro\assets" />
-      <recent name="C:\Users\lathw\Desktop\miniNitro\client\public" />
-      <recent name="C:\Users\lathw\Desktop\miniNitro\server" />
+      <recent name="C:\Users\lathw\Desktop\miniNitro\client\constants" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -137,6 +146,8 @@
       <workItem from="1772018968933" duration="883000" />
       <workItem from="1772019911275" duration="3596000" />
       <workItem from="1772064071034" duration="17904000" />
+      <workItem from="1772416824033" duration="6345000" />
+      <workItem from="1772516398323" duration="4408000" />
     </task>
     <servers />
   </component>
@@ -233,13 +244,25 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/server/index.js</url>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/client/src/components/ProfileForm.tsx</url>
+          <url>file://$PROJECT_DIR$/client/src/components/effects/AvatarEffects.tsx</url>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/client/src/lib/utils.ts</url>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/client/src/components/auth/SignUp.tsx</url>
+          <line>16</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/server/routes/auth.routes.js</url>
           <properties lambdaOrdinal="-1" />
-          <option name="timeStamp" value="11" />
+          <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

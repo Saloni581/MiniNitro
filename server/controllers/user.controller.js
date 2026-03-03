@@ -4,12 +4,6 @@ export const createUserProfile = async (req, res) => {
     const { displayName, pronouns, bio } = req.body;
     const userId = req.user.id;
 
-    if(!displayName) {
-        return res.status(400).json({
-            message: "Missing required parameters",
-        });
-    }
-
     if(!userId) {
         return res.status(401).json({
             message: "Unauthorized User",
