@@ -18,7 +18,7 @@ const ProfileCard = ({ user, setUser }: ProfileProps) => {
     return (
         <div className="profile-card-container">
             <div className="profile-card">
-                <UserAvatar user={user} />
+                <UserAvatar user={user} previewEffectId="" />
                 <div>{userIdentity?.displayName}</div>
                 <div>
                     <span>

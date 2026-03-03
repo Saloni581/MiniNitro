@@ -81,6 +81,11 @@ export interface UserProps {
     user: UserProfileProps | null;
 }
 
+export interface UserAvatarProps {
+    user: UserProfileProps | null;
+    previewEffectId: string;
+}
+
 export interface ProfileProps {
     user: UserProfileProps | null;
     setUser: React.Dispatch<React.SetStateAction<UserProfileProps | null>>

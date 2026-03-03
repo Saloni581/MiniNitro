@@ -184,15 +184,15 @@ button:active {
   /* user avatar effects */
   /* glow effect */
   .avatar-effects-container {
-    @apply flex flex-col gap-6 m-6
+    @apply flex flex-col gap-6 m-6 bg-brand-secondary p-12 rounded-2xl;
+  }
+
+  .avatar-effects-card-container {
+    @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 md:text-base text-xs place-items-center
   }
 
   .avatar-effect-card {
-    @apply flex flex-col justify-center items-center gap-2
-  }
-
-  .avatar-effect-button {
-    @apply grid grid-cols-2 md:grid-cols-4 gap-6 md:text-base text-xs place-items-center
+    @apply flex flex-col justify-center items-center
   }
 
   .avatar-glow {

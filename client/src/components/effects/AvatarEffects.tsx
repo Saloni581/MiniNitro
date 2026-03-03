@@ -2,10 +2,11 @@ import EffectsDropdown from "@/components/effects/EffectsDropdown.tsx";
 import { Button } from "@/components/ui/button.tsx";
 import { avatarEffects } from "../../../constants/effectsConfig.ts";
 import { patchAvatarEffect } from "../../../api/effects.ts";
-import type { SetUserProps } from "../../../types/types.ts";
+import type { ProfileProps } from "../../../types/types.ts";
 import { toast } from "sonner";
+import UserAvatar from "@/components/UserAvatar.tsx";
 
-const AvatarEffects = ({ setUser }: SetUserProps) => {
+const AvatarEffects = ({ user, setUser }: ProfileProps) => {
 
     const handleApplyEffect = async (id : string) => {
         try {
@@ -23,20 +24,15 @@ const AvatarEffects = ({ setUser }: SetUserProps) => {
             <EffectsDropdown />
             <div className="avatar-effects-container">
                 <h1>Avatar Effects</h1>
-                <div className="avatar-effect-card-container">
-                    <div className="avatar-effect-button">
+                    <div className="avatar-effects-card-container">
                         {
                             avatarEffects.map(effect => (
                                 <div className="avatar-effect-card">
-                                    <img
-                                        src={effect.preview}
-                                        key={effect.id}
-                                        alt="Effect Preview"
-                                        className="rounded-4xl"
-                                    />
+                                    <UserAvatar user={user} previewEffectId={effect.id} />
                                     <Button
                                         key={effect.id}
                                         onClick={() => handleApplyEffect(effect.id)}
+                                        className="mt-6"
                                     >
                                         <span className="text-wrap">{effect.name}</span>
                                     </Button>
@@ -44,7 +40,6 @@ const AvatarEffects = ({ setUser }: SetUserProps) => {
                             ))
                         }
                     </div>
-                </div>
             </div>
         </>
     );
