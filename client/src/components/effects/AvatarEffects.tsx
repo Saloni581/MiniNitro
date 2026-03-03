@@ -14,6 +14,7 @@ const AvatarEffects = ({ setUser }: SetUserProps) => {
             toast("Avatar effect applied successfully!");
         } catch (error) {
             console.error(error);
+            toast("Effect could not be applied");
         }
     }
 

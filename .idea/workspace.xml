@@ -5,21 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9aeaffe5-ec46-4cc5-ab13-40a9184f9ba6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/server/middlewares/validator.middleware.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Home.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ProfileForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ProfileForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/ProfileCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ProfileCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/UploadUserAvatar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UploadUserAvatar.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/auth/SignIn.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/auth/SignIn.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/auth/SignOut.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/auth/SignOut.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/auth/SignUp.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/auth/SignUp.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/lib/validations/auth.schema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/validations/auth.schema.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/lib/validations/profile.schema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/validations/profile.schema.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/auth.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/auth.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/user.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/user.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/auth.routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/auth.routes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/user.routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/user.routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/effects/AvatarEffects.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/effects/AvatarEffects.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/controllers/visuals.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/visuals.controller.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,7 +140,7 @@
       <workItem from="1772019911275" duration="3596000" />
       <workItem from="1772064071034" duration="17904000" />
       <workItem from="1772416824033" duration="6345000" />
-      <workItem from="1772516398323" duration="4408000" />
+      <workItem from="1772516398323" duration="6877000" />
     </task>
     <servers />
   </component>
@@ -255,14 +248,15 @@
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/client/src/components/auth/SignUp.tsx</url>
-          <line>16</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/server/routes/auth.routes.js</url>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/client/src/components/UserAvatar.tsx</url>
+          <line>23</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

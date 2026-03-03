@@ -4,17 +4,23 @@ import type { SetUserProps } from "../../../types/types.ts";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+// @ts-ignore
 import { signUpSchema } from "../../../../validations/auth.schema.js";
 import { cn } from "@/lib/utils.ts";
+import { toast } from "sonner";
 
 const SignUp = ({ setUser }: SetUserProps) => {
     const navigate = useNavigate();
 
     const userSignUp = async (data: z.infer<typeof signUpSchema>) => {
-        console.log(data);
-        const res = await signUp(data);
-        setUser(res.data);
-        navigate("/profile-form");
+        try {
+            const res = await signUp(data);
+            setUser(res.data);
+            navigate("/profile-form");
+        } catch (error) {
+            console.error(error);
+            toast("Error creating user");
+        }
     }
 
     const form = useForm<z.infer<typeof signUpSchema>>({

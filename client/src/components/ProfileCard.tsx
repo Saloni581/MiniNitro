@@ -11,9 +11,7 @@ import {
 } from "./ui/dialog.tsx";
 import UserAvatar from "@/components/UserAvatar.tsx";
 
-
 const ProfileCard = ({ user, setUser }: ProfileProps) => {
-
     console.log(user)
     const userIdentity = user?.identity;
 

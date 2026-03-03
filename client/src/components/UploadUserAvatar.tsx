@@ -31,7 +31,8 @@ const UploadUserAvatar = ({ user, setUser } : ProfileProps) => {
             toast("Profile Avatar Uploaded");
             setPreview(null);
         } catch (error) {
-            console.error(error);
+            console.log(error);
+            toast("Something went wrong!");
         }
     }
 

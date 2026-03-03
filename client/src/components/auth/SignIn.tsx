@@ -2,11 +2,13 @@ import { signIn } from "../../../api/auth.ts";
 import { Link, useNavigate } from "react-router-dom";
 import type { SetUserProps } from "../../../types/types.ts";
 import { fetchUserDetails } from "../../../api/user.ts";
+// @ts-ignore
 import { baseAuthSchema } from "../../../../validations/auth.schema.js";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { cn } from "@/lib/utils.ts";
+import { toast } from "sonner";
 
 const SignIn = ({ setUser } : SetUserProps) => {
 
@@ -22,11 +24,15 @@ const SignIn = ({ setUser } : SetUserProps) => {
     })
 
     const userSignIn = async (data: z.infer<typeof baseAuthSchema>) => {
-        // e.preventDefault();
-        await signIn(data);
-        const user = await fetchUserDetails();
-        setUser(user.data);
-        navigate("/profile");
+        try {
+            await signIn(data);
+            const user = await fetchUserDetails();
+            setUser(user.data);
+            navigate("/profile");
+        } catch (error) {
+            console.error(error);
+            toast("Error signing in user");
+        }
     }
 
     return (

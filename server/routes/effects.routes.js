@@ -1,9 +1,9 @@
 import express from 'express';
-import { modifyAvatarEffectInfo } from "../controllers/effects.controller.js";
+import { modifyAvatarEffect } from "../controllers/effects.controller.js";
 import { auth } from "../middlewares/auth.middleware.js";
 
 const router = express.Router();
 
-router.patch("/avatar-effects", auth, modifyAvatarEffectInfo);
+router.patch("/avatar-effects", auth, modifyAvatarEffect);
 
 export default router;

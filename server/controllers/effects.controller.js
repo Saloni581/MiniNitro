@@ -1,6 +1,6 @@
 import UserProfile from "../db/models/userProfileSchema.js";
 
-export const modifyAvatarEffectInfo = async (req, res) => {
+export const modifyAvatarEffect = async (req, res) => {
     const userId = req.user.id;
     const { effectId } = req.body;
 
