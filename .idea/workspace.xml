@@ -5,28 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9aeaffe5-ec46-4cc5-ab13-40a9184f9ba6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/client/src/components/avatarEffects/glowEffects.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/constants/effectsConfig.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/constants/effectsConfig.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/avatar-preview/frameFish_.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/avatar-preview/frame_.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/avatar-preview/goldenWaveFrame_.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/avatar-preview/goldenframe_.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/avatar-preview/greenFrame_.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/avatar-preview/particleGraphicsFrame_.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/avatar-preview/whiteGlow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/frame.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/frameFish.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/goldenWaveFrame.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/goldenframe.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/greenFrame.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/particleGraphicsFrame.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/ProfileCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ProfileCard.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/UserAvatar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UserAvatar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/effects/AvatarEffects.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/effects/AvatarEffects.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/effects/ProfileOverlays.tsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/ui/avatar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ui/avatar.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/types/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/types/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,11 +87,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\lathw\Desktop\miniNitro\client\src\assets" />
       <recent name="C:\Users\lathw\Desktop\miniNitro\validation" />
       <recent name="C:\Users\lathw\Desktop\miniNitro\client\src" />
       <recent name="C:\Users\lathw\Desktop\miniNitro\client\types" />
       <recent name="C:\Users\lathw\Desktop\miniNitro\client" />
-      <recent name="C:\Users\lathw\Desktop\miniNitro\client\constants" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -263,13 +248,11 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/server/routes/auth.routes.js</url>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/client/src/components/ProfileCard.tsx</url>
           <line>27</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>

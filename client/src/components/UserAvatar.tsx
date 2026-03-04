@@ -1,4 +1,3 @@
-import { cn } from "@/lib/utils.ts";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar.tsx";
 import type { UserAvatarProps } from "../../types/types.ts";
 import { avatarEffects } from "../../constants/effectsConfig.ts";
@@ -14,11 +13,20 @@ const UserAvatar = ({ user, previewEffectId }: UserAvatarProps) => {
     }
 
     return (
-        <div className={cn("user-avatar", activeEffect && activeEffect?.cssClass)}>
-            <Avatar>
-                <AvatarImage src={avatarUrl} />
-                <AvatarFallback>Avatar</AvatarFallback>
-            </Avatar>
+        <div className="user-avatar">
+            <div className="relative flex flex-col items-center justify-center">
+                <div className="z-1">
+                    <Avatar>
+                        <AvatarImage src={avatarUrl} />
+                        <AvatarFallback>Avatar</AvatarFallback>
+                    </Avatar>
+                </div>
+                <div className="absolute">
+                    {activeEffect && (
+                        <activeEffect.component />
+                    )}
+                </div>
+            </div>
         </div>
     );
 };

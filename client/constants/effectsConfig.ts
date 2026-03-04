@@ -1,8 +1,10 @@
+import { whiteGlowEffect } from "@/components/avatarEffects/glowEffects.tsx";
+
 export const avatarEffects = [
     {
-        id: "glow",
+        id: "glow1",
         name: "White Glow",
-        cssClass: "avatar-glow",
+        component: whiteGlowEffect,
         price: 200
     },
 ];

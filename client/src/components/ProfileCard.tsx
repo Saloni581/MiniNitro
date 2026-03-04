@@ -18,7 +18,7 @@ const ProfileCard = ({ user, setUser }: ProfileProps) => {
     return (
         <div className="profile-card-container">
             <div className="profile-card">
-                <UserAvatar user={user} previewEffectId="" />
+                <UserAvatar user={user} previewEffectId=""/>
                 <div>{userIdentity?.displayName}</div>
                 <div>
                     <span>
@@ -30,7 +30,7 @@ const ProfileCard = ({ user, setUser }: ProfileProps) => {
                 </div>
                 <div>
                     {
-                        userIdentity?.bio === ""?
+                        userIdentity?.bio === "" ?
                             "No bio" :
                             <p>
                                 {userIdentity?.bio}
@@ -46,8 +46,8 @@ const ProfileCard = ({ user, setUser }: ProfileProps) => {
                             <DialogHeader>
                                 <DialogTitle>User Settings</DialogTitle>
                                 <DialogDescription>
-                                    <UploadUserAvatar user={user} setUser={setUser} />
-                                    <SignOut setUser={setUser} />
+                                    <UploadUserAvatar user={user} setUser={setUser}/>
+                                    <SignOut setUser={setUser}/>
                                 </DialogDescription>
                             </DialogHeader>
                         </DialogContent>

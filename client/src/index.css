@@ -14,6 +14,8 @@
   --color-text-hover: oklch(0.9228 0.1142 126);
   --color-profile-bg: oklch(0.4926 0 209.12);
   --color-error: oklch(0.628 0.2577 29.23);
+  --color-gold: oklch(0.9058 0.1932 95.3305);
+  --color-purple: oklch(0.7122 0.2467 352);
 }
 
 :root {
@@ -167,11 +169,10 @@ button:active {
   }
 
   .user-avatar {
-    @apply relative rounded-full p-8;
+    @apply relative rounded-full p-8 z-1;
   }
 
   /* effects */
-
   .all-effects-container {
     @apply flex
   }
@@ -180,9 +181,7 @@ button:active {
     @apply ml-auto m-4 p-2 bg-[#F5F5F5] shadow-sm cursor-pointer hover:shadow-lg;
   }
 
-
   /* user avatar effects */
-  /* glow effect */
   .avatar-effects-container {
     @apply flex flex-col gap-6 m-6 bg-brand-secondary p-12 rounded-2xl;
   }
@@ -193,14 +192,6 @@ button:active {
 
   .avatar-effect-card {
     @apply flex flex-col justify-center items-center
-  }
-
-  .avatar-glow {
-      @apply bg-[#F5F5F5] shadow-lg shadow-white p-0;
-  }
-
-  .avatar-wave-overlay {
-    @apply absolute top-0 left-0 right-0;
   }
 
   .user-settings {
