@@ -137,3 +137,18 @@ export const signout = async (req, res) => {
         message: "Logged out Successfully!",
     });
 }
+
+export const deleteUser = async (req, res) => {
+    const userId = req.user.id;
+    try {
+        await User.findByIdAndDelete( userId );
+        return res.status(200).json({
+            message: "User deleted successfully",
+        });
+    } catch(error) {
+        return res.status(500).json({
+            message: "Internal Server Error",
+        })
+    }
+}
+
