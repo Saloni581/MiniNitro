@@ -7,8 +7,12 @@ import visualsRoutes from "./routes/visuals.routes.js";
 import userRoutes from "./routes/user.routes.js";
 import effectsRoutes from "./routes/effects.routes.js";
 import helmet from "helmet";
+import http from "http";
+import { Server } from "socket.io";
 
 const app = express();
+const server = http.createServer(app);
+const io = new Server(server);
 
 app.use(express.json());
 
@@ -29,12 +33,8 @@ app.use("/api/user", userRoutes);
 
 app.use("/api/effects", effectsRoutes);
 
-app.get('/', (req, res) => {
-    res.send('Welcome to the server!');
-})
-
 connectToDB().then(() => {
-    app.listen(3000, () => {
+    server.listen(3000, () => {
         console.log('Server started on port 3000');
     })
 })
