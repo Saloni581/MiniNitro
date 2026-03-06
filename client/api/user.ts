@@ -25,3 +25,8 @@ export const fetchUserDetails = async () => {
     const user = await api.get<GetUserResponse>('/me');
     return user.data;
 }
+
+export const fetchALlUsers = async () => {
+    const users = await api.get('/all-users');
+    return users.data;
+}

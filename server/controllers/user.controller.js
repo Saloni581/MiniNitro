@@ -69,3 +69,16 @@ export const getUserData = async (req, res) => {
         });
     }
 }
+
+export const getAllUsers = async (req, res) => {
+    try {
+        const allUsers = await UserProfile.find();
+        return res.status(200).json({
+            users: allUsers,
+        });
+    } catch (error) {
+        return res.status(500).json({
+            message: "Internal Server Error",
+        });
+    }
+}
