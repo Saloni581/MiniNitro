@@ -1,11 +1,12 @@
 import express from 'express';
-import cors from "cors";
 import authRoutes from "./routes/auth.routes.js";
-import connectToDB from "./db/connectToDB.js";
-import cookieParser from "cookie-parser";
 import visualsRoutes from "./routes/visuals.routes.js";
 import userRoutes from "./routes/user.routes.js";
 import effectsRoutes from "./routes/effects.routes.js";
+import messageRoutes from "./routes/message.routes.js";
+import cors from "cors";
+import connectToDB from "./db/connectToDB.js";
+import cookieParser from "cookie-parser";
 import helmet from "helmet";
 import http from "http";
 import { Server } from "socket.io";
@@ -35,6 +36,8 @@ app.use("/api/visuals", visualsRoutes);
 app.use("/api/user", userRoutes);
 
 app.use("/api/effects", effectsRoutes);
+
+app.use("/api/messages", messageRoutes);
 
 connectToDB().then(() => {
     server.listen(3000, () => {
