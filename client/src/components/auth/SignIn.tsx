@@ -9,10 +9,13 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { cn } from "@/lib/utils.ts";
 import { toast } from "sonner";
+import { useContext } from "react";
+import { SocketContext } from "@/components/SocketContext.tsx";
 
 const SignIn = ({ setUser } : SetUserProps) => {
 
     const navigate = useNavigate();
+    const connectToSocketContext = useContext(SocketContext);
 
     const form = useForm<z.infer<typeof baseAuthSchema>>({
         resolver: zodResolver(baseAuthSchema),
@@ -28,6 +31,7 @@ const SignIn = ({ setUser } : SetUserProps) => {
             await signIn(data);
             const user = await fetchUserDetails();
             setUser(user.data);
+            connectToSocketContext?.connectToSocket();
             navigate("/profile");
         } catch (error) {
             console.error(error);
