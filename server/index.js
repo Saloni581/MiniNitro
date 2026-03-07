@@ -9,7 +9,7 @@ import effectsRoutes from "./routes/effects.routes.js";
 import helmet from "helmet";
 import http from "http";
 import { Server } from "socket.io";
-import { initSocket } from "./config/socket.js";
+import { initSocket } from "./socket/socket.js";
 
 const app = express();
 const server = http.createServer(app);

@@ -27,7 +27,7 @@ const Home = () => {
     }, [])
 
     return (
-        <div className="p-12 bg-teal-400">
+        <div className="p-12">
             {users?.map((user) => (
                 <div className="flex items-center">
                     <Dialog>

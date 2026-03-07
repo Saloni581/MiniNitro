@@ -5,17 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9aeaffe5-ec46-4cc5-ab13-40a9184f9ba6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/components/UserProfile.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/SocketContext.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/api/socket.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/api/socket.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Home.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ProfileCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ProfileCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/UserAvatar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/UserAvatar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ui/avatar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ui/avatar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ui/dialog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ui/dialog.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/types/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/types/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/config/socket.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/socket/socket.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,11 +91,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\lathw\Desktop\miniNitro\server\socket" />
       <recent name="C:\Users\lathw\Desktop\miniNitro\client\src\assets" />
       <recent name="C:\Users\lathw\Desktop\miniNitro\validation" />
       <recent name="C:\Users\lathw\Desktop\miniNitro\client\src" />
       <recent name="C:\Users\lathw\Desktop\miniNitro\client\types" />
-      <recent name="C:\Users\lathw\Desktop\miniNitro\client" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -150,7 +146,7 @@
       <workItem from="1772516398323" duration="13798000" />
       <workItem from="1772755579130" duration="15542000" />
       <workItem from="1772803487496" duration="3867000" />
-      <workItem from="1772837340738" duration="4630000" />
+      <workItem from="1772837340738" duration="8804000" />
     </task>
     <servers />
   </component>
@@ -261,6 +257,11 @@
           <url>file://$PROJECT_DIR$/client/src/components/ProfileCard.tsx</url>
           <line>28</line>
           <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/server/socket/socket.js</url>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
