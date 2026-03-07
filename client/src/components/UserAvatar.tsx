@@ -16,7 +16,7 @@ const UserAvatar = ({ user, previewEffectId, size }: UserAvatarProps) => {
         <div className="user-avatar">
             <div className="relative flex flex-col items-center justify-center">
                 <div className="z-1">
-                    <Avatar className={`size-${size}`}>
+                    <Avatar size={`${size}`}>
                         <AvatarImage src={avatarUrl} />
                         <AvatarFallback>Avatar</AvatarFallback>
                     </Avatar>

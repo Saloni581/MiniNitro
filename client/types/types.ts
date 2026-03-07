@@ -84,7 +84,7 @@ export interface UserProps {
 export interface UserAvatarProps {
     user: UserProfileProps | null;
     previewEffectId: string;
-    size: number;
+    size: "default" | "sm" | "md" | "lg" ;
 }
 
 export interface ProfileProps {
