@@ -1,4 +1,4 @@
-import { whiteGlowEffect } from "@/components/avatarEffects/glowEffects.tsx";
+import { whiteGlowEffect } from "@/components/effects/avatarEffects/glowEffects.tsx";
 
 export const avatarEffects = [
     {

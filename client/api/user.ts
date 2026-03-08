@@ -26,7 +26,7 @@ export const fetchUserDetails = async () => {
     return user.data;
 }
 
-export const fetchALlUsers = async () => {
+export const fetchAllUsers = async () => {
     const users = await api.get('/all-users');
     return users.data;
 }

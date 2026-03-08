@@ -1,20 +1,17 @@
 import { io } from "socket.io-client"
+import type { SocketSendMessageProps } from "../types/types.ts";
 const url = "http://localhost:3000";
 
-export const socket = io(url, { autoConnect: false });
+export const socket = io(url, {
+    autoConnect: false,
+    withCredentials: true,
+});
 
 export const connectToSocket = () => {
     socket.connect();
 }
 
-socket.on("messageSent", (content) => {
-    console.log(content);
-});
-
-socket.on("receiveMessage", (content) => {
-    console.log(content);
-});
-
-socket.on('error', ({ message }) => {
-    console.log(message);
-})
+export const sendMessage = ({ receiverId, inputMessage, messageType }: SocketSendMessageProps) => {
+    const message = inputMessage;
+    socket.emit("sendMessage", { receiverId, message, messageType });
+}

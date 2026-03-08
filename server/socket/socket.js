@@ -1,4 +1,5 @@
 import jwt from "jsonwebtoken";
+import cookie from "cookie";
 import Conversation from "../db/models/conversationSchema.js";
 import Message from "../db/models/messageSchema.js";
 
@@ -6,7 +7,9 @@ export let onlineUsers = {};
 
 export const initSocket = (io) => {
     io.use((socket, next) => {
-        const token = socket.handshake.cookies.token;
+        const cookies = (socket.handshake.headers.cookie);
+        const token = cookie.parse(cookies).token;
+
         try {
             if(token) {
                 const decoded = jwt.verify(token, process.env.JWT_SECRET);
@@ -31,6 +34,7 @@ export const initSocket = (io) => {
                         $all: [socket.userId, receiverId],
                     }
                 });
+
                 if (!conversation) {
                     conversation = new Conversation({
                         participants: [socket.userId, receiverId],

@@ -1,10 +1,7 @@
 export interface UserProfileProps {
     _id: string;
 
-    userId: {
-        userId: string;
-        userName: string;
-    };
+    userId: string | { userId: string; userName: string };
 
     createdAt: string;
 
@@ -98,3 +95,13 @@ export interface ProfileDetailsProps {
     bio: string;
 }
 
+export interface ChatWindowProps {
+    loggedInUser: UserProfileProps;
+    selectedUser: UserProfileProps;
+}
+
+export interface SocketSendMessageProps {
+    receiverId: string;
+    inputMessage: string;
+    messageType: any;
+}

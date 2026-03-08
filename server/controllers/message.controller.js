@@ -4,6 +4,7 @@ import Message from "../db/models/messageSchema.js";
 export const getAllMessages = async (req, res) => {
         const user1 = req.user.id;
         const user2 = req.params.userId;
+
         try {
             const conversation = await Conversation.findOne({
                 participants: {
