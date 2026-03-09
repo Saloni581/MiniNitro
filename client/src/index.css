@@ -114,7 +114,7 @@ button:active {
   }
 
   input {
-    @apply border border-brand-primary border-t-4 rounded-md p-2 px-6 outline-none focus:outline-none
+    @apply border border-brand-primary border-t-4 rounded-md p-2 px-4 outline-none focus:outline-none
     focus:ring focus:ring-brand-primary-bold focus:border-t-brand-primary-bold text-brand-text-primary font-thin;
   }
 
@@ -169,7 +169,7 @@ button:active {
   }
 
   .user-avatar {
-    @apply relative rounded-full p-8 z-1;
+    @apply relative rounded-full p-2 z-1;
   }
 
   /* effects */
@@ -197,6 +197,16 @@ button:active {
   .user-settings {
     @apply mt-auto ml-auto;
   }
+
+  /* chat */
+
+  .chat-window-container-outer {
+    @apply p-4 bg-brand-text-primary text-brand-text-secondary rounded-md
+  }
+
+
+
+
 }
 
 @theme inline {

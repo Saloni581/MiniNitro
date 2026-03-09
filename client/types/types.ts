@@ -1,7 +1,7 @@
 export interface UserProfileProps {
     _id: string;
 
-    userId: string | { userId: string; userName: string };
+    userId: string;
 
     createdAt: string;
 
@@ -74,10 +74,6 @@ export interface SetUserProps {
     setUser: React.Dispatch<React.SetStateAction<UserProfileProps | null>>
 }
 
-export interface UserProps {
-    user: UserProfileProps | null;
-}
-
 export interface UserAvatarProps {
     user: UserProfileProps | null;
     previewEffectId: string;
@@ -96,7 +92,7 @@ export interface ProfileDetailsProps {
 }
 
 export interface ChatWindowProps {
-    loggedInUser: UserProfileProps;
+    loggedInUser: UserProfileProps | null;
     selectedUser: UserProfileProps;
 }
 
@@ -104,4 +100,9 @@ export interface SocketSendMessageProps {
     receiverId: string;
     inputMessage: string;
     messageType: any;
+}
+
+export interface MessageCardProps {
+    user: UserProfileProps | null;
+    message: any;
 }

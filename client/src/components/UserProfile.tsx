@@ -13,6 +13,7 @@ import ProfileCard from "@/components/ProfileCard.tsx";
 
 
 const UserProfile = ({ user, setUser }: ProfileProps) => {
+
     return (
         <div className="profile-card-container">
             <div className="profile-card">

@@ -12,8 +12,11 @@ import {
 import ProfileCard from "@/components/ProfileCard.tsx";
 import ChatWindow from "@/components/ChatWindow.tsx";
 
+type loggedInUserProps = {
+    loggedInUser: UserProfileProps | null;
+}
 
-const Home = ( loggedInUser : UserProfileProps ) => {
+const Home = ({ loggedInUser } : loggedInUserProps ) => {
     const [users, setUsers] = useState<UserProfileProps[]>([]);
     const [selectedUser, setSelectedUser] = useState<UserProfileProps | null>(null);
 
@@ -26,16 +29,15 @@ const Home = ( loggedInUser : UserProfileProps ) => {
         renderAllUsers();
     }, []);
 
-    const handleSelectedUser = ( user : UserProfileProps) => {
-        setSelectedUser(user);
+    const handleSelectedUser = ( selectedUser : UserProfileProps ) => {
+        setSelectedUser(selectedUser);
     }
 
-    const filteredUsers = users.filter((user) => user.userId !== loggedInUser?.user.userId._id);
-    // console.log(filteredUsers);
+    const filteredUsers = users.filter((user) => user.userId !== loggedInUser?.userId);
 
     return (
-        <div className="p-12">
-            {filteredUsers?.map((eachUser) => (
+        <div className="flex md:flex-row flex-col md:justify-between gap-6">
+            {filteredUsers && filteredUsers?.map((eachUser) => (
                 <div key={eachUser._id} className="flex items-center">
                     <Dialog>
                         <DialogTrigger asChild>
@@ -68,8 +70,8 @@ const Home = ( loggedInUser : UserProfileProps ) => {
 
             {
                 selectedUser && (
-                    <div>
-                        <ChatWindow loggedInUser={loggedInUser.user} selectedUser={selectedUser} />
+                    <div className="p-4 h-130 overflow-y-auto">
+                        <ChatWindow loggedInUser={loggedInUser} selectedUser={selectedUser} />
                     </div>
                 )
             }

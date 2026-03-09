@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from 'react';
-import UserAvatar from "@/components/UserAvatar.tsx";
 import {SocketContext} from "@/components/SocketContext.tsx";
 import type { ChatWindowProps } from "../../types/types.ts";
 import { sendMessage } from "../../api/socket.ts";
 import {fetchMessages} from "../../api/message.ts";
+import MessageCard from "@/components/MessageCard.tsx";
 
 
 const ChatWindow = ({ loggedInUser, selectedUser }: ChatWindowProps) => {
@@ -14,7 +14,6 @@ const ChatWindow = ({ loggedInUser, selectedUser }: ChatWindowProps) => {
     const handleSend = () => {
         const messageType = "text";
         const receiverId = selectedUser?.userId;
-        console.log(selectedUser);
         sendMessage({ receiverId, inputMessage, messageType});
         setInputMessage("");
     }
@@ -22,7 +21,7 @@ const ChatWindow = ({ loggedInUser, selectedUser }: ChatWindowProps) => {
     // runs once
     useEffect(() => {
         const fetchChatHistory = async () => {
-            const userId = selectedUser.userId;
+            const userId = selectedUser?.userId;
             const oldMessages = await fetchMessages({ userId });
             setMessages(oldMessages);
         }
@@ -54,28 +53,26 @@ const ChatWindow = ({ loggedInUser, selectedUser }: ChatWindowProps) => {
     }, [socketContext?.socket]);
 
     return (
-        <div>
-            <div className="h-100 overflow-y-auto">
-                <UserAvatar user={selectedUser} previewEffectId="" size="sm" />
-                <p>{selectedUser?.identity?.displayName}</p>
-            </div>
+        <div className="chat-window-container-outer">
             <div>
-                { messages && messages?.map((message) => (
-                    <div
-                        key={message?._id}
-                        className={message.sender === loggedInUser.userId._id? 'text-purple-600': 'text-gold'}
-                    >
-                        {message?.message}
-                    </div>
-                ))}
-            </div>
-            <div>
-                <input
-                    type="text"
-                    value={inputMessage}
-                    onChange={(e) => setInputMessage(e.target.value)}
-                />
-                <button onClick={handleSend}>Send</button>
+                <div>
+                    { messages && messages?.map((message) => (
+                        <div
+                            key={message?._id}
+                        >
+                            <MessageCard user={message?.sender === loggedInUser?.userId? loggedInUser : selectedUser } message={message?.message} />
+                        </div>
+                    ))}
+                </div>
+                <div className="p-2 flex gap-2">
+                    <input
+                        type="text"
+                        value={inputMessage}
+                        onChange={(e) => setInputMessage(e.target.value)}
+                        className="text-brand-text-secondary w-full"
+                    />
+                    <button onClick={handleSend}>Send</button>
+                </div>
             </div>
         </div>
     );

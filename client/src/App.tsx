@@ -41,7 +41,7 @@ const App = () => {
                <Route
                    path="/"
                    element={
-                       <Home user={user} />
+                       <Home loggedInUser={user} />
                    }
                >
                </Route>

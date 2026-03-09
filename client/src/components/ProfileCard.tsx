@@ -1,27 +1,27 @@
-import type { UserProps } from "../../types/types.ts";
+import type { UserProfileProps } from "../../types/types.ts";
 import UserAvatar from "@/components/UserAvatar.tsx";
 
-const ProfileCard = ({ user }: UserProps) => {
-    const userIdentity = user?.identity;
+type UserProps = {
+    user : UserProfileProps | null;
+}
+
+const ProfileCard = ({ user } : UserProps ) => {
 
     return (
         <>
             <UserAvatar user={user} previewEffectId="" size="lg"/>
-            <div>{userIdentity?.displayName}</div>
+            <div>{user?.identity?.displayName}</div>
             <div>
-                    <span>
-                        {user?.userId?.userName}&middot;
-                    </span>
                 <span>
-                        {userIdentity?.pronouns}
+                        {user?.identity?.pronouns}
                     </span>
             </div>
             <div>
                 {
-                    userIdentity?.bio === "" ?
+                    user?.identity?.bio === "" ?
                         "No bio" :
                         <p>
-                            {userIdentity?.bio}
+                            {user?.identity?.bio}
                         </p>
                 }
             </div>

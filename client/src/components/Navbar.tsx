@@ -1,7 +1,11 @@
 import { Link } from 'react-router-dom';
-import type { UserProps } from "../../types/types.ts";
+import type { UserProfileProps } from "../../types/types.ts";
 
-const Navbar = ({ user }: UserProps) => {
+type UserProps = {
+    user: UserProfileProps | null;
+}
+
+const Navbar = (user: UserProps) => {
 
     return (
         <nav className="navbar">
@@ -9,7 +13,7 @@ const Navbar = ({ user }: UserProps) => {
                 Home
             </Link>
             {
-                user?
+                user?.user?
                     <Link to='/profile'>
                         Profile
                     </Link>
