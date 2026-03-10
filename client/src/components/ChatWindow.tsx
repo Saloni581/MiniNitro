@@ -18,6 +18,12 @@ const ChatWindow = ({ loggedInUser, selectedUser }: ChatWindowProps) => {
         setInputMessage("");
     }
 
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if(e.key === "Enter" && inputMessage.trim() !== "") {
+            handleSend();
+        }
+    }
+
     // runs once
     useEffect(() => {
         const fetchChatHistory = async () => {
@@ -70,6 +76,7 @@ const ChatWindow = ({ loggedInUser, selectedUser }: ChatWindowProps) => {
                         value={inputMessage}
                         onChange={(e) => setInputMessage(e.target.value)}
                         className="text-brand-text-secondary w-full"
+                        onKeyDown={handleKeyDown}
                     />
                     <button onClick={handleSend}>Send</button>
                 </div>
