@@ -199,8 +199,14 @@ button:active {
     @apply border-2 filter-[url(#glow)]
   }
 
+  /* user */
+
   .user-settings {
     @apply mt-auto ml-auto;
+  }
+
+  .user-nameplate {
+    @apply flex items-center bg-pink-100 mb-4 py-2 px-12 rounded-lg
   }
 
   /* chat */
@@ -208,10 +214,6 @@ button:active {
   .chat-window-container-outer {
     @apply p-4 bg-brand-text-primary text-brand-text-secondary rounded-md
   }
-
-
-
-
 }
 
 @theme inline {

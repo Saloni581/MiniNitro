@@ -36,38 +36,39 @@ const Home = ({ loggedInUser } : loggedInUserProps ) => {
     const filteredUsers = users.filter((user) => user.userId !== loggedInUser?.userId);
 
     return (
-        <div className="flex flex-col md:justify-between gap-6 p-2">
-            {filteredUsers && filteredUsers?.map((eachUser) => (
-                <div key={eachUser._id} className="flex items-center">
-                    <Dialog>
-                        <DialogTrigger asChild>
-                            <div>
-                                <UserAvatar user={eachUser} previewEffectId="" size="md" />
-                            </div>
-                        </DialogTrigger>
-                        <DialogContent>
-                            <DialogHeader>
-                                <DialogDescription>
-                                    <div className="flex flex-col justify-center items-center">
-                                        <ProfileCard user={eachUser} />
-                                    </div>
-                                </DialogDescription>
-                            </DialogHeader>
-                        </DialogContent>
-                    </Dialog>
-                    <div className="flex flex-col gap-4 items-center">
-                        <p>{eachUser?.identity?.displayName}</p>
-                        <button
-                            onClick={() => {
-                                handleSelectedUser(eachUser);
-                            }}
-                        >
-                            connect & message
-                        </button>
+        <div className="flex md:flex-row flex-col md:justify-between gap-6 p-2">
+            <div>
+                {filteredUsers && filteredUsers?.map((eachUser) => (
+                    <div key={eachUser._id} className="user-nameplate">
+                        <Dialog>
+                            <DialogTrigger asChild>
+                                <div>
+                                    <UserAvatar user={eachUser} previewEffectId="" size="md" />
+                                </div>
+                            </DialogTrigger>
+                            <DialogContent>
+                                <DialogHeader>
+                                    <DialogDescription>
+                                        <div className="flex flex-col justify-center items-center">
+                                            <ProfileCard user={eachUser} />
+                                        </div>
+                                    </DialogDescription>
+                                </DialogHeader>
+                            </DialogContent>
+                        </Dialog>
+                        <div className="flex flex-col gap-4 items-center">
+                            <p>{eachUser?.identity?.displayName}</p>
+                            <button
+                                onClick={() => {
+                                    handleSelectedUser(eachUser);
+                                }}
+                            >
+                                connect & message
+                            </button>
+                        </div>
                     </div>
-                </div>
-            ))}
-
+                ))}
+            </div>
             {
                 (selectedUser && loggedInUser) && (
                     <div className="p-4 h-130 overflow-y-auto">
