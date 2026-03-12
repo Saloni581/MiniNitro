@@ -36,7 +36,7 @@ const Home = ({ loggedInUser } : loggedInUserProps ) => {
     const filteredUsers = users.filter((user) => user.userId !== loggedInUser?.userId);
 
     return (
-        <div className="flex md:flex-row flex-col md:justify-between gap-6">
+        <div className="flex flex-col md:justify-between gap-6 p-2">
             {filteredUsers && filteredUsers?.map((eachUser) => (
                 <div key={eachUser._id} className="flex items-center">
                     <Dialog>
@@ -69,7 +69,7 @@ const Home = ({ loggedInUser } : loggedInUserProps ) => {
             ))}
 
             {
-                selectedUser && (
+                (selectedUser && loggedInUser) && (
                     <div className="p-4 h-130 overflow-y-auto">
                         <ChatWindow loggedInUser={loggedInUser} selectedUser={selectedUser} />
                     </div>

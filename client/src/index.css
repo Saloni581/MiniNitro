@@ -147,7 +147,7 @@ button:active {
   }
 
   .identity textarea {
-    @apply border border-brand-primary border-t-4 rounded-md p-2 px-6 outline-none focus:outline-none
+    @apply border border-brand-primary border-t-4 rounded-md px-6 outline-none focus:outline-none
     focus:ring focus:ring-brand-primary-bold focus:border-t-brand-primary-bold text-brand-text-primary
     font-thin resize-none;
   }
@@ -192,6 +192,11 @@ button:active {
 
   .avatar-effect-card {
     @apply flex flex-col justify-center items-center
+  }
+
+  /* glow effects */
+  .white-glow {
+    @apply border-2 filter-[url(#glow)]
   }
 
   .user-settings {

@@ -70,3 +70,35 @@ export const uploadUserAvatar = async (req, res) => {
         });
     }
 }
+
+export const removeUserAvatar = async (req, res) => {
+    const userId = req.user.id;
+    const user = await UserProfile.findOne({ userId });
+
+    // store previous avatar in recent assets if exists
+    const recentAvatarSecure_url = user?.visuals?.avatar?.activeAssetId?.url;
+
+    if(!recentAvatarSecure_url) {
+        return res.status(200).json({
+            user,
+            message: "There is no user avatar yet.",
+        })
+    }
+
+    const updatedUser = await UserProfile.findOneAndUpdate(
+        { userId },
+        {
+            $addToSet: {
+                "visuals.avatar.recentAssets": recentAvatarSecure_url,
+            },
+            $unset: {
+                "visuals.avatar.activeAssetId.url": "",
+            }
+        },
+        { new: true }
+    );
+    return res.status(200).json({
+        updatedUser,
+        message: "User avatar Removed",
+    });
+}

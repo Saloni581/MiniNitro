@@ -10,9 +10,18 @@ import {
     DialogTrigger,
 } from "./ui/dialog.tsx";
 import ProfileCard from "@/components/ProfileCard.tsx";
+import { removeAvatar } from "../../api/visuals.ts";
+import {toast} from "sonner";
 
 
 const UserProfile = ({ user, setUser }: ProfileProps) => {
+
+    const handleRemoveAvatar = async () => {
+        const res = await removeAvatar();
+        setUser(res.updatedUser);
+        toast.success("Avatar removed successfully.");
+    }
+
 
     return (
         <div className="profile-card-container">
@@ -26,8 +35,11 @@ const UserProfile = ({ user, setUser }: ProfileProps) => {
                         <DialogContent>
                             <DialogHeader>
                                 <DialogTitle>User Settings</DialogTitle>
-                                <DialogDescription>
-                                    <UploadUserAvatar user={user} setUser={setUser}/>
+                                <DialogDescription className="flex flex-col gap-2">
+                                    <div>
+                                        <UploadUserAvatar user={user} setUser={setUser}/>
+                                        <button onClick={handleRemoveAvatar}>Remove avatar</button>
+                                    </div>
                                     <SignOut setUser={setUser}/>
                                 </DialogDescription>
                             </DialogHeader>

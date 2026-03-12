@@ -5,6 +5,7 @@ export const avatarEffects = [
         id: "glow1",
         name: "White Glow",
         component: whiteGlowEffect,
+        cssClass: 'white-glow',
         price: 200
     },
 ];

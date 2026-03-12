@@ -12,3 +12,10 @@ export const uploadAvatar = async (formData: FormData) => {
     );
     return result.data;
 }
+
+export const removeAvatar = async () => {
+    const res = await api.delete(
+        "/remove-avatar",
+    );
+    return res.data;
+}
