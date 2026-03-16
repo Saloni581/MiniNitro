@@ -24,7 +24,10 @@ export const initSocket = (io) => {
     });
 
     io.on("connection", (socket) => {
-        onlineUsers[socket.userId] = socket.id;
+        onlineUsers[socket.userId.toString()] = socket.id;
+
+        // let everyone know that I am online
+        io.emit("userOnline", { onlineUsers });
 
         socket.on("sendMessage", async ({ receiverId, message, messageType }) => {
             try {
@@ -51,14 +54,14 @@ export const initSocket = (io) => {
                 });
                 await content.save();
 
-                // send to sender
-                const senderSocketId = onlineUsers[socket.userId];
+                // send to sender (ao their UI can update too
+                const senderSocketId = onlineUsers[socket.userId.toString()];
                 io.to(senderSocketId).emit('messageSent', content);
 
                 // 3) check if receiver online and emit
-                if(onlineUsers[receiverId]) {
+                const receiverSocketId = onlineUsers[receiverId.toString()];
+                if(receiverSocketId) {
                     // emit the message to receiver
-                    const receiverSocketId = onlineUsers[receiverId];
                     io.to(receiverSocketId).emit("receiveMessage", content);
                     // update status in message
                     content.status = "delivered";
@@ -70,7 +73,9 @@ export const initSocket = (io) => {
         });
 
         socket.on('disconnect', () => {
-            delete onlineUsers[socket.userId];
+            delete onlineUsers[socket.userId.toString()];
+            // let everyone know that I am offline
+            io.emit("userOffline", { onlineUsers });
         });
     });
 }
