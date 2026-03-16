@@ -95,6 +95,7 @@ button:active {
   filter: brightness(0.9);
 }
 
+
 @layer utilities {
 
   body {
@@ -168,10 +169,17 @@ button:active {
     @apply flex flex-col gap-4 my-4 p-8 place-items-center w-80 md:w-xl rounded-4xl h-140 bg-profile-bg text-brand-text-secondary;
   }
 
-  .user-avatar {
+  .user-avatar-container {
     @apply relative rounded-full p-2 z-1;
   }
 
+  .user-avatar-inner-container {
+    @apply relative flex flex-col items-center justify-center rounded-full
+  }
+
+  .user-avatar {
+    @apply z-1
+  }
   /* effects */
   .all-effects-container {
     @apply flex
@@ -183,7 +191,7 @@ button:active {
 
   /* user avatar effects */
   .avatar-effects-container {
-    @apply flex flex-col gap-6 m-6 bg-brand-secondary p-12 rounded-2xl;
+    @apply flex flex-col gap-6 m-6 bg-brand-text-primary text-brand-text-secondary p-12 rounded-2xl;
   }
 
   .avatar-effects-card-container {
@@ -196,7 +204,7 @@ button:active {
 
   /* glow effects */
   .white-glow {
-    @apply border-2 filter-[url(#glow)]
+    @apply shadow-[0_0_20px_floralwhite]
   }
 
   /* user */
@@ -206,7 +214,7 @@ button:active {
   }
 
   .user-nameplate {
-    @apply flex items-center bg-pink-100 mb-4 py-2 px-12 rounded-lg
+    @apply flex items-center bg-brand-text-primary text-brand-text-secondary mb-4 py-2 px-12 rounded-lg
   }
 
   /* chat */

@@ -14,18 +14,19 @@ const UserAvatar = ({ user, previewEffectId, size }: UserAvatarProps) => {
     }
 
     return (
-        <div className="user-avatar">
-            <div className="relative flex flex-col items-center justify-center">
-                <div className="z-1">
-                    <Avatar size={`${size}`} className={cn(activeEffect && activeEffect.cssClass)}>
+        <div className="user-avatar-container">
+            <div
+                className={
+                cn("user-avatar-inner-container",
+                    (size === "md"? "w-24 h-24": "w-32 h-32"),
+                    (activeEffect && activeEffect.cssClass))
+                }
+            >
+                <div className="user-avatar">
+                    <Avatar size={`${size}`}>
                         <AvatarImage src={avatarUrl} />
                         <AvatarFallback>Avatar</AvatarFallback>
                     </Avatar>
-                </div>
-                <div className="absolute">
-                    {activeEffect && (
-                        <activeEffect.component />
-                    )}
                 </div>
             </div>
         </div>
