@@ -1,21 +1,40 @@
 import { useContext, useEffect, useState } from 'react';
 import {SocketContext} from "@/components/SocketContext.tsx";
-import type { ChatWindowProps } from "../../types/types.ts";
+import type { ChatWindowProps, UserProfileProps } from "../../types/types.ts";
 import { sendMessage } from "../../api/socket.ts";
 import {fetchMessages} from "../../api/message.ts";
 import MessageCard from "@/components/MessageCard.tsx";
+import { useParams } from "react-router-dom";
+import {fetchUserById} from "../../api/user.ts";
 
 
-const ChatWindow = ({ loggedInUser, selectedUser }: ChatWindowProps) => {
+const ChatWindow = ({ loggedInUser }: ChatWindowProps) => {
     const [inputMessage, setInputMessage] = useState("");
     const [messages, setMessages] = useState<any[]>([]);
+    const [selectedUser, setSelectedUser] = useState<UserProfileProps | null>(null);
     const socketContext = useContext(SocketContext);
+
+    const { userId } = useParams();
+
+    useEffect(() => {
+        const fetchUserDetails = async () => {
+            if(userId) {
+               const user = await fetchUserById(userId);
+               setSelectedUser(user.data);
+            }
+        }
+
+        fetchUserDetails();
+
+    }, [userId]);
 
     const handleSend = () => {
         const messageType = "text";
         const receiverId = selectedUser?.userId;
-        sendMessage({ receiverId, inputMessage, messageType});
-        setInputMessage("");
+        if(receiverId) {
+            sendMessage({ receiverId, inputMessage, messageType});
+            setInputMessage("");
+        }
     }
 
     const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -28,8 +47,10 @@ const ChatWindow = ({ loggedInUser, selectedUser }: ChatWindowProps) => {
     useEffect(() => {
         const fetchChatHistory = async () => {
             const userId = selectedUser?.userId;
-            const oldMessages = await fetchMessages({ userId });
-            setMessages(oldMessages);
+            if(userId) {
+                const oldMessages = await fetchMessages({ userId });
+                setMessages(oldMessages);
+            }
         }
 
         fetchChatHistory();
@@ -40,7 +61,7 @@ const ChatWindow = ({ loggedInUser, selectedUser }: ChatWindowProps) => {
     useEffect(() => {
         console.log("socket connected?", socketContext?.socket.connected);
         socketContext?.socket.on("receiveMessage", (newMessage: any) => {
-            if(newMessage.sender === selectedUser.userId) {
+            if(newMessage.sender === selectedUser?.userId) {
                 setMessages(prev => [...prev, newMessage]);
             }
         });

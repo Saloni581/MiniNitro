@@ -10,8 +10,8 @@ import {
     DialogTrigger,
 } from "@/components/ui/dialog"
 import ProfileCard from "@/components/ProfileCard.tsx";
-import ChatWindow from "@/components/ChatWindow.tsx";
 import { SocketContext } from "@/components/SocketContext.tsx";
+import { useNavigate } from "react-router-dom";
 
 type loggedInUserProps = {
     loggedInUser: UserProfileProps | null;
@@ -23,8 +23,8 @@ type onlineUsersProps = {
 
 const Home = ({ loggedInUser } : loggedInUserProps ) => {
     const [users, setUsers] = useState<UserProfileProps[]>([]);
-    const [selectedUser, setSelectedUser] = useState<UserProfileProps | null>(null);
     const [onlineUsers, setOnlineUsers] = useState<Record<string, string>>({});
+    const navigate = useNavigate();
 
     const socketContext = useContext(SocketContext);
 
@@ -54,7 +54,7 @@ const Home = ({ loggedInUser } : loggedInUserProps ) => {
     }, []);
 
     const handleSelectedUser = ( selectedUser : UserProfileProps ) => {
-        setSelectedUser(selectedUser);
+        navigate(`/chat/${selectedUser.userId}`);
     }
 
     const filteredUsers = users.filter((user) => user.userId !== loggedInUser?.userId);
@@ -99,13 +99,6 @@ const Home = ({ loggedInUser } : loggedInUserProps ) => {
                     </div>
                 ))}
             </div>
-            {
-                (selectedUser && loggedInUser) && (
-                    <div className="p-4 h-130 overflow-y-auto">
-                        <ChatWindow loggedInUser={loggedInUser} selectedUser={selectedUser} />
-                    </div>
-                )
-            }
         </div>
     );
 };

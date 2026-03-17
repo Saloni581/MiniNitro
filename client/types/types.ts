@@ -93,7 +93,6 @@ export interface ProfileDetailsProps {
 
 export interface ChatWindowProps {
     loggedInUser: UserProfileProps | null;
-    selectedUser: UserProfileProps;
 }
 
 export interface SocketSendMessageProps {

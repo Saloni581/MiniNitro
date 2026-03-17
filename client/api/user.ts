@@ -30,3 +30,8 @@ export const fetchAllUsers = async () => {
     const users = await api.get('/all-users');
     return users.data;
 }
+
+export const fetchUserById = async (userId: string) => {
+    const res = await api.get(`/${userId}`);
+    return res.data;
+}

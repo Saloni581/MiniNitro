@@ -82,3 +82,30 @@ export const getAllUsers = async (req, res) => {
         });
     }
 }
+
+export const getUserById = async (req, res) => {
+    const { userId } = req.params;
+    if(!userId) {
+        return res.status(404).json({
+            message: "No user found with id.",
+        });
+    }
+
+    try {
+        const userData = await UserProfile.findOne({ userId });
+        if(!userData) {
+            return res.status(404).json({
+                message: "No user data found.",
+            });
+        }
+
+        return res.status(200).json({
+            message: "User profile found successfully!",
+            data: userData,
+        });
+    } catch (error) {
+        return res.status(500).json({
+            message: "Internal Server Error",
+        });
+    }
+}

@@ -12,6 +12,7 @@ import AvatarEffects from "@/components/effects/AvatarEffects.tsx";
 import NameplateEffects from "./components/effects/NameplateEffects.tsx";
 import UserProfile from "@/components/UserProfile.tsx";
 import { SocketContext } from "@/components/SocketContext.tsx";
+import ChatWindow from "@/components/ChatWindow.tsx";
 
 
 const App = () => {
@@ -105,6 +106,13 @@ const App = () => {
                    element={
                     <SignIn setUser={setUser} />
                    }
+               >
+               </Route>
+               <Route
+                    path="/chat/:userId"
+                    element={
+                    <ChatWindow loggedInUser={user} />
+                    }
                >
                </Route>
            </Routes>
