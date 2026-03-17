@@ -40,7 +40,9 @@ const ChatWindow = ({ loggedInUser, selectedUser }: ChatWindowProps) => {
     useEffect(() => {
         console.log("socket connected?", socketContext?.socket.connected);
         socketContext?.socket.on("receiveMessage", (newMessage: any) => {
-            setMessages(prev => [...prev, newMessage]);
+            if(newMessage.sender === selectedUser.userId) {
+                setMessages(prev => [...prev, newMessage]);
+            }
         });
 
         socketContext?.socket.on("messageSent", (newMessage: any) => {

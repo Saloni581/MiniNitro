@@ -18,7 +18,9 @@ const UserAvatar = ({ user, previewEffectId, size }: UserAvatarProps) => {
             <div
                 className={
                 cn("user-avatar-inner-container",
-                    (size === "md"? "w-24 h-24": "w-32 h-32"),
+                    (size === "sm" && "w-12 h-12"),
+                    (size === "md" && "w-24 h-24"),
+                    (size === "lg" && "w-32 h-32"),
                     (activeEffect && activeEffect.cssClass))
                 }
             >
