@@ -12,6 +12,7 @@ import {
 import ProfileCard from "@/components/ProfileCard.tsx";
 import { SocketContext } from "@/components/SocketContext.tsx";
 import { useNavigate } from "react-router-dom";
+import {fetchConversationsOfLoggedInUser} from "../../api/conversation.ts";
 
 type loggedInUserProps = {
     loggedInUser: UserProfileProps | null;
@@ -24,6 +25,7 @@ type onlineUsersProps = {
 const Home = ({ loggedInUser } : loggedInUserProps ) => {
     const [users, setUsers] = useState<UserProfileProps[]>([]);
     const [onlineUsers, setOnlineUsers] = useState<Record<string, string>>({});
+    const [myConversations, setMyConversations] = useState<UserProfileProps[]>([]);
     const navigate = useNavigate();
 
     const socketContext = useContext(SocketContext);
@@ -44,6 +46,7 @@ const Home = ({ loggedInUser } : loggedInUserProps ) => {
         }
     }, [socketContext?.socket]);
 
+
     useEffect(() => {
         const renderAllUsers = async () => {
             const result = await fetchAllUsers();
@@ -53,15 +56,67 @@ const Home = ({ loggedInUser } : loggedInUserProps ) => {
         renderAllUsers();
     }, []);
 
+
     const handleSelectedUser = ( selectedUser : UserProfileProps ) => {
         navigate(`/chat/${selectedUser.userId}`);
     }
 
+
     const filteredUsers = users.filter((user) => user.userId !== loggedInUser?.userId);
+
+
+    useEffect(() => {
+        const fetchConnectedUsers =  async () => {
+            const res = await fetchConversationsOfLoggedInUser();
+            setMyConversations(res.conversations);
+        }
+
+        fetchConnectedUsers();
+    }, []);
 
     return (
         <div className="flex md:flex-row flex-col md:justify-between gap-6 p-2">
             <div>
+                <h1>My Chats</h1>
+                {myConversations && myConversations?.map((eachUser) => (
+                    <div key={eachUser._id} className="user-nameplate">
+                        <Dialog>
+                            <DialogTrigger asChild>
+                                <div>
+                                    <UserAvatar user={eachUser} previewEffectId="" size="md" />
+                                </div>
+                            </DialogTrigger>
+                            <DialogContent>
+                                <DialogHeader>
+                                    <DialogDescription>
+                                        <div className="flex flex-col justify-center items-center">
+                                            <ProfileCard user={eachUser} />
+                                        </div>
+                                    </DialogDescription>
+                                </DialogHeader>
+                            </DialogContent>
+                        </Dialog>
+                        <div className="flex flex-col gap-4 items-center">
+                            <p>{eachUser?.identity?.displayName}</p>
+                            <button
+                                onClick={() => {
+                                    handleSelectedUser(eachUser);
+                                }}
+                            >
+                                connect & message
+                            </button>
+                            <div>
+                                { onlineUsers?.[eachUser?.userId]?
+                                    <span className="text-green-400 text-sm font-bold">Online</span> :
+                                    <span className="text-gray-400 text-sm font-bold">Offline</span>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+            <div>
+                <h1>All Users</h1>
                 {filteredUsers && filteredUsers?.map((eachUser) => (
                     <div key={eachUser._id} className="user-nameplate">
                         <Dialog>

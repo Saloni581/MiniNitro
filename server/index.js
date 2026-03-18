@@ -11,6 +11,7 @@ import helmet from "helmet";
 import http from "http";
 import { Server } from "socket.io";
 import { initSocket } from "./socket/socket.js";
+import conversationRoutes from "./routes/conversation.routes.js";
 
 const app = express();
 const server = http.createServer(app);
@@ -43,6 +44,8 @@ app.use("/api/user", userRoutes);
 app.use("/api/effects", effectsRoutes);
 
 app.use("/api/messages", messageRoutes);
+
+app.use("/api/conversation", conversationRoutes);
 
 connectToDB().then(() => {
     server.listen(3000, () => {

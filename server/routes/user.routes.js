@@ -12,7 +12,7 @@ router.post("/profile", auth, validator(profileSchema), createUserProfile);
 
 router.get("/me", auth, getUserData);
 
-router.get("/:userId", auth, getUserById);
+router.get("/:userId", getUserById);
 
 
 export default router;
