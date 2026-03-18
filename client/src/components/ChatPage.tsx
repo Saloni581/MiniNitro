@@ -1,11 +1,13 @@
 import { useContext, useEffect, useState } from 'react';
-import {SocketContext} from "@/components/SocketContext.tsx";
+import { SocketContext } from "@/components/SocketContext.tsx";
 import type { ChatWindowProps, UserProfileProps } from "../../types/types.ts";
 import { sendMessage } from "../../api/socket.ts";
-import {fetchMessages} from "../../api/message.ts";
+import { fetchMessages } from "../../api/message.ts";
 import MessageCard from "@/components/MessageCard.tsx";
 import { useParams } from "react-router-dom";
-import {fetchUserById} from "../../api/user.ts";
+import { fetchUserById } from "../../api/user.ts";
+import UsersList from "@/components/UsersList.tsx";
+import { fetchConversationsOfLoggedInUser } from "../../api/conversation.ts";
 
 
 const ChatWindow = ({ loggedInUser }: ChatWindowProps) => {
@@ -13,6 +15,7 @@ const ChatWindow = ({ loggedInUser }: ChatWindowProps) => {
     const [messages, setMessages] = useState<any[]>([]);
     const [selectedUser, setSelectedUser] = useState<UserProfileProps | null>(null);
     const socketContext = useContext(SocketContext);
+    const [myConversations, setMyConversations] = useState<UserProfileProps[]>([]);
 
     const { userId } = useParams();
 
@@ -81,27 +84,42 @@ const ChatWindow = ({ loggedInUser }: ChatWindowProps) => {
 
     }, [socketContext?.socket]);
 
+
+    useEffect(() => {
+        const fetchConnectedUsers =  async () => {
+            const res = await fetchConversationsOfLoggedInUser();
+            setMyConversations(res.conversations);
+        }
+
+        fetchConnectedUsers();
+    }, [loggedInUser]);
+
     return (
-        <div className="chat-window-container-outer">
+        <div className="flex md:flex-row flex-col md:justify-between gap-6 p-2">
             <div>
+                <UsersList users={myConversations} onlineUsers={null} isMyChats={true} />
+            </div>
+            <div className="chat-window-container-outer">
                 <div>
-                    { messages && messages?.map((message) => (
-                        <div
-                            key={message?._id}
-                        >
-                            <MessageCard user={message?.sender === loggedInUser?.userId? loggedInUser : selectedUser } message={message?.message} />
-                        </div>
-                    ))}
-                </div>
-                <div className="p-2 flex gap-2">
-                    <input
-                        type="text"
-                        value={inputMessage}
-                        onChange={(e) => setInputMessage(e.target.value)}
-                        className="text-brand-text-secondary w-full"
-                        onKeyDown={handleKeyDown}
-                    />
-                    <button onClick={handleSend}>Send</button>
+                    <div>
+                        { messages && messages?.map((message) => (
+                            <div
+                                key={message?._id}
+                            >
+                                <MessageCard user={message?.sender === loggedInUser?.userId? loggedInUser : selectedUser } message={message?.message} />
+                            </div>
+                        ))}
+                    </div>
+                    <div className="p-2 flex gap-2">
+                        <input
+                            type="text"
+                            value={inputMessage}
+                            onChange={(e) => setInputMessage(e.target.value)}
+                            className="text-brand-text-secondary w-full"
+                            onKeyDown={handleKeyDown}
+                        />
+                        <button onClick={handleSend}>Send</button>
+                    </div>
                 </div>
             </div>
         </div>

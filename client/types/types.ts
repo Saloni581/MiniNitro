@@ -105,3 +105,9 @@ export interface MessageCardProps {
     user: UserProfileProps | null;
     message: any;
 }
+
+export interface UsersListProps {
+    users: UserProfileProps[] | [];
+    onlineUsers: Record<string, string>;
+    isMyChats: boolean;
+}
