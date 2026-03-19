@@ -21,7 +21,7 @@ const UsersList = ({ users, onlineUsers, isMyChats }: UsersListProps) => {
 
 
     return (
-        <div>
+        <div className="users-list">
             <div>
                 {
                     isMyChats? <h1>My Chats</h1> : <h1>All Users</h1>

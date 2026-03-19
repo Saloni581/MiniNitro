@@ -217,10 +217,26 @@ button:active {
     @apply flex items-center bg-brand-text-primary text-brand-text-secondary mb-4 py-2 px-12 rounded-lg
   }
 
+  .users-list {
+    @apply p-6 bg-pink-300 rounded-md;
+  }
+
   /* chat */
 
   .chat-window-container-outer {
-    @apply p-4 bg-brand-text-primary text-brand-text-secondary rounded-md
+    @apply h-130 overflow-y-auto no-scrollbar bg-brand-text-primary text-brand-text-secondary rounded-md
+  }
+
+  .chat-window-container {
+    @apply relative;
+  }
+
+  .grid-container {
+    @apply grid grid-cols-2 p-12 gap-12
+  }
+
+  .send-message-container {
+    @apply p-2 flex gap-2 sticky bottom-0 z-1 bg-brand-text-primary rounded-2xl
   }
 }
 

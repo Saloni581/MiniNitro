@@ -10,7 +10,7 @@ import UsersList from "@/components/UsersList.tsx";
 import { fetchConversationsOfLoggedInUser } from "../../api/conversation.ts";
 
 
-const ChatWindow = ({ loggedInUser }: ChatWindowProps) => {
+const ChatPage = ({ loggedInUser }: ChatWindowProps) => {
     const [inputMessage, setInputMessage] = useState("");
     const [messages, setMessages] = useState<any[]>([]);
     const [selectedUser, setSelectedUser] = useState<UserProfileProps | null>(null);
@@ -95,12 +95,12 @@ const ChatWindow = ({ loggedInUser }: ChatWindowProps) => {
     }, [loggedInUser]);
 
     return (
-        <div className="flex md:flex-row flex-col md:justify-between gap-6 p-2">
+        <div className="grid-container">
             <div>
                 <UsersList users={myConversations} onlineUsers={null} isMyChats={true} />
             </div>
             <div className="chat-window-container-outer">
-                <div>
+                <div className="chat-window-container">
                     <div>
                         { messages && messages?.map((message) => (
                             <div
@@ -110,7 +110,7 @@ const ChatWindow = ({ loggedInUser }: ChatWindowProps) => {
                             </div>
                         ))}
                     </div>
-                    <div className="p-2 flex gap-2">
+                    <div className="send-message-container">
                         <input
                             type="text"
                             value={inputMessage}
@@ -126,4 +126,4 @@ const ChatWindow = ({ loggedInUser }: ChatWindowProps) => {
     );
 };
 
-export default ChatWindow;
+export default ChatPage;

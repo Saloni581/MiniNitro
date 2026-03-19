@@ -15,7 +15,7 @@ type onlineUsersProps = {
 
 const Home = ({ loggedInUser } : loggedInUserProps ) => {
     const [users, setUsers] = useState<UserProfileProps[]>([]);
-    const [onlineUsers, setOnlineUsers] = useState<Record<string, string>>(null);
+    const [onlineUsers, setOnlineUsers] = useState<Record<string, string>| null>(null);
     const [myConversations, setMyConversations] = useState<UserProfileProps[]>([]);
 
     const socketContext = useContext(SocketContext);
@@ -60,7 +60,7 @@ const Home = ({ loggedInUser } : loggedInUserProps ) => {
     const filteredUsers = users.filter((user) => user.userId !== loggedInUser?.userId);
 
     return (
-        <div className="flex md:flex-row flex-col md:justify-between gap-6 p-2">
+        <div className="grid-container">
             <UsersList users={myConversations} onlineUsers={onlineUsers} isMyChats={true} />
             <UsersList users={filteredUsers} onlineUsers={onlineUsers} isMyChats={false} />
         </div>
