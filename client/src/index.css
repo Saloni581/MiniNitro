@@ -99,7 +99,7 @@ button:active {
 @layer utilities {
 
   body {
-    @apply text-brand-text-primary  font-sans font-stretch-ultra-condensed font-semibold tracking-wide;
+    @apply text-brand-text-primary font-sans font-stretch-ultra-condensed font-semibold tracking-wide;
   }
 
   .navbar {
@@ -208,23 +208,21 @@ button:active {
   }
 
   /* user */
-
   .user-settings {
     @apply mt-auto ml-auto;
   }
 
   .user-nameplate {
-    @apply flex items-center bg-brand-text-primary text-brand-text-secondary mb-4 py-2 px-12 rounded-lg
+    @apply p-2 flex items-center bg-brand-text-primary text-brand-text-secondary mb-4 rounded-lg
   }
 
   .users-list {
-    @apply p-6 bg-pink-300 rounded-md;
+    @apply md:w-96 w-80 p-6 bg-pink-300 rounded-md;
   }
 
   /* chat */
-
   .chat-window-container-outer {
-    @apply h-130 overflow-y-auto no-scrollbar bg-brand-text-primary text-brand-text-secondary rounded-md
+    @apply h-130 overflow-y-auto no-scrollbar bg-brand-text-primary text-brand-text-secondary p-2 rounded-md
   }
 
   .chat-window-container {
@@ -232,7 +230,7 @@ button:active {
   }
 
   .grid-container {
-    @apply grid grid-cols-2 p-12 gap-12
+    @apply grid grid-cols-1 md:grid-cols-2 p-2 gap-6 place-items-center
   }
 
   .send-message-container {

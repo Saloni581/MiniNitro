@@ -52,7 +52,9 @@ const UsersList = ({ users, onlineUsers, isMyChats }: UsersListProps) => {
                                 handleSelectedUser(eachUser);
                             }}
                         >
-                            connect & message
+                            {
+                                isMyChats? "message" : "connect"
+                            }
                         </button>
                         <div>
                             {
