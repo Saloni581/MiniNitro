@@ -78,6 +78,7 @@ export interface UserAvatarProps {
     user: UserProfileProps | null;
     previewEffectId: string;
     size: "default" | "sm" | "md" | "lg" ;
+    isChatWindow: boolean;
 }
 
 export interface ProfileProps {
@@ -108,6 +109,9 @@ export interface MessageCardProps {
 
 export interface UsersListProps {
     users: UserProfileProps[] | [];
-    onlineUsers: Record<string, string> | null;
     isMyChats: boolean;
+}
+
+export interface OnlineUsersProps {
+    onlineUsers: Record<string, string>;
 }

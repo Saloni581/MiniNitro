@@ -1,7 +1,6 @@
 import { fetchAllUsers } from "../../api/user.ts";
-import {useContext, useEffect, useState} from "react";
+import { useEffect, useState} from "react";
 import type { UserProfileProps } from "../../types/types.ts";
-import { SocketContext } from "@/components/SocketContext.tsx";
 import UsersList from "@/components/UsersList.tsx";
 import { fetchConversationsOfLoggedInUser } from "../../api/conversation.ts";
 
@@ -9,33 +8,9 @@ type loggedInUserProps = {
     loggedInUser: UserProfileProps | null;
 }
 
-type onlineUsersProps = {
-    onlineUsers: { string: string},
-}
-
 const Home = ({ loggedInUser } : loggedInUserProps ) => {
     const [users, setUsers] = useState<UserProfileProps[]>([]);
-    const [onlineUsers, setOnlineUsers] = useState<Record<string, string>| null>(null);
     const [myConversations, setMyConversations] = useState<UserProfileProps[]>([]);
-
-    const socketContext = useContext(SocketContext);
-
-    // show user online status
-    useEffect(() => {
-        socketContext?.socket.on("userOnline", ({ onlineUsers }: onlineUsersProps) => {
-            setOnlineUsers(onlineUsers);
-        });
-
-        socketContext?.socket.on("userOffline", ({ onlineUsers }: onlineUsersProps) => {
-            setOnlineUsers(onlineUsers);
-        });
-
-        return () => {
-            socketContext?.socket.off("userOnline");
-            socketContext?.socket.off("userOffline");
-        }
-    }, [socketContext?.socket]);
-
 
     useEffect(() => {
         const renderAllUsers = async () => {
@@ -61,8 +36,8 @@ const Home = ({ loggedInUser } : loggedInUserProps ) => {
 
     return (
         <div className="grid-container">
-            <UsersList users={myConversations} onlineUsers={onlineUsers} isMyChats={true} />
-            <UsersList users={filteredUsers} onlineUsers={onlineUsers} isMyChats={false} />
+            <UsersList users={myConversations} isMyChats={true} />
+            <UsersList users={filteredUsers} isMyChats={false} />
         </div>
     );
 };

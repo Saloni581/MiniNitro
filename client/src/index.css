@@ -213,16 +213,20 @@ button:active {
   }
 
   .user-nameplate {
-    @apply p-2 flex items-center bg-brand-text-primary text-brand-text-secondary mb-4 rounded-lg
+    @apply p-2 flex items-center justify-around bg-brand-text-primary text-brand-text-secondary mb-4 rounded-lg
   }
 
   .users-list {
-    @apply md:w-96 w-80 p-6 bg-pink-300 rounded-md;
+    @apply w-80 md:w-96 lg:w-100 p-6 bg-pink-300 rounded-md;
+  }
+
+  .user-offline-status {
+    @apply rounded-full bg-gray-400 border-6 border-gray-500;
   }
 
   /* chat */
   .chat-window-container-outer {
-    @apply h-130 overflow-y-auto no-scrollbar bg-brand-text-primary text-brand-text-secondary p-2 rounded-md
+    @apply h-130 w-80 md:w-96 lg:w-100 overflow-y-auto no-scrollbar bg-brand-text-primary text-brand-text-secondary p-2 rounded-md
   }
 
   .chat-window-container {

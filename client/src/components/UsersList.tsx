@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 
 
 
-const UsersList = ({ users, onlineUsers, isMyChats }: UsersListProps) => {
+const UsersList = ({ users, isMyChats }: UsersListProps) => {
     const navigate = useNavigate();
 
     const handleSelectedUser = ( selectedUser : UserProfileProps ) => {
@@ -32,7 +32,7 @@ const UsersList = ({ users, onlineUsers, isMyChats }: UsersListProps) => {
                     <Dialog>
                         <DialogTrigger asChild>
                             <div>
-                                <UserAvatar user={eachUser} previewEffectId="" size="md" />
+                                <UserAvatar user={eachUser} previewEffectId="" size="md" isChatWindow={false}/>
                             </div>
                         </DialogTrigger>
                         <DialogContent>
@@ -56,16 +56,6 @@ const UsersList = ({ users, onlineUsers, isMyChats }: UsersListProps) => {
                                 isMyChats? "message" : "connect"
                             }
                         </button>
-                        <div>
-                            {
-                                onlineUsers && (
-                                    ( onlineUsers?.[eachUser?.userId]?
-                                            <span className="text-green-400 text-sm font-bold">Online</span> :
-                                            <span className="text-gray-400 text-sm font-bold">Offline</span>
-                                    )
-                                )
-                            }
-                        </div>
                     </div>
                 </div>
             ))}

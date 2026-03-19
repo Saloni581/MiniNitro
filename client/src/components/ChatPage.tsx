@@ -97,7 +97,7 @@ const ChatPage = ({ loggedInUser }: ChatWindowProps) => {
     return (
         <div className="grid-container">
             <div>
-                <UsersList users={myConversations} onlineUsers={null} isMyChats={true} />
+                <UsersList users={myConversations} isMyChats={true} />
             </div>
             <div className="chat-window-container-outer">
                 <div className="chat-window-container">

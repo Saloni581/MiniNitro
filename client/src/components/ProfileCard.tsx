@@ -9,7 +9,7 @@ const ProfileCard = ({ user } : UserProps ) => {
 
     return (
         <>
-            <UserAvatar user={user} previewEffectId="" size="lg"/>
+            <UserAvatar user={user} previewEffectId="" size="lg" isChatWindow={false}/>
             <div>{user?.identity?.displayName}</div>
             <div>
                 <span>
