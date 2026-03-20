@@ -169,16 +169,8 @@ button:active {
     @apply flex flex-col gap-4 my-4 p-8 place-items-center w-80 md:w-xl rounded-4xl h-140 bg-profile-bg text-brand-text-secondary;
   }
 
-  .user-avatar-container {
-    @apply relative rounded-full p-2 z-1;
-  }
-
-  .user-avatar-inner-container {
-    @apply relative flex flex-col items-center justify-center rounded-full
-  }
-
-  .user-avatar {
-    @apply z-1
+  .grid-container {
+    @apply grid grid-cols-1 md:grid-cols-2 p-2 gap-6 place-items-center
   }
   /* effects */
   .all-effects-container {
@@ -208,6 +200,18 @@ button:active {
   }
 
   /* user */
+  .user-avatar-container {
+    @apply relative rounded-full p-2 z-1;
+  }
+
+  .user-avatar-inner-container {
+    @apply relative flex flex-col items-center justify-center rounded-full
+  }
+
+  .user-avatar {
+    @apply z-1
+  }
+
   .user-settings {
     @apply mt-auto ml-auto;
   }
@@ -226,19 +230,15 @@ button:active {
 
   /* chat */
   .chat-window-container-outer {
-    @apply h-130 w-80 md:w-96 lg:w-100 overflow-y-auto no-scrollbar bg-brand-text-primary text-brand-text-secondary p-2 rounded-md
+    @apply flex flex-col h-130 w-80 md:w-96 lg:w-100 bg-brand-text-primary text-brand-text-secondary p-2 rounded-md
   }
 
   .chat-window-container {
-    @apply relative;
-  }
-
-  .grid-container {
-    @apply grid grid-cols-1 md:grid-cols-2 p-2 gap-6 place-items-center
+    @apply overflow-y-auto no-scrollbar
   }
 
   .send-message-container {
-    @apply p-2 flex gap-2 sticky bottom-0 z-1 bg-brand-text-primary rounded-2xl
+    @apply p-2 flex gap-2 bg-brand-text-primary rounded-2xl
   }
 }
 

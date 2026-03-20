@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { SocketContext } from "@/components/SocketContext.tsx";
 import type { ChatWindowProps, UserProfileProps } from "../../types/types.ts";
 import { sendMessage } from "../../api/socket.ts";
@@ -16,8 +16,15 @@ const ChatPage = ({ loggedInUser }: ChatWindowProps) => {
     const [selectedUser, setSelectedUser] = useState<UserProfileProps | null>(null);
     const socketContext = useContext(SocketContext);
     const [myConversations, setMyConversations] = useState<UserProfileProps[]>([]);
-
+    const chatContainerRef = useRef<HTMLDivElement | null>(null);
     const { userId } = useParams();
+
+    // handle chat scroll automatically on new message
+    useEffect(() => {
+        if(chatContainerRef.current) {
+            chatContainerRef.current.scrollTop = chatContainerRef.current?.scrollHeight;
+        }
+    }, [messages]);
 
     useEffect(() => {
         const fetchUserDetails = async () => {
@@ -31,6 +38,7 @@ const ChatPage = ({ loggedInUser }: ChatWindowProps) => {
 
     }, [userId]);
 
+    // send message
     const handleSend = () => {
         const messageType = "text";
         const receiverId = selectedUser?.userId;
@@ -40,13 +48,14 @@ const ChatPage = ({ loggedInUser }: ChatWindowProps) => {
         }
     }
 
+    // send message on enter key press
     const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if(e.key === "Enter" && inputMessage.trim() !== "") {
             handleSend();
         }
     }
 
-    // runs once
+    // fetches all previous chats - runs once when user select other user to chat
     useEffect(() => {
         const fetchChatHistory = async () => {
             const userId = selectedUser?.userId;
@@ -60,7 +69,7 @@ const ChatPage = ({ loggedInUser }: ChatWindowProps) => {
     }, [selectedUser]);
 
 
-    // runs on mount
+    // handling socket events - runs on mount when socket gets connected
     useEffect(() => {
         console.log("socket connected?", socketContext?.socket.connected);
         socketContext?.socket.on("receiveMessage", (newMessage: any) => {
@@ -100,26 +109,24 @@ const ChatPage = ({ loggedInUser }: ChatWindowProps) => {
                 <UsersList users={myConversations} isMyChats={true} />
             </div>
             <div className="chat-window-container-outer">
-                <div className="chat-window-container">
-                    <div>
-                        { messages && messages?.map((message) => (
-                            <div
-                                key={message?._id}
-                            >
-                                <MessageCard user={message?.sender === loggedInUser?.userId? loggedInUser : selectedUser } message={message?.message} />
-                            </div>
-                        ))}
-                    </div>
-                    <div className="send-message-container">
-                        <input
-                            type="text"
-                            value={inputMessage}
-                            onChange={(e) => setInputMessage(e.target.value)}
-                            className="text-brand-text-secondary w-full"
-                            onKeyDown={handleKeyDown}
-                        />
-                        <button onClick={handleSend}>Send</button>
-                    </div>
+                <div className="chat-window-container" ref={chatContainerRef}>
+                    { messages && messages?.map((message) => (
+                        <div
+                            key={message?._id}
+                        >
+                            <MessageCard user={message?.sender === loggedInUser?.userId? loggedInUser : selectedUser } message={message?.message} />
+                        </div>
+                    ))}
+                </div>
+                <div className="send-message-container">
+                    <input
+                        type="text"
+                        value={inputMessage}
+                        onChange={(e) => setInputMessage(e.target.value)}
+                        className="text-brand-text-secondary w-full"
+                        onKeyDown={handleKeyDown}
+                    />
+                    <button onClick={handleSend}>Send</button>
                 </div>
             </div>
         </div>
