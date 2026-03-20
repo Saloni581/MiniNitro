@@ -8,6 +8,7 @@ import { useParams } from "react-router-dom";
 import { fetchUserById } from "../../api/user.ts";
 import UsersList from "@/components/UsersList.tsx";
 import { fetchConversationsOfLoggedInUser } from "../../api/conversation.ts";
+import UserAvatar from "@/components/UserAvatar.tsx";
 
 
 const ChatPage = ({ loggedInUser }: ChatWindowProps) => {
@@ -109,6 +110,12 @@ const ChatPage = ({ loggedInUser }: ChatWindowProps) => {
                 <UsersList users={myConversations} isMyChats={true} />
             </div>
             <div className="chat-window-container-outer">
+                <div className="chat-window-selected-user">
+                    <UserAvatar user={selectedUser} previewEffectId={""} size={"sm"} isChatWindow={false}/>
+                    <span>
+                        { selectedUser?.identity.displayName }
+                    </span>
+                </div>
                 <div className="chat-window-container" ref={chatContainerRef}>
                     { messages && messages?.map((message) => (
                         <div
