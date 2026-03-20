@@ -20,25 +20,6 @@ Rather than just recreating UI effects, this project focuses on building a struc
 
 ---
 
-## Screenshots
-
-### Auth Pages
-![Login Form](./assets/auth-login-form1.png)
-![Signup Form](./assets/auth-signup-form2.png)
-![Responsive View](./assets/auth-login-responsive.png)
-
-### Onboarding Form
-![Onboarding Form](./assets/user-profile-creation-onboarding-form.png)
-![Filled Onboarding Form example](./assets/filled-onboarding-form.png)
-
-### Profile Card
-![User Profile Card](./assets/user-profile.png)
-![User Profile Card Responsive](./assets/user-profile-responsive.png)
-
-### User Settings
-![User Settings](./assets/user-settings.png)
-![Change Avatar Feature](./assets/user-setttings-change-avatar-feature.png)
-
 
 ## Tech Stack
 
@@ -51,7 +32,7 @@ Rather than just recreating UI effects, this project focuses on building a struc
 **Backend**
 - Node.js
 - Express.js
-- MongoDB
+- MongoDB (ORM: Mongoose)
 - JWT-based Authentication
 - Multer (file upload handling)
 - Cloudinary (cloud image storage)
