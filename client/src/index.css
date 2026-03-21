@@ -5,17 +5,15 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --color-brand-primary: oklch(0.8868 0.182186 95.3305);
-  --color-brand-primary-light: oklch(0.8868 0.1515 95.3305);
-  --color-brand-primary-bold: oklch(0.819 0.21 95.3305);
+  --color-brand-primary: oklch(0.9199 0.0789 218.65);;
+  --color-brand-primary-bold: oklch(0.7745 0.1392 218.65);
   --color-brand-secondary: oklch(0.7382 0.1597 25.56);
-  --color-brand-text-primary: oklch(0.4067 0 208.06);
+  --color-brand-text-primary: oklch(0.2611 0 0);
   --color-brand-text-secondary: oklch(0.9333 0 149.82);
   --color-text-hover: oklch(0.9228 0.1142 126);
-  --color-profile-bg: oklch(0.4926 0 209.12);
   --color-error: oklch(0.628 0.2577 29.23);
-  --color-gold: oklch(0.9058 0.1932 95.3305);
-  --color-brand-black: oklch(0.2611 0 0);
+  --color-brand-black: oklch(0.4067 0 208.06);
+  --color-brand-white: oklch(0.9852 0 0);
 }
 
 :root {
@@ -115,8 +113,8 @@ button:active {
   }
 
   input {
-    @apply border border-brand-primary border-t-4 rounded-md p-2 px-4 outline-none focus:outline-none
-    focus:ring focus:ring-brand-primary-bold focus:border-t-brand-primary-bold text-brand-text-primary font-thin;
+    @apply border-2 border-brand-primary rounded-md p-2 px-4 outline-none focus:outline-none
+    focus:ring focus:ring-brand-primary-bold  text-brand-text-primary font-thin;
   }
 
   .error-input {
@@ -148,8 +146,8 @@ button:active {
   }
 
   .identity textarea {
-    @apply border border-brand-primary border-t-4 rounded-md px-6 outline-none focus:outline-none
-    focus:ring focus:ring-brand-primary-bold focus:border-t-brand-primary-bold text-brand-text-primary
+    @apply border-2 border-brand-primary rounded-md px-6 outline-none focus:outline-none
+    focus:ring focus:ring-brand-primary-bold text-brand-text-primary
     font-thin resize-none;
   }
 
@@ -166,7 +164,7 @@ button:active {
   }
 
   .profile-card {
-    @apply flex flex-col gap-4 my-4 p-8 place-items-center w-80 md:w-xl rounded-4xl h-140 bg-profile-bg text-brand-text-secondary;
+    @apply flex flex-col gap-4 my-4 p-8 place-items-center w-80 md:w-xl rounded-4xl h-140 bg-brand-black text-brand-text-secondary;
   }
 
   .grid-container {
@@ -178,12 +176,12 @@ button:active {
   }
 
   .effects-dropdown {
-    @apply ml-auto m-4 p-2 bg-[#F5F5F5] shadow-sm cursor-pointer hover:shadow-lg;
+    @apply ml-auto m-4 p-2 bg-brand-white shadow-sm cursor-pointer hover:shadow-lg;
   }
 
   /* user avatar effects */
   .avatar-effects-container {
-    @apply flex flex-col gap-6 m-6 bg-brand-text-primary text-brand-text-secondary p-12 rounded-2xl;
+    @apply flex flex-col gap-6 m-6 bg-brand-black text-brand-text-secondary p-12 rounded-2xl;
   }
 
   .avatar-effects-card-container {
@@ -217,11 +215,11 @@ button:active {
   }
 
   .user-nameplate {
-    @apply p-2 flex items-center justify-around bg-brand-text-primary text-brand-text-secondary mb-4 rounded-lg
+    @apply p-2 flex items-center justify-around bg-brand-black text-brand-text-secondary mb-4 rounded-lg
   }
 
   .users-list {
-    @apply w-80 md:w-96 lg:w-100 p-6 bg-pink-300 rounded-md;
+    @apply w-80 md:w-96 lg:w-100 p-6 bg-brand-secondary rounded-md;
   }
 
   .user-offline-status {
@@ -230,11 +228,11 @@ button:active {
 
   /* chat */
   .chat-window-container-outer {
-    @apply flex flex-col h-130 w-80 md:w-96 lg:w-100 bg-brand-text-primary text-brand-text-secondary rounded-md
+    @apply flex flex-col h-130 w-80 md:w-96 lg:w-100 bg-brand-text-primary text-brand-text-secondary
   }
 
   .chat-window-container {
-    @apply overflow-y-auto no-scrollbar
+    @apply overflow-y-auto no-scrollbar;
   }
 
   .chat-window-selected-user {
@@ -242,7 +240,7 @@ button:active {
   }
 
   .send-message-container {
-    @apply p-2 flex gap-2 bg-brand-text-primary rounded-2xl
+    @apply flex gap-2 p-2 bg-brand-black;
   }
 }
 
