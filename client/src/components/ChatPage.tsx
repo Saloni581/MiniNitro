@@ -9,6 +9,7 @@ import { fetchUserById } from "../../api/user.ts";
 import UsersList from "@/components/UsersList.tsx";
 import { fetchConversationsOfLoggedInUser } from "../../api/conversation.ts";
 import UserAvatar from "@/components/UserAvatar.tsx";
+import send from "@/assets/send.png";
 
 
 const ChatPage = ({ loggedInUser }: ChatWindowProps) => {
@@ -133,7 +134,9 @@ const ChatPage = ({ loggedInUser }: ChatWindowProps) => {
                         className="text-brand-text-secondary w-full"
                         onKeyDown={handleKeyDown}
                     />
-                    <button onClick={handleSend}>Send</button>
+                    <button onClick={handleSend}>
+                        <img src={send} alt="send icon" className="w-6 h-6"/>
+                    </button>
                 </div>
             </div>
         </div>

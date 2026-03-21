@@ -37,6 +37,7 @@ const UserAvatar = ({ user, previewEffectId, size, isChatWindow }: UserAvatarPro
                 </div>
                 {
                     (!previewEffectId && !isChatWindow) && (
+                        // @ts-ignore
                         onlineUsers?.[userId]? (
                             <AvatarBadge>
                                 <img
@@ -54,9 +55,9 @@ const UserAvatar = ({ user, previewEffectId, size, isChatWindow }: UserAvatarPro
                                 <AvatarBadge
                                 className={
                                     cn("user-offline-status",
-                                        (size === "sm" && "w-4 h-4"),
-                                        (size === "md" && "w-6 h-6"),
-                                        (size === "lg" && "w-8 h-8"))
+                                        (size === "sm" && "w-4 h-4 border-4"),
+                                        (size === "md" && "w-5 h-5 border-5"),
+                                        (size === "lg" && "w-6 h-6 border-6"))
                                 }
                             />
                             )

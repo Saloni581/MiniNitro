@@ -15,7 +15,7 @@
   --color-profile-bg: oklch(0.4926 0 209.12);
   --color-error: oklch(0.628 0.2577 29.23);
   --color-gold: oklch(0.9058 0.1932 95.3305);
-  --color-purple: oklch(0.7122 0.2467 352);
+  --color-brand-black: oklch(0.2611 0 0);
 }
 
 :root {
@@ -225,7 +225,7 @@ button:active {
   }
 
   .user-offline-status {
-    @apply rounded-full bg-gray-400 border-6 border-gray-500;
+    @apply rounded-full bg-brand-black border-gray-500;
   }
 
   /* chat */
