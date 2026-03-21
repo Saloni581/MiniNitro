@@ -27,7 +27,9 @@ const UsersList = ({ users, isMyChats }: UsersListProps) => {
                     isMyChats? <h1>My Chats</h1> : <h1>All Users</h1>
                 }
             </div>
-            {users && users?.map((eachUser) => (
+            {
+                users.length !== 0 ?
+                (users?.map((eachUser) => (
                 <div key={eachUser._id} className="user-nameplate">
                     <Dialog>
                         <DialogTrigger asChild>
@@ -58,7 +60,9 @@ const UsersList = ({ users, isMyChats }: UsersListProps) => {
                         </button>
                     </div>
                 </div>
-            ))}
+            ))): (
+                <div>Nothing to show here...</div>
+            )}
         </div>
     );
 };

@@ -228,19 +228,19 @@ button:active {
 
   /* chat */
   .chat-window-container-outer {
-    @apply flex flex-col h-130 w-80 md:w-96 lg:w-100 bg-brand-text-primary text-brand-text-secondary
-  }
-
-  .chat-window-container {
-    @apply overflow-y-auto no-scrollbar;
+    @apply flex flex-col h-130 w-80 md:w-96 lg:w-100 bg-brand-text-primary text-brand-text-secondary;
   }
 
   .chat-window-selected-user {
-    @apply flex gap-4 items-center bg-brand-primary text-brand-text-primary
+    @apply flex gap-4 items-center bg-brand-primary text-brand-text-primary;
+  }
+
+  .chat-window-container {
+    @apply flex-1 overflow-y-auto no-scrollbar;
   }
 
   .send-message-container {
-    @apply flex gap-2 p-2 bg-brand-black;
+    @apply flex gap-2 p-2 bg-brand-black top-0;
   }
 }
 

@@ -133,6 +133,7 @@ const ChatPage = ({ loggedInUser }: ChatWindowProps) => {
                         onChange={(e) => setInputMessage(e.target.value)}
                         className="text-brand-text-secondary w-full"
                         onKeyDown={handleKeyDown}
+                        placeholder="write something..."
                     />
                     <button onClick={handleSend}>
                         <img src={send} alt="send icon" className="w-6 h-6"/>
