@@ -19,47 +19,74 @@ const UserAvatar = ({ user, previewEffectId, size, isChatWindow }: UserAvatarPro
     }
 
     return (
-        <div className="user-avatar-container">
-            <div
-                className={
-                cn("user-avatar-inner-container",
-                    (size === "sm" && "w-12 h-12"),
-                    (size === "md" && "w-24 h-24"),
-                    (size === "lg" && "w-32 h-32"),
-                    (activeEffect && activeEffect.cssClass))
-                }
-            >
-                <div className="user-avatar">
-                    <Avatar size={`${size}`}>
-                        <AvatarImage src={avatarUrl} />
-                        <AvatarFallback>Avatar</AvatarFallback>
-                    </Avatar>
-                </div>
+        <div className={
+            cn("h-30 w-30 relative rounded-full",
+                (size === "sm" && "w-10 h-10"),
+                (size === "md" && "w-20 h-20"),
+            )
+        }
+        >
+            {/* glow layer */}
+            <div className={
+                cn("absolute z-0 inset-0 blur-md rounded-full bg-white",
+                    (size === "sm" && "-inset-3"),
+                    (size === "md" && "-inset-5"),
+                    (size === "lg" && "-inset-6"),
+                )
+            }
+            ></div>
+            {/* border layer */}
+            <div className={
+                cn("absolute z-10 inset-0 rounded-full animate-pulse bg-radial from-blue-500 to-red-400",
+                    (size === "sm" && "-inset-0.5"),
+                    (size === "md" && "-inset-1"),
+                    (size === "lg" && "-inset-1.5"),
+                )
+            }
+            ></div>
+            {/* overlay layer */}
+            <div className={
+                cn("absolute z-20 inset-0",
+                    (size === "sm" && ""),
+                    (size === "md" && ""),
+                    (size === "lg" && ""),
+                )
+            }
+            ></div>
+            {/* avatar image layer */}
+            <div className="absolute rounded-full inset-0 z-30">
+                <Avatar>
+                    <AvatarImage src={avatarUrl} />
+                    <AvatarFallback className="absolute rounded-full">Avatar</AvatarFallback>
+                </Avatar>
+            </div>
+            {/* status badge layer */}
+            <div className="absolute inset-0 z-40">
                 {
                     (!previewEffectId && !isChatWindow) && (
                         // @ts-ignore
                         onlineUsers?.[userId]? (
-                            <AvatarBadge>
-                                <img
-                                    src={SmartphoneIcon}
-                                    alt="online-status-icon"
-                                    className={
-                                        cn((size === "sm" && "w-4 h-4"),
-                                            (size === "md" && "w-8 h-8"),
-                                            (size === "lg" && "w-10 h-10"))
-                                    }
-                                />
-                            </AvatarBadge>
+                                <AvatarBadge>
+                                    <img
+                                        src={SmartphoneIcon}
+                                        alt="online-status-icon"
+                                        className={
+                                            cn((size === "sm" && "w-4 h-4"),
+                                                (size === "md" && "w-6 h-6"),
+                                                (size === "lg" && "w-7 h-7"))
+                                        }
+                                    />
+                                </AvatarBadge>
                             ) :
                             (
                                 <AvatarBadge
-                                className={
-                                    cn("user-offline-status",
-                                        (size === "sm" && "w-4 h-4 border-4"),
-                                        (size === "md" && "w-5 h-5 border-5"),
-                                        (size === "lg" && "w-6 h-6 border-6"))
-                                }
-                            />
+                                    className={
+                                        cn("user-offline-status",
+                                            (size === "sm" && "w-4 h-4 border-4"),
+                                            (size === "md" && "w-5 h-5 border-5"),
+                                            (size === "lg" && "w-6 h-6 border-6"))
+                                    }
+                                />
                             )
                     )
                 }

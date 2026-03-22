@@ -198,16 +198,8 @@ button:active {
   }
 
   /* user */
-  .user-avatar-container {
-    @apply relative rounded-full p-2 z-1;
-  }
-
   .user-avatar-inner-container {
     @apply relative flex flex-col items-center justify-center rounded-full
-  }
-
-  .user-avatar {
-    @apply z-1
   }
 
   .user-settings {

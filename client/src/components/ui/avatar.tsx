@@ -5,17 +5,13 @@ import { cn } from "@/lib/utils"
 
 function Avatar({
   className,
-  size = "default",
   ...props
-}: React.ComponentProps<typeof AvatarPrimitive.Root> & {
-  size?: "default" | "sm" | "md" | "lg"
-}) {
+}: React.ComponentProps<typeof AvatarPrimitive.Root>) {
   return (
     <AvatarPrimitive.Root
       data-slot="avatar"
-      data-size={size}
       className={cn(
-        "group/avatar relative flex size-8 shrink-0 overflow-hidden rounded-full select-none data-[size=lg]:size-32 data-[size=md]:size-24 data-[size=sm]:size-12",
+        "group/avatar flex shrink-0 overflow-hidden rounded-full select-none",
         className
       )}
       {...props}
@@ -57,7 +53,7 @@ function AvatarBadge({ className, ...props }: React.ComponentProps<"span">) {
     <span
       data-slot="avatar-badge"
       className={cn(
-        "absolute right-0 bottom-0 z-10 inline-flex items-center justify-center text-primary-foreground select-none",
+        "absolute bottom-0 right-0 z-50 inline-flex items-center justify-center text-primary-foreground select-none",
         "group-data-[size=sm]/avatar:size-2 group-data-[size=sm]/avatar:[&>svg]:hidden",
         "group-data-[size=default]/avatar:size-2.5 group-data-[size=default]/avatar:[&>svg]:size-2",
         "group-data-[size=lg]/avatar:size-3 group-data-[size=lg]/avatar:[&>svg]:size-2",
