@@ -168,7 +168,7 @@ button:active {
   }
 
   .grid-container {
-    @apply grid grid-cols-1 md:grid-cols-2 p-2 gap-6 place-items-center
+    @apply grid grid-cols-1 md:grid-cols-2 p-2 gap-6 justify-items-center items-start;
   }
   /* effects */
   .all-effects-container {
