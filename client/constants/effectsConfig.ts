@@ -1,8 +1,9 @@
 export const avatarEffects = [
     {
-        id: "glow1",
-        name: "White Glow",
-        cssClass: 'white-glow',
+        id: "glow-ring",
+        name: "Glow Ring",
+        cssGlowClass: 'white-glow',
+        cssBorderClass: 'gradient-border',
         price: 200
     },
 ];

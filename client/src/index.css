@@ -93,7 +93,6 @@ button:active {
   filter: brightness(0.9);
 }
 
-
 @layer utilities {
 
   body {
@@ -194,9 +193,13 @@ button:active {
 
   /* glow effects */
   .white-glow {
-    @apply shadow-[0_0_20px_floralwhite]
+    @apply blur-md rounded-full bg-white;
   }
 
+  /* border effects */
+  .gradient-border {
+    @apply bg-[linear-gradient(to_top,deepskyblue,deeppink,darkorange)] blur-[15px] brightness-200 animate-spin;
+  }
   /* user */
   .user-avatar-inner-container {
     @apply relative flex flex-col items-center justify-center rounded-full
@@ -207,7 +210,7 @@ button:active {
   }
 
   .user-nameplate {
-    @apply p-2 flex items-center justify-around bg-brand-black text-brand-text-secondary mb-4 rounded-lg
+    @apply py-8 flex items-center justify-around bg-brand-black text-brand-text-secondary mb-4 rounded-lg
   }
 
   .users-list {
@@ -224,11 +227,11 @@ button:active {
   }
 
   .chat-window-selected-user {
-    @apply flex gap-4 items-center bg-brand-primary text-brand-text-primary;
+    @apply flex p-4 gap-4 items-center bg-brand-primary text-brand-text-primary;
   }
 
   .chat-window-container {
-    @apply flex-1 overflow-y-auto no-scrollbar;
+    @apply flex-1 overflow-y-auto no-scrollbar gap-2 p-2;
   }
 
   .send-message-container {

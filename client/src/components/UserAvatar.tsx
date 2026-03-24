@@ -28,38 +28,41 @@ const UserAvatar = ({ user, previewEffectId, size, isChatWindow }: UserAvatarPro
         >
             {/* glow layer */}
             <div className={
-                cn("absolute z-0 inset-0 blur-md rounded-full bg-white",
-                    (size === "sm" && "-inset-3"),
-                    (size === "md" && "-inset-5"),
+                cn("absolute z-0 inset-0",
+                    (activeEffect && activeEffect.cssGlowClass),
+                    (size === "sm" && "-inset-2"),
+                    (size === "md" && "-inset-4"),
                     (size === "lg" && "-inset-6"),
                 )
             }
             ></div>
             {/* border layer */}
             <div className={
-                cn("absolute z-10 inset-0 rounded-full animate-pulse bg-radial from-blue-500 to-red-400",
+                cn("absolute z-10 inset-0 rounded-full",
+                    (activeEffect && activeEffect.cssBorderClass),
                     (size === "sm" && "-inset-0.5"),
                     (size === "md" && "-inset-1"),
-                    (size === "lg" && "-inset-1.5"),
+                    (size === "lg" && "-inset-1"),
                 )
             }
             ></div>
-            {/* overlay layer */}
-            <div className={
-                cn("absolute z-20 inset-0",
-                    (size === "sm" && ""),
-                    (size === "md" && ""),
-                    (size === "lg" && ""),
-                )
-            }
-            ></div>
-            {/* avatar image layer */}
-            <div className="absolute rounded-full inset-0 z-30">
+             {/*avatar image layer */}
+            <div className="absolute rounded-full inset-0 z-20">
                 <Avatar>
                     <AvatarImage src={avatarUrl} />
                     <AvatarFallback className="absolute rounded-full">Avatar</AvatarFallback>
                 </Avatar>
             </div>
+             {/*overlay layer */}
+            {/*<div className={*/}
+            {/*    cn("absolute z-30 inset-0",*/}
+            {/*        (size === "sm" && ""),*/}
+            {/*        (size === "md" && ""),*/}
+            {/*        (size === "lg" && ""),*/}
+            {/*    )*/}
+            {/*}*/}
+            {/*>*/}
+            {/*</div>*/}
             {/* status badge layer */}
             <div className="absolute inset-0 z-40">
                 {
