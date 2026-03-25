@@ -8,9 +8,14 @@ const api = axios.create({
     withCredentials: true,
 });
 
-export const patchAvatarEffect = async (effectId: string) => {
-    const res = await api.patch("/avatar-effects", {
+export const updateAvatarEffect = async (effectId: string) => {
+    const res = await api.patch("/avatar-effects/active", {
         effectId
     });
+    return res.data;
+}
+
+export const removeAvatarEffect = async () => {
+    const res = await api.patch("/avatar-effects/active", {});
     return res.data;
 }

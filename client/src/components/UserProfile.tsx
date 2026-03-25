@@ -12,6 +12,7 @@ import {
 import ProfileCard from "@/components/ProfileCard.tsx";
 import { removeAvatar } from "../../api/visuals.ts";
 import {toast} from "sonner";
+import { removeAvatarEffect } from "../../api/effects.ts";
 
 
 const UserProfile = ({ user, setUser }: ProfileProps) => {
@@ -20,6 +21,12 @@ const UserProfile = ({ user, setUser }: ProfileProps) => {
         const res = await removeAvatar();
         setUser(res.updatedUser);
         toast.success("Avatar removed successfully.");
+    }
+
+    const handleRemoveAvatarEffect = async () => {
+        const res = await removeAvatarEffect();
+        setUser(res.user);
+        toast(res.message);
     }
 
 
@@ -39,6 +46,9 @@ const UserProfile = ({ user, setUser }: ProfileProps) => {
                                     <div>
                                         <UploadUserAvatar user={user} setUser={setUser}/>
                                         <button onClick={handleRemoveAvatar}>Remove avatar</button>
+                                    </div>
+                                    <div>
+                                        <button onClick={handleRemoveAvatarEffect}>Remove avatar effect</button>
                                     </div>
                                     <SignOut setUser={setUser}/>
                                 </DialogDescription>

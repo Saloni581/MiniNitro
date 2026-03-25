@@ -57,7 +57,7 @@ const UploadUserAvatar = ({ user, setUser } : ProfileProps) => {
                 }
                 <button onClick={handleClick} type="button">
                     {
-                        user?.visuals?.avatar?.activeAssetId?.url? "Change Avatar" : "Add Avatar"
+                        user?.visuals?.avatar?.activeAssetId?.url? "Change avatar" : "Add avatar"
                     }
                 </button>
             </div>

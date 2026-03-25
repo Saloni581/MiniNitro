@@ -4,6 +4,6 @@ import { auth } from "../middlewares/auth.middleware.js";
 
 const router = express.Router();
 
-router.patch("/avatar-effects", auth, modifyAvatarEffect);
+router.patch("/avatar-effects/active", auth, modifyAvatarEffect);
 
 export default router;

@@ -4,29 +4,23 @@ export const modifyAvatarEffect = async (req, res) => {
     const userId = req.user.id;
     const { effectId } = req.body;
 
-    if(!userId) {
-        return res.status(401).json({error: "User does not exist"});
-    }
+    const updateQuery = effectId? { $set: { "visuals.avatar.decorations.activeEffect": effectId } }
+        : { $unset: { "visuals.avatar.decorations.activeEffect": "" } };
 
     try {
-
         const updatedUser = await UserProfile.findOneAndUpdate(
             { userId },
-            {
-                $set: {
-                    "visuals.avatar.decorations.activeEffect": effectId
-                }
-            },
+            updateQuery,
             { new: true }
         );
 
-        if(!updatedUser) {
+        if (!updatedUser) {
             return res.status(404).json({
                 message: "user profile not found"
             });
         }
         return res.status(200).json({
-            message: "Successfully updated user",
+            message: effectId? "Avatar effect applied successfully." : "Avatar effect removed successfully.",
             user: updatedUser
         })
     } catch (dbError) {
