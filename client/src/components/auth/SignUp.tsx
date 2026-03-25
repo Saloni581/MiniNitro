@@ -16,6 +16,7 @@ const SignUp = ({ setUser }: SetUserProps) => {
         try {
             const res = await signUp(data);
             setUser(res.data);
+            toast(res.message);
             navigate("/profile-form");
         } catch (error) {
             console.error(error);

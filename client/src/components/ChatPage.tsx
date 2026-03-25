@@ -21,7 +21,7 @@ const ChatPage = ({ loggedInUser }: ChatWindowProps) => {
     const chatContainerRef = useRef<HTMLDivElement | null>(null);
     const { userId } = useParams();
 
-    // handle chat scroll automatically on new message
+    // scroll to bottom whenever a new message arrives
     useEffect(() => {
         if(chatContainerRef.current) {
             chatContainerRef.current.scrollTop = chatContainerRef.current?.scrollHeight;
@@ -72,6 +72,8 @@ const ChatPage = ({ loggedInUser }: ChatWindowProps) => {
 
 
     // handling socket events - runs on mount when socket gets connected
+    // socket listeners must re-register when selectedUser changes
+    // otherwise they hold a stale reference to the old user (null on mount)
     useEffect(() => {
         console.log("socket connected?", socketContext?.socket.connected);
         socketContext?.socket.on("receiveMessage", (newMessage: any) => {
@@ -93,7 +95,7 @@ const ChatPage = ({ loggedInUser }: ChatWindowProps) => {
             socketContext?.socket.off("messageSent");
         }
 
-    }, [socketContext?.socket]);
+    }, [socketContext?.socket, selectedUser]);
 
 
     useEffect(() => {

@@ -58,7 +58,7 @@ export const signup = async (req, res) => {
         })
 
         return res.status(201).json({
-            message: "User successfully created",
+            message: "User successfully signed up.",
             data: {
                 userName: newUser.userName,
                 email: newUser.email
@@ -138,17 +138,5 @@ export const signout = async (req, res) => {
     });
 }
 
-export const deleteUser = async (req, res) => {
-    const userId = req.user.id;
-    try {
-        await User.findByIdAndDelete( userId );
-        return res.status(200).json({
-            message: "User deleted successfully",
-        });
-    } catch(error) {
-        return res.status(500).json({
-            message: "Internal Server Error",
-        })
-    }
-}
+
 

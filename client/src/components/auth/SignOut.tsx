@@ -10,6 +10,7 @@ const SignOut = ({ setUser }: SetUserProps) => {
         try {
             await signOut();
             setUser(null);
+            toast("User successfully logged out");
             navigate("/login");
         } catch (error) {
             console.error(error);

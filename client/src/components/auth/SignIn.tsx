@@ -31,6 +31,7 @@ const SignIn = ({ setUser } : SetUserProps) => {
             await signIn(data);
             const user = await fetchUserDetails();
             setUser(user.data);
+            toast("User signed in successfully.");
             connectToSocketContext?.connectToSocket();
             navigate("/profile");
         } catch (error) {
