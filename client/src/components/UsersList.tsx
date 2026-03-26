@@ -9,7 +9,7 @@ import UserAvatar from "@/components/UserAvatar.tsx";
 import ProfileCard from "@/components/ProfileCard.tsx";
 import type { UserProfileProps, UsersListProps } from "../../types/types.ts";
 import { useNavigate } from "react-router-dom";
-
+import { cn } from "@/lib/utils.ts";
 
 
 const UsersList = ({ users, isMyChats }: UsersListProps) => {
@@ -27,42 +27,65 @@ const UsersList = ({ users, isMyChats }: UsersListProps) => {
                     isMyChats? <h1>My Chats</h1> : <h1>All Users</h1>
                 }
             </div>
-            {
-                users.length !== 0 ?
-                (users?.map((eachUser) => (
-                <div key={eachUser._id} className="user-nameplate">
-                    <Dialog>
-                        <DialogTrigger asChild>
-                            <div>
-                                <UserAvatar user={eachUser} previewEffectId="" size="md" isChatWindow={false}/>
-                            </div>
-                        </DialogTrigger>
-                        <DialogContent>
-                            <DialogHeader>
-                                <DialogDescription>
-                                    <div className="flex flex-col justify-center items-center">
-                                        <ProfileCard user={eachUser} />
+                {
+                    users.length !== 0 ?
+                        (users?.map((eachUser) => (
+                            // nameplate effect structure
+                                <div key={eachUser._id} className={
+                                    cn("relative",
+                                    )}
+                                >
+                                    {/* glow layer */}
+                                    <div className={
+                                        cn("absolute z-0 inset-0",
+                                        )}
+                                    ></div>
+                                    {/* border layer */}
+                                    <div className={
+                                        cn("absolute z-10 inset-0",
+                                        )}
+                                    ></div>
+                                    {/* content layer */}
+                                    <div className="user-nameplate z-20">
+                                        <Dialog>
+                                            <DialogTrigger asChild>
+                                                <div>
+                                                    <UserAvatar user={eachUser} previewEffectId="" size="md" isChatWindow={false}/>
+                                                </div>
+                                            </DialogTrigger>
+                                            <DialogContent>
+                                                <DialogHeader>
+                                                    <DialogDescription>
+                                                        <div className="flex flex-col justify-center items-center">
+                                                            <ProfileCard user={eachUser} />
+                                                        </div>
+                                                    </DialogDescription>
+                                                </DialogHeader>
+                                            </DialogContent>
+                                        </Dialog>
+                                        <div className="flex flex-col gap-4 items-center">
+                                            <p>{eachUser?.identity?.displayName}</p>
+                                            <button
+                                                onClick={() => {
+                                                    handleSelectedUser(eachUser);
+                                                }}
+                                            >
+                                                {
+                                                    isMyChats? "message" : "connect"
+                                                }
+                                            </button>
+                                        </div>
                                     </div>
-                                </DialogDescription>
-                            </DialogHeader>
-                        </DialogContent>
-                    </Dialog>
-                    <div className="flex flex-col gap-4 items-center">
-                        <p>{eachUser?.identity?.displayName}</p>
-                        <button
-                            onClick={() => {
-                                handleSelectedUser(eachUser);
-                            }}
-                        >
-                            {
-                                isMyChats? "message" : "connect"
-                            }
-                        </button>
-                    </div>
-                </div>
-            ))): (
-                <div>Nothing to show here...</div>
-            )}
+                                    {/* overlay layer */}
+                                    <div
+                                        className={
+                                        cn("absolute z-30 inset-0",)
+                                        }
+                                    ></div>
+                                </div>
+                        ))): (
+                            <div>Nothing to show here...</div>
+                        )}
         </div>
     );
 };

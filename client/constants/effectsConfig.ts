@@ -1,7 +1,7 @@
 export const avatarEffects = [
     {
-        id: "glow-ring",
-        name: "Glow Ring",
+        id: "colorful-ring",
+        name: "Colorful Ring",
         cssGlowClass: 'white-glow',
         cssBorderClass: 'gradient-border',
         price: 200

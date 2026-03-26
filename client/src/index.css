@@ -191,7 +191,7 @@ button:active {
     @apply flex flex-col justify-center items-center
   }
 
-  /* glow effects */
+  /* avatar glow effects */
   .white-glow {
     @apply blur-md rounded-full bg-white;
   }
@@ -214,7 +214,7 @@ button:active {
   }
 
   .users-list {
-    @apply w-80 md:w-96 lg:w-100 p-6 bg-brand-secondary rounded-md;
+    @apply  w-80 md:w-96 lg:w-100 p-6 bg-brand-secondary rounded-md;
   }
 
   .user-offline-status {

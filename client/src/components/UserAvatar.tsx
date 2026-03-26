@@ -23,8 +23,7 @@ const UserAvatar = ({ user, previewEffectId, size, isChatWindow }: UserAvatarPro
             cn("h-30 w-30 relative rounded-full",
                 (size === "sm" && "w-10 h-10"),
                 (size === "md" && "w-20 h-20"),
-            )
-        }
+            )}
         >
             {/* glow layer */}
             <div className={
@@ -33,8 +32,7 @@ const UserAvatar = ({ user, previewEffectId, size, isChatWindow }: UserAvatarPro
                     (size === "sm" && "-inset-2"),
                     (size === "md" && "-inset-4"),
                     (size === "lg" && "-inset-6"),
-                )
-            }
+                )}
             ></div>
             {/* border layer */}
             <div className={
@@ -43,8 +41,7 @@ const UserAvatar = ({ user, previewEffectId, size, isChatWindow }: UserAvatarPro
                     (size === "sm" && "-inset-0.5"),
                     (size === "md" && "-inset-1"),
                     (size === "lg" && "-inset-1"),
-                )
-            }
+                )}
             ></div>
              {/*avatar image layer */}
             <div className="absolute rounded-full inset-0 z-20">
@@ -53,7 +50,7 @@ const UserAvatar = ({ user, previewEffectId, size, isChatWindow }: UserAvatarPro
                     <AvatarFallback className="absolute rounded-full">Avatar</AvatarFallback>
                 </Avatar>
             </div>
-             {/*overlay layer */}
+            {/*overlay layer */}
             {/*<div className={*/}
             {/*    cn("absolute z-30 inset-0",*/}
             {/*        (size === "sm" && ""),*/}
