@@ -1,4 +1,5 @@
 import User from "../db/models/userAccountSchema.js";
+import UserProfile from "../db/models/userProfileSchema.js";
 import bcrypt from 'bcryptjs';
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
@@ -16,13 +17,42 @@ export const signup = async (req, res) => {
         });
 
         if(existingUser) {
-            return res.status(400).json({
-                message: "User already exists!",
-                data: {
-                    userName: existingUser.userName,
-                    email: existingUser.email
-                }
-            });
+            // if user did not create profile
+            const userProfile = await UserProfile.findOne({ userId: existingUser._id });
+            if(!userProfile) {
+                const token = jwt.sign(
+                    {
+                        id: existingUser._id,
+                        email: existingUser.email
+                    },
+                    process.env.JWT_SECRET,
+                    { expiresIn: '7d' }
+                );
+
+                res.cookie('token', token, {
+                    httpOnly: true,
+                    secure: false,
+                    sameSite: 'lax',
+                    maxAge: 24*7*60*60*1000,
+                })
+
+                return res.status(200).json({
+                    message: "Incomplete account",
+                    data: {
+                        userName: existingUser.userName,
+                        email: existingUser.email,
+                        incompleteAccount: true
+                    }
+                })
+            } else {
+                return res.status(400).json({
+                    message: "User already exists!",
+                    data: {
+                        userName: existingUser.userName,
+                        email: existingUser.email
+                    }
+                });
+            }
         }
 
         // otherwise create a new user => hash user's password first
@@ -55,7 +85,7 @@ export const signup = async (req, res) => {
             secure: false,
             sameSite: 'lax',
             maxAge: 24*7*60*60*1000,
-        })
+        });
 
         return res.status(201).json({
             message: "User successfully signed up.",
@@ -72,6 +102,8 @@ export const signup = async (req, res) => {
     }
 }
 
+
+
 export const signin = async (req, res) => {
     const { email, password } = req.body;
 
@@ -83,8 +115,9 @@ export const signin = async (req, res) => {
         if (!user) {
             return res.status(401).json({
                 message: "invalid credentials",
-            })
+            });
         }
+
         // match passwords
         const isCorrectPsw = await bcrypt.compare(password, user.password);
         if(!isCorrectPsw) {
@@ -92,6 +125,7 @@ export const signin = async (req, res) => {
                 message: "invalid password",
             });
         }
+
         // generate jwt
         const token = jwt.sign(
             {
@@ -111,6 +145,19 @@ export const signin = async (req, res) => {
             sameSite: 'lax',
             maxAge: 24*7*60*60*1000,
         });
+
+        // if user has no profile
+        const userProfile = await UserProfile.findOne({ userId: user._id });
+        if(!userProfile) {
+            return res.status(200).json({
+                message: "Incomplete account",
+                data: {
+                    userName: user.userName,
+                    email: user.email,
+                    incompleteAccount: true
+                }
+            });
+        }
 
         return res.status(200).json({
             message: "Signed In successfully",

@@ -28,7 +28,12 @@ const SignIn = ({ setUser } : SetUserProps) => {
 
     const userSignIn = async (data: z.infer<typeof baseAuthSchema>) => {
         try {
-            await signIn(data);
+            const res = await signIn(data);
+            // if user has not created their profile
+            if(res.data.incompleteAccount) {
+                navigate("/profile-form");
+                return;
+            }
             const user = await fetchUserDetails();
             setUser(user.data);
             toast("User signed in successfully.");

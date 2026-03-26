@@ -35,9 +35,17 @@ const Home = ({ loggedInUser } : loggedInUserProps ) => {
     const filteredUsers = users.filter((user) => user.userId !== loggedInUser?.userId);
 
     return (
-        <div className="grid-container">
-            <UsersList users={myConversations} isMyChats={true} />
-            <UsersList users={filteredUsers} isMyChats={false} />
+        <div>
+            {
+                loggedInUser? (
+                    <div className="grid-container">
+                        <UsersList users={myConversations} isMyChats={true} />
+                        <UsersList users={filteredUsers} isMyChats={false} />
+                    </div>
+                ) : (
+                    <div>Home Page</div>
+                )
+            }
         </div>
     );
 };

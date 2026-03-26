@@ -145,9 +145,8 @@ button:active {
   }
 
   .identity textarea {
-    @apply border-2 border-brand-primary rounded-md px-6 outline-none focus:outline-none
-    focus:ring focus:ring-brand-primary-bold text-brand-text-primary
-    font-thin resize-none;
+    @apply border-2 border-brand-primary rounded-md px-2 outline-none focus:outline-none
+    focus:ring focus:ring-brand-primary-bold text-brand-text-primary font-thin resize-none;
   }
 
   .visuals div {

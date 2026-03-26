@@ -70,7 +70,7 @@ const ProfileForm = ({ setUser }: SetUserProps) => {
                 <div>
                     <label htmlFor="bio">Bio</label>
                     <textarea
-                        rows={10}
+                        rows={5}
                         cols={50}
                         id="bio"
                         { ...form.register("bio") }

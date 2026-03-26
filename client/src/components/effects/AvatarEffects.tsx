@@ -9,6 +9,10 @@ import UserAvatar from "@/components/UserAvatar.tsx";
 const AvatarEffects = ({ user, setUser }: ProfileProps) => {
 
     const handleApplyEffect = async (id : string) => {
+        if(!user) {
+            toast("Login to apply effect");
+            return;
+        }
         try {
             const res = await updateAvatarEffect(id);
             setUser(res.user);
