@@ -13,7 +13,7 @@ import ProfileCard from "@/components/ProfileCard.tsx";
 import { removeAvatar } from "../../api/visuals.ts";
 import {toast} from "sonner";
 import { removeAvatarEffect } from "../../api/effects.ts";
-
+import {cn} from "@/lib/utils.ts";
 
 const UserProfile = ({ user, setUser }: ProfileProps) => {
 
@@ -32,30 +32,49 @@ const UserProfile = ({ user, setUser }: ProfileProps) => {
 
     return (
         <div className="profile-card-container">
-            <div className="profile-card">
-                <ProfileCard user={user} />
-                <div className="user-settings">
-                    <Dialog>
-                        <DialogTrigger>
-                            Settings
-                        </DialogTrigger>
-                        <DialogContent>
-                            <DialogHeader>
-                                <DialogTitle>User Settings</DialogTitle>
-                                <DialogDescription className="flex flex-col gap-2">
-                                    <div>
-                                        <UploadUserAvatar user={user} setUser={setUser}/>
-                                        <button onClick={handleRemoveAvatar}>Remove avatar</button>
-                                    </div>
-                                    <div>
-                                        <button onClick={handleRemoveAvatarEffect}>Remove avatar effect</button>
-                                    </div>
-                                    <SignOut setUser={setUser}/>
-                                </DialogDescription>
-                            </DialogHeader>
-                        </DialogContent>
-                    </Dialog>
+            <div className="relative user-profile">
+                {/* glow layer */}
+                <div className={
+                    cn("absolute z-0 inset-0 pointer-events-none",
+                    )}
+                ></div>
+                {/* border layer */}
+                <div className={
+                    cn("absolute z-10 inset-0 pointer-events-none",
+                    )}
+                ></div>
+                {/* content layer */}
+                <div className="profile-card absolute inset-0 z-20">
+                    <ProfileCard user={user} />
+                    <div className="user-settings">
+                        <Dialog>
+                            <DialogTrigger>
+                                Settings
+                            </DialogTrigger>
+                            <DialogContent>
+                                <DialogHeader>
+                                    <DialogTitle>User Settings</DialogTitle>
+                                    <DialogDescription className="flex flex-col gap-2">
+                                        <div>
+                                            <UploadUserAvatar user={user} setUser={setUser}/>
+                                            <button onClick={handleRemoveAvatar}>Remove avatar</button>
+                                        </div>
+                                        <div>
+                                            <button onClick={handleRemoveAvatarEffect}>Remove avatar effect</button>
+                                        </div>
+                                        <SignOut setUser={setUser}/>
+                                    </DialogDescription>
+                                </DialogHeader>
+                            </DialogContent>
+                        </Dialog>
+                    </div>
                 </div>
+                {/* overlay layer */}
+                <div
+                    className={
+                        cn("absolute z-30 inset-0 pointer-events-none",)
+                    }
+                ></div>
             </div>
         </div>
     );

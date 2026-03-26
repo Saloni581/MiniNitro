@@ -51,15 +51,13 @@ const UserAvatar = ({ user, previewEffectId, size, isChatWindow }: UserAvatarPro
                 </Avatar>
             </div>
             {/*overlay layer */}
-            {/*<div className={*/}
-            {/*    cn("absolute z-30 inset-0",*/}
-            {/*        (size === "sm" && ""),*/}
-            {/*        (size === "md" && ""),*/}
-            {/*        (size === "lg" && ""),*/}
-            {/*    )*/}
-            {/*}*/}
-            {/*>*/}
-            {/*</div>*/}
+            <div className={
+                cn("absolute z-30 inset-0",
+                    (size === "sm" && ""),
+                    (size === "md" && ""),
+                    (size === "lg" && ""),
+                )}
+            ></div>
             {/* status badge layer */}
             <div className="absolute inset-0 z-40">
                 {

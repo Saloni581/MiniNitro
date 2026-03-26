@@ -37,12 +37,12 @@ const UsersList = ({ users, isMyChats }: UsersListProps) => {
                                 >
                                     {/* glow layer */}
                                     <div className={
-                                        cn("absolute z-0 inset-0",
+                                        cn("absolute z-0 inset-0 pointer-events-none",
                                         )}
                                     ></div>
                                     {/* border layer */}
                                     <div className={
-                                        cn("absolute z-10 inset-0",
+                                        cn("absolute z-10 inset-0 pointer-events-none",
                                         )}
                                     ></div>
                                     {/* content layer */}
@@ -79,7 +79,7 @@ const UsersList = ({ users, isMyChats }: UsersListProps) => {
                                     {/* overlay layer */}
                                     <div
                                         className={
-                                        cn("absolute z-30 inset-0",)
+                                        cn("absolute z-30 inset-0 pointer-events-none",)
                                         }
                                     ></div>
                                 </div>

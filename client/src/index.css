@@ -162,8 +162,12 @@ button:active {
     @apply flex justify-center
   }
 
+  .user-profile {
+    @apply m-6 w-80 md:w-xl rounded-2xl h-140 bg-brand-black text-brand-text-secondary;
+  }
+
   .profile-card {
-    @apply flex flex-col gap-4 my-4 p-8 place-items-center w-80 md:w-xl rounded-4xl h-140 bg-brand-black text-brand-text-secondary;
+    @apply flex flex-col gap-4 p-8 place-items-center;
   }
 
   .grid-container {
