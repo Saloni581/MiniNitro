@@ -28,6 +28,7 @@ const ChatPage = ({ loggedInUser }: ChatWindowProps) => {
         }
     }, [messages]);
 
+    // fetching selected user details through Id
     useEffect(() => {
         const fetchUserDetails = async () => {
             if(userId) {
@@ -35,9 +36,7 @@ const ChatPage = ({ loggedInUser }: ChatWindowProps) => {
                setSelectedUser(user.data);
             }
         }
-
         fetchUserDetails();
-
     }, [userId]);
 
     // send message

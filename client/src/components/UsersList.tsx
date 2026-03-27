@@ -1,12 +1,4 @@
-import {
-    Dialog,
-    DialogContent,
-    DialogDescription,
-    DialogHeader,
-    DialogTrigger
-} from "@/components/ui/dialog.tsx";
 import UserAvatar from "@/components/UserAvatar.tsx";
-import ProfileCard from "@/components/ProfileCard.tsx";
 import type { UserProfileProps, UsersListProps } from "../../types/types.ts";
 import { useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils.ts";
@@ -19,6 +11,9 @@ const UsersList = ({ users, isMyChats }: UsersListProps) => {
         navigate(`/chat/${selectedUser.userId}`);
     }
 
+    const showPublicProfile = (userId: string) => {
+        navigate(`/profile/${userId}`);
+    }
 
     return (
         <div className="users-list">
@@ -47,22 +42,9 @@ const UsersList = ({ users, isMyChats }: UsersListProps) => {
                                     ></div>
                                     {/* content layer */}
                                     <div className="user-nameplate z-20">
-                                        <Dialog>
-                                            <DialogTrigger asChild>
-                                                <div>
-                                                    <UserAvatar user={eachUser} previewEffectId="" size="md" isChatWindow={false}/>
-                                                </div>
-                                            </DialogTrigger>
-                                            <DialogContent>
-                                                <DialogHeader>
-                                                    <DialogDescription>
-                                                        <div className="flex flex-col justify-center items-center">
-                                                            <ProfileCard user={eachUser} />
-                                                        </div>
-                                                    </DialogDescription>
-                                                </DialogHeader>
-                                            </DialogContent>
-                                        </Dialog>
+                                        <div onClick={() => showPublicProfile(eachUser.userId)} className="cursor-pointer">
+                                            <UserAvatar user={eachUser} previewEffectId="" size="md" isChatWindow={false} />
+                                        </div>
                                         <div className="flex flex-col gap-4 items-center">
                                             <p>{eachUser?.identity?.displayName}</p>
                                             <button

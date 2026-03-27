@@ -1,3 +1,5 @@
+import type {ReactNode} from "react";
+
 export interface UserProfileProps {
     _id: string;
 
@@ -114,4 +116,9 @@ export interface UsersListProps {
 
 export interface OnlineUsersProps {
     onlineUsers: Record<string, string>;
+}
+
+export interface ProfileFrameProps {
+    user: UserProfileProps | null;
+    children?: ReactNode;
 }

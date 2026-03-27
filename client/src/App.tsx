@@ -13,6 +13,7 @@ import NameplateEffects from "./components/effects/NameplateEffects.tsx";
 import UserProfile from "@/components/UserProfile.tsx";
 import { SocketContext } from "@/components/SocketContext.tsx";
 import ChatPage from "@/components/ChatPage.tsx";
+import PublicProfile from "@/components/PublicProfile.tsx";
 
 
 const App = () => {
@@ -47,11 +48,18 @@ const App = () => {
                >
                </Route>
 
-               {/* User Profile Routes */}
+               {/* Profile Routes */}
                <Route
                    path="/profile"
                    element={
                        <UserProfile user={user} setUser={setUser} />
+                   }
+               >
+               </Route>
+               <Route
+                   path="/profile/:userId"
+                   element={
+                       <PublicProfile />
                    }
                >
                </Route>
@@ -62,6 +70,7 @@ const App = () => {
                    }
                >
                </Route>
+
 
                {/* Effects Routes */}
                <Route
