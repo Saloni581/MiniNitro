@@ -2,11 +2,20 @@ import {Popover, PopoverContent, PopoverTrigger} from "@/components/ui/popover.t
 import {Button} from "@/components/ui/button.tsx";
 import colorPickerIcon from "@/assets/color-picker.png";
 import {HexColorPicker} from "react-colorful";
-import { useState } from "react";
+import { useState} from "react";
+import {updateProfileTheme} from "../../../api/visuals.ts";
+import type { SetUserProps } from "../../../types/types.ts";
+import { toast } from "sonner";
 
-const ThemePicker = () => {
+const ThemePicker = ({ setUser }: SetUserProps) => {
     const [primaryColor, setPrimaryColor] = useState("");
     const [accentColor, setAccentColor] = useState("");
+
+    const handleProfileTheme = async () => {
+        const res = await updateProfileTheme({ primary: primaryColor, accent: accentColor });
+        setUser(res.user);
+        toast(res.message);
+    }
 
     return (
         <div>
@@ -40,6 +49,9 @@ const ThemePicker = () => {
                         </PopoverContent>
                     </Popover>
                 </div>
+            </div>
+            <div className="mt-2">
+                <button onClick={handleProfileTheme}>Save</button>
             </div>
         </div>
     );

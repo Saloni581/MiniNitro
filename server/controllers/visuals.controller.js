@@ -14,12 +14,6 @@ export const uploadUserAvatar = async (req, res) => {
 
     const userId = req.user.id;
 
-    if(!userId) {
-        return res.status(401).json({
-            message: 'Unauthorized user',
-        })
-    }
-
     try {
         // fetch user profile
         const userProfile = await UserProfile.findOne({ userId });
@@ -103,6 +97,34 @@ export const removeUserAvatar = async (req, res) => {
     });
 }
 
-export const setTheme = async (req, res) => {
+export const updateTheme = async (req, res) => {
+    const userId = req.user.id;
+    const { primary, accent } = req.body;
 
+    try {
+        const updatedUserProfile = await UserProfile.findOneAndUpdate(
+            { userId },
+            {
+                "visuals.theme.isEnabled": true,
+                "visuals.theme.colors.primary": primary,
+                "visuals.theme.colors.accent": accent,
+            },
+            { new: true }
+        );
+
+        if(!updatedUserProfile) {
+            return res.status(404).json({
+                message: "user profile not found",
+            });
+        }
+
+        return res.status(200).json({
+            message: "theme successfully updated!",
+            user: updatedUserProfile,
+        });
+    } catch (error) {
+        return res.status(500).json({
+            message: "Theme update failed/Internal Server Error",
+        });
+    }
 }
