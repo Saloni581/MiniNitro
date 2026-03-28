@@ -1,4 +1,4 @@
-import UserAvatar from "@/components/UserAvatar.tsx";
+import UserAvatar from "@/components/visuals/UserAvatar.tsx";
 import type { UserProfileProps, UsersListProps } from "../../types/types.ts";
 import { useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils.ts";

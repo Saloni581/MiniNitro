@@ -102,3 +102,7 @@ export const removeUserAvatar = async (req, res) => {
         message: "User avatar Removed",
     });
 }
+
+export const setTheme = async (req, res) => {
+
+}

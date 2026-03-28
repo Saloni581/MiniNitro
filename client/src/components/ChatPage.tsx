@@ -8,7 +8,7 @@ import { useParams } from "react-router-dom";
 import { fetchUserById } from "../../api/user.ts";
 import UsersList from "@/components/UsersList.tsx";
 import { fetchConversationsOfLoggedInUser } from "../../api/conversation.ts";
-import UserAvatar from "@/components/UserAvatar.tsx";
+import UserAvatar from "@/components/visuals/UserAvatar.tsx";
 import send from "@/assets/send.png";
 
 

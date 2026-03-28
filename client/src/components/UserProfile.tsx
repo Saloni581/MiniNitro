@@ -1,6 +1,6 @@
 import SignOut from "./auth/SignOut.tsx";
 import type { ProfileProps } from "../../types/types.ts";
-import UploadUserAvatar from "./UploadUserAvatar.tsx";
+import UploadUserAvatar from "./visuals/UploadUserAvatar.tsx";
 import {
     Dialog,
     DialogContent,
@@ -13,6 +13,8 @@ import { removeAvatar } from "../../api/visuals.ts";
 import {toast} from "sonner";
 import { removeAvatarEffect } from "../../api/effects.ts";
 import ProfileFrame from "@/components/ProfileFrame.tsx";
+import ThemePicker from "@/components/visuals/ThemePicker.tsx";
+
 
 const UserProfile = ({ user, setUser }: ProfileProps) => {
 
@@ -47,6 +49,7 @@ const UserProfile = ({ user, setUser }: ProfileProps) => {
                                 <div>
                                     <button onClick={handleRemoveAvatarEffect}>Remove avatar effect</button>
                                 </div>
+                                <ThemePicker />
                                 <SignOut setUser={setUser}/>
                             </DialogDescription>
                         </DialogHeader>

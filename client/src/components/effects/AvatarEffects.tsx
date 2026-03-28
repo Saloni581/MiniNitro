@@ -4,7 +4,7 @@ import { avatarEffects } from "../../../constants/effectsConfig.ts";
 import { updateAvatarEffect } from "../../../api/effects.ts";
 import type { ProfileProps } from "../../../types/types.ts";
 import { toast } from "sonner";
-import UserAvatar from "@/components/UserAvatar.tsx";
+import UserAvatar from "@/components/visuals/UserAvatar.tsx";
 
 const AvatarEffects = ({ user, setUser }: ProfileProps) => {
 

@@ -1,4 +1,4 @@
-import UserAvatar from "@/components/UserAvatar.tsx";
+import UserAvatar from "@/components/visuals/UserAvatar.tsx";
 import type { MessageCardProps } from "../../types/types.ts";
 
 const MessageCard = ({ user, message }: MessageCardProps) => {

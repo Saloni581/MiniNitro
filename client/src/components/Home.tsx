@@ -3,6 +3,7 @@ import { useEffect, useState} from "react";
 import type { UserProfileProps } from "../../types/types.ts";
 import UsersList from "@/components/UsersList.tsx";
 import { fetchConversationsOfLoggedInUser } from "../../api/conversation.ts";
+import LandingPage from "@/components/LandingPage.tsx";
 
 type loggedInUserProps = {
     loggedInUser: UserProfileProps | null;
@@ -43,7 +44,9 @@ const Home = ({ loggedInUser } : loggedInUserProps ) => {
                         <UsersList users={filteredUsers} isMyChats={false} />
                     </div>
                 ) : (
-                    <div>Home Page</div>
+                    <div>
+                        <LandingPage />
+                    </div>
                 )
             }
         </div>

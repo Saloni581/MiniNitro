@@ -1,5 +1,5 @@
 import type { UserProfileProps } from "../../types/types.ts";
-import UserAvatar from "@/components/UserAvatar.tsx";
+import UserAvatar from "@/components/visuals/UserAvatar.tsx";
 
 type UserProps = {
     user : UserProfileProps | null;

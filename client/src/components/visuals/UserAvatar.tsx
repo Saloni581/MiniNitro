@@ -1,6 +1,6 @@
 import { Avatar, AvatarBadge, AvatarFallback, AvatarImage } from "@/components/ui/avatar.tsx";
-import type { UserAvatarProps } from "../../types/types.ts";
-import { avatarEffects } from "../../constants/effectsConfig.ts";
+import type { UserAvatarProps } from "../../../types/types.ts";
+import { avatarEffects } from "../../../constants/effectsConfig.ts";
 import { cn } from "@/lib/utils.ts";
 import SmartphoneIcon from "@/assets/icons8-smartphone-48.png";
 import { useContext } from "react";
