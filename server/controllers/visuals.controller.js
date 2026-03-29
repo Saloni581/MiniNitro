@@ -79,22 +79,35 @@ export const removeUserAvatar = async (req, res) => {
         })
     }
 
-    const updatedUser = await UserProfile.findOneAndUpdate(
-        { userId },
-        {
-            $addToSet: {
-                "visuals.avatar.recentAssets": recentAvatarSecure_url,
+    try {
+        const updatedUser = await UserProfile.findOneAndUpdate(
+            { userId },
+            {
+                $addToSet: {
+                    "visuals.avatar.recentAssets": recentAvatarSecure_url,
+                },
+                $unset: {
+                    "visuals.avatar.activeAssetId.url": "",
+                }
             },
-            $unset: {
-                "visuals.avatar.activeAssetId.url": "",
-            }
-        },
-        { new: true }
-    );
-    return res.status(200).json({
-        updatedUser,
-        message: "User avatar Removed",
-    });
+            { new: true }
+        );
+
+        if(!updatedUser) {
+            return res.status(404).json({
+                message: "User Profile Not Found",
+            });
+        }
+
+        return res.status(200).json({
+            message: "User avatar removed successfully!",
+            updatedUser
+        })
+    } catch (error) {
+        return res.status(500).json({
+            message: "Internal Server Error",
+        })
+    }
 }
 
 export const updateTheme = async (req, res) => {
@@ -105,9 +118,11 @@ export const updateTheme = async (req, res) => {
         const updatedUserProfile = await UserProfile.findOneAndUpdate(
             { userId },
             {
-                "visuals.theme.isEnabled": true,
-                "visuals.theme.colors.primary": primary,
-                "visuals.theme.colors.accent": accent,
+                $set: {
+                    "visuals.theme.isEnabled": true,
+                    "visuals.theme.colors.primary": primary,
+                    "visuals.theme.colors.accent": accent,
+                }
             },
             { new: true }
         );
@@ -126,5 +141,38 @@ export const updateTheme = async (req, res) => {
         return res.status(500).json({
             message: "Theme update failed/Internal Server Error",
         });
+    }
+}
+
+export const removeTheme = async (req, res) => {
+    const userId = req.user.id;
+
+    try {
+        const updatedUserProfile = await UserProfile.findOneAndUpdate(
+            { userId },
+            {
+                $set: {
+                    "visuals.theme.isEnabled": false,
+                    "visuals.theme.colors.primary": null,
+                    "visuals.theme.colors.accent": null,
+                }
+            },
+            { new: true }
+        );
+
+        if(!updatedUserProfile) {
+            return res.status(404).json({
+                message: "user profile not found",
+            });
+        }
+
+        return res.status(200).json({
+            message: "theme successfully removed!",
+            user: updatedUserProfile,
+        })
+    } catch (error) {
+        return res.status(500).json({
+            message: "Theme could not be removed/Internal Server Error",
+        })
     }
 }

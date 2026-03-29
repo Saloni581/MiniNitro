@@ -3,7 +3,7 @@ import {Button} from "@/components/ui/button.tsx";
 import colorPickerIcon from "@/assets/color-picker.png";
 import {HexColorPicker} from "react-colorful";
 import { useState} from "react";
-import {updateProfileTheme} from "../../../api/visuals.ts";
+import { removeProfileTheme, updateProfileTheme } from "../../../api/visuals.ts";
 import type { ProfileProps } from "../../../types/types.ts";
 import { toast } from "sonner";
 
@@ -13,8 +13,14 @@ const ThemePicker = ({ user, setUser }: ProfileProps) => {
     const [primaryColor, setPrimaryColor] = useState(currentPrimaryColor);
     const [accentColor, setAccentColor] = useState(currentAccentColor);
 
-    const handleProfileTheme = async () => {
+    const handleUpdateProfileTheme = async () => {
         const res = await updateProfileTheme({ primary: primaryColor, accent: accentColor });
+        setUser(res.user);
+        toast(res.message);
+    }
+
+    const handleRemoveProfileTheme = async () => {
+        const res = await removeProfileTheme();
         setUser(res.user);
         toast(res.message);
     }
@@ -53,7 +59,10 @@ const ThemePicker = ({ user, setUser }: ProfileProps) => {
                 </div>
             </div>
             <div className="mt-2">
-                <button onClick={handleProfileTheme}>Save</button>
+                <button onClick={handleUpdateProfileTheme}>Save</button>
+            </div>
+            <div className="mt-2">
+                <button onClick={handleRemoveProfileTheme}>Remove</button>
             </div>
         </div>
     );

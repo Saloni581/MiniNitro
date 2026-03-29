@@ -27,3 +27,8 @@ export const updateProfileTheme = async ({ primary, accent } : {
     const res = await api.patch("/theme", { primary, accent });
     return res.data;
 }
+
+export const removeProfileTheme = async () => {
+    const res = await api.patch("/remove-theme");
+    return res.data;
+}
