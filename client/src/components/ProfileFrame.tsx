@@ -3,8 +3,8 @@ import ProfileCard from "@/components/ProfileCard.tsx";
 import type { ProfileFrameProps } from "../../types/types.ts";
 
 const ProfileFrame = ({ user, children }: ProfileFrameProps) => {
-    const colorPrimary = user?.visuals.theme.colors.primary;
-    const colorAccent = user?.visuals.theme.colors.accent;
+    const colorPrimary = user?.visuals?.theme?.colors?.primary ?? "";
+    const colorAccent = user?.visuals?.theme?.colors?.accent ?? "";
 
     return (
         <div className="profile-card-container">

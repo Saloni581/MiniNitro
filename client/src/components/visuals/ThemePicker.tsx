@@ -4,12 +4,14 @@ import colorPickerIcon from "@/assets/color-picker.png";
 import {HexColorPicker} from "react-colorful";
 import { useState} from "react";
 import {updateProfileTheme} from "../../../api/visuals.ts";
-import type { SetUserProps } from "../../../types/types.ts";
+import type { ProfileProps } from "../../../types/types.ts";
 import { toast } from "sonner";
 
-const ThemePicker = ({ setUser }: SetUserProps) => {
-    const [primaryColor, setPrimaryColor] = useState("");
-    const [accentColor, setAccentColor] = useState("");
+const ThemePicker = ({ user, setUser }: ProfileProps) => {
+    const currentPrimaryColor = user?.visuals.theme.colors.primary ?? "";
+    const currentAccentColor = user?.visuals.theme.colors.accent ?? "";
+    const [primaryColor, setPrimaryColor] = useState(currentPrimaryColor);
+    const [accentColor, setAccentColor] = useState(currentAccentColor);
 
     const handleProfileTheme = async () => {
         const res = await updateProfileTheme({ primary: primaryColor, accent: accentColor });

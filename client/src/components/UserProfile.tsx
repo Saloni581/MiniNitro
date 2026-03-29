@@ -55,7 +55,7 @@ const UserProfile = ({ user, setUser }: ProfileProps) => {
                                     <button onClick={handleRemoveAvatarEffect}>Remove avatar effect</button>
                                 </div>
                                 <div>
-                                    <ThemePicker setUser={setUser} />
+                                    <ThemePicker user={user} setUser={setUser} />
                                 </div>
                                 <SignOut setUser={setUser}/>
                             </DialogDescription>
