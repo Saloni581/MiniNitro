@@ -58,11 +58,15 @@ const ThemePicker = ({ user, setUser }: ProfileProps) => {
                     </Popover>
                 </div>
             </div>
+            {
+                ((accentColor !== currentAccentColor) || (primaryColor !== currentPrimaryColor)) && (
+                    <div className="mt-2">
+                        <button onClick={handleUpdateProfileTheme}>Save</button>
+                    </div>
+                )
+            }
             <div className="mt-2">
-                <button onClick={handleUpdateProfileTheme}>Save</button>
-            </div>
-            <div className="mt-2">
-                <button onClick={handleRemoveProfileTheme}>Remove</button>
+                <button onClick={handleRemoveProfileTheme}>Remove theme</button>
             </div>
         </div>
     );

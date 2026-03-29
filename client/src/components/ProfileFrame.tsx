@@ -12,7 +12,7 @@ const ProfileFrame = ({ user, children }: ProfileFrameProps) => {
                  style={{
                      "--color-primary": colorPrimary,
                      "--color-accent": colorAccent,
-                     background: "color-mix(in srgb, var(--color-primary) 15%, var(--color-brand-black)",
+                     background: "color-mix(in srgb, var(--color-primary) 50%, var(--color-brand-black)",
                  } as React.CSSProperties}
             >
                 {/* glow layer */}
@@ -27,7 +27,7 @@ const ProfileFrame = ({ user, children }: ProfileFrameProps) => {
                 ></div>
                 {/* content layer */}
                 <div className="profile-card absolute inset-0 z-20"
-                     style ={{ color: "color-mix(in srgb, var(--color-accent) 20%, var(--color-brand-white)" }}
+                     style ={{ color: "color-mix(in srgb, var(--color-accent) 30%, var(--color-brand-white)" }}
                 >
                     <ProfileCard user={user} />
                     { children }
