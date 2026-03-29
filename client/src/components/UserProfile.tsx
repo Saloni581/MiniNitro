@@ -37,8 +37,8 @@ const UserProfile = ({ user, setUser }: ProfileProps) => {
                 <Dialog>
                     <DialogTrigger
                         style={{
-                            color: "color-mix(in srgb, var(--color-primary) 35%, var(--color-brand-black)",
-                            background: "color-mix(in srgb, var(--color-accent) 15%, var(--color-brand-white)"
+                            color: "color-mix(in srgb, var(--color-primary) 35%, var(--color-surface)",
+                            background: "color-mix(in srgb, var(--color-accent) 15%, var(--color-text-primary)"
                         }}
                     >
                         Settings
