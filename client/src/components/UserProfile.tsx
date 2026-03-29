@@ -35,7 +35,12 @@ const UserProfile = ({ user, setUser }: ProfileProps) => {
         <ProfileFrame user={user}>
             <div className="user-settings">
                 <Dialog>
-                    <DialogTrigger>
+                    <DialogTrigger
+                        style={{
+                            color: "color-mix(in srgb, var(--color-primary) 35%, var(--color-brand-black)",
+                            background: "color-mix(in srgb, var(--color-accent) 15%, var(--color-brand-white)"
+                        }}
+                    >
                         Settings
                     </DialogTrigger>
                     <DialogContent>
@@ -49,7 +54,9 @@ const UserProfile = ({ user, setUser }: ProfileProps) => {
                                 <div>
                                     <button onClick={handleRemoveAvatarEffect}>Remove avatar effect</button>
                                 </div>
-                                <ThemePicker setUser={setUser} />
+                                <div>
+                                    <ThemePicker setUser={setUser} />
+                                </div>
                                 <SignOut setUser={setUser}/>
                             </DialogDescription>
                         </DialogHeader>
