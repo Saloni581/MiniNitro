@@ -8,8 +8,8 @@ import type { ProfileProps } from "../../../types/types.ts";
 import { toast } from "sonner";
 
 const ThemePicker = ({ user, setUser }: ProfileProps) => {
-    const currentPrimaryColor = user?.visuals.theme.colors.primary ?? "";
-    const currentAccentColor = user?.visuals.theme.colors.accent ?? "";
+    const currentPrimaryColor = user?.visuals?.theme?.colors?.primary ?? "";
+    const currentAccentColor = user?.visuals?.theme?.colors?.accent ?? "";
     const [primaryColor, setPrimaryColor] = useState(currentPrimaryColor);
     const [accentColor, setAccentColor] = useState(currentAccentColor);
 
