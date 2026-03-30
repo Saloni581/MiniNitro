@@ -18,6 +18,11 @@ const UserAvatar = ({ user, previewEffectId, size, isChatWindow }: UserAvatarPro
         activeEffect = avatarEffects.find((effect) => effect.id === effectId);
     }
 
+    // do not show avatar with effects when size is small
+    if(size === "sm") {
+        activeEffect = null;
+    }
+
     return (
         <div className={
             cn("h-30 w-30 relative rounded-full",
@@ -37,7 +42,7 @@ const UserAvatar = ({ user, previewEffectId, size, isChatWindow }: UserAvatarPro
             {/* border layer */}
             <div className={
                 cn("absolute z-10 inset-0 rounded-full",
-                    (activeEffect && activeEffect.cssBorderClass),
+                    (activeEffect? activeEffect.cssBorderClass : "bg-text-secondary"),
                     (size === "sm" && "-inset-0.5"),
                     (size === "md" && "-inset-1"),
                     (size === "lg" && "-inset-1"),

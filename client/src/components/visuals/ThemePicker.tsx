@@ -1,6 +1,6 @@
 import {Popover, PopoverContent, PopoverTrigger} from "@/components/ui/popover.tsx";
 import {Button} from "@/components/ui/button.tsx";
-import colorPickerIcon from "@/assets/color-picker.png";
+import colorPickerIcon from "@/assets/circle.png";
 import {HexColorPicker} from "react-colorful";
 import { useState} from "react";
 import { removeProfileTheme, updateProfileTheme } from "../../../api/visuals.ts";
@@ -35,7 +35,12 @@ const ThemePicker = ({ user, setUser }: ProfileProps) => {
                     <Popover>
                         <PopoverTrigger asChild>
                             <Button variant="outline" style={{ backgroundColor: primaryColor }} className="w-24 flex justify-end">
-                                <img src={colorPickerIcon} alt="color picker icon" width={20} height={20} />
+                                <img
+                                    src={colorPickerIcon}
+                                    alt="edit icon"
+                                    width={20}
+                                    height={20}
+                                />
                             </Button>
                         </PopoverTrigger>
                         <PopoverContent>
@@ -49,7 +54,12 @@ const ThemePicker = ({ user, setUser }: ProfileProps) => {
                     <Popover>
                         <PopoverTrigger asChild>
                             <Button variant="outline" style={{ backgroundColor: accentColor }} className="w-24 flex justify-end">
-                                <img src={colorPickerIcon} alt="color picker icon" width={20} height={20} />
+                                <img
+                                    src={colorPickerIcon}
+                                    alt="edit icon"
+                                    width={20}
+                                    height={20}
+                                />
                             </Button>
                         </PopoverTrigger>
                         <PopoverContent>

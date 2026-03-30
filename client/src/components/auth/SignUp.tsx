@@ -6,7 +6,6 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 // @ts-ignore
 import { signUpSchema } from "../../../../validations/auth.schema.js";
-import { cn } from "@/lib/utils.ts";
 import { toast } from "sonner";
 
 const SignUp = ({ setUser }: SetUserProps) => {
@@ -48,7 +47,6 @@ const SignUp = ({ setUser }: SetUserProps) => {
                     type="text"
                     placeholder="enter a unique username"
                     { ...form.register("userName")}
-                    className={cn(form.formState.errors.userName && "error-input")}
                 />
                 {
                     form.formState.errors.userName && (
@@ -65,7 +63,6 @@ const SignUp = ({ setUser }: SetUserProps) => {
                     type="email"
                     placeholder="enter email address"
                     { ...form.register("email") }
-                    className={cn(form.formState.errors.email && "error-input")}
                 />
                 {
                     form.formState.errors.email && (
@@ -82,7 +79,6 @@ const SignUp = ({ setUser }: SetUserProps) => {
                     type="password"
                     placeholder="enter password"
                     { ...form.register("password") }
-                    className={cn(form.formState.errors.password && "error-input")}
                 />
                 {
                     form.formState.errors.password && (

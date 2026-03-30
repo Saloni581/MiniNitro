@@ -25,10 +25,10 @@
   --foreground: var(--color-text-primary);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
+  --popover: oklch(0.13 0.02 350);
   /*--popover-foreground: oklch(0.145 0 0);*/
   --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.95 0 0);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
@@ -65,7 +65,7 @@ a {
 }
 
 a:hover {
-  color: var(--color-accent-primary);
+  color: var(--color-text-primary);
 }
 
 button {
@@ -98,7 +98,7 @@ button:active {
   }
 
   .navbar {
-    @apply flex justify-around items-center bg-base h-24 text-text-primary text-lg border-b border-b-text-secondary;
+    @apply lg:mx-32 md:mx-20 sm:mx-16 flex justify-around items-center bg-base h-24 text-text-secondary border-b border-b-text-secondary;
   }
 
   .auth-form {
@@ -110,12 +110,8 @@ button:active {
   }
 
   input {
-    @apply border-2 border-accent-primary rounded-md p-2 px-4 outline-none focus:outline-none
-    focus:ring-4 focus:ring-accent-secondary focus:border-none text-text-primary font-thin;
-  }
-
-  .error-input {
-    @apply border-2 border-error
+    @apply rounded-md p-2 px-4 outline-none border border-text-secondary focus:outline-none
+    focus:ring focus:ring-text-primary text-text-primary font-thin;
   }
 
   .error-message {
@@ -143,8 +139,8 @@ button:active {
   }
 
   .identity textarea {
-    @apply border-2 border-accent-primary rounded-md p-2 px-4 outline-none focus:outline-none
-    focus:ring-4 focus:ring-accent-secondary focus:border-none text-text-primary font-thin resize-none;
+    @apply rounded-md p-2 px-4 outline-none border border-text-secondary focus:outline-none
+    focus:ring focus:ring-text-primary text-text-primary font-thin resize-none;
   }
 
   .visuals div {

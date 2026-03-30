@@ -32,7 +32,7 @@ const ProfileForm = ({ setUser }: SetUserProps) => {
             className="profile-form"
             noValidate={true}
         >
-            <span className="profile-form-heading">Create your profile</span>
+            <span className="profile-form-heading">Create profile</span>
 
             <div className="identity">
                 <div className="identity-input">

@@ -7,7 +7,6 @@ import { baseAuthSchema } from "../../../../validations/auth.schema.js";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { cn } from "@/lib/utils.ts";
 import { toast } from "sonner";
 import { useContext } from "react";
 import { SocketContext } from "@/components/SocketContext.tsx";
@@ -57,7 +56,6 @@ const SignIn = ({ setUser } : SetUserProps) => {
                 <input
                     type='text'
                     placeholder="email"
-                    className={cn(form.formState.errors.email && "error-input")}
                     { ...form.register("email") }
                     required
                 />
@@ -74,7 +72,6 @@ const SignIn = ({ setUser } : SetUserProps) => {
                 <input
                     type="password"
                     placeholder="enter password"
-                    className={cn(form.formState.errors.password && "error-input")}
                     required
                     { ...form.register("password") }
                 />
