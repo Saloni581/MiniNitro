@@ -207,11 +207,11 @@ button:active {
   }
 
   .user-nameplate {
-    @apply py-8 flex items-center justify-around bg-surface text-text-primary mb-4 rounded-lg
+    @apply py-4 flex items-center justify-around text-text-primary mb-4 rounded-lg gap-4
   }
 
   .users-list {
-    @apply  w-80 md:w-96 lg:w-100 p-6 bg-surface;
+    @apply  w-96 md:w-100 lg:w-130 p-6;
   }
 
   .user-offline-status {

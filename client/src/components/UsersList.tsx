@@ -17,9 +17,9 @@ const UsersList = ({ users, isMyChats }: UsersListProps) => {
 
     return (
         <div className="users-list">
-            <div>
+            <div className="text-center font-light text-xl">
                 {
-                    isMyChats? <h1>My Chats</h1> : <h1>All Users</h1>
+                    isMyChats? <h2>My Chats</h2> : <h2>All Users</h2>
                 }
             </div>
                 {
@@ -43,10 +43,13 @@ const UsersList = ({ users, isMyChats }: UsersListProps) => {
                                     {/* content layer */}
                                     <div className="user-nameplate z-20">
                                         <div onClick={() => showPublicProfile(eachUser.userId)} className="cursor-pointer">
-                                            <UserAvatar user={eachUser} previewEffectId="" size="md" isChatWindow={false} />
+                                            <UserAvatar user={eachUser} previewEffectId="" size="sm" isChatWindow={false} />
                                         </div>
-                                        <div className="flex flex-col gap-4 items-center">
-                                            <p>{eachUser?.identity?.displayName}</p>
+                                        <div className="flex flex-col items-center">
+                                            <p className="text-sm font-light">{eachUser?.identity?.displayName}</p>
+                                            <p className="text-xs text-text-secondary">{eachUser?.identity?.pronouns}</p>
+                                        </div>
+                                        <div>
                                             <button
                                                 onClick={() => {
                                                     handleSelectedUser(eachUser);
