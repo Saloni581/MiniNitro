@@ -2,7 +2,7 @@ const LandingPage = () => {
 
     return (
         <div>
-            This is the Landing page.
+            Hero Page
         </div>
     );
 };

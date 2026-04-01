@@ -108,9 +108,6 @@ const ChatPage = ({ loggedInUser }: ChatWindowProps) => {
 
     return (
         <div className="grid-container">
-            <div>
-                <UsersList users={myConversations} isMyChats={true} />
-            </div>
             <div className="chat-window-container-outer">
                 <div className="chat-window-selected-user">
                     <UserAvatar user={selectedUser} previewEffectId={""} size={"sm"} isChatWindow={false}/>
@@ -140,6 +137,9 @@ const ChatPage = ({ loggedInUser }: ChatWindowProps) => {
                         <img src={send} alt="send icon" className="w-6 h-6"/>
                     </button>
                 </div>
+            </div>
+            <div>
+                <UsersList users={myConversations} isMyChats={true} />
             </div>
         </div>
     );
