@@ -14,6 +14,7 @@ import {toast} from "sonner";
 import { removeAvatarEffect } from "../../api/effects.ts";
 import ProfileFrame from "@/components/ProfileFrame.tsx";
 import ThemePicker from "@/components/visuals/ThemePicker.tsx";
+import DisplayNameStyle from "@/components/visuals/DisplayNameStyle.tsx";
 
 
 const UserProfile = ({ user, setUser }: ProfileProps) => {
@@ -56,6 +57,9 @@ const UserProfile = ({ user, setUser }: ProfileProps) => {
                                 </div>
                                 <div>
                                     <ThemePicker user={user} setUser={setUser} />
+                                </div>
+                                <div>
+                                    <DisplayNameStyle />
                                 </div>
                                 <SignOut setUser={setUser}/>
                             </DialogDescription>
