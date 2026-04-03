@@ -5,7 +5,8 @@ import { Button } from "@/components/ui/button.tsx";
 import { cn } from "@/lib/utils.ts";
 import { fonts } from "../../../constants/font.ts";
 import type { ProfileProps } from "../../../types/types.ts";
-import {updateDisplayName} from "../../../api/visuals.ts";
+import { updateDisplayName } from "../../../api/visuals.ts";
+import { toast } from "sonner";
 
 const DisplayNameStyle = ({ user, setUser }: ProfileProps) => {
     const currentColor = user?.visuals?.displayNameStyle?.color ?? "";
@@ -18,7 +19,8 @@ const DisplayNameStyle = ({ user, setUser }: ProfileProps) => {
 
     const handleClick = async () => {
         const res = await updateDisplayName({ color, fontId, effect });
-        console.log(res);
+        setUser(res.user);
+        toast(res.message);
     }
 
     return (
