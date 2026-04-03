@@ -1,7 +1,9 @@
 import { HexColorPicker } from "react-colorful";
-import {useState} from "react";
-import {Popover, PopoverContent, PopoverTrigger} from "@/components/ui/popover.tsx";
-import {Button} from "@/components/ui/button.tsx";
+import { useState } from "react";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover.tsx";
+import { Button } from "@/components/ui/button.tsx";
+import { cn } from "@/lib/utils.ts";
+import { fonts } from "../../../constants/font.ts";
 
 const DisplayNameStyle = () => {
     const [color, setColor] = useState("");
@@ -25,6 +27,18 @@ const DisplayNameStyle = () => {
                         <HexColorPicker color={color} onChange={setColor} />
                     </PopoverContent>
                 </Popover>
+            </div>
+            <div>
+                <p>font style</p>
+                <div className="grid grid-cols-5">
+                    {
+                        fonts.map(font => (
+                            <Button key={font.id}>
+                                <span className={cn(font.font)}>name</span>
+                            </Button>
+                        ))
+                    }
+                </div>
             </div>
         </div>
     );
