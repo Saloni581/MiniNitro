@@ -26,7 +26,7 @@ const UserProfileSchema = new mongoose.Schema(
             displayNameStyle: {
                 font: { type: String },
                 color: { type: String },
-                effects: [{ type: String }],
+                effect: { type: String },
                 isEnabled: { type: Boolean, default: false }
             },
 

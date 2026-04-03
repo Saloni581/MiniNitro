@@ -27,7 +27,7 @@ const ThemePicker = ({ user, setUser }: ProfileProps) => {
 
     return (
         <div>
-            <p className="text-lg">Pick theme</p>
+            <p className="text-lg text-text-primary">Pick theme</p>
             <div className="flex gap-2">
                 {/* primary color */}
                 <div>

@@ -32,3 +32,12 @@ export const removeProfileTheme = async () => {
     const res = await api.patch("/remove-theme");
     return res.data;
 }
+
+export const updateDisplayName = async ({ color, fontId, effect }: {
+    color: string;
+    fontId: string;
+    effect: string;
+}) => {
+    const res = await api.patch("/display-name-style", { color, fontId, effect });
+    return res.data;
+}

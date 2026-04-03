@@ -59,7 +59,7 @@ const UserProfile = ({ user, setUser }: ProfileProps) => {
                                     <ThemePicker user={user} setUser={setUser} />
                                 </div>
                                 <div>
-                                    <DisplayNameStyle />
+                                    <DisplayNameStyle user={user} setUser={setUser} />
                                 </div>
                                 <SignOut setUser={setUser}/>
                             </DialogDescription>

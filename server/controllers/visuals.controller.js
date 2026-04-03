@@ -134,12 +134,12 @@ export const updateTheme = async (req, res) => {
         }
 
         return res.status(200).json({
-            message: "theme successfully updated!",
+            message: "theme applied successfully!",
             user: updatedUserProfile,
         });
     } catch (error) {
         return res.status(500).json({
-            message: "Theme update failed/Internal Server Error",
+            message: "Internal Server Error",
         });
     }
 }
@@ -172,7 +172,39 @@ export const removeTheme = async (req, res) => {
         })
     } catch (error) {
         return res.status(500).json({
-            message: "Theme could not be removed/Internal Server Error",
+            message: "Internal Server Error",
+        })
+    }
+}
+
+export const updateDisplayNameStyle = async (req, res) => {
+    const userId = req.user.id;
+    const { fontId, color, effect } = req.body;
+    try {
+       const updatedUserProfile = await UserProfile.findOneAndUpdate(
+           { userId },
+           {
+               "visuals.displayNameStyle.isEnabled": true,
+               "visuals.displayNameStyle.font": fontId,
+               "visuals.displayNameStyle.color": color,
+               "visuals.displayNameStyle.effect": effect,
+           },
+           { new: true }
+       );
+
+       if(!updatedUserProfile) {
+           return res.status(404).json({
+               message: "user profile not found",
+           });
+       }
+
+       return res.status(200).json({
+           message: "display name style applied successfully!",
+           user: updatedUserProfile,
+       })
+    } catch (error) {
+        return res.status(500).json({
+            message: "Internal Server Error",
         })
     }
 }

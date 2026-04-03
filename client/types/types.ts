@@ -23,7 +23,7 @@ export interface UserProfileProps {
         displayNameStyle: {
             font: string;
             color: string;
-            effects: string[];
+            effect: string;
             isEnabled: boolean;
         },
         avatar: {
