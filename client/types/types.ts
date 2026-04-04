@@ -107,6 +107,7 @@ export interface SocketSendMessageProps {
 export interface MessageCardProps {
     user: UserProfileProps | null;
     message: any;
+    timestamps: string;
 }
 
 export interface UsersListProps {

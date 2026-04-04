@@ -10,6 +10,7 @@ import UsersList from "@/components/UsersList.tsx";
 import { fetchConversationsOfLoggedInUser } from "../../api/conversation.ts";
 import UserAvatar from "@/components/visuals/UserAvatar.tsx";
 import send from "@/assets/send.png";
+import {formatTime} from "../../constants";
 
 
 const ChatPage = ({ loggedInUser }: ChatWindowProps) => {
@@ -119,8 +120,13 @@ const ChatPage = ({ loggedInUser }: ChatWindowProps) => {
                     { messages && messages?.map((message) => (
                         <div
                             key={message?._id}
+                            className="mb-2"
                         >
-                            <MessageCard user={message?.sender === loggedInUser?.userId? loggedInUser : selectedUser } message={message?.message} />
+                            <MessageCard
+                                user={message?.sender === loggedInUser?.userId? loggedInUser : selectedUser }
+                                message={message?.message}
+                                timestamps={formatTime(message.createdAt)}
+                            />
                         </div>
                     ))}
                 </div>
