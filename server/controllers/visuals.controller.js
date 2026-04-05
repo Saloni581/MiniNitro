@@ -1,18 +1,18 @@
 import cloudinary from '../config/cloudinary.js';
-import { saveUserAvatar } from "../utils/services.js";
+import { saveAsset } from "../utils/services.js";
 import UserProfile from "../db/models/userProfileSchema.js";
 
 
-export const uploadUserAvatar = async (req, res) => {
+export const uploadAsset = async (req, res) => {
+    const userId = req.user.id;
     const file = req.file;
+    const isAvatarAsset = req.body.isAvatarAsset === "true";
 
     if(!file) {
         return res.status(400).json({
             message: "File is required",
         });
     }
-
-    const userId = req.user.id;
 
     try {
         // fetch user profile
@@ -36,17 +36,17 @@ export const uploadUserAvatar = async (req, res) => {
             stream.end(file.buffer);
         });
 
-
         // update DB
         try {
-            const updatedUser = await saveUserAvatar(
+            const updatedUser = await saveAsset(
                 uploadResult.public_id,
                 uploadResult.secure_url,
-                userId
+                userId,
+                isAvatarAsset
             );
 
             return res.status(200).json({
-                message: "Avatar set/uploaded successfully",
+                message: isAvatarAsset? "Avatar uploaded successfully" : "Banner uploaded successfully",
                 user: updatedUser,
             });
 
@@ -60,13 +60,14 @@ export const uploadUserAvatar = async (req, res) => {
         }
     } catch (uploadError) {
         return res.status(500).json({
-            message: "Avatar upload failed",
+            message: "Internal Server Error",
         });
     }
 }
 
 export const removeUserAvatar = async (req, res) => {
     const userId = req.user.id;
+
     const user = await UserProfile.findOne({ userId });
 
     // store previous avatar in recent assets if exists
@@ -83,11 +84,8 @@ export const removeUserAvatar = async (req, res) => {
         const updatedUser = await UserProfile.findOneAndUpdate(
             { userId },
             {
-                $addToSet: {
-                    "visuals.avatar.recentAssets": recentAvatarSecure_url,
-                },
-                $unset: {
-                    "visuals.avatar.activeAssetId.url": "",
+                $set: {
+                    "visuals.avatar.assetId.url": "",
                 }
             },
             { new: true }

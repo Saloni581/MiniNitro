@@ -27,7 +27,7 @@ export interface UserProfileProps {
             isEnabled: boolean;
         },
         avatar: {
-            activeAssetId: {
+            assetId: {
                 public_id: string;
                 url: string;
             },
@@ -35,7 +35,6 @@ export interface UserProfileProps {
                 activeEffect: string,
                 ownedEffects: string[],
             }
-            recentAssets: string[],
         },
         nameplate: {
             isEnabled: boolean;
@@ -49,7 +48,10 @@ export interface UserProfileProps {
         },
         profileBanner: {
             isEnabled: boolean;
-            assetId: string;
+            assetId: {
+                public_id: string;
+                url: string;
+            },
         },
         theme: {
             isEnabled: boolean;

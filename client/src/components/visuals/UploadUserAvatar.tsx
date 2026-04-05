@@ -23,10 +23,10 @@ const UploadUserAvatar = ({ user, setUser } : ProfileProps) => {
         try {
             // original file data
             const formData = new FormData();
-            formData.append("avatar", file);
+            formData.append("asset", file);
 
             // sending file to backend
-            const result = await uploadAvatar(formData);
+            const result = await uploadAvatar({ formData, isAvatarAsset: true });
             setUser(result.user);
             toast("Profile Avatar Uploaded");
             setPreview(null);
@@ -40,7 +40,7 @@ const UploadUserAvatar = ({ user, setUser } : ProfileProps) => {
             <div className="avatar">
                 <input
                     type="file"
-                    name="avatar"
+                    name="asset"
                     className="hidden"
                     accept="image/png, image/jpg, image/jpeg, image/gif, image/webp"
                     ref={inputRef}
@@ -57,7 +57,7 @@ const UploadUserAvatar = ({ user, setUser } : ProfileProps) => {
                 }
                 <button onClick={handleClick} type="button">
                     {
-                        user?.visuals?.avatar?.activeAssetId?.url? "Change avatar" : "Add avatar"
+                        user?.visuals?.avatar?.assetId?.url? "Change avatar" : "Add avatar"
                     }
                 </button>
             </div>

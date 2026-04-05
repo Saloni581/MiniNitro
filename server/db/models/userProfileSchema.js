@@ -31,11 +31,10 @@ const UserProfileSchema = new mongoose.Schema(
             },
 
             avatar: {
-                activeAssetId: {
+                assetId: {
                     url: { type: String },
                     public_id: { type: String },
                 },
-                recentAssets: [{ type: String }],
                 decorations: {
                     activeEffect: { type: String, default: null },
                     ownedEffects: [{ type: String, default: [] }]
@@ -56,7 +55,10 @@ const UserProfileSchema = new mongoose.Schema(
 
             profileBanner: {
                 isEnabled: { type: Boolean, default: false },
-                assetId: { type: String }
+                assetId: {
+                    url: { type: String },
+                    public_id: { type: String },
+                }
             },
 
             theme: {

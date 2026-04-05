@@ -5,7 +5,7 @@ export const modifyAvatarEffect = async (req, res) => {
     const { effectId } = req.body;
 
     const updateQuery = effectId? { $set: { "visuals.avatar.decorations.activeEffect": effectId } }
-        : { $unset: { "visuals.avatar.decorations.activeEffect": "" } };
+        : { $set: { "visuals.avatar.decorations.activeEffect": "" } };
 
     try {
         const updatedUser = await UserProfile.findOneAndUpdate(

@@ -7,7 +7,7 @@ import { useContext } from "react";
 import { SocketContext } from "@/components/SocketContext.tsx";
 
 const UserAvatar = ({ user, previewEffectId, size, isChatWindow }: UserAvatarProps) => {
-    const avatarUrl = user?.visuals?.avatar?.activeAssetId?.url;
+    const avatarUrl = user?.visuals?.avatar?.assetId?.url;
     const effectId = previewEffectId || user?.visuals?.avatar?.decorations?.activeEffect;
     const socketContext = useContext(SocketContext);
     const onlineUsers = socketContext?.onlineUsers;

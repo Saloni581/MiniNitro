@@ -5,14 +5,14 @@ import {
     removeUserAvatar,
     updateDisplayNameStyle,
     updateTheme,
-    uploadUserAvatar
+    uploadAsset,
 } from "../controllers/visuals.controller.js";
 
 const router = express.Router();
 
-router.post("/upload-avatar", auth, upload.single("avatar"), uploadUserAvatar);
+router.post("/asset", auth, upload.single("asset"), uploadAsset);
 
-router.delete("/remove-avatar", auth, removeUserAvatar);
+router.delete("/avatar", auth, removeUserAvatar);
 
 router.patch("/theme", auth, updateTheme);
 

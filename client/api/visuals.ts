@@ -5,17 +5,21 @@ const api = axios.create({
     withCredentials: true
 });
 
-export const uploadAvatar = async (formData: FormData) => {
+export const uploadAvatar = async ({ formData, isAvatarAsset }: {
+    formData: FormData;
+    isAvatarAsset : boolean;
+}) => {
+    formData.append("isAvatarAsset", String(isAvatarAsset));
     const result = await api.post(
-        "/upload-avatar",
-         formData,
+        "/asset",
+        formData,
     );
     return result.data;
 }
 
 export const removeAvatar = async () => {
     const res = await api.delete(
-        "/remove-avatar",
+        "/avatar",
     );
     return res.data;
 }
