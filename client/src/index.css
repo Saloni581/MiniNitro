@@ -161,19 +161,19 @@ button:active {
   }
 
   .visuals div {
-    @apply flex flex-col gap-2
+    @apply flex flex-col gap-2;
   }
 
   .avatar-input {
-    @apply text-sm
+    @apply text-sm;
   }
 
   .profile-card-container {
-    @apply flex justify-center
+    @apply flex justify-center;
   }
 
   .user-profile {
-    @apply m-6 w-80 md:w-xl rounded-2xl h-140 bg-surface text-text-primary;
+    @apply m-6 w-80 md:w-xl h-110 bg-surface text-text-primary;
   }
 
   .profile-card {
@@ -185,7 +185,7 @@ button:active {
   }
   /* effects */
   .all-effects-container {
-    @apply flex
+    @apply flex;
   }
 
   .effects-dropdown {

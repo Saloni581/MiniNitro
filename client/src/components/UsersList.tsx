@@ -43,7 +43,7 @@ const UsersList = ({ users, isMyChats }: UsersListProps) => {
                                     {/* content layer */}
                                     <div className="user-nameplate z-20">
                                         <div onClick={() => showPublicProfile(eachUser.userId)} className="cursor-pointer">
-                                            <UserAvatar user={eachUser} previewEffectId="" size="sm" isChatWindow={false} />
+                                            <UserAvatar user={eachUser} previewEffectId="" size="md" />
                                         </div>
                                         <div className="flex flex-col items-center">
                                             <p className="text-sm font-light">{eachUser?.identity?.displayName}</p>

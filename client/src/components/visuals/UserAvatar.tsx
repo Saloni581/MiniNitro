@@ -6,7 +6,7 @@ import SmartphoneIcon from "@/assets/icons8-smartphone-48.png";
 import { useContext } from "react";
 import { SocketContext } from "@/components/SocketContext.tsx";
 
-const UserAvatar = ({ user, previewEffectId, size, isChatWindow }: UserAvatarProps) => {
+const UserAvatar = ({ user, previewEffectId, size }: UserAvatarProps) => {
     const avatarUrl = user?.visuals?.avatar?.assetId?.url;
     const effectId = previewEffectId || user?.visuals?.avatar?.decorations?.activeEffect;
     const socketContext = useContext(SocketContext);
@@ -66,7 +66,7 @@ const UserAvatar = ({ user, previewEffectId, size, isChatWindow }: UserAvatarPro
             {/* status badge layer */}
             <div className="absolute inset-0 z-40">
                 {
-                    (!previewEffectId && !isChatWindow) && (
+                    (!previewEffectId && size !== "sm") && (
                         // @ts-ignore
                         onlineUsers?.[userId]? (
                                 <AvatarBadge>
@@ -74,8 +74,7 @@ const UserAvatar = ({ user, previewEffectId, size, isChatWindow }: UserAvatarPro
                                         src={SmartphoneIcon}
                                         alt="online-status-icon"
                                         className={
-                                            cn((size === "sm" && "w-4 h-4"),
-                                                (size === "md" && "w-6 h-6"),
+                                            cn((size === "md" && "w-6 h-6"),
                                                 (size === "lg" && "w-7 h-7"))
                                         }
                                     />
@@ -85,7 +84,6 @@ const UserAvatar = ({ user, previewEffectId, size, isChatWindow }: UserAvatarPro
                                 <AvatarBadge
                                     className={
                                         cn("user-offline-status",
-                                            (size === "sm" && "w-4 h-4 border-4"),
                                             (size === "md" && "w-5 h-5 border-5"),
                                             (size === "lg" && "w-6 h-6 border-6"))
                                     }

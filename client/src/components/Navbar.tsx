@@ -22,7 +22,7 @@ const Navbar = ({ user }: UserProps) => {
                 {
                     user? (
                         <Link to='/profile'>
-                            <UserAvatar user={user} previewEffectId="" size="sm" isChatWindow={false} />
+                            <UserAvatar user={user} previewEffectId="" size="sm" />
                         </Link>
                     ) : (
                         <Link to='/signup'>

@@ -82,12 +82,11 @@ export interface UserAvatarProps {
     user: UserProfileProps | null;
     previewEffectId: string;
     size: "default" | "sm" | "md" | "lg" ;
-    isChatWindow: boolean;
 }
 
 export interface ProfileProps {
     user: UserProfileProps | null;
-    setUser: React.Dispatch<React.SetStateAction<UserProfileProps | null>>
+    setUser: React.Dispatch<React.SetStateAction<UserProfileProps | null>>;
 }
 
 export interface ProfileDetailsProps {

@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import type { UserProfileProps } from "../../types/types.ts";
 import ProfileFrame from "@/components/ProfileFrame.tsx";
+import ProfileCard from "@/components/ProfileCard.tsx";
 
 const PublicProfile = () => {
     const { userId } = useParams();
@@ -21,7 +22,9 @@ const PublicProfile = () => {
     }
 
     return (
-        <ProfileFrame  user={profileUser} />
+        <ProfileFrame  user={profileUser}>
+            <ProfileCard user={profileUser} />
+        </ProfileFrame>
     );
 };
 

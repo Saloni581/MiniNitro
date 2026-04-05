@@ -111,7 +111,7 @@ const ChatPage = ({ loggedInUser }: ChatWindowProps) => {
         <div className="grid-container">
             <div className="chat-window-container-outer">
                 <div className="chat-window-selected-user">
-                    <UserAvatar user={selectedUser} previewEffectId={""} size={"sm"} isChatWindow={false}/>
+                    <UserAvatar user={selectedUser} previewEffectId={""} size={"sm"}/>
                     <span>
                         { selectedUser?.identity.displayName }
                     </span>

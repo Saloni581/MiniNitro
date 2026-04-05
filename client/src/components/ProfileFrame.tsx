@@ -1,5 +1,4 @@
 import { cn } from "@/lib/utils.ts";
-import ProfileCard from "@/components/ProfileCard.tsx";
 import type { ProfileFrameProps } from "../../types/types.ts";
 
 const ProfileFrame = ({ user, children }: ProfileFrameProps) => {
@@ -8,7 +7,7 @@ const ProfileFrame = ({ user, children }: ProfileFrameProps) => {
 
     return (
         <div className="profile-card-container">
-            <div className="relative user-profile"
+            <div className="relative user-profile rounded-lg"
                  style={{
                      "--color-primary": colorPrimary,
                      "--color-accent": colorAccent,
@@ -29,7 +28,6 @@ const ProfileFrame = ({ user, children }: ProfileFrameProps) => {
                 <div className="profile-card absolute inset-0 z-20"
                      style ={{ color: "color-mix(in srgb, var(--color-accent) 30%, var(--color-text-primary)" }}
                 >
-                    <ProfileCard user={user} />
                     { children }
                 </div>
                 {/* overlay layer */}
