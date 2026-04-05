@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button.tsx";
 import { cn } from "@/lib/utils.ts";
 import { fonts } from "../../../constants/font.ts";
 import type { ProfileProps } from "../../../types/types.ts";
-import { updateDisplayName } from "../../../api/visuals.ts";
+import { updateDisplayNameStyle, removeDisplayNameStyle } from "../../../api/visuals.ts";
 import { toast } from "sonner";
 
 const DisplayNameStyle = ({ user, setUser }: ProfileProps) => {
@@ -17,8 +17,14 @@ const DisplayNameStyle = ({ user, setUser }: ProfileProps) => {
     const [fontId, setFontId] = useState(currentFont);
     const [effect, setEffect] = useState(currentEffect);
 
-    const handleClick = async () => {
-        const res = await updateDisplayName({ color, fontId, effect });
+    const handleUpdateDisplayNameStyle = async () => {
+        const res = await updateDisplayNameStyle({ color, fontId, effect });
+        setUser(res.user);
+        toast(res.message);
+    }
+
+    const handleRemoveDisplayNameStyle = async () => {
+        const res = await removeDisplayNameStyle();
         setUser(res.user);
         toast(res.message);
     }
@@ -59,7 +65,8 @@ const DisplayNameStyle = ({ user, setUser }: ProfileProps) => {
                 <p>Effects</p>
             </div>
             <div>
-                <Button onClick={handleClick}>save</Button>
+                <Button onClick={handleUpdateDisplayNameStyle}>save</Button>
+                <Button onClick={handleRemoveDisplayNameStyle}>remove display name style</Button>
             </div>
         </div>
     );

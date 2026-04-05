@@ -114,16 +114,20 @@ export const updateTheme = async (req, res) => {
     const userId = req.user.id;
     const { primary, accent } = req.body;
 
+    const updateQuery = (primary && accent)? { $set: {
+            "visuals.theme.isEnabled": true,
+            "visuals.theme.colors.primary": primary,
+            "visuals.theme.colors.accent": accent,
+        } } : { $set: {
+            "visuals.theme.isEnabled": false,
+            "visuals.theme.colors.primary": null,
+            "visuals.theme.colors.accent": null,
+        } }
+
     try {
         const updatedUserProfile = await UserProfile.findOneAndUpdate(
             { userId },
-            {
-                $set: {
-                    "visuals.theme.isEnabled": true,
-                    "visuals.theme.colors.primary": primary,
-                    "visuals.theme.colors.accent": accent,
-                }
-            },
+            updateQuery,
             { new: true }
         );
 
@@ -134,61 +138,36 @@ export const updateTheme = async (req, res) => {
         }
 
         return res.status(200).json({
-            message: "theme applied successfully!",
+            message: (primary && accent)? "theme applied successfully!" : "theme successfully removed!",
             user: updatedUserProfile,
         });
     } catch (error) {
         return res.status(500).json({
             message: "Internal Server Error",
         });
-    }
-}
-
-export const removeTheme = async (req, res) => {
-    const userId = req.user.id;
-
-    try {
-        const updatedUserProfile = await UserProfile.findOneAndUpdate(
-            { userId },
-            {
-                $set: {
-                    "visuals.theme.isEnabled": false,
-                    "visuals.theme.colors.primary": null,
-                    "visuals.theme.colors.accent": null,
-                }
-            },
-            { new: true }
-        );
-
-        if(!updatedUserProfile) {
-            return res.status(404).json({
-                message: "user profile not found",
-            });
-        }
-
-        return res.status(200).json({
-            message: "theme successfully removed!",
-            user: updatedUserProfile,
-        })
-    } catch (error) {
-        return res.status(500).json({
-            message: "Internal Server Error",
-        })
     }
 }
 
 export const updateDisplayNameStyle = async (req, res) => {
     const userId = req.user.id;
     const { fontId, color, effect } = req.body;
+
+    const updateQuery = (fontId && color && effect)? { $set: {
+            "visuals.displayNameStyle.isEnabled": true,
+            "visuals.displayNameStyle.font": fontId,
+            "visuals.displayNameStyle.color": color,
+            "visuals.displayNameStyle.effect": effect,
+        } } : { $set: {
+            "visuals.displayNameStyle.isEnabled": false,
+            "visuals.displayNameStyle.font": null,
+            "visuals.displayNameStyle.color": null,
+            "visuals.displayNameStyle.effect": null,
+        } }
+
     try {
        const updatedUserProfile = await UserProfile.findOneAndUpdate(
            { userId },
-           {
-               "visuals.displayNameStyle.isEnabled": true,
-               "visuals.displayNameStyle.font": fontId,
-               "visuals.displayNameStyle.color": color,
-               "visuals.displayNameStyle.effect": effect,
-           },
+           updateQuery,
            { new: true }
        );
 
@@ -199,7 +178,7 @@ export const updateDisplayNameStyle = async (req, res) => {
        }
 
        return res.status(200).json({
-           message: "display name style applied successfully!",
+           message: (fontId && color && effect)? "display name style applied successfully!" : "display name style removed successfully",
            user: updatedUserProfile,
        })
     } catch (error) {

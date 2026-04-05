@@ -29,15 +29,20 @@ export const updateProfileTheme = async ({ primary, accent } : {
 }
 
 export const removeProfileTheme = async () => {
-    const res = await api.patch("/remove-theme");
+    const res = await api.patch("/theme", {});
     return res.data;
 }
 
-export const updateDisplayName = async ({ color, fontId, effect }: {
+export const updateDisplayNameStyle = async ({ color, fontId, effect }: {
     color: string;
     fontId: string;
     effect: string;
 }) => {
     const res = await api.patch("/display-name-style", { color, fontId, effect });
+    return res.data;
+}
+
+export const removeDisplayNameStyle = async () => {
+    const res = await api.patch("/display-name-style", {});
     return res.data;
 }
