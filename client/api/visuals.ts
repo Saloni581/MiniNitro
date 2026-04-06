@@ -5,7 +5,7 @@ const api = axios.create({
     withCredentials: true
 });
 
-export const uploadAvatar = async ({ formData, isAvatarAsset }: {
+export const uploadAsset = async ({ formData, isAvatarAsset }: {
     formData: FormData;
     isAvatarAsset : boolean;
 }) => {
@@ -48,5 +48,17 @@ export const updateDisplayNameStyle = async ({ color, fontId, effect }: {
 
 export const removeDisplayNameStyle = async () => {
     const res = await api.patch("/display-name-style", {});
+    return res.data;
+}
+
+export const updateProfileBannerColor = async ({ color } : {
+    color: string;
+}) => {
+    const res = await api.patch("/banner-color", { color });
+    return res.data;
+}
+
+export const removeProfileBannerColor = async () => {
+    const res = await api.patch("/banner-color", {});
     return res.data;
 }

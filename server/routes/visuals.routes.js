@@ -3,6 +3,7 @@ import { auth } from "../middlewares/auth.middleware.js";
 import upload from "../middlewares/upload.middleware.js";
 import {
     removeUserAvatar,
+    updateBannerColor,
     updateDisplayNameStyle,
     updateTheme,
     uploadAsset,
@@ -17,5 +18,7 @@ router.delete("/avatar", auth, removeUserAvatar);
 router.patch("/theme", auth, updateTheme);
 
 router.patch("/display-name-style", auth, updateDisplayNameStyle);
+
+router.patch("/banner-color", auth, updateBannerColor);
 
 export default router;

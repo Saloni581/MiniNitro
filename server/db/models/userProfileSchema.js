@@ -55,6 +55,7 @@ const UserProfileSchema = new mongoose.Schema(
 
             profileBanner: {
                 isEnabled: { type: Boolean, default: false },
+                color: { type: String },
                 assetId: {
                     url: { type: String },
                     public_id: { type: String },

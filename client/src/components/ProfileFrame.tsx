@@ -7,7 +7,7 @@ const ProfileFrame = ({ user, children }: ProfileFrameProps) => {
 
     return (
         <div className="profile-card-container">
-            <div className="relative user-profile rounded-lg"
+            <div className="relative user-profile"
                  style={{
                      "--color-primary": colorPrimary,
                      "--color-accent": colorAccent,

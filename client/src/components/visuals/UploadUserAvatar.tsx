@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { uploadAvatar } from "../../../api/visuals.ts";
+import { uploadAsset } from "../../../api/visuals.ts";
 import type { ProfileProps } from "../../../types/types.ts";
 import { toast } from "sonner"
 
@@ -26,7 +26,7 @@ const UploadUserAvatar = ({ user, setUser } : ProfileProps) => {
             formData.append("asset", file);
 
             // sending file to backend
-            const result = await uploadAvatar({ formData, isAvatarAsset: true });
+            const result = await uploadAsset({ formData, isAvatarAsset: true });
             setUser(result.user);
             toast("Profile Avatar Uploaded");
             setPreview(null);

@@ -48,6 +48,7 @@ export interface UserProfileProps {
         },
         profileBanner: {
             isEnabled: boolean;
+            color: string;
             assetId: {
                 public_id: string;
                 url: string;
@@ -87,6 +88,10 @@ export interface UserAvatarProps {
 export interface ProfileProps {
     user: UserProfileProps | null;
     setUser: React.Dispatch<React.SetStateAction<UserProfileProps | null>>;
+}
+
+export interface UserProps {
+    user : UserProfileProps | null;
 }
 
 export interface ProfileDetailsProps {

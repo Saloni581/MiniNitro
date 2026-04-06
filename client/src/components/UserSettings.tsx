@@ -15,6 +15,7 @@ import {toast} from "sonner";
 import {removeAvatarEffect} from "../../api/effects.ts";
 import type {ProfileProps} from "../../types/types.ts";
 import settingsIcon from "@/assets/settings-icon.gif";
+import ProfileBanner from "@/components/visuals/ProfileBanner.tsx";
 
 const UserSettings = ({ user, setUser }: ProfileProps) => {
     const handleRemoveAvatar = async () => {
@@ -56,6 +57,9 @@ const UserSettings = ({ user, setUser }: ProfileProps) => {
                             </div>
                             <div>
                                 <DisplayNameStyle user={user} setUser={setUser} />
+                            </div>
+                            <div>
+                                <ProfileBanner user={user} setUser={setUser} />
                             </div>
                             <SignOut setUser={setUser}/>
                         </DialogDescription>

@@ -1,6 +1,7 @@
 import cloudinary from '../config/cloudinary.js';
 import { saveAsset } from "../utils/services.js";
 import UserProfile from "../db/models/userProfileSchema.js";
+import {effect} from "zod/v3";
 
 
 export const uploadAsset = async (req, res) => {
@@ -183,5 +184,34 @@ export const updateDisplayNameStyle = async (req, res) => {
         return res.status(500).json({
             message: "Internal Server Error",
         })
+    }
+}
+
+export const updateBannerColor = async (req, res) => {
+    const userId = req.user.id;
+    const { color } = req.body;
+    const updateQuery = color? { $set: { "visuals.profileBanner.color": color }} :
+        { $set: { "visuals.profileBanner.color": "" }};
+    try {
+       const updatedUserProfile = await UserProfile.findOneAndUpdate(
+           { userId },
+           updateQuery,
+           { new: true }
+       );
+
+       if(!updatedUserProfile) {
+           return res.status(404).json({
+               message: "user profile not found",
+           });
+       }
+
+       return res.status(200).json({
+           message: color? "Banner color applied successfully!" : "banner color removed successfully",
+           user: updatedUserProfile,
+       });
+    } catch (error) {
+        return res.status(500).json({
+            message: "Internal Server Error",
+        });
     }
 }

@@ -1,11 +1,7 @@
-import type { UserProfileProps } from "../../types/types.ts";
+import type { UserProps } from "../../types/types.ts";
 import UserAvatar from "@/components/visuals/UserAvatar.tsx";
 import { fonts } from "../../constants/font.ts";
 import { cn } from "@/lib/utils.ts";
-
-type UserProps = {
-    user : UserProfileProps | null;
-}
 
 const ProfileCard = ({ user } : UserProps ) => {
     const fontId = user?.visuals.displayNameStyle.font;
@@ -14,9 +10,24 @@ const ProfileCard = ({ user } : UserProps ) => {
        fontStyle = fonts.find((font) => font.id === fontId);
     }
 
+    const bannerAsset = user?.visuals?.profileBanner?.assetId?.url;
+    const bannerColor = user?.visuals?.profileBanner?.color;
     return (
         <div className="absolute inset-0 flex flex-col">
-            <div className="flex-1 bg-red-300 relative">
+            <div className="flex-1 relative">
+                {
+                    bannerAsset? (
+                        <img
+                            src={bannerAsset}
+                            alt="User profile banner"
+                            className="absolute inset-0 w-full h-full bg-cover"
+                        />
+                    ) : (
+                        <div
+                            className={cn("absolute inset-0", bannerColor? bannerColor : "bg-surface")}
+                        ></div>
+                    )
+                }
                 <div className="absolute left-10 -bottom-12">
                     <UserAvatar user={user} previewEffectId="" size="lg" />
                 </div>
