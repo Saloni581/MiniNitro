@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { removeProfileBannerColor, updateProfileBannerColor, uploadAsset } from "../../../api/visuals.ts";
+import {removeAsset, removeProfileBannerColor, updateProfileBannerColor, uploadAsset} from "../../../api/visuals.ts";
 import {toast} from "sonner";
 import type { ProfileProps } from "../../../types/types.ts";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover.tsx";
@@ -53,6 +53,12 @@ const ProfileBanner = ({ user, setUser }: ProfileProps) => {
         toast(res.message);
     }
 
+    const handleRemoveProfileBanner = async () => {
+        const res = await removeAsset({ isAvatarAsset: false });
+        setUser(res.user);
+        toast(res.message);
+    }
+
     return (
         <div>
             <p className="text-lg text-text-primary">Profile banner</p>
@@ -97,11 +103,17 @@ const ProfileBanner = ({ user, setUser }: ProfileProps) => {
                         />
                     )
                 }
-                <button onClick={handleClick} type="button">
-                    {
-                        user?.visuals?.profileBanner?.assetId?.url? "Change banner" : "Add banner"
-                    }
-                </button>
+                <div>
+                    <Button onClick={handleClick}>
+                        {
+                            user?.visuals?.profileBanner?.assetId?.url? "Change banner" : "Add banner"
+                        }
+                    </Button>
+                    <Button onClick={handleRemoveProfileBanner}>
+                        remove banner
+                    </Button>
+                </div>
+
             </div>
         </div>
     );

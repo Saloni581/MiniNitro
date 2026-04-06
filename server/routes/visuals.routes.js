@@ -2,7 +2,7 @@ import express from 'express';
 import { auth } from "../middlewares/auth.middleware.js";
 import upload from "../middlewares/upload.middleware.js";
 import {
-    removeUserAvatar,
+    removeAsset,
     updateBannerColor,
     updateDisplayNameStyle,
     updateTheme,
@@ -13,7 +13,7 @@ const router = express.Router();
 
 router.post("/asset", auth, upload.single("asset"), uploadAsset);
 
-router.delete("/avatar", auth, removeUserAvatar);
+router.patch("/asset", auth, removeAsset);
 
 router.patch("/theme", auth, updateTheme);
 

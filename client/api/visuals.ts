@@ -17,9 +17,12 @@ export const uploadAsset = async ({ formData, isAvatarAsset }: {
     return result.data;
 }
 
-export const removeAvatar = async () => {
-    const res = await api.delete(
-        "/avatar",
+export const removeAsset = async ({ isAvatarAsset } : {
+    isAvatarAsset : boolean;
+}) => {
+    const res = await api.patch(
+        "/asset",
+        { isAvatarAsset },
     );
     return res.data;
 }

@@ -66,29 +66,19 @@ export const uploadAsset = async (req, res) => {
     }
 }
 
-export const removeUserAvatar = async (req, res) => {
+export const removeAsset = async (req, res) => {
     const userId = req.user.id;
-
-    const user = await UserProfile.findOne({ userId });
-
-    // store previous avatar in recent assets if exists
-    const recentAvatarSecure_url = user?.visuals?.avatar?.activeAssetId?.url;
-
-    if(!recentAvatarSecure_url) {
-        return res.status(200).json({
-            user,
-            message: "There is no user avatar yet.",
-        })
-    }
+    const { isAvatarAsset } = req.body;
+    const updateQuery = isAvatarAsset? { $set: { "visuals.avatar.assetId.url": "", } } :
+        { $set: {
+                "visuals.profileBanner.isEnabled": false,
+                "visuals.profileBanner.assetId.url": "",
+            } }
 
     try {
         const updatedUser = await UserProfile.findOneAndUpdate(
             { userId },
-            {
-                $set: {
-                    "visuals.avatar.assetId.url": "",
-                }
-            },
+            updateQuery,
             { new: true }
         );
 
@@ -99,8 +89,8 @@ export const removeUserAvatar = async (req, res) => {
         }
 
         return res.status(200).json({
-            message: "User avatar removed successfully!",
-            updatedUser
+            message: isAvatarAsset? "User avatar removed successfully!" : "Profile banner removed successfully!",
+            user: updatedUser
         })
     } catch (error) {
         return res.status(500).json({
@@ -151,7 +141,7 @@ export const updateDisplayNameStyle = async (req, res) => {
     const userId = req.user.id;
     const { fontId, color, effect } = req.body;
 
-    const updateQuery = (fontId && color && effect)? { $set: {
+    const updateQuery = (fontId && color)? { $set: {
             "visuals.displayNameStyle.isEnabled": true,
             "visuals.displayNameStyle.font": fontId,
             "visuals.displayNameStyle.color": color,
@@ -177,7 +167,7 @@ export const updateDisplayNameStyle = async (req, res) => {
        }
 
        return res.status(200).json({
-           message: (fontId && color && effect)? "display name style applied successfully!" : "display name style removed successfully",
+           message: (fontId && color)? "display name style applied successfully!" : "display name style removed successfully",
            user: updatedUserProfile,
        })
     } catch (error) {

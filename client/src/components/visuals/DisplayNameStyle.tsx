@@ -19,6 +19,7 @@ const DisplayNameStyle = ({ user, setUser }: ProfileProps) => {
 
     const handleUpdateDisplayNameStyle = async () => {
         const res = await updateDisplayNameStyle({ color, fontId, effect });
+        console.log(res)
         setUser(res.user);
         toast(res.message);
     }

@@ -10,7 +10,7 @@ import UploadUserAvatar from "@/components/visuals/UploadUserAvatar.tsx";
 import ThemePicker from "@/components/visuals/ThemePicker.tsx";
 import DisplayNameStyle from "@/components/visuals/DisplayNameStyle.tsx";
 import SignOut from "@/components/auth/SignOut.tsx";
-import {removeAvatar} from "../../api/visuals.ts";
+import { removeAsset } from "../../api/visuals.ts";
 import {toast} from "sonner";
 import {removeAvatarEffect} from "../../api/effects.ts";
 import type {ProfileProps} from "../../types/types.ts";
@@ -19,7 +19,7 @@ import ProfileBanner from "@/components/visuals/ProfileBanner.tsx";
 
 const UserSettings = ({ user, setUser }: ProfileProps) => {
     const handleRemoveAvatar = async () => {
-        const res = await removeAvatar();
+        const res = await removeAsset({ isAvatarAsset: true });
         setUser(res.updatedUser);
         toast.success("Avatar removed successfully.");
     }
