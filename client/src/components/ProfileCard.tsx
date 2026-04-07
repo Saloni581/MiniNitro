@@ -24,7 +24,8 @@ const ProfileCard = ({ user } : UserProps ) => {
                         />
                     ) : (
                         <div
-                            className={cn("absolute inset-0", bannerColor? bannerColor : "bg-surface")}
+                            className={cn("absolute inset-0", !bannerColor && "bg-surface")}
+                            style={{ backgroundColor: bannerColor }}
                         ></div>
                     )
                 }
