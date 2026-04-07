@@ -1,19 +1,15 @@
-import type { ProfileProps } from "../../types/types.ts";
+import type { UserProps } from "../../types/types.ts";
 import ProfileFrame from "@/components/ProfileFrame.tsx";
 import ProfileCard from "@/components/ProfileCard.tsx";
-import UserSettings from "@/components/UserSettings.tsx";
 
 
-const UserProfile = ({ user, setUser }: ProfileProps) => {
+const UserProfile = ({ user }: UserProps) => {
 
     return (
         <div>
             <ProfileFrame user={user}>
                 <ProfileCard user={user} />
             </ProfileFrame>
-            <div className="absolute bottom-0 right-0">
-                <UserSettings user={user} setUser={setUser}/>
-            </div>
         </div>
     );
 };

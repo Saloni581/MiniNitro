@@ -15,11 +15,11 @@ const DisplayNameStyle = ({ user, setUser }: ProfileProps) => {
 
     const [color, setColor] = useState(currentColor);
     const [fontId, setFontId] = useState(currentFont);
+    // @ts-ignore
     const [effect, setEffect] = useState(currentEffect);
 
     const handleUpdateDisplayNameStyle = async () => {
         const res = await updateDisplayNameStyle({ color, fontId, effect });
-        console.log(res)
         setUser(res.user);
         toast(res.message);
     }
@@ -52,7 +52,7 @@ const DisplayNameStyle = ({ user, setUser }: ProfileProps) => {
             </div>
             <div>
                 <p>Font style</p>
-                <div className="grid md:grid-cols-5 grid-cols-3">
+                <div className="grid md:grid-cols-3 grid-cols-2 gap-2">
                     {
                         fonts.map(font => (
                             <Button key={font.id} onClick={() => setFontId(font.id)}>

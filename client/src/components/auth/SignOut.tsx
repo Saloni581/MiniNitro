@@ -8,9 +8,9 @@ const SignOut = ({ setUser }: SetUserProps) => {
 
     const userSignOut = async () => {
         try {
-            await signOut();
+            const res = await signOut();
             setUser(null);
-            toast("User successfully logged out");
+            toast(res.message);
             navigate("/login");
         } catch (error) {
             console.error(error);

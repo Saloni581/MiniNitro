@@ -38,7 +38,7 @@ const App = () => {
 
     return (
         <>
-           <Navbar user={user} />
+           <Navbar user={user} setUser={setUser} />
            <Routes>
                <Route
                    path="/"
@@ -52,7 +52,7 @@ const App = () => {
                <Route
                    path="/profile"
                    element={
-                       <UserProfile user={user} setUser={setUser} />
+                       <UserProfile user={user} />
                    }
                >
                </Route>

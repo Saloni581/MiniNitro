@@ -1,12 +1,9 @@
 import { Link } from 'react-router-dom';
-import type { UserProfileProps } from "../../types/types.ts";
-import UserAvatar from "@/components/visuals/UserAvatar.tsx";
+import type { ProfileProps } from "../../types/types.ts";
+import UserSettings from "@/components/UserSettings.tsx";
 
-type UserProps = {
-    user: UserProfileProps | null;
-}
 
-const Navbar = ({ user }: UserProps) => {
+const Navbar = ({ user, setUser }: ProfileProps) => {
 
     return (
         <nav className="navbar">
@@ -21,9 +18,7 @@ const Navbar = ({ user }: UserProps) => {
                 </Link>
                 {
                     user? (
-                        <Link to='/profile'>
-                            <UserAvatar user={user} previewEffectId="" size="sm" />
-                        </Link>
+                        <UserSettings user={user} setUser={setUser} />
                     ) : (
                         <Link to='/signup'>
                             <button>sign up for free</button>
