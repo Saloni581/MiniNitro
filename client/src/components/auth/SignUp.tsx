@@ -40,55 +40,60 @@ const SignUp = ({ setUser }: SetUserProps) => {
             className="auth-form"
             noValidate={true}
         >
-            <div>
-                <label htmlFor="userName">Enter username</label>
-                <input
-                    id="userName"
-                    type="text"
-                    placeholder="enter a unique username"
-                    { ...form.register("userName")}
-                />
-                {
-                    form.formState.errors.userName && (
-                        <p className="error-message">
-                            {form.formState.errors.userName.message}
-                        </p>
-                    )
-                }
+            <div className="">
+                <div>
+                    <label htmlFor="userName">Enter username</label>
+                    <input
+                        id="userName"
+                        type="text"
+                        placeholder="enter a unique username"
+                        { ...form.register("userName")}
+                    />
+                    {
+                        form.formState.errors.userName && (
+                            <p className="error-message">
+                                {form.formState.errors.userName.message}
+                            </p>
+                        )
+                    }
+                </div>
+                <div>
+                    <label htmlFor="email">Enter email</label>
+                    <input
+                        id="email"
+                        type="email"
+                        placeholder="enter email address"
+                        { ...form.register("email") }
+                    />
+                    {
+                        form.formState.errors.email && (
+                            <p className="error-message">
+                                {form.formState.errors.email.message}
+                            </p>
+                        )
+                    }
+                </div>
+                <div>
+                    <label htmlFor="password">Enter password</label>
+                    <input
+                        id="password"
+                        type="password"
+                        placeholder="enter password"
+                        { ...form.register("password") }
+                    />
+                    {
+                        form.formState.errors.password && (
+                            <p className="error-message">
+                                {form.formState.errors.password.message}
+                            </p>
+                        )
+                    }
+                </div>
+                <button
+                    type="submit"
+                    className="btn-primary"
+                >Sign Up</button>
             </div>
-            <div>
-                <label htmlFor="email">Enter email</label>
-                <input
-                    id="email"
-                    type="email"
-                    placeholder="enter email address"
-                    { ...form.register("email") }
-                />
-                {
-                    form.formState.errors.email && (
-                        <p className="error-message">
-                            {form.formState.errors.email.message}
-                        </p>
-                    )
-                }
-            </div>
-            <div>
-                <label htmlFor="password">Enter password</label>
-                <input
-                    id="password"
-                    type="password"
-                    placeholder="enter password"
-                    { ...form.register("password") }
-                />
-                {
-                    form.formState.errors.password && (
-                        <p className="error-message">
-                            {form.formState.errors.password.message}
-                        </p>
-                    )
-                }
-            </div>
-            <button type="submit">Sign Up</button>
         </form>
         <div className="auth-div">
             <p>Already Have an account?</p>

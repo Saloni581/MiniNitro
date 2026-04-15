@@ -6,40 +6,41 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --color-base: oklch(0.08 0.02 350);
-  --color-surface: oklch(0.13 0.02 350);
-  --color-accent-primary: oklch(0.7382 0.1597 25.56);
-  --color-accent-secondary: oklch(0.4955 0.1597 25.56);
-  --color-text-primary: oklch(0.95 0 0);
-  --color-text-secondary: oklch(0.55 0.01 0);
-  --color-error: oklch(0.628 0.2577 29.23);
-  --font-betania: "Betania Patmos In", cursive;
-  --font-atomic: "Atomic Age", system-ui;
+  /* --- Backgrounds --- */
+  --color-base:          oklch(0.08 0.04 310);
+  --color-base-raised:   oklch(0.10 0.04 310);
+  --color-surface:       oklch(0.13 0.04 310);
+  --color-surface-alt:   oklch(0.17 0.04 310);
+  /* --- Borders --- */
+  --color-border:        oklch(0.22 0.04 310);
+  --color-border-strong: oklch(0.30 0.06 310);
+  /* --- Accents --- */
+  --color-accent-primary:   oklch(0.72 0.25 305);
+  --color-accent-secondary: oklch(0.48 0.22 305);
+  --color-accent-dim:       oklch(0.72 0.25 305 / 0.15);
+  --color-accent-glow:      oklch(0.72 0.25 305 / 0.30);
+  /* --- Highlight (mint) --- */
+  --color-highlight:     oklch(0.82 0.12 190);
+  --color-highlight-dim: oklch(0.55 0.10 190);
+  /* --- Text --- */
+  --color-text-primary:   oklch(0.95 0.01 310);
+  --color-text-secondary: oklch(0.60 0.04 310);
+  --color-text-tertiary:  oklch(0.38 0.03 310);
+  /* --- Semantic --- */
+  --color-error:   oklch(0.63 0.22 25);
+  --color-success: oklch(0.70 0.18 150);
+  --color-warning: oklch(0.78 0.18 80);
+  /* --- Fonts --- */
+  --font-betania:        "Betania Patmos In", cursive;
+  --font-atomic:         "Atomic Age", system-ui;
   --font-rubik-scribble: "Rubik Scribble", system-ui;
-  --font-unlock: "Unlock", serif;
-  --font-inspiration: "Inspiration", cursive;
-  --font-rubik-beastly: "Rubik Beastly", system-ui;
-  --font-snowburst: "Snowburst One", system-ui;
-  --font-wallpoet: "Wallpoet", sans-serif;
-  --font-crafty: "Crafty Girls", cursive;
+  --font-unlock:         "Unlock", serif;
+  --font-inspiration:    "Inspiration", cursive;
+  --font-rubik-beastly:  "Rubik Beastly", system-ui;
+  --font-snowburst:      "Snowburst One", system-ui;
+  --font-wallpoet:       "Wallpoet", sans-serif;
+  --font-crafty:         "Crafty Girls", cursive;
   --font-rubik-wetpaint: "Rubik Wet Paint", system-ui;
-}
-
-.sheet-scroll::-webkit-scrollbar {
-  width: 4px;
-}
-
-.sheet-scroll::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.sheet-scroll::-webkit-scrollbar-thumb {
-  background-color: var(--color-accent-primary);
-  border-radius: 999px;
-}
-
-.sheet-scroll::-webkit-scrollbar-thumb:hover {
-  background-color: oklch(0.5 0 0 / 0.6);
 }
 
 :root {
@@ -48,49 +49,102 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
   --radius: 0.625rem;
-
-  /* wire shadcn's variables to YOUR theme */
-  --background: var(--color-base);
-  --foreground: var(--color-text-primary);
-
-  --card: var(--color-surface);
-  --card-foreground: var(--color-text-primary);
-
-  --popover: var(--color-surface);
-  --popover-foreground: var(--color-text-primary);
-
-  --primary: var(--color-accent-primary);
-  --primary-foreground: var(--color-base);
-
-  --secondary: var(--color-accent-secondary);
+  --background:          var(--color-base);
+  --foreground:          var(--color-text-primary);
+  --card:                var(--color-surface);
+  --card-foreground:     var(--color-text-primary);
+  --popover:             var(--color-surface);
+  --popover-foreground:  var(--color-text-primary);
+  --primary:             var(--color-accent-primary);
+  --primary-foreground:  var(--color-base);
+  --secondary:           var(--color-accent-secondary);
   --secondary-foreground: var(--color-text-primary);
-
-  --muted: oklch(0.18 0.02 350);
-  --muted-foreground: var(--color-text-secondary);
-
-  --accent: var(--color-accent-primary);
-  --accent-foreground: var(--color-base);
-
-  --destructive: var(--color-error);
-
-  --border: oklch(0.25 0.02 350);
-  --input: oklch(0.18 0.02 350);
-  --ring: var(--color-accent-primary);
-
-  --sidebar: var(--color-surface);
-  --sidebar-foreground: var(--color-text-primary);
-  --sidebar-primary: var(--color-accent-primary);
+  --muted:               var(--color-surface-alt);
+  --muted-foreground:    var(--color-text-secondary);
+  --accent:              var(--color-accent-primary);
+  --accent-foreground:   var(--color-base);
+  --destructive:         var(--color-error);
+  --destructive-foreground: var(--color-text-primary);
+  --border:              var(--color-border);
+  --input:               var(--color-surface-alt);
+  --ring:                var(--color-accent-primary);
+  --sidebar:             var(--color-surface);
+  --sidebar-foreground:  var(--color-text-primary);
+  --sidebar-primary:     var(--color-accent-primary);
   --sidebar-primary-foreground: var(--color-base);
-  --sidebar-accent: oklch(0.18 0.02 350);
+  --sidebar-accent:      var(--color-surface-alt);
   --sidebar-accent-foreground: var(--color-text-primary);
-  --sidebar-border: oklch(0.25 0.02 350);
-  --sidebar-ring: var(--color-accent-primary);
+  --sidebar-border:      var(--color-border);
+  --sidebar-ring:        var(--color-accent-primary);
 }
 
-h1 {
-  font-size: x-large;
+@theme inline {
+  --radius-sm:  calc(var(--radius) - 4px);
+  --radius-md:  calc(var(--radius) - 2px);
+  --radius-lg:  var(--radius);
+  --radius-xl:  calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  /* backgrounds */
+  --color-background:     var(--background);
+  --color-foreground:     var(--foreground);
+  /* card / popover */
+  --color-card:           var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover:        var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  /* primary / secondary */
+  --color-primary:        var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary:      var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  /* muted / accent */
+  --color-muted:          var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent:         var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  /* semantic */
+  --color-destructive:    var(--destructive);
+  --color-border:         var(--border);
+  --color-input:          var(--input);
+  --color-ring:           var(--ring);
+  /* sidebar */
+  --color-sidebar:        var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring:   var(--sidebar-ring);
+}
+
+
+.sheet-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+
+.sheet-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.sheet-scroll::-webkit-scrollbar-thumb {
+  background-color: var(--color-accent-primary);
+  border-radius: 999px;
+}
+
+.sheet-scroll::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-accent-secondary);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }
 
 a {
@@ -98,44 +152,93 @@ a {
   color: inherit;
   text-decoration: none;
 }
-
 a:hover {
-  color: var(--color-text-primary);
+  cursor: pointer;
 }
 
 button {
   cursor: pointer;
 }
-
 button:hover {
   border-color: var(--color-accent-primary);
 }
-
 button:active {
   transform: scale(0.96);
   filter: brightness(0.9);
 }
 
 @layer utilities {
+
   body {
-    @apply font-sans font-stretch-ultra-condensed font-semibold tracking-wide;
+    @apply font-sans font-stretch-ultra-condensed font-semibold tracking-wide bg-surface;
   }
 
+  /* --- Navbar --- */
   .navbar {
-    @apply lg:mx-32 md:mx-20 sm:mx-16 flex justify-around items-center bg-base h-24 text-text-secondary border-b border-b-text-secondary;
+    @apply flex justify-between items-center bg-surface px-8 lg:px-32 md:px-20 h-16
+    text-text-secondary border-b border-accent-dim;
   }
 
+  .navbar-logo {
+    @apply text-2xl font-extrabold tracking-tight text-text-primary;
+  }
+
+  .navbar-links {
+    @apply flex items-center gap-6;
+  }
+
+  .navbar-link {
+    @apply text-sm text-text-secondary hover:text-text-primary transition-colors cursor-pointer;
+  }
+
+  /* Primary CTA button — violet-pink */
+  .btn-primary {
+    @apply bg-accent-primary text-base text-sm font-semibold
+    px-5 py-2 rounded-lg border-none cursor-pointer
+    hover:brightness-110 active:scale-95 transition-all text-text-primary;
+  }
+
+  /* Ghost button — bordered */
+  .btn-ghost {
+    @apply bg-transparent text-accent-primary text-sm font-medium
+    px-5 py-2 rounded-lg cursor-pointer
+    border border-accent-secondary
+    hover:bg-accent-dim active:scale-95 transition-all;
+  }
+
+  /* Destructive / signout button */
+  .btn-destructive {
+    @apply w-full bg-transparent text-error text-sm font-semibold
+    px-4 py-2.5 rounded-lg cursor-pointer
+    border border-error/30
+    hover:bg-error/10 active:scale-95 transition-all;
+  }
+
+  /* --- Auth --- */
   .auth-form {
-    @apply flex flex-col gap-4 place-items-center p-22
+    @apply flex flex-col gap-4 place-items-center p-12;
+  }
+
+  .auth-card {
+    @apply bg-surface border border-border rounded-2xl p-9 w-full max-w-sm;
   }
 
   .auth-form div {
-    @apply flex flex-col gap-2 md:w-72 w-56
+    @apply flex flex-col gap-2 md:w-72 w-56;
   }
 
   input {
-    @apply rounded-md p-2 px-4 outline-none border border-text-secondary focus:outline-none
-    focus:ring focus:ring-text-primary text-text-primary font-thin;
+    @apply rounded-lg p-2.5 px-4 outline-none
+    bg-surface-alt border border-border
+    focus:border-border-strong focus:ring-1 focus:ring-accent-primary/40
+    text-text-primary font-thin transition-colors;
+  }
+
+  textarea {
+    @apply rounded-lg p-2.5 px-4 outline-none resize-none
+    bg-surface-alt border border-border
+    focus:border-border-strong focus:ring-1 focus:ring-accent-primary/40
+    text-text-primary font-thin transition-colors;
   }
 
   .error-message {
@@ -146,25 +249,21 @@ button:active {
     @apply flex flex-col md:flex-row gap-2 justify-center items-center;
   }
 
+  /* --- Profile form (onboarding) --- */
   .profile-form {
-    @apply flex flex-col gap-4 place-items-center py-12
+    @apply flex flex-col gap-4 place-items-center py-12;
   }
 
   .profile-form-heading {
-    @apply mb-6 font-medium text-2xl;
+    @apply mb-6 font-medium text-2xl text-text-primary;
   }
 
   .identity div {
-    @apply flex flex-col mb-4 md:w-auto w-64
+    @apply flex flex-col mb-4 md:w-auto w-64;
   }
 
   .identity div label {
-    @apply mb-2
-  }
-
-  .identity textarea {
-    @apply rounded-md p-2 px-4 outline-none border border-text-secondary focus:outline-none
-    focus:ring focus:ring-text-primary text-text-primary font-thin resize-none;
+    @apply mb-2 text-text-secondary text-sm;
   }
 
   .visuals div {
@@ -175,12 +274,36 @@ button:active {
     @apply text-sm;
   }
 
+  /* --- Profile card --- */
   .profile-card-container {
     @apply flex justify-center;
   }
 
   .user-profile {
-    @apply m-6 w-80 md:w-xl h-110 bg-surface text-text-primary rounded-2xl overflow-hidden;
+    @apply w-80 md:w-96 bg-surface text-text-primary rounded-2xl overflow-hidden
+    border border-border;
+  }
+
+  .profile-banner {
+    @apply h-24 w-full;
+    background: linear-gradient(135deg,
+    oklch(0.22 0.10 310),
+    oklch(0.13 0.04 310)
+    );
+  }
+
+  .profile-body {
+    @apply relative px-6 pb-6 pt-12;
+  }
+
+  .profile-avatar-wrap {
+    @apply absolute -top-9 left-6;
+  }
+
+  .profile-avatar {
+    @apply w-16 h-16 rounded-full border-4 border-surface;
+    /* accent glow ring — signature miniNitro look */
+    box-shadow: 0 0 0 3px var(--color-accent-glow);
   }
 
   .profile-card {
@@ -188,120 +311,158 @@ button:active {
   }
 
   .grid-container {
-    @apply grid grid-cols-1 md:grid-cols-2 p-2 gap-6 justify-items-center items-start;
+    @apply grid grid-cols-1 md:grid-cols-2 p-4 gap-6 justify-items-center items-start;
   }
-  /* effects */
+
+  /* --- User rows (home / discover) --- */
+  .user-row {
+    @apply flex items-center gap-3 bg-surface border border-border rounded-xl
+    px-4 py-3 mb-2 cursor-pointer
+    hover:border-border-strong hover:bg-surface-alt transition-all;
+  }
+
+  .user-row-avatar {
+    @apply w-10 h-10 rounded-full bg-surface-alt flex-shrink-0 relative;
+  }
+
+  .online-dot {
+    @apply w-2.5 h-2.5 rounded-full absolute bottom-0 right-0
+    border-2 border-surface;
+    background: var(--color-success);
+  }
+
+  .offline-dot {
+    @apply w-2.5 h-2.5 rounded-full absolute bottom-0 right-0
+    border-2 border-surface bg-text-tertiary;
+  }
+
+  .users-list {
+    @apply w-96 md:w-100 lg:w-130 p-6;
+  }
+
+  .user-offline-status {
+    @apply rounded-full bg-surface border-border;
+  }
+
+  /* --- Nameplate --- */
+  .user-nameplate {
+    @apply py-3 flex items-center gap-4 text-text-primary mb-4 rounded-lg;
+  }
+
+  /* --- Effects page --- */
   .all-effects-container {
-    @apply flex;
+    @apply flex flex-col gap-6;
   }
 
   .effects-dropdown {
-    @apply ml-auto m-4 p-2 bg-surface shadow-sm cursor-pointer hover:shadow-lg;
+    @apply ml-auto m-4 p-2 px-4 bg-surface border border-border
+    rounded-lg text-sm text-text-secondary cursor-pointer
+    hover:border-border-strong hover:text-text-primary transition-all;
   }
 
-  /* user avatar effects */
+  /* Effects section card */
   .avatar-effects-container {
-    @apply flex flex-col gap-6 m-6 bg-surface text-text-primary p-12 rounded-2xl;
+    @apply flex flex-col gap-6 m-6 bg-surface border border-border
+    text-text-primary p-10 rounded-2xl;
   }
 
   .avatar-effects-card-container {
-    @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 md:text-base text-xs place-items-center
+    @apply grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 place-items-center;
   }
 
   .avatar-effect-card {
-    @apply flex flex-col justify-center items-center
+    @apply flex flex-col justify-center items-center gap-2 p-4
+    bg-base-raised border border-border rounded-xl cursor-pointer
+    hover:border-accent-secondary hover:bg-surface-alt
+    transition-all text-xs text-center;
   }
 
-  /* avatar glow effects */
+  .avatar-effect-card.active {
+    @apply border-accent-primary;
+    background: var(--color-accent-dim);
+  }
+
+  .effect-badge {
+    @apply text-xs px-2 py-0.5 rounded-full font-medium;
+    background: var(--color-accent-dim);
+    color: var(--color-accent-primary);
+  }
+
+  /* --- Avatar glow effects (the actual visual effects) --- */
   .white-glow {
     @apply blur-md rounded-full bg-white;
   }
 
-  /* border effects */
   .gradient-border {
-    @apply bg-[linear-gradient(to_top,deepskyblue,deeppink,darkorange)] blur-[15px] brightness-200 animate-spin;
+    @apply bg-[linear-gradient(to_top,deepskyblue,deeppink,darkorange)]
+    blur-[15px] brightness-200 animate-spin;
   }
-  /* user */
+
+  /* Avatar ring — primary effect wrapper */
   .user-avatar-inner-container {
-    @apply relative flex flex-col items-center justify-center rounded-full
+    @apply relative flex flex-col items-center justify-center rounded-full;
   }
 
-  .user-nameplate {
-    @apply py-4 flex items-center justify-around text-text-primary mb-4 rounded-lg gap-4
-  }
-
-  .users-list {
-    @apply  w-96 md:w-100 lg:w-130 p-6;
-  }
-
-  .user-offline-status {
-    @apply rounded-full bg-surface border-text-secondary;
-  }
-
-  /* chat */
+  /* --- Chat --- */
   .chat-window-container-outer {
-    @apply flex flex-col h-130 w-80 md:w-96 lg:w-100 bg-surface text-text-primary;
+    @apply flex flex-col bg-surface text-text-primary
+    border border-border rounded-xl overflow-hidden;
   }
 
   .chat-window-selected-user {
-    @apply flex p-4 gap-4 items-center bg-accent-secondary text-text-primary;
+    @apply flex p-4 gap-4 items-center border-b border-border text-text-primary;
+    background: var(--color-accent-dim);
   }
 
   .chat-window-container {
-    @apply flex-1 overflow-y-auto no-scrollbar gap-2 p-2;
+    @apply flex-1 overflow-y-auto no-scrollbar flex flex-col gap-2 p-3;
+  }
+
+  /* Message bubbles */
+  .msg-bubble {
+    @apply px-4 py-2.5 rounded-xl text-sm leading-relaxed max-w-xs;
+    background: var(--color-surface-alt);
+    color: var(--color-text-primary);
+  }
+
+  .msg-bubble-mine {
+    @apply px-4 py-2.5 rounded-xl text-sm leading-relaxed max-w-xs;
+    background: var(--color-accent-dim);
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-accent-secondary);
   }
 
   .send-message-container {
-    @apply flex gap-2 p-2 bg-surface top-0;
+    @apply flex gap-2 p-3 border-t border-border bg-surface;
   }
-}
 
-@theme inline {
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --radius-2xl: calc(var(--radius) + 8px);
-  --radius-3xl: calc(var(--radius) + 12px);
-  --radius-4xl: calc(var(--radius) + 16px);
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
-}
-
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
+  /* Send button */
+  .send-btn {
+    @apply w-9 h-9 flex-shrink-0 rounded-lg flex items-center justify-center
+    cursor-pointer border-none transition-all hover:brightness-110 active:scale-95;
+    background: var(--color-accent-primary);
   }
-  body {
-    @apply bg-background text-foreground;
+
+  /* Chat sidebar item */
+  .chat-user-item {
+    @apply flex items-center gap-3 px-4 py-3 cursor-pointer
+    border-b border-border/50 transition-all
+    hover:bg-surface-alt;
+  }
+
+  .chat-user-item.selected {
+    background: var(--color-accent-dim);
+    border-left: 2px solid var(--color-accent-primary);
+  }
+
+  /* --- Settings sheet --- */
+  .settings-section-item {
+    @apply flex justify-between items-center py-4 px-2
+    border-b border-border cursor-pointer
+    hover:text-text-primary transition-colors text-text-secondary text-sm;
+  }
+
+  .settings-section-item:hover {
+    color: var(--color-text-primary);
   }
 }

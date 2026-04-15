@@ -50,15 +50,16 @@ const UsersList = ({ users, isMyChats }: UsersListProps) => {
                                             <p className="text-xs text-text-secondary">{eachUser?.identity?.pronouns}</p>
                                         </div>
                                         <div>
-                                            <button
+                                            <div
                                                 onClick={() => {
                                                     handleSelectedUser(eachUser);
                                                 }}
                                             >
                                                 {
-                                                    isMyChats? "message" : "connect"
+                                                    isMyChats? <button className="btn-primary">Message</button>
+                                                        : <button className="btn-primary">Connect</button>
                                                 }
-                                            </button>
+                                            </div>
                                         </div>
                                     </div>
                                     {/* overlay layer */}

@@ -23,7 +23,6 @@ import type {ProfileProps} from "../../types/types.ts";
 import ProfileBanner from "@/components/visuals/ProfileBanner.tsx";
 import UserAvatar from "@/components/visuals/UserAvatar.tsx";
 import {Link} from "react-router-dom";
-import {Button} from "@/components/ui/button.tsx";
 
 const UserSettings = ({ user, setUser }: ProfileProps) => {
     const handleRemoveAvatar = async () => {
@@ -84,9 +83,7 @@ const UserSettings = ({ user, setUser }: ProfileProps) => {
                         </Accordion>
                     </div>
                     <SheetFooter>
-                        <Button>
-                            <SignOut setUser={setUser}/>
-                        </Button>
+                        <SignOut setUser={setUser} />
                     </SheetFooter>
                 </SheetContent>
             </Sheet>

@@ -83,7 +83,10 @@ const SignIn = ({ setUser } : SetUserProps) => {
                     )
                 }
             </div>
-            <button type="submit">SignIn</button>
+            <button
+                type="submit"
+                className="btn-primary"
+            >SignIn</button>
         </form>
             <div className="auth-div">
                 <p>Don't have an account?</p>
@@ -97,4 +100,4 @@ const SignIn = ({ setUser } : SetUserProps) => {
     );
 };
 
-export default SignIn;
+export default SignIn

@@ -20,7 +20,10 @@ const SignOut = ({ setUser }: SetUserProps) => {
 
     return (
         <div>
-           <button onClick={userSignOut}>Signout</button>
+           <button
+               onClick={userSignOut}
+               className="btn-destructive"
+           >Signout</button>
         </div>
     );
 };
