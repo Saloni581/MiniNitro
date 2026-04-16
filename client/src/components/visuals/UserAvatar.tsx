@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils.ts";
 import { useContext } from "react";
 import { SocketContext } from "@/components/SocketContext.tsx";
 
-const UserAvatar = ({ user, previewEffectId, size }: UserAvatarProps) => {
+const UserAvatar = ({ user, previewEffectId, avatarEffect, size }: UserAvatarProps) => {
     const avatarUrl = user?.visuals?.avatar?.assetId?.url;
     const effectId = previewEffectId || user?.visuals?.avatar?.decorations?.activeEffect;
     const socketContext = useContext(SocketContext);
@@ -18,7 +18,7 @@ const UserAvatar = ({ user, previewEffectId, size }: UserAvatarProps) => {
     }
 
     // do not show avatar with effects when size is small
-    if(size === "sm") {
+    if(size === "sm" && !avatarEffect) {
         activeEffect = null;
     }
 

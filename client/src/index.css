@@ -167,6 +167,10 @@ button:active {
   filter: brightness(0.9);
 }
 
+.connect-btn:hover {
+  background-color: #21691e81;
+}
+
 @layer utilities {
 
   body {
@@ -305,7 +309,7 @@ button:active {
   }
 
   .grid-container {
-    @apply grid grid-cols-1 md:grid-cols-2 p-4 gap-6 justify-items-center items-start;
+    @apply grid grid-cols-1 md:grid-cols-2 py-8 justify-items-center items-start;
   }
 
   /* --- User rows (home / discover) --- */
@@ -331,7 +335,11 @@ button:active {
   }
 
   .users-list {
-    @apply w-96 md:w-100 lg:w-130 p-6;
+    @apply w-80 md:w-87.5 lg:w-120;
+  }
+
+  .users-list-heading {
+    @apply font-bold text-xl md:text-2xl text-text-secondary;
   }
 
   .user-online-status {
@@ -344,7 +352,7 @@ button:active {
 
   /* --- Nameplate --- */
   .user-nameplate {
-    @apply py-3 flex items-center gap-4 text-text-primary mb-4 rounded-lg;
+    @apply py-8 px-4 grid grid-cols-3 place-items-center my-4 text-text-primary;
   }
 
   /* --- Effects page --- */

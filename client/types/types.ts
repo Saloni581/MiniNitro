@@ -82,6 +82,7 @@ export interface SetUserProps {
 export interface UserAvatarProps {
     user: UserProfileProps | null;
     previewEffectId: string;
+    avatarEffect: boolean;
     size: "default" | "sm" | "md" | "lg" ;
 }
 

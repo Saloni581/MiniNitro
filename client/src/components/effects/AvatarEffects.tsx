@@ -32,7 +32,7 @@ const AvatarEffects = ({ user, setUser }: ProfileProps) => {
                         {
                             avatarEffects.map(effect => (
                                 <div className="avatar-effect-card">
-                                    <UserAvatar user={user} previewEffectId={effect.id} size="md" isChatWindow={false} />
+                                    <UserAvatar user={user} previewEffectId={effect.id} size="md" avatarEffect={true} />
                                     <Button
                                         key={effect.id}
                                         onClick={() => handleApplyEffect(effect.id)}

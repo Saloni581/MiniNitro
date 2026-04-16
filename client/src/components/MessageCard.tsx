@@ -6,7 +6,7 @@ const MessageCard = ({ user, message, timestamps }: MessageCardProps) => {
     return (
         <div className="flex gap-4">
             <div>
-                <UserAvatar user={user} previewEffectId="" size="sm" isChatWindow={true}/>
+                <UserAvatar user={user} previewEffectId="" avatarEffect={false} size="sm"/>
             </div>
             <div className="flex flex-col justify-center">
                 <div className="flex gap-2 items-center">

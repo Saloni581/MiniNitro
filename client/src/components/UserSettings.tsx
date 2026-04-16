@@ -22,7 +22,7 @@ import {removeAvatarEffect} from "../../api/effects.ts";
 import type {ProfileProps} from "../../types/types.ts";
 import ProfileBanner from "@/components/visuals/ProfileBanner.tsx";
 import UserAvatar from "@/components/visuals/UserAvatar.tsx";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const UserSettings = ({ user, setUser }: ProfileProps) => {
     const handleRemoveAvatar = async () => {
@@ -41,7 +41,7 @@ const UserSettings = ({ user, setUser }: ProfileProps) => {
         <div>
             <Sheet>
                 <SheetTrigger>
-                    <UserAvatar user={user} previewEffectId="" size="sm" />
+                    <UserAvatar user={user} previewEffectId="" avatarEffect={false} size="sm" />
                 </SheetTrigger>
                 <SheetContent className="flex flex-col">
                     <SheetHeader>
