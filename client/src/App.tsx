@@ -111,7 +111,7 @@ const App = () => {
                >
                </Route>
                <Route
-                   path="/login"
+                   path="/signin"
                    element={
                     <SignIn setUser={setUser} />
                    }

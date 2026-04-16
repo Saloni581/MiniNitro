@@ -8,7 +8,7 @@ const LandingPage = () => {
                 <div className="flex flex-col justify-center items-center gap-16 mt-24 px-4 text-center max-w-xl z-10">
                     <h1 className="flex flex-col justify-center items-center md:text-6xl text-3xl font-bold">
                         Make your profile
-                        <span className="block text-accent-primary text-[70px]">unforgettable.</span>
+                        <span className="block text-accent-primary text-4xl md:text-[70px]">unforgettable.</span>
                     </h1>
                     <h2 className="text-lg md:text-xl text-text-secondary">
                         Avatar effects, animated profiles, custom themes and more - make your profile look as cool as you are.
@@ -41,7 +41,7 @@ const LandingPage = () => {
                 </div>
                 <div className="flex justify-center gap-4">
                     <p>Socials:</p>
-                    <div className="flex gap-4">
+                    <div className="flex gap-1 md:gap-8">
                         <span>LinkedIn</span>
                         <span>Github</span>
                         <span>IG</span>

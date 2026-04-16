@@ -12,7 +12,7 @@ const Navbar = ({ user, setUser }: ProfileProps) => {
                     <span className="text-accent-primary">mini</span>Nitro
                 </Link>
             </div>
-            <div className="flex items-center gap-8">
+            <div className="flex items-center gap-2 md:gap-8">
                 <Link to="/effects">
                     Effects
                 </Link>
@@ -21,7 +21,7 @@ const Navbar = ({ user, setUser }: ProfileProps) => {
                         <UserSettings user={user} setUser={setUser} />
                     ) : (
                         <Link to='/signup'>
-                            <button className="btn-primary">Sign up free</button>
+                            <button className="btn-primary text-nowrap">Sign up free</button>
                         </Link>
                     )
                 }

@@ -7,6 +7,13 @@ import { z } from "zod";
 // @ts-ignore
 import { signUpSchema } from "../../../../validations/auth.schema.js";
 import { toast } from "sonner";
+import {
+    Card,
+    CardContent,
+    CardFooter
+} from "@/components/ui/card.tsx";
+import { Label } from "@/components/ui/label.tsx";
+import { Button } from "@/components/ui/button.tsx";
 
 const SignUp = ({ setUser }: SetUserProps) => {
     const navigate = useNavigate();
@@ -34,76 +41,83 @@ const SignUp = ({ setUser }: SetUserProps) => {
     });
 
     return (
-        <>
-        <form
-            onSubmit={form.handleSubmit(userSignUp)}
-            className="auth-form"
-            noValidate={true}
-        >
-            <div className="">
-                <div>
-                    <label htmlFor="userName">Enter username</label>
-                    <input
-                        id="userName"
-                        type="text"
-                        placeholder="enter a unique username"
-                        { ...form.register("userName")}
-                    />
-                    {
-                        form.formState.errors.userName && (
-                            <p className="error-message">
-                                {form.formState.errors.userName.message}
-                            </p>
-                        )
-                    }
-                </div>
-                <div>
-                    <label htmlFor="email">Enter email</label>
-                    <input
-                        id="email"
-                        type="email"
-                        placeholder="enter email address"
-                        { ...form.register("email") }
-                    />
-                    {
-                        form.formState.errors.email && (
-                            <p className="error-message">
-                                {form.formState.errors.email.message}
-                            </p>
-                        )
-                    }
-                </div>
-                <div>
-                    <label htmlFor="password">Enter password</label>
-                    <input
-                        id="password"
-                        type="password"
-                        placeholder="enter password"
-                        { ...form.register("password") }
-                    />
-                    {
-                        form.formState.errors.password && (
-                            <p className="error-message">
-                                {form.formState.errors.password.message}
-                            </p>
-                        )
-                    }
-                </div>
-                <button
-                    type="submit"
-                    className="btn-primary"
-                >Sign Up</button>
-            </div>
-        </form>
-        <div className="auth-div">
-            <p>Already Have an account?</p>
-            <div className="text-brand-primary-bold">
-                <Link to="/login">
-                    SignIn
-                </Link>
-            </div>
+        <div className="flex justify-center py-24">
+            <form
+                onSubmit={form.handleSubmit(userSignUp)}
+                noValidate={true}
+                className="w-full max-w-sm md:max-w-md border-none"
+            >
+                <Card className="border-none md:bg-accent-dim">
+                    <CardContent>
+                        <div className="flex flex-col gap-6">
+                            <div className="grid gap-2">
+                                <Label htmlFor="username">Username</Label>
+                                <input
+                                    id="username"
+                                    type="text"
+                                    placeholder="Enter a unique username"
+                                    {...form.register("username")}
+                                />
+                                {
+                                    form.formState.errors.username && (
+                                        <p className="error-message">
+                                            {form.formState.errors.username.message}
+                                        </p>
+                                    )
+                                }
+                            </div>
+                            <div className="grid gap-2">
+                                <Label htmlFor="email">Email</Label>
+                                <input
+                                    id="email"
+                                    type="email"
+                                    placeholder="Enter email"
+                                    {...form.register("email")}
+                                />
+                                {
+                                    form.formState.errors.email && (
+                                        <p className="error-message">
+                                            {form.formState.errors.email.message}
+                                        </p>
+                                    )
+                                }
+                            </div>
+                            <div className="grid gap-2">
+                                <div className="flex items-center">
+                                    <Label htmlFor="password">Password</Label>
+                                </div>
+                                <input
+                                    id="password"
+                                    type="password"
+                                    placeholder="Enter a strong password"
+                                    {...form.register("password")}
+                                />
+                                {
+                                    form.formState.errors.password && (
+                                        <p className="error-message">
+                                            {form.formState.errors.password.message}
+                                        </p>
+                                    )
+                                }
+                            </div>
+                        </div>
+                    </CardContent>
+                    <CardFooter className="flex-col gap-4">
+                        <Button type="submit" className="w-full">
+                            Sign Up
+                        </Button>
+                        <div className="auth-div">
+                            <p>Already have an account?</p>
+                            <div className="text-accent-primary">
+                                <Link to="/signin">
+                                    Sign In
+                                </Link>
+                            </div>
+                        </div>
+                    </CardFooter>
+                </Card>
+            </form>
         </div>
-        </>
     );
 };
 

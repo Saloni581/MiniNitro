@@ -175,7 +175,7 @@ button:active {
 
   /* --- Navbar --- */
   .navbar {
-    @apply flex justify-between items-center bg-surface px-8 lg:px-32 md:px-20 h-16
+    @apply flex justify-between items-center bg-surface px-2 lg:px-32 md:px-20 h-16
     text-text-secondary border-b border-accent-dim;
   }
 
@@ -215,10 +215,6 @@ button:active {
   }
 
   /* --- Auth --- */
-  .auth-form {
-    @apply flex flex-col gap-4 place-items-center p-12;
-  }
-
   .auth-card {
     @apply bg-surface border border-border rounded-2xl p-9 w-full max-w-sm;
   }
@@ -228,8 +224,7 @@ button:active {
   }
 
   input {
-    @apply rounded-lg p-2.5 px-4 outline-none
-    bg-surface-alt border border-border
+    @apply rounded-lg p-2.5 px-4 outline-none bg-surface-alt border border-text-secondary
     focus:border-border-strong focus:ring-1 focus:ring-accent-primary/40
     text-text-primary font-thin transition-colors;
   }
