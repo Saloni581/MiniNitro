@@ -51,17 +51,17 @@ const SignUp = ({ setUser }: SetUserProps) => {
                     <CardContent>
                         <div className="flex flex-col gap-6">
                             <div className="grid gap-2">
-                                <Label htmlFor="username">Username</Label>
+                                <Label htmlFor="userName">Username</Label>
                                 <input
-                                    id="username"
+                                    id="userName"
                                     type="text"
                                     placeholder="Enter a unique username"
-                                    {...form.register("username")}
+                                    {...form.register("userName")}
                                 />
                                 {
-                                    form.formState.errors.username && (
+                                    form.formState.errors.userName && (
                                         <p className="error-message">
-                                            {form.formState.errors.username.message}
+                                            {form.formState.errors.userName.message}
                                         </p>
                                     )
                                 }
