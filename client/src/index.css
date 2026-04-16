@@ -54,7 +54,7 @@
   --foreground:          var(--color-text-primary);
   --card:                var(--color-surface);
   --card-foreground:     var(--color-text-primary);
-  --popover:             var(--color-surface);
+  --popover:             var(--color-accent-primary);
   --popover-foreground:  var(--color-text-primary);
   --primary:             var(--color-accent-primary);
   --primary-foreground:  var(--color-base);
@@ -231,7 +231,7 @@ button:active {
 
   textarea {
     @apply rounded-lg p-2.5 px-4 outline-none resize-none
-    bg-surface-alt border border-border
+    bg-surface-alt border border-text-secondary
     focus:border-border-strong focus:ring-1 focus:ring-accent-primary/40
     text-text-primary font-thin transition-colors;
   }

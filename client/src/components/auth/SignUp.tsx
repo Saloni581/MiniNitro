@@ -10,7 +10,10 @@ import { toast } from "sonner";
 import {
     Card,
     CardContent,
-    CardFooter
+    CardDescription,
+    CardFooter,
+    CardHeader,
+    CardTitle
 } from "@/components/ui/card.tsx";
 import { Label } from "@/components/ui/label.tsx";
 import { Button } from "@/components/ui/button.tsx";
@@ -41,13 +44,19 @@ const SignUp = ({ setUser }: SetUserProps) => {
     });
 
     return (
-        <div className="flex justify-center py-24">
+        <div className="flex justify-center py-6">
             <form
                 onSubmit={form.handleSubmit(userSignUp)}
                 noValidate={true}
                 className="w-full max-w-sm md:max-w-md border-none"
             >
                 <Card className="border-none md:bg-accent-dim">
+                    <CardHeader>
+                        <CardTitle className="font-bold text-xl md:text-2xl">Create your account</CardTitle>
+                        <CardDescription>
+                            Join miniNitro and start customizing your profile.
+                        </CardDescription>
+                    </CardHeader>
                     <CardContent>
                         <div className="flex flex-col gap-6">
                             <div className="grid gap-2">
@@ -71,7 +80,7 @@ const SignUp = ({ setUser }: SetUserProps) => {
                                 <input
                                     id="email"
                                     type="email"
-                                    placeholder="Enter email"
+                                    placeholder="you@example.com"
                                     {...form.register("email")}
                                 />
                                 {
@@ -89,7 +98,7 @@ const SignUp = ({ setUser }: SetUserProps) => {
                                 <input
                                     id="password"
                                     type="password"
-                                    placeholder="Enter a strong password"
+                                    placeholder="At least 6 characters"
                                     {...form.register("password")}
                                 />
                                 {
@@ -103,16 +112,17 @@ const SignUp = ({ setUser }: SetUserProps) => {
                         </div>
                     </CardContent>
                     <CardFooter className="flex-col gap-4">
-                        <Button type="submit" className="w-full">
-                            Sign Up
+                        <Button
+                            type="submit"
+                            className="w-full"
+                            disabled={form.formState.isSubmitting}
+                        >
+                            {
+                                form.formState.isSubmitting? "Creating your account..." : "Create Account"
+                            }
                         </Button>
                         <div className="auth-div">
-                            <p>Already have an account?</p>
-                            <div className="text-accent-primary">
-                                <Link to="/signin">
-                                    Sign In
-                                </Link>
-                            </div>
+                            Already have an account?<p className="text-accent-primary"><Link to="/signin">Sign In</Link></p>
                         </div>
                     </CardFooter>
                 </Card>
