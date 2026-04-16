@@ -2,7 +2,6 @@ import { Avatar, AvatarBadge, AvatarFallback, AvatarImage } from "@/components/u
 import type { UserAvatarProps } from "../../../types/types.ts";
 import { avatarEffects } from "../../../constants/effectsConfig.ts";
 import { cn } from "@/lib/utils.ts";
-import SmartphoneIcon from "@/assets/icons8-smartphone-48.png";
 import { useContext } from "react";
 import { SocketContext } from "@/components/SocketContext.tsx";
 
@@ -42,7 +41,7 @@ const UserAvatar = ({ user, previewEffectId, size }: UserAvatarProps) => {
             {/* border layer */}
             <div className={
                 cn("absolute z-10 inset-0 rounded-full",
-                    (activeEffect? activeEffect.cssBorderClass : "bg-text-secondary"),
+                    (activeEffect? activeEffect.cssBorderClass : "bg-accent-primary"),
                     (size === "sm" && "-inset-0.5"),
                     (size === "md" && "-inset-1"),
                     (size === "lg" && "-inset-1"),
@@ -69,16 +68,13 @@ const UserAvatar = ({ user, previewEffectId, size }: UserAvatarProps) => {
                     (!previewEffectId && size !== "sm") && (
                         // @ts-ignore
                         onlineUsers?.[userId]? (
-                                <AvatarBadge>
-                                    <img
-                                        src={SmartphoneIcon}
-                                        alt="online-status-icon"
-                                        className={
-                                            cn((size === "md" && "w-6 h-6"),
-                                                (size === "lg" && "w-7 h-7"))
-                                        }
-                                    />
-                                </AvatarBadge>
+                                <AvatarBadge
+                                    className={
+                                        cn("user-online-status",
+                                            (size === "md" && "w-5 h-5 border-5"),
+                                            (size === "lg" && "w-6 h-6 border-6"))
+                                    }
+                                />
                             ) :
                             (
                                 <AvatarBadge

@@ -7,7 +7,7 @@ const UserProfile = ({ user }: UserProps) => {
 
     return (
         <div>
-            <ProfileFrame user={user}>
+            <ProfileFrame user={user} >
                 <ProfileCard user={user} />
             </ProfileFrame>
         </div>

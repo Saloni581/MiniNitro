@@ -24,7 +24,7 @@ const ProfileCard = ({ user } : UserProps ) => {
                         />
                     ) : (
                         <div
-                            className={cn("absolute inset-0", !bannerColor && "bg-surface")}
+                            className={cn("absolute inset-0", !bannerColor && "bg-accent-primary")}
                             style={{ backgroundColor: bannerColor }}
                         ></div>
                     )
@@ -33,8 +33,8 @@ const ProfileCard = ({ user } : UserProps ) => {
                     <UserAvatar user={user} previewEffectId="" size="lg" />
                 </div>
             </div>
-            <div className="flex-2 flex flex-col justify-center gap-8 m-6">
-                <div className="flex flex-col gap-2">
+            <div className="flex-2 flex flex-col justify-center gap-8 relative">
+                <div className="flex flex-col gap-2 absolute left-14 bottom-44">
                     <div
                         className={cn("text-xl", fontStyle?.font)}
                         style={{
@@ -43,11 +43,11 @@ const ProfileCard = ({ user } : UserProps ) => {
                     >
                         {user?.identity?.displayName}
                     </div>
-                    <span className="lowercase text-sm">
+                    <span className="lowercase text-sm text-text-secondary">
                     {user?.identity?.pronouns}
                     </span>
                 </div>
-                <div>
+                <div className="absolute left-14 bottom-24">
                     {
                         user?.identity?.bio === "" ?
                             "No bio" :

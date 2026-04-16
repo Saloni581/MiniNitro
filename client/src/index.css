@@ -271,12 +271,11 @@ button:active {
 
   /* --- Profile card --- */
   .profile-card-container {
-    @apply flex justify-center;
+    @apply flex justify-center py-12;
   }
 
   .user-profile {
-    @apply w-80 md:w-96 bg-surface text-text-primary rounded-2xl overflow-hidden
-    border border-border;
+    @apply md:w-150 w-80 h-120 md:px-0 px-6 bg-surface text-text-primary rounded-2xl overflow-hidden;
   }
 
   .profile-banner {
@@ -335,8 +334,12 @@ button:active {
     @apply w-96 md:w-100 lg:w-130 p-6;
   }
 
+  .user-online-status {
+    @apply rounded-full bg-green-500 border-green-600;
+  }
+
   .user-offline-status {
-    @apply rounded-full bg-surface border-border;
+    @apply rounded-full bg-surface border-muted-foreground;
   }
 
   /* --- Nameplate --- */
