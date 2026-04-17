@@ -32,16 +32,35 @@ const Home = ({ loggedInUser } : loggedInUserProps ) => {
         fetchConnectedUsers();
     }, [loggedInUser]);
 
-
+    // excluding the loggedIn user from users array
     const filteredUsers = users.filter((user) => user.userId !== loggedInUser?.userId);
+
+    // excluding the users who are already connected with loggedIn user and keeping the ones with whom loggedIn user has not connected yet.
+    const otherUsers = filteredUsers.filter((user) => !myConversations.some((element) => element.userId === user.userId));
 
     return (
         <div>
             {
                 loggedInUser? (
                     <div className="grid-container">
-                        <UsersList users={myConversations} isMyChats={true} />
-                        <UsersList users={filteredUsers} isMyChats={false} />
+                        <div>
+                            <h1 className="users-list-heading">My Chats</h1>
+                            <UsersList users={myConversations}>
+                                <button className="btn-ghost">Message</button>
+                            </UsersList>
+                        </div>
+                        <div>
+                            <h1 className="users-list-heading">Discover more users</h1>
+                            <UsersList users={otherUsers}>
+                                <button
+                                    className="btn-ghost connect-btn"
+                                    style={{
+                                        color: "var(--color-success)",
+                                        borderColor: "green",
+                                    }}
+                                >Connect</button>
+                            </UsersList>
+                        </div>
                     </div>
                 ) : (
                     <div>

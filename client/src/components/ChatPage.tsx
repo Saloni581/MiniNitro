@@ -9,8 +9,9 @@ import { fetchUserById } from "../../api/user.ts";
 import UsersList from "@/components/UsersList.tsx";
 import { fetchConversationsOfLoggedInUser } from "../../api/conversation.ts";
 import UserAvatar from "@/components/visuals/UserAvatar.tsx";
-import send from "@/assets/send.png";
-import {formatTime} from "../../constants";
+import { ChevronRight } from "lucide-react";
+import { formatTime } from "../../constants";
+import { Button } from "@/components/ui/button.tsx";
 
 
 const ChatPage = ({ loggedInUser }: ChatWindowProps) => {
@@ -108,13 +109,28 @@ const ChatPage = ({ loggedInUser }: ChatWindowProps) => {
     }, [loggedInUser]);
 
     return (
-        <div className="grid-container">
+        <div className="chat-page-container">
+            <div className="chat-page-users-list-container">
+                <h1 className="users-list-heading">Messages</h1>
+                <div className="chat-page-users-list">
+                    <UsersList users={myConversations} selectedUser={selectedUser} isChatPage={true} />
+                </div>
+            </div>
             <div className="chat-window-container-outer">
                 <div className="chat-window-selected-user">
-                    <UserAvatar user={selectedUser} previewEffectId={""} avatarEffect={true} size={"sm"}/>
-                    <span>
-                        { selectedUser?.identity.displayName }
-                    </span>
+                    <UserAvatar user={selectedUser} previewEffectId={""} avatarEffect={false} showStatus={false} size={"sm"}/>
+                    <div>
+                        <div>
+                            { selectedUser?.identity.displayName }
+                        </div>
+                        <div>
+                            {
+                                socketContext?.onlineUsers?.[selectedUser?.userId]?
+                                    <p className="text-success">online</p> :
+                                    <p className="text-text-secondary text-xs">Offline</p>
+                            }
+                        </div>
+                    </div>
                 </div>
                 <div className="chat-window-container" ref={chatContainerRef}>
                     { messages && messages?.map((message) => (
@@ -124,8 +140,9 @@ const ChatPage = ({ loggedInUser }: ChatWindowProps) => {
                         >
                             <MessageCard
                                 user={message?.sender === loggedInUser?.userId? loggedInUser : selectedUser }
-                                message={message?.message}
+                                message={message}
                                 timestamps={formatTime(message.createdAt)}
+                                loggedInUserId={loggedInUser?.userId}
                             />
                         </div>
                     ))}
@@ -135,17 +152,14 @@ const ChatPage = ({ loggedInUser }: ChatWindowProps) => {
                         type="text"
                         value={inputMessage}
                         onChange={(e) => setInputMessage(e.target.value)}
-                        className="text-brand-text-secondary w-full"
+                        className="text-brand-text-secondary w-full bg-surface border-accent-dim m-2"
                         onKeyDown={handleKeyDown}
                         placeholder="write something..."
                     />
-                    <button onClick={handleSend}>
-                        <img src={send} alt="send icon" className="w-6 h-6"/>
-                    </button>
+                    <Button onClick={handleSend} className="text-text-primary w-10 h-10">
+                        <ChevronRight />
+                    </Button>
                 </div>
-            </div>
-            <div>
-                <UsersList users={myConversations} isMyChats={true} />
             </div>
         </div>
     );

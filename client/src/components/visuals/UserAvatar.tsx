@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils.ts";
 import { useContext } from "react";
 import { SocketContext } from "@/components/SocketContext.tsx";
 
-const UserAvatar = ({ user, previewEffectId, avatarEffect, size }: UserAvatarProps) => {
+const UserAvatar = ({ user, previewEffectId, avatarEffect, showStatus, size }: UserAvatarProps) => {
     const avatarUrl = user?.visuals?.avatar?.assetId?.url;
     const effectId = previewEffectId || user?.visuals?.avatar?.decorations?.activeEffect;
     const socketContext = useContext(SocketContext);
@@ -65,12 +65,13 @@ const UserAvatar = ({ user, previewEffectId, avatarEffect, size }: UserAvatarPro
             {/* status badge layer */}
             <div className="absolute inset-0 z-40">
                 {
-                    (!previewEffectId && size !== "sm") && (
+                    (!previewEffectId) && (
                         // @ts-ignore
                         onlineUsers?.[userId]? (
                                 <AvatarBadge
                                     className={
                                         cn("user-online-status",
+                                            ((size === "sm" && showStatus) && "w-3 h-3 border-3"),
                                             (size === "md" && "w-5 h-5 border-5"),
                                             (size === "lg" && "w-6 h-6 border-6"))
                                     }
@@ -80,6 +81,7 @@ const UserAvatar = ({ user, previewEffectId, avatarEffect, size }: UserAvatarPro
                                 <AvatarBadge
                                     className={
                                         cn("user-offline-status",
+                                            ((size === "sm" && showStatus) && "w-3 h-3 border-3"),
                                             (size === "md" && "w-5 h-5 border-5"),
                                             (size === "lg" && "w-6 h-6 border-6"))
                                     }

@@ -82,7 +82,8 @@ export interface SetUserProps {
 export interface UserAvatarProps {
     user: UserProfileProps | null;
     previewEffectId: string;
-    avatarEffect: boolean;
+    avatarEffect?: boolean;
+    showStatus?: boolean;
     size: "default" | "sm" | "md" | "lg" ;
 }
 
@@ -115,11 +116,14 @@ export interface MessageCardProps {
     user: UserProfileProps | null;
     message: any;
     timestamps: string;
+    loggedInUserId: string | undefined;
 }
 
 export interface UsersListProps {
     users: UserProfileProps[] | [];
-    isMyChats: boolean;
+    selectedUser?: UserProfileProps | null;
+    isChatPage?: boolean;
+    children?: ReactNode;
 }
 
 export interface OnlineUsersProps {

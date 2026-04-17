@@ -199,7 +199,7 @@ button:active {
   .btn-primary {
     @apply bg-accent-primary text-base text-sm font-semibold
     px-5 py-2 rounded-lg border-none cursor-pointer
-    hover:brightness-110 active:scale-95 transition-all text-text-primary;
+    hover:brightness-110 active:scale-95 transition-all;
   }
 
   /* Ghost button — bordered */
@@ -208,6 +208,11 @@ button:active {
     px-5 py-2 rounded-lg cursor-pointer
     border border-accent-secondary
     hover:bg-accent-dim active:scale-95 transition-all;
+  }
+
+  .btn-ghost.active {
+    @apply border border-accent-primary transition-all;
+    background: var(--color-accent-glow);
   }
 
   /* Destructive / signout button */
@@ -309,7 +314,7 @@ button:active {
   }
 
   .grid-container {
-    @apply grid grid-cols-1 md:grid-cols-2 py-8 justify-items-center items-start;
+    @apply grid grid-cols-1 md:grid-cols-2 py-4 px-2 justify-items-center items-start;
   }
 
   /* --- User rows (home / discover) --- */
@@ -320,7 +325,7 @@ button:active {
   }
 
   .user-row-avatar {
-    @apply w-10 h-10 rounded-full bg-surface-alt flex-shrink-0 relative;
+    @apply w-10 h-10 rounded-full bg-surface-alt shrink-0 relative;
   }
 
   .online-dot {
@@ -339,7 +344,7 @@ button:active {
   }
 
   .users-list-heading {
-    @apply font-bold text-xl md:text-2xl text-text-secondary;
+    @apply font-bold text-xl md:text-2xl text-text-secondary mb-4;
   }
 
   .user-online-status {
@@ -405,19 +410,29 @@ button:active {
   }
 
   /* --- Chat --- */
+  .chat-page-container {
+    @apply flex flex-col-reverse gap-4 md:flex-row items-center justify-evenly py-4 px-4;
+  }
+
+  .chat-page-users-list-container {
+    @apply bg-surface-alt py-6 px-4 flex flex-col rounded-lg h-130 overflow-hidden;
+  }
+
+  .chat-page-users-list {
+    @apply flex-1 overflow-y-auto no-scrollbar rounded-2xl;
+  }
   .chat-window-container-outer {
-    @apply flex flex-col bg-surface text-text-primary
-    border border-border rounded-xl overflow-hidden;
+    @apply flex flex-col bg-surface-alt text-text-primary border border-accent-dim h-130 rounded-xl overflow-hidden;
   }
 
   .chat-window-selected-user {
-    @apply flex p-4 gap-4 items-center border-b border-border text-text-primary;
-    background: var(--color-accent-dim);
+    @apply flex p-6 gap-4 items-center border-b border-accent-dim text-text-primary;
   }
 
   .chat-window-container {
     @apply flex-1 overflow-y-auto no-scrollbar flex flex-col gap-2 p-3;
   }
+
 
   /* Message bubbles */
   .msg-bubble {
@@ -434,12 +449,12 @@ button:active {
   }
 
   .send-message-container {
-    @apply flex gap-2 p-3 border-t border-border bg-surface;
+    @apply flex items-center gap-2 p-3 border-t border-accent-dim bg-surface-alt;
   }
 
   /* Send button */
   .send-btn {
-    @apply w-9 h-9 flex-shrink-0 rounded-lg flex items-center justify-center
+    @apply w-9 h-9 shrink-0 rounded-lg flex items-center justify-center
     cursor-pointer border-none transition-all hover:brightness-110 active:scale-95;
     background: var(--color-accent-primary);
   }

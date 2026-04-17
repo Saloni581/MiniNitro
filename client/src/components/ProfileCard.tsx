@@ -30,7 +30,7 @@ const ProfileCard = ({ user } : UserProps ) => {
                     )
                 }
                 <div className="absolute left-10 -bottom-12">
-                    <UserAvatar user={user} previewEffectId="" avatarEffect={true} size="lg" />
+                    <UserAvatar user={user} previewEffectId="" avatarEffect={true} showStatus={true} size="lg" />
                 </div>
             </div>
             <div className="flex-2 flex flex-col justify-center gap-8 relative">

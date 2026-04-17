@@ -55,7 +55,11 @@ const DisplayNameStyle = ({ user, setUser }: ProfileProps) => {
                 <div className="grid md:grid-cols-3 grid-cols-2 gap-2">
                     {
                         fonts.map(font => (
-                            <Button key={font.id} onClick={() => setFontId(font.id)}>
+                            <Button
+                                key={font.id}
+                                onClick={() => setFontId(font.id)}
+                                className={cn("btn-ghost", { active: fontId === font.id })}
+                            >
                                 <span className={cn(font.font)}>{user?.identity.displayName}</span>
                             </Button>
                         ))

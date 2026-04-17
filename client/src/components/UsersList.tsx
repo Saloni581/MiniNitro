@@ -4,11 +4,11 @@ import { useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils.ts";
 
 
-const UsersList = ({ users, isMyChats }: UsersListProps) => {
+const UsersList = ({ users, selectedUser, isChatPage, children }: UsersListProps) => {
     const navigate = useNavigate();
 
-    const handleSelectedUser = ( selectedUser : UserProfileProps ) => {
-        navigate(`/chat/${selectedUser.userId}`);
+    const handleSelectedUser = ( selectedUserId : UserProfileProps ) => {
+        navigate(`/chat/${selectedUserId.userId}`);
     }
 
     const showPublicProfile = (userId: string) => {
@@ -16,19 +16,18 @@ const UsersList = ({ users, isMyChats }: UsersListProps) => {
     }
 
     return (
-        <div className="users-list">
-            <div className="users-list-heading">
-                {
-                    isMyChats? <h2>My Chats</h2> : <h2>All Users</h2>
-                }
-            </div>
+        <div className="users-list" style={{ width: isChatPage? "280px": undefined}}>
                 {
                     users.length !== 0 ?
                         (users?.map((eachUser) => (
                             // nameplate effect structure
-                                <div key={eachUser._id} className={
-                                    cn("relative bg-accent-dim rounded-xl",
-                                    )}
+                                <div
+                                    key={eachUser._id}
+                                    className={
+                                        cn("relative bg-accent-dim rounded-xl",
+                                            selectedUser?.userId === eachUser.userId && "bg-accent-glow border-l-4 border-l-accent-primary"
+                                        )
+                                    }
                                 >
                                     {/* glow layer */}
                                     <div className={
@@ -41,7 +40,9 @@ const UsersList = ({ users, isMyChats }: UsersListProps) => {
                                         )}
                                     ></div>
                                     {/* content layer */}
-                                    <div className="user-nameplate z-20">
+                                    <div
+                                        className="user-nameplate z-20"
+                                    >
                                         {/* ---- User Avatar ------ */}
                                         <div
                                             onClick={() => showPublicProfile(eachUser.userId)}
@@ -51,13 +52,26 @@ const UsersList = ({ users, isMyChats }: UsersListProps) => {
                                                 user={eachUser}
                                                 previewEffectId=""
                                                 avatarEffect={true}
+                                                showStatus={true}
                                                 size="sm"
                                             />
                                         </div>
                                         {/* User Basic Details */}
                                         <div className="flex flex-col items-center">
-                                            <p className="text-sm md:text-lg font-medium">{eachUser?.identity?.displayName}</p>
-                                            <p className="text-xs text-text-secondary">{eachUser?.identity?.pronouns}</p>
+                                            <p
+                                                className={cn("text-sm md:text-lg font-medium",
+                                                    (eachUser?.visuals?.displayNameStyle?.effect),
+                                                )}
+                                                style={{
+                                                    color: eachUser?.visuals?.displayNameStyle?.color,
+                                                    fontFamily: eachUser?.visuals?.displayNameStyle?.font
+                                                }}
+                                            >
+                                                {eachUser?.identity?.displayName}
+                                            </p>
+                                            <p className="text-xs text-text-secondary">
+                                                {eachUser?.identity?.pronouns}
+                                            </p>
                                         </div>
                                         {/* Connect or Message Button */}
                                         <div>
@@ -66,18 +80,7 @@ const UsersList = ({ users, isMyChats }: UsersListProps) => {
                                                     handleSelectedUser(eachUser);
                                                 }}
                                             >
-                                                {
-                                                    isMyChats?
-                                                        <button className="btn-ghost">Message</button>
-                                                        :
-                                                        <button
-                                                            className="btn-ghost connect-btn"
-                                                            style={{
-                                                                color: "var(--color-success)",
-                                                                borderColor: "green",
-                                                            }}
-                                                        >Connect</button>
-                                                }
+                                                { children }
                                             </div>
                                         </div>
                                     </div>
