@@ -5,10 +5,14 @@ import { updateAvatarEffect } from "../../../api/effects.ts";
 import type { ProfileProps } from "../../../types/types.ts";
 import { toast } from "sonner";
 import UserAvatar from "@/components/visuals/UserAvatar.tsx";
+import { useState } from "react";
+import { cn } from "@/lib/utils.ts";
 
 const AvatarEffects = ({ user, setUser }: ProfileProps) => {
+    const [activeEffect, setActiveEffect] = useState("");
 
     const handleApplyEffect = async (id : string) => {
+        setActiveEffect(id);
         if(!user) {
             toast("Login to apply effect");
             return;
@@ -25,19 +29,20 @@ const AvatarEffects = ({ user, setUser }: ProfileProps) => {
 
     return (
         <>
-            <EffectsDropdown />
-            <div className="avatar-effects-container">
-                <h1>Avatar Effects</h1>
-                    <div className="avatar-effects-card-container">
+            <div className="effects-container">
+                <div className="effects-header">
+                    <h1 className="font-medium text-xl md:text-2xl">Avatar Effects</h1>
+                    <EffectsDropdown />
+                </div>
+                    <div className="effects-card-container">
                         {
                             avatarEffects.map(effect => (
-                                <div className="avatar-effect-card">
+                                <div
+                                    key={effect.id}
+                                    className={cn("effect-card", { active: activeEffect === effect.id })}
+                                >
                                     <UserAvatar user={user} previewEffectId={effect.id} size="md" avatarEffect={true} />
-                                    <Button
-                                        key={effect.id}
-                                        onClick={() => handleApplyEffect(effect.id)}
-                                        className="mt-6"
-                                    >
+                                    <Button onClick={() => handleApplyEffect(effect.id)}>
                                         <span className="text-wrap">{effect.name}</span>
                                     </Button>
                                 </div>

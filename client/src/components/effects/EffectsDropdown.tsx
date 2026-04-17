@@ -13,10 +13,10 @@ import {
 const EffectsDropdown = () => {
     return (
         <div className="all-effects-container">
-            <div className="effects-dropdown">
+            <div className="btn-ghost">
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>
-                        <div>Select Effects</div>
+                        <p>Select Effects</p>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent>
                         <DropdownMenuGroup>

@@ -180,7 +180,7 @@ button:active {
   /* --- Navbar --- */
   .navbar {
     @apply flex justify-between items-center bg-surface px-2 lg:px-32 md:px-20 h-16
-    text-text-secondary border-b border-accent-dim;
+    text-text-secondary border-b-2 border-accent-dim;
   }
 
   .navbar-logo {
@@ -360,31 +360,26 @@ button:active {
     @apply flex flex-col gap-6;
   }
 
-  .effects-dropdown {
-    @apply ml-auto m-4 p-2 px-4 bg-surface border border-border
-    rounded-lg text-sm text-text-secondary cursor-pointer
-    hover:border-border-strong hover:text-text-primary transition-all;
-  }
-
   /* Effects section card */
-  .avatar-effects-container {
-    @apply flex flex-col gap-6 m-6 bg-surface border border-border
-    text-text-primary p-10 rounded-2xl;
+  .effects-container {
+    @apply flex flex-col gap-6 bg-surface text-text-primary rounded-2xl;
   }
 
-  .avatar-effects-card-container {
-    @apply grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 place-items-center;
+  .effects-header {
+    @apply flex justify-between items-center md:m-4 p-2 md:px-4;
   }
 
-  .avatar-effect-card {
-    @apply flex flex-col justify-center items-center gap-2 p-4
-    bg-base-raised border border-border rounded-xl cursor-pointer
-    hover:border-accent-secondary hover:bg-surface-alt
-    transition-all text-xs text-center;
+  .effects-card-container {
+    @apply grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-6 place-items-center;
   }
 
-  .avatar-effect-card.active {
-    @apply border-accent-primary;
+  .effect-card {
+    @apply flex flex-col items-center justify-evenly size-64 md:size-72 lg:size-80 bg-base-raised
+    rounded-xl cursor-pointer hover:border-accent-secondary hover:bg-surface-alt transition-all;
+  }
+
+  .effect-card.active {
+    @apply border border-accent-secondary transition-all;
     background: var(--color-accent-dim);
   }
 

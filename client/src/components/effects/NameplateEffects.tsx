@@ -1,15 +1,15 @@
 import EffectsDropdown from "@/components/effects/EffectsDropdown.tsx";
-import {Button} from "@/components/ui/button.tsx";
 
 const NameplateEffects = () => {
     return (
         <>
-            <EffectsDropdown />
-            <div>
-                Nameplate Effects
-                <Button>
-                    glow effect - apply it rn!!!!
-                </Button>
+            <div className="effects-container">
+                <div className="effects-header">
+                    <h1 className="font-medium text-xl md:text-2xl">Nameplate Effects</h1>
+                    <EffectsDropdown />
+                </div>
+                <div className="effects-card-container">
+                </div>
             </div>
         </>
     );

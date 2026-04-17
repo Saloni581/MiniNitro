@@ -11,7 +11,7 @@ const SignOut = ({ setUser }: SetUserProps) => {
             const res = await signOut();
             setUser(null);
             toast(res.message);
-            navigate("/login");
+            navigate("/signin");
         } catch (error) {
             console.error(error);
             toast("Error while logging user out");
