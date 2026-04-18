@@ -10,7 +10,6 @@ import { fetchUserDetails } from "../api/user.ts";
 import ProfileEffects from "./components/effects/ProfileEffects.tsx";
 import AvatarEffects from "@/components/effects/AvatarEffects.tsx";
 import NameplateEffects from "./components/effects/NameplateEffects.tsx";
-import UserProfile from "@/components/UserProfile.tsx";
 import { SocketContext } from "@/components/SocketContext.tsx";
 import ChatPage from "@/components/ChatPage.tsx";
 import PublicProfile from "@/components/PublicProfile.tsx";
@@ -50,13 +49,6 @@ const App = () => {
                </Route>
 
                {/* Profile Routes */}
-               <Route
-                   path="/profile"
-                   element={
-                       <UserProfile user={user} />
-                   }
-               >
-               </Route>
                <Route
                    path="/profile/:userId"
                    element={

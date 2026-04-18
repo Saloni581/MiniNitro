@@ -47,7 +47,7 @@ const SignIn = ({ setUser } : SetUserProps) => {
             setUser(user.data);
             toast("User signed in successfully.");
             connectToSocketContext?.connectToSocket();
-            navigate("/profile");
+            navigate("/settings-panel");
         } catch (error) {
             console.error(error);
             toast("Error signing in user");
