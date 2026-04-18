@@ -111,7 +111,7 @@ const ChatPage = ({ loggedInUser }: ChatWindowProps) => {
     return (
         <div className="chat-page-container">
             <div className="chat-page-users-list-container">
-                <h1 className="users-list-heading">Messages</h1>
+                <h1 className="heading">Messages</h1>
                 <div className="chat-page-users-list">
                     <UsersList users={myConversations} selectedUser={selectedUser} isChatPage={true} />
                 </div>
@@ -121,7 +121,7 @@ const ChatPage = ({ loggedInUser }: ChatWindowProps) => {
                     <UserAvatar user={selectedUser} previewEffectId={""} avatarEffect={false} showStatus={false} size={"sm"}/>
                     <div>
                         <div>
-                            { selectedUser?.identity.displayName }
+                            { selectedUser?.identity?.displayName }
                         </div>
                         <div>
                             {
@@ -157,7 +157,7 @@ const ChatPage = ({ loggedInUser }: ChatWindowProps) => {
                         placeholder="write something..."
                     />
                     <Button onClick={handleSend} className="text-text-primary w-10 h-10">
-                        <ChevronRight />
+                        <ChevronRight className="size-10" />
                     </Button>
                 </div>
             </div>

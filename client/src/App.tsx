@@ -14,6 +14,7 @@ import UserProfile from "@/components/UserProfile.tsx";
 import { SocketContext } from "@/components/SocketContext.tsx";
 import ChatPage from "@/components/ChatPage.tsx";
 import PublicProfile from "@/components/PublicProfile.tsx";
+import UserSettings from "@/components/UserSettings.tsx";
 
 
 const App = () => {
@@ -38,7 +39,7 @@ const App = () => {
 
     return (
         <>
-           <Navbar user={user} setUser={setUser} />
+           <Navbar user={user} />
            <Routes>
                <Route
                    path="/"
@@ -106,22 +107,30 @@ const App = () => {
                <Route
                    path="/signup"
                    element={
-                    <SignUp setUser={setUser} />
+                        <SignUp setUser={setUser} />
                    }
                >
                </Route>
                <Route
                    path="/signin"
                    element={
-                    <SignIn setUser={setUser} />
+                        <SignIn setUser={setUser} />
                    }
                >
                </Route>
                <Route
                     path="/chat/:userId"
                     element={
-                    <ChatPage loggedInUser={user} />
+                        <ChatPage loggedInUser={user} />
                     }
+               >
+               </Route>
+               {/* user settings panel */}
+               <Route
+                   path="/settings-panel"
+                   element={
+                        <UserSettings user={user} setUser={setUser} />
+                   }
                >
                </Route>
            </Routes>

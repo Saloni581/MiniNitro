@@ -197,8 +197,8 @@ button:active {
 
   /* Primary CTA button — violet-pink */
   .btn-primary {
-    @apply bg-accent-primary text-base text-sm font-semibold
-    px-5 py-2 rounded-lg border-none cursor-pointer
+    @apply bg-accent-primary text-sm font-semibold
+    px-5 py-2 rounded-lg border-none cursor-pointer text-text-primary
     hover:brightness-110 active:scale-95 transition-all;
   }
 
@@ -218,9 +218,8 @@ button:active {
   /* Destructive / signout button */
   .btn-destructive {
     @apply w-full bg-transparent text-error text-sm font-semibold
-    px-4 py-2.5 rounded-lg cursor-pointer
-    border border-error/30
-    hover:bg-error/10 active:scale-95 transition-all;
+    px-4 py-2.5 rounded-lg cursor-pointer border border-error/30
+    hover:bg-error/25 active:scale-95 transition-all;
   }
 
   /* --- Auth --- */
@@ -280,7 +279,7 @@ button:active {
 
   /* --- Profile card --- */
   .profile-card-container {
-    @apply flex justify-center py-12;
+    @apply flex justify-center;
   }
 
   .user-profile {
@@ -343,21 +342,21 @@ button:active {
     @apply w-80 md:w-87.5 lg:w-120;
   }
 
-  .users-list-heading {
+  .heading {
     @apply font-bold text-xl md:text-2xl text-text-secondary mb-4;
   }
 
   .user-online-status {
-    @apply rounded-full bg-green-500 border-green-600;
+    @apply rounded-full bg-success;
   }
 
   .user-offline-status {
-    @apply rounded-full bg-surface border-muted-foreground;
+    @apply rounded-full bg-muted-foreground;
   }
 
   /* --- Nameplate --- */
   .user-nameplate {
-    @apply py-8 px-4 grid grid-cols-3 place-items-center my-4 text-text-primary;
+    @apply py-8 px-4 flex justify-around items-center my-4 text-text-primary;
   }
 
   /* --- Effects page --- */
@@ -411,7 +410,7 @@ button:active {
 
   /* --- Chat --- */
   .chat-page-container {
-    @apply flex flex-col-reverse gap-4 md:flex-row items-center justify-evenly py-4 px-4;
+    @apply flex flex-col-reverse gap-4 md:flex-row justify-evenly py-4 px-4;
   }
 
   .chat-page-users-list-container {
@@ -422,7 +421,7 @@ button:active {
     @apply flex-1 overflow-y-auto no-scrollbar rounded-2xl;
   }
   .chat-window-container-outer {
-    @apply flex flex-col bg-surface-alt text-text-primary border border-accent-dim h-130 rounded-xl overflow-hidden;
+    @apply flex flex-col bg-surface-alt text-text-primary border border-accent-dim h-130 md:w-150 rounded-xl overflow-hidden;
   }
 
   .chat-window-selected-user {
@@ -480,5 +479,8 @@ button:active {
 
   .settings-section-item:hover {
     color: var(--color-text-primary);
+  }
+  .options-heading {
+    @apply text-text-secondary text-sm;
   }
 }

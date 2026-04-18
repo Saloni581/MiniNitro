@@ -44,13 +44,13 @@ const Home = ({ loggedInUser } : loggedInUserProps ) => {
                 loggedInUser? (
                     <div className="grid-container">
                         <div>
-                            <h1 className="users-list-heading">My Chats</h1>
+                            <h1 className="heading">My Chats</h1>
                             <UsersList users={myConversations}>
                                 <button className="btn-ghost">Message</button>
                             </UsersList>
                         </div>
                         <div>
-                            <h1 className="users-list-heading">Discover more users</h1>
+                            <h1 className="heading">Discover more users</h1>
                             <UsersList users={otherUsers}>
                                 <button
                                     className="btn-ghost connect-btn"

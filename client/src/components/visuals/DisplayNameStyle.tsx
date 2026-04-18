@@ -32,12 +32,11 @@ const DisplayNameStyle = ({ user, setUser }: ProfileProps) => {
 
     return (
         <div className="flex flex-col gap-2">
-            <p className="text-lg text-text-primary">Display name style</p>
             <div>
                 <Popover>
                     <PopoverTrigger asChild>
                         <div className="flex gap-2 items-center">
-                            <p>Color</p>
+                            <p className="options-heading">Color</p>
                             <Button
                                 variant="outline"
                                 style={{ backgroundColor: color }}
@@ -50,8 +49,8 @@ const DisplayNameStyle = ({ user, setUser }: ProfileProps) => {
                     </PopoverContent>
                 </Popover>
             </div>
-            <div>
-                <p>Font style</p>
+            <div className="flex flex-col gap-2">
+                <p className="options-heading">Font style</p>
                 <div className="grid md:grid-cols-3 grid-cols-2 gap-2">
                     {
                         fonts.map(font => (
@@ -66,12 +65,19 @@ const DisplayNameStyle = ({ user, setUser }: ProfileProps) => {
                     }
                 </div>
             </div>
-            <div>
-                <p>Effects</p>
+            <div className="flex flex-col gap-2">
+                <p className="options-heading">Effects</p>
+                <p>Coming soon...</p>
             </div>
-            <div>
-                <Button onClick={handleUpdateDisplayNameStyle}>save</Button>
-                <Button onClick={handleRemoveDisplayNameStyle}>remove display name style</Button>
+            <div className="flex flex-col gap-2">
+                <Button
+                    onClick={handleUpdateDisplayNameStyle}
+                    className="btn-primary"
+                >Save styles</Button>
+                <Button
+                    onClick={handleRemoveDisplayNameStyle}
+                    className="btn-ghost"
+                >Remove styles</Button>
             </div>
         </div>
     );

@@ -11,6 +11,7 @@ const ProfileBanner = ({ user, setUser }: ProfileProps) => {
     const bannerInputRef = useRef<HTMLInputElement | null>(null);
     const [preview, setPreview] = useState<string | null>(null);
     const [color, setColor] = useState(currentBannerColor);
+    const [loading, setLoading] = useState<boolean>(false);
 
     const handleClick = () => {
         return bannerInputRef.current?.click();
@@ -25,6 +26,7 @@ const ProfileBanner = ({ user, setUser }: ProfileProps) => {
         setPreview(imgUrl);
 
         try {
+            setLoading(true);
             // original file data
             const formData = new FormData();
             formData.append("asset", file);
@@ -35,6 +37,7 @@ const ProfileBanner = ({ user, setUser }: ProfileProps) => {
             setUser(result.user);
             toast(result.message);
             setPreview(null);
+            setLoading(false);
         } catch (error) {
             console.log(error);
             toast("Something went wrong!");
@@ -61,13 +64,11 @@ const ProfileBanner = ({ user, setUser }: ProfileProps) => {
 
     return (
         <div>
-            <p className="text-lg text-text-primary">Profile banner</p>
-            <div>
-                <p>Pick banner background color</p>
+            <div className="flex flex-col gap-2 py-4">
                 <Popover>
                     <PopoverTrigger asChild>
                         <div className="flex gap-2 items-center">
-                            <p>Color</p>
+                            <p className="options-heading">Banner color</p>
                             <Button
                                 variant="outline"
                                 style={{ backgroundColor: color }}
@@ -79,13 +80,18 @@ const ProfileBanner = ({ user, setUser }: ProfileProps) => {
                         <HexColorPicker color={color} onChange={setColor} />
                     </PopoverContent>
                 </Popover>
-                <div>
-                    <Button onClick={handleSaveProfileBannerColor}>save</Button>
-                    <Button onClick={handleRemoveProfileBannerColor}>remove</Button>
+                <div className="flex gap-2">
+                    <Button onClick={handleSaveProfileBannerColor} className="btn-primary">
+                        Save color
+                    </Button>
+                    <Button onClick={handleRemoveProfileBannerColor} className="btn-ghost">
+                        Remove color
+                    </Button>
                 </div>
             </div>
-            {/* banner upload input */}
-            <div className="avatar">
+            {/* banner asset upload input */}
+            <div className="avatar flex flex-col gap-2">
+                <p className="options-heading">Banner image/gif</p>
                 <input
                     type="file"
                     name="asset"
@@ -99,18 +105,21 @@ const ProfileBanner = ({ user, setUser }: ProfileProps) => {
                         <img
                             src={preview}
                             alt="Banner Preview"
-                            className=""
+                            className="w-50 h-50"
                         />
                     )
                 }
-                <div>
-                    <Button onClick={handleClick}>
+                {
+                    loading && <p>Uploading banner...</p>
+                }
+                <div className="flex gap-2">
+                    <Button onClick={handleClick} className="btn-primary" disabled={loading}>
                         {
                             user?.visuals?.profileBanner?.assetId?.url? "Change banner" : "Add banner"
                         }
                     </Button>
-                    <Button onClick={handleRemoveProfileBanner}>
-                        remove banner
+                    <Button onClick={handleRemoveProfileBanner} className="btn-ghost">
+                        Remove banner
                     </Button>
                 </div>
 

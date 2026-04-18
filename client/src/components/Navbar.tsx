@@ -1,9 +1,8 @@
 import { Link } from 'react-router-dom';
-import type { ProfileProps } from "../../types/types.ts";
-import UserSettings from "@/components/UserSettings.tsx";
+import type { UserProps } from "../../types/types.ts";
+import UserAvatar from "@/components/visuals/UserAvatar.tsx";
 
-
-const Navbar = ({ user, setUser }: ProfileProps) => {
+const Navbar = ({ user }: UserProps) => {
 
     return (
         <nav className="navbar">
@@ -18,7 +17,9 @@ const Navbar = ({ user, setUser }: ProfileProps) => {
                 </Link>
                 {
                     user? (
-                        <UserSettings user={user} setUser={setUser} />
+                        <Link to="/settings-panel">
+                            <UserAvatar user={user} previewEffectId="" showStatus={false} size="sm"/>
+                        </Link>
                     ) : (
                         <Link to='/signup'>
                             <button className="btn-primary text-nowrap">Sign up free</button>

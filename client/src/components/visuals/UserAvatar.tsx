@@ -63,7 +63,7 @@ const UserAvatar = ({ user, previewEffectId, avatarEffect, showStatus, size }: U
                 )}
             ></div>
             {/* status badge layer */}
-            <div className="absolute inset-0 z-40">
+            <div className="absolute -inset-1 z-40">
                 {
                     (!previewEffectId) && (
                         // @ts-ignore
@@ -71,9 +71,9 @@ const UserAvatar = ({ user, previewEffectId, avatarEffect, showStatus, size }: U
                                 <AvatarBadge
                                     className={
                                         cn("user-online-status",
-                                            ((size === "sm" && showStatus) && "w-3 h-3 border-3"),
-                                            (size === "md" && "w-5 h-5 border-5"),
-                                            (size === "lg" && "w-6 h-6 border-6"))
+                                            ((size === "sm" && showStatus) && "w-3 h-3 border"),
+                                            (size === "md" && "w-5 h-5 border-2"),
+                                            (size === "lg" && "w-6 h-6 border-3"))
                                     }
                                 />
                             ) :
@@ -81,9 +81,9 @@ const UserAvatar = ({ user, previewEffectId, avatarEffect, showStatus, size }: U
                                 <AvatarBadge
                                     className={
                                         cn("user-offline-status",
-                                            ((size === "sm" && showStatus) && "w-3 h-3 border-3"),
-                                            (size === "md" && "w-5 h-5 border-5"),
-                                            (size === "lg" && "w-6 h-6 border-6"))
+                                            ((size === "sm" && showStatus) && "w-4 h-4 border-3"),
+                                            (size === "md" && "w-5 h-5 border-4"),
+                                            (size === "lg" && "w-6 h-6 border-5"))
                                     }
                                 />
                             )

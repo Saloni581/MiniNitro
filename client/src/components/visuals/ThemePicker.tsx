@@ -26,9 +26,9 @@ const ThemePicker = ({ user, setUser }: ProfileProps) => {
     }
 
     return (
-        <div>
-            <p className="text-lg text-text-primary">Pick theme</p>
-            <div className="flex gap-2">
+        <div className="flex flex-col gap-2">
+            <p className="options-heading">Pick theme</p>
+            <div className="flex gap-4">
                 {/* primary color */}
                 <div>
                     <p>Primary</p>
@@ -68,16 +68,19 @@ const ThemePicker = ({ user, setUser }: ProfileProps) => {
                     </Popover>
                 </div>
             </div>
-            {
-                ((accentColor !== currentAccentColor) || (primaryColor !== currentPrimaryColor)) && (
-                    <div className="mt-2">
-                        <button onClick={handleUpdateProfileTheme}>Save</button>
-                    </div>
-                )
-            }
-            <div className="mt-2">
-                <button onClick={handleRemoveProfileTheme}>Remove theme</button>
+            <div>
+                {
+                    ((accentColor !== currentAccentColor) || (primaryColor !== currentPrimaryColor)) && (
+                        <div className="mt-2">
+                            <button onClick={handleUpdateProfileTheme} className="btn-primary">Save theme</button>
+                        </div>
+                    )
+                }
             </div>
+            <button
+                onClick={handleRemoveProfileTheme}
+                className="btn-ghost"
+            >Remove theme</button>
         </div>
     );
 };
