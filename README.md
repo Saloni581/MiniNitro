@@ -6,7 +6,7 @@
 
 A full-stack MERN application inspired by Discord Nitro — built to explore premium-style visual effects, custom profile identity systems, and real-time communication in a scalable full-stack architecture.
 
-![Hero](./screenshots/hero.png)
+![Hero](./screenshots/home.png)
 
 [![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white)](https://nodejs.org)
 [![React](https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB)](https://react.dev)
@@ -31,7 +31,7 @@ The project is built as a product — not a tutorial clone — with a focus on r
 
 | Page | Preview |
 |---|---|
-| **Landing page** | ![Landing](./screenshots/hero.png) |
+| **Landing page** | ![Landing](./screenshots/home.png) |
 | **Sign up** | ![Signup](./screenshots/signup.png) |
 | **Home — For Logged In User** | ![Home](./screenshots/logged-in-user-home.png) |
 | **Profile & Settings** | ![Settings](./screenshots/user-settings-panel.png) |
