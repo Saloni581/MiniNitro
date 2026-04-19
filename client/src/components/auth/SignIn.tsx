@@ -2,8 +2,7 @@ import { signIn } from "../../../api/auth.ts";
 import { Link, useNavigate } from "react-router-dom";
 import type { SetUserProps } from "../../../types/types.ts";
 import { fetchUserDetails } from "../../../api/user.ts";
-// @ts-ignore
-import { baseAuthSchema } from "../../../../validations/auth.schema.js";
+import { baseAuthSchema } from "../../../validations/auth.schema.ts";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";

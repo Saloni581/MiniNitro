@@ -4,8 +4,6 @@ import type { SetUserProps } from "../../../types/types.ts";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-// @ts-ignore
-import { signUpSchema } from "../../../../validations/auth.schema.js";
 import { toast } from "sonner";
 import {
     Card,
@@ -17,6 +15,7 @@ import {
 } from "@/components/ui/card.tsx";
 import { Label } from "@/components/ui/label.tsx";
 import { Button } from "@/components/ui/button.tsx";
+import { signUpSchema } from "../../../validations/auth.schema.ts";
 
 const SignUp = ({ setUser }: SetUserProps) => {
     const navigate = useNavigate();
