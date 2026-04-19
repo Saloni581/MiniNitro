@@ -124,11 +124,11 @@ const ChatPage = ({ loggedInUser }: ChatWindowProps) => {
                             { selectedUser?.identity?.displayName }
                         </div>
                         <div>
-                            {
-                                socketContext?.onlineUsers?.[selectedUser?.userId]?
-                                    <p className="text-success">online</p> :
-                                    <p className="text-text-secondary text-xs">Offline</p>
-                            }
+                            { selectedUser?.userId && (
+                                socketContext?.onlineUsers?.[selectedUser.userId]
+                                ? <p className="text-success">online</p>
+                                : <p className="text-text-secondary text-xs">Offline</p>
+                            )}
                         </div>
                     </div>
                 </div>

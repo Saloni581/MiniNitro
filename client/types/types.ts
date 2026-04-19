@@ -126,9 +126,7 @@ export interface UsersListProps {
     children?: ReactNode;
 }
 
-export interface OnlineUsersProps {
-    onlineUsers: Record<string, string>;
-}
+export type OnlineUsersProps = Record<string, string>;
 
 export interface ProfileFrameProps {
     user: UserProfileProps | null;
