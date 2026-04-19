@@ -25,7 +25,7 @@ const ProfileForm = ({ setUser }: SetUserProps) => {
             const result = await saveProfileDetails(data);
             setUser(result.userProfile);
             toast(result.message);
-            navigate("/profile");
+            navigate("/settings-panel");
         } catch (error) {
             console.error(error);
             toast("Failed to save profile details");
