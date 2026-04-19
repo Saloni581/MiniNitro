@@ -17,7 +17,7 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
-        origin: "http://localhost:5173",
+        origin: process.env.CLIENT_URL || "http://localhost:5173",
         credentials: true,
     }
 });
@@ -31,7 +31,7 @@ app.use(cookieParser());
 app.use(helmet());
 
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: process.env.CLIENT_URL || "http://localhost:5173",
     credentials: true,
 }));
 
@@ -47,8 +47,10 @@ app.use("/api/messages", messageRoutes);
 
 app.use("/api/conversation", conversationRoutes);
 
+const PORT = process.env.PORT || 3000;
+
 connectToDB().then(() => {
-    server.listen(3000, () => {
+    server.listen(PORT, () => {
         console.log('Server started on port 3000');
     })
 })
