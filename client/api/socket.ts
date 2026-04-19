@@ -1,6 +1,6 @@
 import { io } from "socket.io-client"
 import type { SocketSendMessageProps } from "../types/types.ts";
-const url = "http://localhost:3000";
+const url = import.meta.env.VITE_SERVER_URL;
 
 export const socket = io(url, {
     autoConnect: false,
