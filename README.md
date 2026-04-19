@@ -115,12 +115,12 @@ JWT_SECRET=your_jwt_secret
 CLOUDINARY_CLOUD_NAME=your_cloud_name
 CLOUDINARY_API_KEY=your_api_key
 CLOUDINARY_API_SECRET=your_api_secret
-PORT=5000
+PORT=3000
 ```
 
 ```bash
 # Start backend
-cd server && npm start
+cd server && npm run dev
 
 # Start frontend (separate terminal)
 cd client && npm run dev
