@@ -177,8 +177,8 @@ export const signin = async (req, res) => {
 export const signout = async (req, res) => {
     res.clearCookie("token", {
         httpOnly: true,
-        sameSite: "lax",
-        secure: false
+        sameSite: "none",
+        secure: true
     });
     return res.status(200).json({
         message: "Logged out Successfully!",
