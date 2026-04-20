@@ -279,7 +279,7 @@ button:active {
 
   /* --- Profile card --- */
   .profile-card-container {
-    @apply flex justify-center;
+    @apply flex justify-center py-8;
   }
 
   .user-profile {
