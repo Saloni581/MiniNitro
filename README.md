@@ -36,7 +36,6 @@ The project is built as a product — not a tutorial clone — with a focus on r
 | **Home — For Logged In User** | ![Home](./screenshots/logged-in-user-home.png) |
 | **Profile & Settings** | ![Settings](./screenshots/user-settings-panel.png) |
 | **Real-time Chat** | ![Chat](./screenshots/chat.png) |
-| **Avatar Effects** | ![Effects](./screenshots/effects.png) |
 
 ---
 
