@@ -33,10 +33,10 @@ const Home = ({ loggedInUser } : loggedInUserProps ) => {
     }, [loggedInUser]);
 
     // excluding the loggedIn user from users array
-    const filteredUsers = users.filter((user) => user.userId !== loggedInUser?.userId);
+    const filteredUsers = users?.filter((user) => user.userId !== loggedInUser?.userId);
 
     // excluding the users who are already connected with loggedIn user and keeping the ones with whom loggedIn user has not connected yet.
-    const otherUsers = filteredUsers.filter((user) => !myConversations.some((element) => element.userId === user.userId));
+    const otherUsers = filteredUsers?.filter((user) => !myConversations.some((element) => element.userId === user.userId));
 
     return (
         <div>

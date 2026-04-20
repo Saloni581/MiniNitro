@@ -8,6 +8,9 @@ export let onlineUsers = {};
 export const initSocket = (io) => {
     io.use((socket, next) => {
         const cookies = (socket.handshake.headers.cookie);
+        if(!cookies) {
+            return next();
+        }
         const token = cookie.parse(cookies).token;
 
         try {
@@ -24,6 +27,9 @@ export const initSocket = (io) => {
     });
 
     io.on("connection", (socket) => {
+        if(!socket.userId) {
+            return socket.disconnect();
+        }
         onlineUsers[socket.userId.toString()] = socket.id;
 
         // let everyone know that I am online
