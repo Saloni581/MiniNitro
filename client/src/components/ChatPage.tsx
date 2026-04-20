@@ -111,7 +111,7 @@ const ChatPage = ({ loggedInUser }: ChatWindowProps) => {
     return (
         <div className="chat-page-container">
             <div className="chat-page-users-list-container">
-                <h1 className="heading">Messages</h1>
+                <h1 className="heading">Connected Users</h1>
                 <div className="chat-page-users-list">
                     <UsersList users={myConversations} selectedUser={selectedUser} isChatPage={true} />
                 </div>
