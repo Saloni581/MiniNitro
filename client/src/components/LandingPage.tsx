@@ -24,7 +24,7 @@ const LandingPage = () => {
                 </div>
                 {/* bg glow */}
                 <div
-                    className="absolute -inset-12 bg-radial-[ellipse_35%_40%_at_50%_40%] from-accent-glow via-surface-alt to-bg-surface"
+                    className="absolute -inset-12 md:bg-radial-[ellipse_35%_40%_at_50%_40%] from-accent-glow via-surface-alt to-bg-surface"
                 ></div>
             </header>
             <div className="flex flex-col justify-center items-center gap-48 my-44">
