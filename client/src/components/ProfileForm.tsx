@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { saveProfileDetails } from "../../api/user.ts";
+import { saveProfileDetails, updateProfileDetails } from "../../api/user.ts";
 import type { SetUserProps } from "../../types/types.ts";
 import { profileSchema } from "../../validations/profile.schema.ts";
 import { useForm } from "react-hook-form";
@@ -17,12 +17,26 @@ import { Label } from "@/components/ui/label.tsx";
 import { Button } from "@/components/ui/button.tsx";
 import { toast } from "sonner";
 
-const ProfileForm = ({ setUser }: SetUserProps) => {
+const ProfileForm = ({ setUser, details, isEdit }: SetUserProps) => {
     const navigate = useNavigate();
 
+    // creating profile
     const handleProfileSubmit = async (data: z.infer<typeof profileSchema>) => {
         try {
             const result = await saveProfileDetails(data);
+            setUser(result.userProfile);
+            toast(result.message);
+            navigate("/settings-panel");
+        } catch (error) {
+            console.error(error);
+            toast("Failed to save profile details");
+        }
+    }
+
+    // updating profile
+    const handleProfileUpdate = async (data: z.infer<typeof profileSchema>) => {
+        try {
+            const result = await updateProfileDetails(data);
             setUser(result.userProfile);
             toast(result.message);
             navigate("/settings-panel");
@@ -36,24 +50,30 @@ const ProfileForm = ({ setUser }: SetUserProps) => {
         resolver: zodResolver(profileSchema),
         mode: "onChange",
         defaultValues: {
-            displayName: "",
-            pronouns: "",
-            bio: ""
+            displayName: details?.displayName ?? "",
+            pronouns: details?.pronouns ?? "",
+            bio: details?.bio ?? ""
         },
     });
 
     return (
         <div className="flex justify-center py-6">
             <form
-                onSubmit={form.handleSubmit(handleProfileSubmit)}
+                onSubmit={form.handleSubmit(isEdit? handleProfileUpdate: handleProfileSubmit)}
                 noValidate={true}
                 className="w-full max-w-sm md:max-w-md border-none"
             >
                 <Card className="border-none md:bg-accent-dim">
                     <CardHeader>
-                        <CardTitle className="font-bold text-xl md:text-2xl">Create your profile</CardTitle>
+                        <CardTitle className="font-bold text-xl md:text-2xl">
+                            {
+                                isEdit? "Update your profile" : "Create your profile"
+                            }
+                        </CardTitle>
                         <CardDescription>
-                            Enter these basic details to create your profile.
+                            {
+                                !isEdit && "Enter these basic details to create your profile."
+                            }
                         </CardDescription>
                     </CardHeader>
                     <CardContent>
@@ -118,8 +138,13 @@ const ProfileForm = ({ setUser }: SetUserProps) => {
                             className="w-full"
                             disabled={form.formState.isSubmitting}
                         >
+
                             {
-                                form.formState.isSubmitting? "Creating your profile..." : "Create Profile"
+                                form.formState.isSubmitting? (
+                                        isEdit? "Updating Profile..." : "Creating Profile..."
+                                ) : (
+                                    isEdit? "Update Profile" : "Create Profile"
+                                )
                             }
                         </Button>
                     </CardFooter>

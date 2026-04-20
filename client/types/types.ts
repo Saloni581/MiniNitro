@@ -76,7 +76,13 @@ export interface User {
 }
 
 export interface SetUserProps {
-    setUser: React.Dispatch<React.SetStateAction<UserProfileProps | null>>
+    setUser: React.Dispatch<React.SetStateAction<UserProfileProps | null>>;
+    details?: {
+        displayName: string | undefined;
+        pronouns: string | undefined;
+        bio: string | undefined;
+    };
+    isEdit?: boolean;
 }
 
 export interface UserAvatarProps {

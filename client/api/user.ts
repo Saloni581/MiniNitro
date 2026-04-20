@@ -21,6 +21,18 @@ export const saveProfileDetails = async ({ displayName, pronouns, bio }: Profile
     return result.data;
 }
 
+export const updateProfileDetails = async ({ displayName, pronouns, bio }: ProfileDetailsProps) => {
+    const result = await api.patch(
+        "/profile",
+        {
+            displayName,
+            pronouns,
+            bio
+        },
+    );
+    return result.data;
+}
+
 export const fetchUserDetails = async () => {
     const user = await api.get<GetUserResponse>('/me');
     return user.data;

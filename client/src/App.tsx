@@ -36,6 +36,12 @@ const App = () => {
         fetchUser();
     }, []);
 
+    const userProfileDetails = {
+        displayName: user?.identity.displayName,
+        pronouns: user?.identity.pronouns,
+        bio: user?.identity.bio,
+    };
+
     return (
         <>
            <Navbar user={user} />
@@ -63,7 +69,13 @@ const App = () => {
                    }
                >
                </Route>
-
+               <Route
+                   path="/edit-profile"
+                   element={
+                       <ProfileForm details={userProfileDetails} setUser={setUser} isEdit={true} />
+                   }
+               >
+               </Route>
 
                {/* Effects Routes */}
                <Route

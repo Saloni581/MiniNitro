@@ -4,13 +4,8 @@ export const createUserProfile = async (req, res) => {
     const { displayName, pronouns, bio } = req.body;
     const userId = req.user.id;
 
-    if(!userId) {
-        return res.status(401).json({
-            message: "Unauthorized User",
-        })
-    }
-
     const existingUserProfile = await UserProfile.findById( userId );
+
     if(existingUserProfile) {
         return res.status(400).json({
             message: `User profile already exists`,
@@ -40,6 +35,40 @@ export const createUserProfile = async (req, res) => {
         return res.status(201).json({
             message: "User profile created successfully",
             userProfile: newProfile
+        });
+    } catch(error) {
+        return res.status(500).json({
+            message: "Internal Server Error",
+        });
+    }
+}
+
+export const updateUserProfile = async (req, res) => {
+    const { displayName, pronouns, bio } = req.body;
+    const userId = req.user.id;
+
+    try {
+        const updatedUserProfile = await UserProfile.findOneAndUpdate(
+            { userId },
+            {
+                $set: {
+                    "identity.displayName": displayName,
+                    "identity.pronouns": pronouns,
+                    "identity.bio": bio
+                }
+            },
+            { new: true }
+        );
+
+        if(!updatedUserProfile) {
+            return res.status(400).json({
+                message: "User profile not found",
+            });
+        }
+
+        return res.status(200).json({
+            userProfile: updatedUserProfile,
+            message: "User profile updated successfully",
         });
     } catch(error) {
         return res.status(500).json({

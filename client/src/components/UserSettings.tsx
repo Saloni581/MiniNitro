@@ -14,8 +14,12 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from "@/components/ui/accordion"
+import { Button } from "@/components/ui/button.tsx";
+import { useNavigate } from "react-router-dom";
 
 const UserSettings = ({ user, setUser }: ProfileProps) => {
+    const navigate = useNavigate();
+
     const handleRemoveAvatar = async () => {
         const res = await removeAsset({ isAvatarAsset: true });
         setUser(res.updatedUser);
@@ -26,6 +30,10 @@ const UserSettings = ({ user, setUser }: ProfileProps) => {
         const res = await removeAvatarEffect();
         setUser(res.user);
         toast(res.message);
+    }
+
+    const handleEditProfile = () => {
+        navigate("/edit-profile")
     }
 
     const settingOptions = [
@@ -71,13 +79,16 @@ const UserSettings = ({ user, setUser }: ProfileProps) => {
                 </div>
             )
         }
-    ]
+    ];
 
     return (
         <div className="flex flex-col-reverse md:flex-row items-center justify-evenly gap-2 py-4 md:py-8">
             <div className="w-80 md:85 lg:w-90 h-120 bg-surface-alt rounded-2xl p-4 flex flex-col overflow-hidden">
                 <h1 className="heading">Settings</h1>
                 <div className="flex-1 flex flex-col overflow-y-auto sheet-scroll p-4">
+                    <Button className="btn-primary" onClick={handleEditProfile}>
+                        Edit profile
+                    </Button>
                     <div>
                         {
                             settingOptions.map((setting) => (
