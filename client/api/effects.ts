@@ -19,3 +19,15 @@ export const removeAvatarEffect = async () => {
     const res = await api.patch("/avatar-effects/active", {});
     return res.data;
 }
+
+export const updateProfileEffect = async (effectId: string) => {
+    const res = await api.patch("/profile-effects/active", {
+        effectId
+    });
+    return res.data;
+}
+
+export const removeProfileEffect = async () => {
+    const res = await api.patch("/profile-effects/active", {});
+    return res.data;
+}
