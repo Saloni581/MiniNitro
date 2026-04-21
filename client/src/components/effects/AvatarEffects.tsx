@@ -1,6 +1,6 @@
 import EffectsDropdown from "@/components/effects/EffectsDropdown.tsx";
 import { Button } from "@/components/ui/button.tsx";
-import { avatarEffects } from "../../../constants/effectsConfig.ts";
+import { avatarEffects } from "../../../constants/avatarEffectsConfig.ts";
 import { updateAvatarEffect } from "../../../api/effects.ts";
 import type { ProfileProps } from "../../../types/types.ts";
 import { toast } from "sonner";
@@ -43,7 +43,7 @@ const AvatarEffects = ({ user, setUser }: ProfileProps) => {
                                 className={cn("effect-card", { active: activeEffect === effect.id })}
                             >
                                 <UserAvatar user={user} previewEffectId={effect.id} size="md" avatarEffect={true} />
-                                <Button onClick={() => handleApplyEffect(effect.id)}>
+                                <Button onClick={() => handleApplyEffect(effect.id)} className="btn-primary" >
                                     <span className="text-wrap">{effect.name}</span>
                                 </Button>
                             </div>

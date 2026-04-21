@@ -1,6 +1,6 @@
 import { Avatar, AvatarBadge, AvatarFallback, AvatarImage } from "@/components/ui/avatar.tsx";
 import type { UserAvatarProps } from "../../../types/types.ts";
-import { avatarEffects } from "../../../constants/effectsConfig.ts";
+import { avatarEffects } from "../../../constants/avatarEffectsConfig.ts";
 import { cn } from "@/lib/utils.ts";
 import { useContext } from "react";
 import { SocketContext } from "@/components/SocketContext.tsx";
@@ -57,6 +57,7 @@ const UserAvatar = ({ user, previewEffectId, avatarEffect, showStatus, size }: U
             {/*overlay layer */}
             <div className={
                 cn("absolute z-30 inset-0",
+                    (activeEffect && activeEffect.overlay),
                     (size === "sm" && ""),
                     (size === "md" && ""),
                     (size === "lg" && ""),

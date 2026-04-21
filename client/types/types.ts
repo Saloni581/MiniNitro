@@ -136,5 +136,6 @@ export type OnlineUsersProps = Record<string, string>;
 
 export interface ProfileFrameProps {
     user: UserProfileProps | null;
+    previewEffectId?: string;
     children?: ReactNode;
 }

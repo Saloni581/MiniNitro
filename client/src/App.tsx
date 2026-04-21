@@ -88,7 +88,7 @@ const App = () => {
                <Route
                    path="/profile-effects"
                    element={
-                        <ProfileEffects />
+                        <ProfileEffects user={user} setUser={setUser} />
                    }
                >
                </Route>
