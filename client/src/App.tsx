@@ -37,9 +37,9 @@ const App = () => {
     }, []);
 
     const userProfileDetails = {
-        displayName: user?.identity.displayName,
-        pronouns: user?.identity.pronouns,
-        bio: user?.identity.bio,
+        displayName: user?.identity?.displayName,
+        pronouns: user?.identity?.pronouns,
+        bio: user?.identity?.bio,
     };
 
     return (

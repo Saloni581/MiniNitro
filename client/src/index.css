@@ -432,21 +432,6 @@ button:active {
     @apply flex-1 overflow-y-auto no-scrollbar flex flex-col gap-2 p-3;
   }
 
-
-  /* Message bubbles */
-  .msg-bubble {
-    @apply px-4 py-2.5 rounded-xl text-sm leading-relaxed max-w-xs;
-    background: var(--color-surface-alt);
-    color: var(--color-text-primary);
-  }
-
-  .msg-bubble-mine {
-    @apply px-4 py-2.5 rounded-xl text-sm leading-relaxed max-w-xs;
-    background: var(--color-accent-dim);
-    color: var(--color-text-primary);
-    border: 1px solid var(--color-accent-secondary);
-  }
-
   .send-message-container {
     @apply flex items-center gap-2 p-3 border-t border-accent-dim bg-surface-alt;
   }
@@ -454,32 +439,11 @@ button:active {
   /* Send button */
   .send-btn {
     @apply w-9 h-9 shrink-0 rounded-lg flex items-center justify-center
-    cursor-pointer border-none transition-all hover:brightness-110 active:scale-95;
+    cursor-pointer border-none transition-all hover:brightness-110 active:scale-95 text-text-primary ;
     background: var(--color-accent-primary);
   }
 
-  /* Chat sidebar item */
-  .chat-user-item {
-    @apply flex items-center gap-3 px-4 py-3 cursor-pointer
-    border-b border-border/50 transition-all
-    hover:bg-surface-alt;
-  }
-
-  .chat-user-item.selected {
-    background: var(--color-accent-dim);
-    border-left: 2px solid var(--color-accent-primary);
-  }
-
-  /* --- Settings sheet --- */
-  .settings-section-item {
-    @apply flex justify-between items-center py-4 px-2
-    border-b border-border cursor-pointer
-    hover:text-text-primary transition-colors text-text-secondary text-sm;
-  }
-
-  .settings-section-item:hover {
-    color: var(--color-text-primary);
-  }
+   /* user settings related */
   .options-heading {
     @apply text-text-secondary text-sm;
   }

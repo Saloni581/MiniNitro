@@ -156,7 +156,7 @@ const ChatPage = ({ loggedInUser }: ChatWindowProps) => {
                         onKeyDown={handleKeyDown}
                         placeholder="write something..."
                     />
-                    <Button onClick={handleSend} className="text-text-primary w-10 h-10">
+                    <Button onClick={handleSend} className="send-btn">
                         <ChevronRight className="size-10" />
                     </Button>
                 </div>
