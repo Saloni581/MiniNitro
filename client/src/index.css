@@ -2,6 +2,9 @@
 @import 'tailwindcss';
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
+@import "@/styles/effects/avatar-effects.css";
+@import "@/styles/effects/profile-effects.css";
+@import "@/styles/effects/nameplate-effects.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -283,59 +286,15 @@ button:active {
   }
 
   .user-profile {
-    @apply md:w-150 w-80 h-120 md:px-0 px-6 bg-surface text-text-primary rounded-2xl overflow-hidden;
-  }
-
-  .profile-banner {
-    @apply h-24 w-full;
-    background: linear-gradient(135deg,
-    oklch(0.22 0.10 310),
-    oklch(0.13 0.04 310)
-    );
-  }
-
-  .profile-body {
-    @apply relative px-6 pb-6 pt-12;
-  }
-
-  .profile-avatar-wrap {
-    @apply absolute -top-9 left-6;
-  }
-
-  .profile-avatar {
-    @apply w-16 h-16 rounded-full border-4 border-surface;
-    /* accent glow ring — signature miniNitro look */
-    box-shadow: 0 0 0 3px var(--color-accent-glow);
+    @apply w-80 md:w-150 h-120 md:px-0 px-6 bg-surface text-text-primary rounded-xl;
   }
 
   .profile-card {
-    @apply flex flex-col gap-4 p-8 place-items-center;
+    @apply flex flex-col gap-4 p-8 place-items-center overflow-hidden rounded-xl;
   }
 
   .grid-container {
     @apply grid grid-cols-1 md:grid-cols-2 py-4 px-2 justify-items-center items-start;
-  }
-
-  /* --- User rows (home / discover) --- */
-  .user-row {
-    @apply flex items-center gap-3 bg-surface border border-border rounded-xl
-    px-4 py-3 mb-2 cursor-pointer
-    hover:border-border-strong hover:bg-surface-alt transition-all;
-  }
-
-  .user-row-avatar {
-    @apply w-10 h-10 rounded-full bg-surface-alt shrink-0 relative;
-  }
-
-  .online-dot {
-    @apply w-2.5 h-2.5 rounded-full absolute bottom-0 right-0
-    border-2 border-surface;
-    background: var(--color-success);
-  }
-
-  .offline-dot {
-    @apply w-2.5 h-2.5 rounded-full absolute bottom-0 right-0
-    border-2 border-surface bg-text-tertiary;
   }
 
   .users-list {
@@ -391,16 +350,6 @@ button:active {
     @apply text-xs px-2 py-0.5 rounded-full font-medium;
     background: var(--color-accent-dim);
     color: var(--color-accent-primary);
-  }
-
-  /* --- Avatar glow effects (the actual visual effects) --- */
-  .white-glow {
-    @apply blur-md rounded-full bg-white;
-  }
-
-  .gradient-border {
-    @apply bg-[linear-gradient(to_top,deepskyblue,deeppink,darkorange)]
-    blur-[15px] brightness-200 animate-spin;
   }
 
   /* Avatar ring — primary effect wrapper */

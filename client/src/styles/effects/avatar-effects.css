@@ -1,0 +1,11 @@
+@layer utilities {
+    /* --- Avatar glow effects (the actual visual effects) --- */
+    .white-glow {
+        @apply blur-md rounded-full bg-white;
+    }
+
+    .gradient-border {
+        @apply bg-[linear-gradient(to_top,deepskyblue,deeppink,darkorange)]
+        blur-[15px] brightness-200 animate-spin;
+    }
+}
