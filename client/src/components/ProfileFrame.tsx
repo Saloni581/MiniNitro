@@ -11,7 +11,7 @@ const ProfileFrame = ({ user, children }: ProfileFrameProps) => {
                  style={{
                      "--color-primary": colorPrimary,
                      "--color-accent": colorAccent,
-                     background: "color-mix(in srgb, var(--color-primary) 50%, var(--color-surface)",
+                     background: "color-mix(in srgb, var(--color-primary) 50%, var(--color-surface))",
                  } as React.CSSProperties}
             >
                 {/* glow layer */}
@@ -21,7 +21,7 @@ const ProfileFrame = ({ user, children }: ProfileFrameProps) => {
                 ></div>
                 {/* border layer */}
                 <div className={
-                    cn("absolute z-10 inset-0 pointer-events-none",
+                    cn("absolute z-10 inset-0 pointer-events-none rounded-xl",
                     )}
                 ></div>
                 {/* content layer */}

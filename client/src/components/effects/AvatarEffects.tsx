@@ -9,7 +9,8 @@ import { useState } from "react";
 import { cn } from "@/lib/utils.ts";
 
 const AvatarEffects = ({ user, setUser }: ProfileProps) => {
-    const [activeEffect, setActiveEffect] = useState("");
+    const prevEffect = user?.visuals?.avatar?.decorations?.activeEffect;
+    const [activeEffect, setActiveEffect] = useState(prevEffect);
 
     const handleApplyEffect = async (id : string) => {
         setActiveEffect(id);
@@ -34,21 +35,21 @@ const AvatarEffects = ({ user, setUser }: ProfileProps) => {
                     <h1 className="font-medium text-xl md:text-2xl">Avatar Effects</h1>
                     <EffectsDropdown />
                 </div>
-                    <div className="effects-card-container">
-                        {
-                            avatarEffects.map(effect => (
-                                <div
-                                    key={effect.id}
-                                    className={cn("effect-card", { active: activeEffect === effect.id })}
-                                >
-                                    <UserAvatar user={user} previewEffectId={effect.id} size="md" avatarEffect={true} />
-                                    <Button onClick={() => handleApplyEffect(effect.id)}>
-                                        <span className="text-wrap">{effect.name}</span>
-                                    </Button>
-                                </div>
-                            ))
-                        }
-                    </div>
+                <div className="effects-card-container">
+                    {
+                        avatarEffects.map(effect => (
+                            <div
+                                key={effect.id}
+                                className={cn("effect-card", { active: activeEffect === effect.id })}
+                            >
+                                <UserAvatar user={user} previewEffectId={effect.id} size="md" avatarEffect={true} />
+                                <Button onClick={() => handleApplyEffect(effect.id)}>
+                                    <span className="text-wrap">{effect.name}</span>
+                                </Button>
+                            </div>
+                        ))
+                    }
+                </div>
             </div>
         </>
     );
