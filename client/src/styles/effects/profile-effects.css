@@ -1,9 +1,3 @@
-@property --angle {
-    syntax: "<angle>";
-    inherits: false;
-    initial-value: 0deg;
-}
-
 .profile-border-sweep {
     background: conic-gradient(from var(--angle), transparent, var(--color-primary) 90deg, var(--color-accent) 105deg, transparent 120deg, transparent 360deg);
     animation: sweep 3s linear infinite;

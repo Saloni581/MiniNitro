@@ -3,8 +3,8 @@ import type { ProfileFrameProps } from "../../types/types.ts";
 import { profileEffects } from "../../constants/profileEffectConfig.ts";
 
 const ProfileFrame = ({ user, previewEffectId, children }: ProfileFrameProps) => {
-    const colorPrimary = user?.visuals?.theme?.colors?.primary ?? 'var(--color-accent-primary)';
-    const colorAccent = user?.visuals?.theme?.colors?.accent ?? 'var(--color-highlight)';
+    const colorPrimary = user?.visuals?.theme?.colors?.primary ?? 'var(--color-accent-secondary)';
+    const colorAccent = user?.visuals?.theme?.colors?.accent ?? 'var(--color-text-primary)';
 
     const effectId = previewEffectId || user?.visuals?.profileDecoration?.activeEffect;
 

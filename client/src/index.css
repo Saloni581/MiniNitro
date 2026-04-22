@@ -124,6 +124,11 @@
   --color-sidebar-ring:   var(--sidebar-ring);
 }
 
+@property --angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
 
 .sheet-scroll::-webkit-scrollbar {
   width: 4px;
