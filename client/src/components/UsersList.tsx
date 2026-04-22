@@ -2,6 +2,7 @@ import UserAvatar from "@/components/visuals/UserAvatar.tsx";
 import type { UserProfileProps, UsersListProps } from "../../types/types.ts";
 import { useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils.ts";
+import NameplateFrame from "@/components/NameplateFrame.tsx";
 
 
 const UsersList = ({ users, selectedUser, isChatPage, children }: UsersListProps) => {
@@ -29,67 +30,54 @@ const UsersList = ({ users, selectedUser, isChatPage, children }: UsersListProps
                                         )
                                     }
                                 >
-                                    {/* glow layer */}
-                                    <div className={
-                                        cn("absolute z-0 inset-0 pointer-events-none",
-                                        )}
-                                    ></div>
-                                    {/* border layer */}
-                                    <div className={
-                                        cn("absolute z-10 inset-0 pointer-events-none",
-                                        )}
-                                    ></div>
-                                    {/* content layer */}
-                                    <div
-                                        className="user-nameplate z-20"
-                                    >
-                                        {/* ---- User Avatar ------ */}
+
+                                    <NameplateFrame user={eachUser}>
+                                        {/* content layer */}
                                         <div
-                                            onClick={() => showPublicProfile(eachUser.userId)}
-                                            className="cursor-pointer"
+                                            className="user-nameplate"
                                         >
-                                            <UserAvatar
-                                                user={eachUser}
-                                                previewEffectId=""
-                                                avatarEffect={true}
-                                                showStatus={true}
-                                                size="sm"
-                                            />
-                                        </div>
-                                        {/* User Basic Details */}
-                                        <div className="flex flex-col items-center">
-                                            <p
-                                                className={cn("text-sm md:text-lg font-medium",
-                                                    (eachUser?.visuals?.displayNameStyle?.effect),
-                                                )}
-                                                style={{
-                                                    color: eachUser?.visuals?.displayNameStyle?.color,
-                                                    fontFamily: eachUser?.visuals?.displayNameStyle?.font
-                                                }}
-                                            >
-                                                {eachUser?.identity?.displayName}
-                                            </p>
-                                            <p className="text-xs text-text-secondary">
-                                                {eachUser?.identity?.pronouns}
-                                            </p>
-                                        </div>
-                                        {/* Connect or Message Button */}
-                                        <div>
+                                            {/* ---- User Avatar ------ */}
                                             <div
-                                                onClick={() => {
-                                                    handleSelectedUser(eachUser);
-                                                }}
+                                                onClick={() => showPublicProfile(eachUser.userId)}
+                                                className="cursor-pointer"
                                             >
-                                                { children }
+                                                <UserAvatar
+                                                    user={eachUser}
+                                                    previewEffectId=""
+                                                    avatarEffect={true}
+                                                    showStatus={true}
+                                                    size="sm"
+                                                />
+                                            </div>
+                                            {/* User Basic Details */}
+                                            <div className="flex flex-col items-center">
+                                                <p
+                                                    className={cn("text-sm md:text-lg font-medium",
+                                                        (eachUser?.visuals?.displayNameStyle?.effect),
+                                                    )}
+                                                    style={{
+                                                        color: eachUser?.visuals?.displayNameStyle?.color,
+                                                        fontFamily: eachUser?.visuals?.displayNameStyle?.font
+                                                    }}
+                                                >
+                                                    {eachUser?.identity?.displayName}
+                                                </p>
+                                                <p className="text-xs text-text-secondary">
+                                                    {eachUser?.identity?.pronouns}
+                                                </p>
+                                            </div>
+                                            {/* Connect or Message Button */}
+                                            <div>
+                                                <div
+                                                    onClick={() => {
+                                                        handleSelectedUser(eachUser);
+                                                    }}
+                                                >
+                                                    { children }
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    {/* overlay layer */}
-                                    <div
-                                        className={
-                                        cn("absolute z-30 inset-0 pointer-events-none",)
-                                        }
-                                    ></div>
+                                    </NameplateFrame>
                                 </div>
                         ))): (
                             <div>Nothing to show here...</div>

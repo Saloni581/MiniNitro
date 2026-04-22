@@ -1,29 +1,34 @@
-import React from 'react';
-import {cn} from "@/lib/utils.ts";
+import { cn } from "@/lib/utils.ts";
+import type { NamePlateFrameProps } from "../../types/types.ts";
+import { nameplateEffects } from "../../constants/nameplateEffectsConfig.ts";
 
+const NameplateFrame = ({ user, children, previewEffectId } : NamePlateFrameProps) => {
+    const effectId = previewEffectId || user?.visuals?.nameplate?.activeEffect;
+    const activeEffect = nameplateEffects.find((effect) => effect.id === effectId);
 
-type NamePlateFrameProps = {
-    children?: React.ReactNode;
-}
-
-const NameplateFrame = ({ children } : NamePlateFrameProps) => {
     return (
-        <div>
+        <div className={cn(previewEffectId && "relative w-60 h-16")}>
             {/* glow layer */}
             <div className={
-                cn("absolute z-0 -inset-4 pointer-events-none bg-white ",
+                cn("absolute z-0 inset-0 pointer-events-none rounded-xl",
+                    (activeEffect && activeEffect.cssGlowClass)
                 )}
             ></div>
             {/* border layer */}
             <div className={
-                cn("absolute z-10 inset-0 pointer-events-none bg-accent-secondary",
+                cn("absolute z-10 inset-0 pointer-events-none rounded-xl",
+                    (activeEffect && activeEffect.cssBorderClass)
                 )}
             ></div>
-            { children }
+            <div className="relative z-20">
+                { children }
+            </div>
             {/* overlay layer */}
             <div
                 className={
-                    cn("absolute z-30 inset-0 pointer-events-none")
+                    cn("absolute z-30 inset-0 pointer-events-none rounded-xl",
+                        (activeEffect && activeEffect.overlay)
+                    )
                 }
             ></div>
         </div>

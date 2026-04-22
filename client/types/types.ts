@@ -1,4 +1,4 @@
-import type {ReactNode} from "react";
+import React, {type ReactNode} from "react";
 
 export interface UserProfileProps {
     _id: string;
@@ -138,4 +138,10 @@ export interface ProfileFrameProps {
     user: UserProfileProps | null;
     previewEffectId?: string;
     children?: ReactNode;
+}
+
+export interface NamePlateFrameProps {
+    children?: React.ReactNode;
+    user: UserProfileProps | null;
+    previewEffectId?: string;
 }
