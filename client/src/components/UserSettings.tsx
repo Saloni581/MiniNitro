@@ -4,7 +4,7 @@ import DisplayNameStyle from "@/components/visuals/DisplayNameStyle.tsx";
 import SignOut from "@/components/auth/SignOut.tsx";
 import { removeAsset } from "../../api/visuals.ts";
 import { toast } from "sonner";
-import { removeAvatarEffect } from "../../api/effects.ts";
+import { removeAvatarEffect, removeNameplateEffect, removeProfileEffect } from "../../api/effects.ts";
 import type { ProfileProps } from "../../types/types.ts";
 import ProfileBanner from "@/components/visuals/ProfileBanner.tsx";
 import UserProfile from "@/components/UserProfile.tsx";
@@ -32,6 +32,18 @@ const UserSettings = ({ user, setUser }: ProfileProps) => {
         toast(res.message);
     }
 
+    const handleRemoveProfileEffect = async () => {
+        const res = await removeProfileEffect();
+        setUser(res.user);
+        toast(res.message);
+    }
+
+    const handleRemoveNameplateEffect = async () => {
+        const res = await removeNameplateEffect();
+        setUser(res.user);
+        toast(res.message);
+    }
+
     const handleEditProfile = () => {
         navigate("/edit-profile")
     }
@@ -48,10 +60,6 @@ const UserSettings = ({ user, setUser }: ProfileProps) => {
                         onClick={handleRemoveAvatar}
                         className="btn-ghost"
                     >Remove avatar</button>
-                    <button
-                        onClick={handleRemoveAvatarEffect}
-                        className="btn-ghost"
-                    >Remove avatar effect</button>
                 </div>
             )
         },
@@ -76,6 +84,25 @@ const UserSettings = ({ user, setUser }: ProfileProps) => {
             content: (
                 <div>
                     <ProfileBanner user={user} setUser={setUser} />
+                </div>
+            )
+        },
+        {
+            title: "Remove Decorations",
+            content: (
+                <div>
+                    <button
+                        onClick={handleRemoveAvatarEffect}
+                        className="btn-ghost"
+                    >Remove avatar effect</button>
+                    <button
+                        onClick={handleRemoveProfileEffect}
+                        className="btn-ghost"
+                    >Remove profile effect</button>
+                    <button
+                        onClick={handleRemoveNameplateEffect}
+                        className="btn-ghost"
+                    >Remove nameplate effect</button>
                 </div>
             )
         }

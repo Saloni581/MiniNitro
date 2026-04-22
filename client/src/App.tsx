@@ -102,7 +102,7 @@ const App = () => {
                <Route
                    path="nameplate-effects"
                    element={
-                       <NameplateEffects />
+                       <NameplateEffects user={user} setUser={setUser}/>
                    }
                >
                </Route>
