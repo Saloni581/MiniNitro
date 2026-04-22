@@ -34,22 +34,6 @@ const LandingPage = () => {
                 <section>Section 4</section>
                 <section>Section 5</section>
             </div>
-            <footer className="flex flex-col gap-5 justify-center">
-                <div className="text-muted-foreground text-xs text-center">
-                    <p>Made with ❤️ by saloni lathwariya</p>
-                    <p>All rights reserved | 2026</p>
-                </div>
-                <div className="flex justify-center gap-4">
-                    <p>Socials:</p>
-                    <div className="flex gap-1 md:gap-8">
-                        <span>LinkedIn</span>
-                        <span>Github</span>
-                        <span>IG</span>
-                        <span>X</span>
-                        <span>Discord</span>
-                    </div>
-                </div>
-            </footer>
         </div>
     );
 };

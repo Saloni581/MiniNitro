@@ -39,35 +39,52 @@ const Home = ({ loggedInUser } : loggedInUserProps ) => {
     const otherUsers = filteredUsers?.filter((user) => !myConversations.some((element) => element.userId === user.userId));
 
     return (
-        <div>
-            {
-                loggedInUser? (
-                    <div className="grid-container">
-                        <div>
-                            <h1 className="heading">My Chats</h1>
-                            <UsersList users={myConversations}>
-                                <button className="btn-ghost">Message</button>
-                            </UsersList>
+        <div className="min-h-screen flex flex-col justify-between">
+            <div>
+                {
+                    loggedInUser? (
+                        <div className="grid-container">
+                            <div>
+                                <h1 className="heading">My Chats</h1>
+                                <UsersList users={myConversations}>
+                                    <button className="btn-ghost">Message</button>
+                                </UsersList>
+                            </div>
+                            <div>
+                                <h1 className="heading">Discover more users</h1>
+                                <UsersList users={otherUsers}>
+                                    <button
+                                        className="btn-ghost connect-btn"
+                                        style={{
+                                            color: "var(--color-success)",
+                                            borderColor: "green",
+                                        }}
+                                    >Connect</button>
+                                </UsersList>
+                            </div>
                         </div>
+                    ) : (
                         <div>
-                            <h1 className="heading">Discover more users</h1>
-                            <UsersList users={otherUsers}>
-                                <button
-                                    className="btn-ghost connect-btn"
-                                    style={{
-                                        color: "var(--color-success)",
-                                        borderColor: "green",
-                                    }}
-                                >Connect</button>
-                            </UsersList>
+                            <LandingPage />
                         </div>
+                    )
+                }
+            </div>
+            <footer className="flex flex-col gap-2 justify-center mb-2">
+                <div className="flex justify-center gap-4">
+                    <p>Socials:</p>
+                    <div className="flex gap-1 md:gap-8">
+                        <a href="https://www.linkedin.com/in/saloni-lathwariya-77a268371/">LinkedIn</a>
+                        <a href="https://x.com/Saloni_581">X</a>
+                        <a href="https://github.com/Saloni581">GitHub</a>
+                        <a href="https://discord.gg/7p7qYE74">Discord</a>
                     </div>
-                ) : (
-                    <div>
-                        <LandingPage />
-                    </div>
-                )
-            }
+                </div>
+                <div className="text-muted-foreground text-xs text-center">
+                    <p>Made with obsession by saloni lathwariya</p>
+                    <p>All rights reserved | &copy; 2026 miniNitro</p>
+                </div>
+            </footer>
         </div>
     );
 };
