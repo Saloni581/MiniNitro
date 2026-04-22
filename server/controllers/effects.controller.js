@@ -44,7 +44,7 @@ export const modifyProfileEffect = async (req, res) => {
             $addToSet: { "visuals.profileDecoration.ownedEffects": effectId },
         }
         : { $set: {
-                "visuals.profileDecorations.isEnabled": true,
+                "visuals.profileDecorations.isEnabled": false,
                 "visuals.profileDecoration.activeEffect": ""
         }
     };
@@ -71,4 +71,44 @@ export const modifyProfileEffect = async (req, res) => {
         });
     }
 }
+
+export const modifyNameplateEffect = async (req, res) => {
+    const userId = req.user.id;
+    const { effectId } = req.body;
+
+    const updateQuery = effectId? {
+            "visuals.nameplate.isEnabled": true,
+            $set: { "visuals.nameplate.activeEffect": effectId },
+            $addToSet: { "visuals.nameplate.ownedEffects": effectId },
+        }
+        : { $set: {
+                "visuals.nameplate.isEnabled": false,
+                "visuals.nameplate.activeEffect": ""
+            }
+        };
+
+    try {
+        const updatedUser = await UserProfile.findOneAndUpdate(
+            { userId },
+            updateQuery,
+            { new: true }
+        );
+
+        if (!updatedUser) {
+            return res.status(404).json({
+                message: "user profile not found"
+            });
+        }
+        return res.status(200).json({
+            message: effectId? "Nameplate effect applied successfully." : "Nameplate effect removed successfully.",
+            user: updatedUser
+        })
+    } catch (dbError) {
+        return res.status(500).json({
+            message: "Internal Server Error",
+        });
+    }
+}
+
+
 

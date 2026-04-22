@@ -31,3 +31,15 @@ export const removeProfileEffect = async () => {
     const res = await api.patch("/profile-effects/active", {});
     return res.data;
 }
+
+export const updateNameplateEffect = async (effectId: string) => {
+    const res = await api.patch("/nameplate-effects/active", {
+        effectId
+    });
+    return res.data;
+}
+
+export const removeNameplateEffect = async () => {
+    const res = await api.patch("/nameplate-effects/active", {});
+    return res.data;
+}
