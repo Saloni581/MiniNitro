@@ -1,9 +1,9 @@
 export const nameplateEffects = [
     {
-        id: "colorful-ring",
-        name: "Colorful Ring",
-        cssGlowClass: 'white-glow',
-        cssBorderClass: 'gradient-border',
+        id: "pulsing-gradient",
+        name: "Pulsing Gradient Glow",
+        cssGlowClass: 'edge-glow',
+        cssBorderClass: 'gradient-bg',
         overlay: '',
         price: 200
     },

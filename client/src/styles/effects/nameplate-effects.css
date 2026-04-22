@@ -1,2 +1,8 @@
-@import 'tailwindcss';
-@import "tw-animate-css";
+@layer utilities {
+    .edge-glow {
+        @apply bg-white blur-sm;
+    }
+    .gradient-bg {
+        @apply bg-linear-to-b from-highlight-dim to-highlight animate-pulse;
+    }
+}
