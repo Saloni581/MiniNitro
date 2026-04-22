@@ -1,7 +1,6 @@
 import cloudinary from '../config/cloudinary.js';
 import { saveAsset } from "../utils/services.js";
 import UserProfile from "../db/models/userProfileSchema.js";
-import {effect} from "zod/v3";
 
 
 export const uploadAsset = async (req, res) => {
@@ -127,7 +126,7 @@ export const updateTheme = async (req, res) => {
         }
 
         return res.status(200).json({
-            message: (primary && accent)? "theme applied successfully!" : "theme successfully removed!",
+            message: (primary && accent)? "Theme applied successfully!" : "Theme successfully removed!",
             user: updatedUserProfile,
         });
     } catch (error) {
@@ -141,7 +140,7 @@ export const updateDisplayNameStyle = async (req, res) => {
     const userId = req.user.id;
     const { fontId, color, effect } = req.body;
 
-    const updateQuery = (fontId && color)? { $set: {
+    const updateQuery = (fontId || color || effect)? { $set: {
             "visuals.displayNameStyle.isEnabled": true,
             "visuals.displayNameStyle.font": fontId,
             "visuals.displayNameStyle.color": color,
@@ -167,7 +166,7 @@ export const updateDisplayNameStyle = async (req, res) => {
        }
 
        return res.status(200).json({
-           message: (fontId && color)? "display name style applied successfully!" : "display name style removed successfully",
+           message: (fontId && color)? "Display name style applied successfully!" : "Display name style removed successfully",
            user: updatedUserProfile,
        })
     } catch (error) {
@@ -196,7 +195,7 @@ export const updateBannerColor = async (req, res) => {
        }
 
        return res.status(200).json({
-           message: color? "Banner color applied successfully!" : "banner color removed successfully",
+           message: color? "Banner color applied successfully!" : "Banner color removed successfully",
            user: updatedUserProfile,
        });
     } catch (error) {
