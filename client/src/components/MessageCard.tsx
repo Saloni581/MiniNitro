@@ -8,10 +8,12 @@ const MessageCard = ({ user, message, timestamps, loggedInUserId }: MessageCardP
 
     return (
         <div className={
-                cn("flex gap-2 items-center",
+                cn("flex gap-2 items-start",
                 isMineMessage? "self-start flex-row" : "self-end flex-row-reverse")
         }>
-            <UserAvatar user={user} previewEffectId="" avatarEffect={false} size="sm"/>
+            <div className="shrink-0 self-start">
+                <UserAvatar user={user} previewEffectId="" avatarEffect={false} size="sm"/>
+            </div>
             <div className={
                 cn("flex flex-col justify-center p-4 rounded-2xl",
                     isMineMessage ? "bg-accent-glow" : "bg-accent-dim"
